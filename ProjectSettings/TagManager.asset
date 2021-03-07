@@ -39,12 +39,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1188173757
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: layer1
+  - name: OutdorTiles
     uniqueID: 2334865683
     locked: 0
-  - name: layer2
+  - name: Hero
     uniqueID: 3606720593
+    locked: 0
+  - name: Props
+    uniqueID: 829679621
     locked: 0
