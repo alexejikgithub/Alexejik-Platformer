@@ -1,0 +1,96 @@
+{
+    "name": "HeroInputAction",
+    "maps": [
+        {
+            "name": "Hero",
+            "id": "3cf3f46a-017d-4055-a35e-a33602611bc2",
+            "actions": [
+                {
+                    "name": "HorizontalMovement",
+                    "type": "Button",
+                    "id": "ceb47c7c-1f14-4026-b642-9945b2a73e2a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "SaySomething",
+                    "type": "Button",
+                    "id": "bcfacc00-62d7-4ee3-9b0a-3a3a31ffdddf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "2D Vector keyboard",
+                    "id": "d2b57bc6-cf01-422d-ad45-deceb08afe57",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HorizontalMovement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "63f22c77-97ce-47b5-add7-e40abbefa9de",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HorizontalMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "514ad3cd-079c-4b9c-842a-772a30d51ca0",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HorizontalMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "96bdeaae-9c7b-4203-8f9b-791affe6ca7c",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HorizontalMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "243a2e29-cfc8-4c65-a1cc-3bbded8ff611",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HorizontalMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "3216600d-6ad1-4cbe-9c24-775aa474c8a2",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SaySomething",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
