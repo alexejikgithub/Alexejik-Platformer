@@ -20,9 +20,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""HorizontalMovement"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""ceb47c7c-1f14-4026-b642-9945b2a73e2a"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
