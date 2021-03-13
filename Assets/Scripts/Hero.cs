@@ -7,63 +7,32 @@ namespace Platformer
     {
 
         [SerializeField] private float _speed;
-        [SerializeField] private float _jumpSpeed;
-        
 
+<<<<<<< HEAD
         [SerializeField] private LayerCheck _groundCheck;
         
         
+=======
+        private Vector3 _direction;
+>>>>>>> parent of 1c8d75b (Jumping + movable box)
 
-
-
-
-        private Rigidbody2D _rigidbody;
-        private Vector2 _direction;
-
-        private void Awake()
-        {
-            _rigidbody = GetComponent<Rigidbody2D>();
-        }
-
-        public void SetDirection(Vector2 direction)
+        public void SetDirection(Vector3 direction)
         {
             _direction = direction;
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
-            _rigidbody.velocity = new Vector2(_direction.x * _speed, _rigidbody.velocity.y);
-
-            var isJumping = _direction.y > 0;
-            if(isJumping)
+            if (_direction != Vector3.zero)
             {
-                if(IsGrounded())
-                {
-                    _rigidbody.AddForce(Vector2.up * _jumpSpeed, ForceMode2D.Impulse);
-                }
-                
+                var deltaX = _direction.x * _speed * Time.deltaTime;
+                var newXposition = transform.position.x + deltaX;
+                var deltaY = _direction.y * _speed * Time.deltaTime;
+                var newYposition = transform.position.y + deltaY;
+
+                transform.position = new Vector3(newXposition, newYposition, transform.position.z);
             }
-            else if(_rigidbody.velocity.y>0)
-            {
-                _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _rigidbody.velocity.y *0.5f);
-            }
-            
-
         }
-
-        private bool IsGrounded()
-        {
-            return _groundCheck.IsTouchingLayer;
-
-        }
-
-        private void OnDrawGizmos() //Checking ray for jumping
-        {
-            Gizmos.color=IsGrounded() ? Color.green : Color.red;
-            Gizmos.DrawSphere(transform.position, 0.3f);
-        }
-
-
         public void SaySomehting()
         {
             Debug.Log("Somehing");
