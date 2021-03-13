@@ -9,7 +9,7 @@ public class LayerCheck : MonoBehaviour
 
     private Collider2D _collider;
 
-    public bool IsTouchingLayer;
+    public bool  IsTouchingLayer;
 
     private void Awake()
     {
