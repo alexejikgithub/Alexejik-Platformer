@@ -5,7 +5,7 @@ using UnityEngine;
 public class LayerCheck : MonoBehaviour
 {
     [SerializeField] private LayerMask _groundLayer;
-    [SerializeField] private LayerMask _safePropsLayer; // checking for other safe solid objects that hero can stand on
+    
 
     private Collider2D _collider;
 
@@ -19,11 +19,11 @@ public class LayerCheck : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        IsTouchingLayer = (_collider.IsTouchingLayers(_groundLayer) || _collider.IsTouchingLayers(_safePropsLayer));
+        IsTouchingLayer = (_collider.IsTouchingLayers(_groundLayer));
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        IsTouchingLayer = (_collider.IsTouchingLayers(_groundLayer) || _collider.IsTouchingLayers(_safePropsLayer));
+        IsTouchingLayer = (_collider.IsTouchingLayers(_groundLayer));
     }
 }
