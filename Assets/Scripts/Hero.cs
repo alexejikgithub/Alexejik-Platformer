@@ -32,7 +32,7 @@ namespace Platformer
 			var isJumping = _direction.y > 0;
 			if (isJumping)
 			{
-				if (IsGrounded())
+				if (IsGrounded() && _rigidbody.velocity.y<=0)
 				{
 					_rigidbody.AddForce(Vector2.up * _jumpSpeed, ForceMode2D.Impulse);
 				}
