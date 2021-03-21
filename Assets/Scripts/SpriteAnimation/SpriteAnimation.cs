@@ -9,10 +9,12 @@ namespace Platformer
 
 	public class SpriteAnimation : MonoBehaviour
 	{
+		[SerializeField] private string _nameOfTheClip; //Set name of the clip that you want to play
 		[SerializeField] private int _frameRate;
-		[SerializeField] private bool _loop;
-		[SerializeField] private Sprite[] _sprites;
+		private Sprite[] _sprites; // no need to make [SerializeField] because _sprites come from _animationStates._Sprites
 		[SerializeField] private UnityEvent _onComplete;
+		[SerializeField] private MyAnimationStates[] _animationStates; // Need to choose objects in the inspector
+		private MyAnimationStates _currentAnimationState; // 
 
 		private SpriteRenderer _renderer;
 		private float _secondsPerFrame;
@@ -24,6 +26,8 @@ namespace Platformer
 		private void Start()
 		{
 			_renderer = GetComponent<SpriteRenderer>();
+			
+
 
 
 		}
@@ -32,10 +36,20 @@ namespace Platformer
 			_secondsPerFrame = 1f / _frameRate;
 			_nextFrameTime = Time.time + _secondsPerFrame;
 			_currentSpriteIndex = 0;
+			_currentAnimationState = _animationStates[0];
+
 		}
 
 		private void Update()
 		{
+			if(_nameOfTheClip!=null)
+			{
+				SetClip(_nameOfTheClip); // change _currentAnimationState
+			}
+			
+
+
+			_sprites = _currentAnimationState._sprites; // if _currentAnimationState is changed, sprites also change
 			if (_nextFrameTime > Time.time)
 			{
 				return;
@@ -44,7 +58,7 @@ namespace Platformer
 
 			if (_currentSpriteIndex >= _sprites.Length)
 			{
-				if (_loop)
+				if (_currentAnimationState._loop)
 				{
 					_currentSpriteIndex = 0;
 				}
@@ -64,7 +78,22 @@ namespace Platformer
 			_currentSpriteIndex++;
 
 
+			
+
 		}
+		public void SetClip(string name)
+		{
+			for (int i = 0; i < _animationStates.Length; i++)
+			{
+				if (_animationStates[i]._name == name)
+				{
+					_currentAnimationState = _animationStates[i];
+				}
+			}
+		}
+
+
+
 	}
 }
 
