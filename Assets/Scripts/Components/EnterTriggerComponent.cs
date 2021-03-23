@@ -15,12 +15,12 @@ namespace Platformer.Components
 		{
 			if (other.gameObject.CompareTag(_tag))
 			{
-				
+
 				_action?.Invoke();
-				
+
 
 			}
-			
+
 		}
 	}
 
