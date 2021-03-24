@@ -9,6 +9,7 @@ namespace Platformer.Components
 	{
 		[SerializeField] private int _health;
 		[SerializeField] private UnityEvent _onDamage;
+		[SerializeField] private UnityEvent _onHealing;
 		[SerializeField] private UnityEvent _onDie;
 
 		public void ApplyDamage(int damageValue)
@@ -19,6 +20,13 @@ namespace Platformer.Components
 			{
 				_onDie?.Invoke();
 			}
+		}
+
+		public void ApplyHealing(int healingValue)
+		{
+			_health += healingValue;
+			_onHealing?.Invoke();
+			
 		}
 
 	}

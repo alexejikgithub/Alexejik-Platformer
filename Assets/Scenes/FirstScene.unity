@@ -857,7 +857,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &601893162 stripped
 Transform:
@@ -1141,6 +1141,86 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba51a8ce0ebf2d42967c0c66067736a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1006823216 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 327758019452014556, guid: cabd5dba905702542bca79fd09aa1273,
+    type: 3}
+  m_PrefabInstance: {fileID: 5794897521367828697}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &1006823217
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006823216}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.01231885, y: -0.0966413}
+  m_Size: {x: 0.2902751, y: 0.45522928}
+  m_Direction: 0
+--- !u!95 &1006823218 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 786879673, guid: cabd5dba905702542bca79fd09aa1273,
+    type: 3}
+  m_PrefabInstance: {fileID: 5794897521367828697}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1006823220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006823216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 389753c44e378d94ab0bdf0b8c1e75ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tag: Player
+  _action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1006823221}
+        m_MethodName: ChangeHealthAmount
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1006823218}
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: takePotion
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1006823221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006823216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a745f626bcbf22c44a5ef99f6149e7da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthPointsToChange: 5
+  _dealDamage: 0
 --- !u!1 &1116419079
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,6 +1446,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _onHealing:
+    m_PersistentCalls:
+      m_Calls: []
   _onDie:
     m_PersistentCalls:
       m_Calls:
@@ -4115,6 +4198,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 617080823}
     m_Modifications:
+    - target: {fileID: 4148262280374704368, guid: 92c77fe0bf00a0240ab827535a2aaa54,
+        type: 3}
+      propertyPath: _heal
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4148262280374704368, guid: 92c77fe0bf00a0240ab827535a2aaa54,
+        type: 3}
+      propertyPath: _dealDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4148262280374704368, guid: 92c77fe0bf00a0240ab827535a2aaa54,
+        type: 3}
+      propertyPath: _healthPointsToChange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4148262280374704368, guid: 92c77fe0bf00a0240ab827535a2aaa54,
+        type: 3}
+      propertyPath: _numberOfHealthPoints
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4148262280374704370, guid: 92c77fe0bf00a0240ab827535a2aaa54,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeHealthAmount
+      objectReference: {fileID: 0}
     - target: {fileID: 4148262280374704371, guid: 92c77fe0bf00a0240ab827535a2aaa54,
         type: 3}
       propertyPath: m_RootOrder
@@ -4261,6 +4369,99 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d974ee53da873394d99cb947922f7b30, type: 3}
+--- !u!1001 &5794897521367828697
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 786879673, guid: cabd5dba905702542bca79fd09aa1273, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 327758019452014556, guid: cabd5dba905702542bca79fd09aa1273,
+        type: 3}
+      propertyPath: m_Name
+      value: HealthPotion
+      objectReference: {fileID: 0}
+    - target: {fileID: 327758019452014556, guid: cabd5dba905702542bca79fd09aa1273,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121768785104777719, guid: cabd5dba905702542bca79fd09aa1273,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121768785104777719, guid: cabd5dba905702542bca79fd09aa1273,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121768785104777719, guid: cabd5dba905702542bca79fd09aa1273,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121768785104777719, guid: cabd5dba905702542bca79fd09aa1273,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121768785104777719, guid: cabd5dba905702542bca79fd09aa1273,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121768785104777719, guid: cabd5dba905702542bca79fd09aa1273,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121768785104777719, guid: cabd5dba905702542bca79fd09aa1273,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121768785104777719, guid: cabd5dba905702542bca79fd09aa1273,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121768785104777719, guid: cabd5dba905702542bca79fd09aa1273,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121768785104777719, guid: cabd5dba905702542bca79fd09aa1273,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121768785104777719, guid: cabd5dba905702542bca79fd09aa1273,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731849592943568407, guid: cabd5dba905702542bca79fd09aa1273,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731849592943568407, guid: cabd5dba905702542bca79fd09aa1273,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731849592943568407, guid: cabd5dba905702542bca79fd09aa1273,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 829679621
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cabd5dba905702542bca79fd09aa1273, type: 3}
 --- !u!1001 &6062047074627519734
 PrefabInstance:
   m_ObjectHideFlags: 0
