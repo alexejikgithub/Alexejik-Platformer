@@ -10,9 +10,15 @@ namespace Platformer
 		[SerializeField] private float _jumpSpeed;
 		[SerializeField] private float _damageJumpSpeed;
 
+		
+		[SerializeField] private LayerMask _interactionLayer;
+
 		[SerializeField] private LayerCheck _groundCheck;
+		[SerializeField] private float _interactRadius;
 
 
+
+		private Collider2D[] _interactResult = new Collider2D[1];
 		private Rigidbody2D _rigidbody;
 		private Vector2 _direction;
 		private Animator _animator;
@@ -144,6 +150,25 @@ namespace Platformer
 		{
 			_animator.SetTrigger(Hit);
 			_rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpSpeed);
+		}
+
+		public void Interact()
+		{
+			var size = Physics2D.OverlapCircleNonAlloc(
+				transform.position, 
+				_interactRadius, 
+				_interactResult, 
+				_interactionLayer);
+
+			for (int i=0; i<size;i++)
+			{
+				var interactable = _interactResult[i].GetComponent<InteractableComponent>();
+				if (interactable!=null)
+				{
+					interactable.Intract();
+				}
+			}
+			
 		}
 
 
