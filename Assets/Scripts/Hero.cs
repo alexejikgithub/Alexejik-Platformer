@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Platformer.Components;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 namespace Platformer
@@ -10,19 +11,22 @@ namespace Platformer
 		[SerializeField] private float _jumpSpeed;
 		[SerializeField] private float _damageJumpSpeed;
 
-		
+
 		[SerializeField] private LayerMask _interactionLayer;
+		[SerializeField] private CoinCounter _coinCunter;
+
 
 		[SerializeField] private LayerCheck _groundCheck;
 		[SerializeField] private float _interactRadius;
 
-
+		[SerializeField] private SpawnComponent _footStepParticles;
+		[SerializeField] private ParticleSystem _hitParticles;
 
 		private Collider2D[] _interactResult = new Collider2D[1];
 		private Rigidbody2D _rigidbody;
 		private Vector2 _direction;
 		private Animator _animator;
-		private SpriteRenderer _sprite;
+
 		private bool _isGrounded;
 		private bool _allowSecondJump;
 
@@ -35,7 +39,7 @@ namespace Platformer
 		{
 			_rigidbody = GetComponent<Rigidbody2D>();
 			_animator = GetComponent<Animator>();
-			_sprite = GetComponent<SpriteRenderer>();
+
 		}
 
 		public void SetDirection(Vector2 direction)
@@ -117,12 +121,14 @@ namespace Platformer
 		{
 			if (_direction.x > 0)
 			{
-				_sprite.flipX = false;
+				transform.localScale = Vector3.one;
+
 
 			}
 			else if (_direction.x < 0)
 			{
-				_sprite.flipX = true;
+				transform.localScale = new Vector3(-1, 1, 1);
+
 
 			}
 
@@ -150,25 +156,48 @@ namespace Platformer
 		{
 			_animator.SetTrigger(Hit);
 			_rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpSpeed);
+
+			if (_coinCunter.GiveCoinAmount() > 0)
+			{
+				SpawnCoins();
+			}
+
+
+		}
+		public void SpawnCoins()
+		{
+			var numCoinsToDispose = Mathf.Min(_coinCunter.GiveCoinAmount(), 5);
+			_coinCunter.RemoveCoinsFromCounter(numCoinsToDispose);
+			var burst = _hitParticles.emission.GetBurst(0);
+			burst.count = numCoinsToDispose;
+			
+			_hitParticles.emission.SetBurst(0, burst);
+
+			_hitParticles.gameObject.SetActive(true);
+			_hitParticles.Play();
 		}
 
 		public void Interact()
 		{
 			var size = Physics2D.OverlapCircleNonAlloc(
-				transform.position, 
-				_interactRadius, 
-				_interactResult, 
+				transform.position,
+				_interactRadius,
+				_interactResult,
 				_interactionLayer);
 
-			for (int i=0; i<size;i++)
+			for (int i = 0; i < size; i++)
 			{
 				var interactable = _interactResult[i].GetComponent<InteractableComponent>();
-				if (interactable!=null)
+				if (interactable != null)
 				{
 					interactable.Intract();
 				}
 			}
-			
+
+		}
+		public void SpawnFootDust()
+		{
+			_footStepParticles.Spawn();
 		}
 
 
