@@ -20,6 +20,8 @@ namespace Platformer
 		[SerializeField] private float _interactRadius;
 
 		[SerializeField] private SpawnComponent _footStepParticles;
+		[SerializeField] private SpawnComponent _jumpParticles;
+
 		[SerializeField] private ParticleSystem _hitParticles;
 
 		private Collider2D[] _interactResult = new Collider2D[1];
@@ -29,6 +31,7 @@ namespace Platformer
 
 		private bool _isGrounded;
 		private bool _allowSecondJump;
+		
 
 
 		private static readonly int IsRunning = Animator.StringToHash("isRunning");
@@ -39,6 +42,7 @@ namespace Platformer
 		{
 			_rigidbody = GetComponent<Rigidbody2D>();
 			_animator = GetComponent<Animator>();
+			
 
 		}
 
@@ -77,11 +81,15 @@ namespace Platformer
 
 			var isJumpPressing = _direction.y > 0;
 
-			if (_isGrounded) _allowSecondJump = true;
+			if (_isGrounded)
+			{
+				_allowSecondJump = true;
+				
+			}
 
 			if (isJumpPressing)
 			{
-
+				
 				yVelocity = CalculateJumpVelocity(yVelocity);
 
 
@@ -103,11 +111,13 @@ namespace Platformer
 
 			if (_isGrounded)
 			{
+				SpawnJumpDust();
 				yVelocity = _jumpSpeed;
 
 			}
 			else if (_allowSecondJump)
 			{
+				SpawnJumpDust();
 				yVelocity = _jumpSpeed;
 				_allowSecondJump = false;
 			}
@@ -170,7 +180,7 @@ namespace Platformer
 			_coinCunter.RemoveCoinsFromCounter(numCoinsToDispose);
 			var burst = _hitParticles.emission.GetBurst(0);
 			burst.count = numCoinsToDispose;
-			
+
 			_hitParticles.emission.SetBurst(0, burst);
 
 			_hitParticles.gameObject.SetActive(true);
@@ -199,6 +209,18 @@ namespace Platformer
 		{
 			_footStepParticles.Spawn();
 		}
+
+		public void SpawnJumpDust()
+		{
+			
+			
+				_jumpParticles.Spawn();
+
+			
+
+
+		}
+
 
 
 	}
