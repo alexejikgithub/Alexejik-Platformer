@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class LayerCheck : MonoBehaviour
 {
     [SerializeField] private LayerMask _groundLayer;
     
+
 
     private Collider2D _collider;
 
@@ -26,4 +28,6 @@ public class LayerCheck : MonoBehaviour
     {
         IsTouchingLayer = (_collider.IsTouchingLayers(_groundLayer));
     }
+
+	
 }

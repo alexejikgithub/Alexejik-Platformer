@@ -10,6 +10,7 @@ namespace Platformer
 		[SerializeField] private float _speed;
 		[SerializeField] private float _jumpSpeed;
 		[SerializeField] private float _damageJumpSpeed;
+		[SerializeField] private float _fallingSpeedLimit;
 
 
 		[SerializeField] private LayerMask _interactionLayer;
@@ -21,6 +22,7 @@ namespace Platformer
 
 		[SerializeField] private SpawnComponent _footStepParticles;
 		[SerializeField] private SpawnComponent _jumpParticles;
+		[SerializeField] private SpawnComponent _landingParticles;
 
 		[SerializeField] private ParticleSystem _hitParticles;
 
@@ -31,7 +33,7 @@ namespace Platformer
 
 		private bool _isGrounded;
 		private bool _allowSecondJump;
-		
+
 
 
 		private static readonly int IsRunning = Animator.StringToHash("isRunning");
@@ -42,7 +44,7 @@ namespace Platformer
 		{
 			_rigidbody = GetComponent<Rigidbody2D>();
 			_animator = GetComponent<Animator>();
-			
+
 
 		}
 
@@ -84,12 +86,12 @@ namespace Platformer
 			if (_isGrounded)
 			{
 				_allowSecondJump = true;
-				
+
 			}
 
 			if (isJumpPressing)
 			{
-				
+
 				yVelocity = CalculateJumpVelocity(yVelocity);
 
 
@@ -212,12 +214,17 @@ namespace Platformer
 
 		public void SpawnJumpDust()
 		{
-			
-			
-				_jumpParticles.Spawn();
+			_jumpParticles.Spawn();
+		}
 
-			
+		public void SpawnlandingDust()
+		{
+			Debug.Log(_rigidbody.velocity.y);
 
+			if (_rigidbody.velocity.y < -_fallingSpeedLimit)
+			{
+				_landingParticles.Spawn();
+			}
 
 		}
 
