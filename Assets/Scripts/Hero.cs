@@ -8,6 +8,7 @@ namespace Platformer
 	{
 
 		[SerializeField] private float _speed;
+		[SerializeField] private float _speedSprintMultiplier;
 		[SerializeField] private float _jumpSpeed;
 		[SerializeField] private float _damageJumpSpeed;
 		[SerializeField] private float _fallingSpeedLimit;
@@ -33,6 +34,8 @@ namespace Platformer
 
 		private bool _isGrounded;
 		private bool _allowSecondJump;
+		private bool _isJumping;
+		private bool _isSprinting;
 
 
 
@@ -40,6 +43,7 @@ namespace Platformer
 		private static readonly int IsGroundedKey = Animator.StringToHash("isGrounded");
 		private static readonly int VerticalVelocity = Animator.StringToHash("verticalVelocity");
 		private static readonly int Hit = Animator.StringToHash("hitTrigger");
+		private static readonly int IsSprinting = Animator.StringToHash("isSprinting");
 		private void Awake()
 		{
 			_rigidbody = GetComponent<Rigidbody2D>();
@@ -61,7 +65,9 @@ namespace Platformer
 
 		private void FixedUpdate()
 		{
-			var xVelocity = _direction.x * _speed;
+			float runningSpeed=_isSprinting? (_speed* _speedSprintMultiplier) : _speed;
+			
+			var xVelocity = _direction.x * runningSpeed;
 			var yVelocity = CalculateYVelocity();
 
 			_rigidbody.velocity = new Vector2(xVelocity, yVelocity);
@@ -70,6 +76,7 @@ namespace Platformer
 
 
 			_animator.SetBool(IsRunning, _direction.x != 0);
+			_animator.SetBool(IsSprinting, _isSprinting);
 			_animator.SetBool(IsGroundedKey, _isGrounded);
 			_animator.SetFloat(VerticalVelocity, _rigidbody.velocity.y);
 
@@ -86,17 +93,17 @@ namespace Platformer
 			if (_isGrounded)
 			{
 				_allowSecondJump = true;
-
+				_isJumping = false;
 			}
 
 			if (isJumpPressing)
 			{
-
+				_isJumping = true;
 				yVelocity = CalculateJumpVelocity(yVelocity);
 
 
 			}
-			else if (_rigidbody.velocity.y > 0)
+			else if (_rigidbody.velocity.y > 0 && _isJumping)
 			{
 				yVelocity *= 0.5f;
 
@@ -164,8 +171,15 @@ namespace Platformer
 			Debug.Log("Somehing");
 		}
 
+		public void SetIsSprinting(bool state)
+		{
+			_isSprinting = state;
+			
+		}
+
 		public void TakeDamage()
 		{
+			_isJumping = false;
 			_animator.SetTrigger(Hit);
 			_rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpSpeed);
 

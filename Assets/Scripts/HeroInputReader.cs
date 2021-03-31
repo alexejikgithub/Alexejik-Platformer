@@ -5,50 +5,65 @@ using UnityEngine.InputSystem;
 
 namespace Platformer
 {
-    public class HeroInputReader : MonoBehaviour
-    {
-        private Hero _hero;
+	public class HeroInputReader : MonoBehaviour
+	{
+		private Hero _hero;
 
 
 
-        private void Awake()
-        {
-            _hero = GetComponent<Hero>();
-
-        }
-
-
-
-        public void OnHorizontalMovement(InputAction.CallbackContext context)
-        {
-            var direction = context.ReadValue<Vector2>();
-            _hero.SetDirection(direction);
-            
-
-        }
-
-        public void OnSaySomething(InputAction.CallbackContext context)
-        {
-
-            if (context.canceled)
-            {
-                _hero.SaySomehting();
-            }
-
-
-        }
-
-        public void OnInteract(InputAction.CallbackContext context)
+		private void Awake()
 		{
-            
-            if (context.canceled)
-            {
-                _hero.Interact();
-                
-            }
-        }
+			_hero = GetComponent<Hero>();
 
-    }
+		}
+
+
+
+		public void OnHorizontalMovement(InputAction.CallbackContext context)
+		{
+			var direction = context.ReadValue<Vector2>();
+			_hero.SetDirection(direction);
+
+
+		}
+
+		public void OnSaySomething(InputAction.CallbackContext context)
+		{
+
+			if (context.canceled)
+			{
+				_hero.SaySomehting();
+			}
+
+
+		}
+
+		public void OnInteract(InputAction.CallbackContext context)
+		{
+
+			if (context.canceled)
+			{
+				_hero.Interact();
+
+			}
+		}
+
+		public void OnSprint(InputAction.CallbackContext context)
+		{
+			if (context.started)
+			{
+				_hero.SetIsSprinting(true);
+			}
+
+			if (context.canceled)
+			{
+				_hero.SetIsSprinting(false);
+
+			}
+
+		}
+
+	}
 
 }
 

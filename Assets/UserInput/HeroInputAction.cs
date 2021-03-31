@@ -41,6 +41,14 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""SpeedUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""aa08831b-7cf2-41c9-a617-c871d1711ec9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -175,6 +183,17 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6517e20f-3812-4b9d-9f66-2feb9ede8939"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SpeedUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -186,6 +205,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         m_Hero_HorizontalMovement = m_Hero.FindAction("HorizontalMovement", throwIfNotFound: true);
         m_Hero_SaySomething = m_Hero.FindAction("SaySomething", throwIfNotFound: true);
         m_Hero_Interact = m_Hero.FindAction("Interact", throwIfNotFound: true);
+        m_Hero_SpeedUp = m_Hero.FindAction("SpeedUp", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -238,6 +258,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
     private readonly InputAction m_Hero_HorizontalMovement;
     private readonly InputAction m_Hero_SaySomething;
     private readonly InputAction m_Hero_Interact;
+    private readonly InputAction m_Hero_SpeedUp;
     public struct HeroActions
     {
         private @HeroInputAction m_Wrapper;
@@ -245,6 +266,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         public InputAction @HorizontalMovement => m_Wrapper.m_Hero_HorizontalMovement;
         public InputAction @SaySomething => m_Wrapper.m_Hero_SaySomething;
         public InputAction @Interact => m_Wrapper.m_Hero_Interact;
+        public InputAction @SpeedUp => m_Wrapper.m_Hero_SpeedUp;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -263,6 +285,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @Interact.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnInteract;
+                @SpeedUp.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnSpeedUp;
+                @SpeedUp.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnSpeedUp;
+                @SpeedUp.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnSpeedUp;
             }
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
@@ -276,6 +301,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @SpeedUp.started += instance.OnSpeedUp;
+                @SpeedUp.performed += instance.OnSpeedUp;
+                @SpeedUp.canceled += instance.OnSpeedUp;
             }
         }
     }
@@ -285,5 +313,6 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         void OnHorizontalMovement(InputAction.CallbackContext context);
         void OnSaySomething(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnSpeedUp(InputAction.CallbackContext context);
     }
 }

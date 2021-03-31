@@ -7,6 +7,7 @@ namespace Platformer.Components
 {
 	public class HealthComponent : MonoBehaviour
 	{
+		[Range (0,100)]
 		[SerializeField] private int _health;
 		[SerializeField] private UnityEvent _onDamage;
 		[SerializeField] private UnityEvent _onHealing;

@@ -6,10 +6,19 @@ namespace Platformer.Components
 {
     public class ChangeHealthComponent : MonoBehaviour
     {
+        [Range(0,100)]
         [SerializeField] private int _healthPointsToChange;
+        [SerializeField] private ChangingHealsStates _healOrDamage;
 
-        [SerializeField] bool _dealDamage;
+
+        public bool _dealHealing =>_healOrDamage == ChangingHealsStates.Heal;
+        public bool _dealDamage => _healOrDamage == ChangingHealsStates.Damage;
         
+        private enum ChangingHealsStates
+		{
+            Heal,
+            Damage
+		}
         
 
 
