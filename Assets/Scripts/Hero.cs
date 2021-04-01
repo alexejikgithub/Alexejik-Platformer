@@ -19,6 +19,7 @@ namespace Platformer
 
 
 		[SerializeField] private LayerCheck _groundCheck;
+		[SerializeField] private LayerCheck _wallCheck;
 		[SerializeField] private float _interactRadius;
 
 		[SerializeField] private SpawnComponent _footStepParticles;
@@ -33,6 +34,7 @@ namespace Platformer
 		private Animator _animator;
 
 		private bool _isGrounded;
+		private bool _isTouchingWall;
 		private bool _allowSecondJump;
 		private bool _isJumping;
 		private bool _isSprinting;
@@ -60,14 +62,25 @@ namespace Platformer
 		private void Update()
 		{
 			_isGrounded = IsGrounded();
+			_isTouchingWall = IsTouchingWall();
 
 		}
 
 		private void FixedUpdate()
 		{
 			float runningSpeed=_isSprinting? (_speed* _speedSprintMultiplier) : _speed;
+			float xVelocity;
+
+			if (_isTouchingWall&& !_isGrounded)
+			{
+				 xVelocity = -_direction.x * runningSpeed*10;
+			}
+
+			else
+			{
+				 xVelocity = _direction.x * runningSpeed;
+			}
 			
-			var xVelocity = _direction.x * runningSpeed;
 			var yVelocity = CalculateYVelocity();
 
 			_rigidbody.velocity = new Vector2(xVelocity, yVelocity);
@@ -90,7 +103,7 @@ namespace Platformer
 
 			var isJumpPressing = _direction.y > 0;
 
-			if (_isGrounded)
+			if (_isGrounded || _isTouchingWall)
 			{
 				_allowSecondJump = true;
 				_isJumping = false;
@@ -118,7 +131,7 @@ namespace Platformer
 
 			if (!isFalling) return yVelocity;
 
-			if (_isGrounded)
+			if (_isGrounded || _isTouchingWall)
 			{
 				SpawnJumpDust();
 				yVelocity = _jumpSpeed;
@@ -157,6 +170,11 @@ namespace Platformer
 		{
 			return _groundCheck.IsTouchingLayer;
 
+		}
+
+		private bool IsTouchingWall()
+		{
+			return _wallCheck.IsTouchingLayer;
 		}
 
 		private void OnDrawGizmos() //Checking ray for jumping
