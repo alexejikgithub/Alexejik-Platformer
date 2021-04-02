@@ -63,6 +63,15 @@ namespace Platformer
 
 		}
 
+		public void jumpingOffTheWall(InputAction.CallbackContext context)
+		{
+			if (context.started)
+			{
+				Debug.Log("!!!");
+				_hero.DoJumpOffTheWall();
+			}
+		}
+
 	}
 
 }

@@ -38,6 +38,7 @@ namespace Platformer
 		private bool _allowSecondJump;
 		private bool _isJumping;
 		private bool _isSprinting;
+		private bool _isMakingWalljump;
 
 
 
@@ -50,7 +51,7 @@ namespace Platformer
 		{
 			_rigidbody = GetComponent<Rigidbody2D>();
 			_animator = GetComponent<Animator>();
-
+			_isMakingWalljump = false;
 
 		}
 
@@ -62,28 +63,28 @@ namespace Platformer
 		private void Update()
 		{
 			_isGrounded = IsGrounded();
-			_isTouchingWall = IsTouchingWall();
+			_isTouchingWall = IsTouchingWall(); // check if hero is sliding down the wall
 
 		}
 
 		private void FixedUpdate()
 		{
-			float runningSpeed=_isSprinting? (_speed* _speedSprintMultiplier) : _speed;
-			float xVelocity;
+			float runningSpeed = _isSprinting ? (_speed * _speedSprintMultiplier) : _speed;
 
-			if (_isTouchingWall&& !_isGrounded)
-			{
-				 xVelocity = -_direction.x * runningSpeed*10;
-			}
 
-			else
-			{
-				 xVelocity = _direction.x * runningSpeed;
-			}
-			
+
+
+
+
+			float xVelocity = _direction.x * runningSpeed;
 			var yVelocity = CalculateYVelocity();
 
-			_rigidbody.velocity = new Vector2(xVelocity, yVelocity);
+			
+			if (!_isMakingWalljump) // Movement  through velocity turned off when jumping off the wall
+			{
+				_rigidbody.velocity = new Vector2(xVelocity, yVelocity);
+			}
+
 
 
 
@@ -103,24 +104,32 @@ namespace Platformer
 
 			var isJumpPressing = _direction.y > 0;
 
-			if (_isGrounded || _isTouchingWall)
+			//if (_isTouchingWall)//allow  second jump if hero is touching the wall (jump off the wall
+			//{
+
+			//_allowSecondJump = true;
+			//}
+
+			if (_isGrounded)
 			{
 				_allowSecondJump = true;
 				_isJumping = false;
 			}
 
 			if (isJumpPressing)
-			{
-				_isJumping = true;
-				yVelocity = CalculateJumpVelocity(yVelocity);
+
+				if (isJumpPressing)
+				{
+					_isJumping = true;
+					yVelocity = CalculateJumpVelocity(yVelocity);
 
 
-			}
-			else if (_rigidbody.velocity.y > 0 && _isJumping)
-			{
-				yVelocity *= 0.5f;
+				}
+				else if (_rigidbody.velocity.y > 0 && _isJumping)
+				{
+					yVelocity *= 0.5f;
 
-			}
+				}
 
 			return yVelocity;
 
@@ -131,7 +140,7 @@ namespace Platformer
 
 			if (!isFalling) return yVelocity;
 
-			if (_isGrounded || _isTouchingWall)
+			if (_isGrounded)
 			{
 				SpawnJumpDust();
 				yVelocity = _jumpSpeed;
@@ -192,7 +201,7 @@ namespace Platformer
 		public void SetIsSprinting(bool state)
 		{
 			_isSprinting = state;
-			
+
 		}
 
 		public void TakeDamage()
@@ -260,8 +269,24 @@ namespace Platformer
 
 		}
 
+		private IEnumerator JumpOffTheWall(float vectorX)
+		{
+			if (_isTouchingWall && !_isGrounded) // Jumping off the wall only if _isTouchingWall && !_isGrounded
+			{
 
+				_isMakingWalljump = true;
+				_rigidbody.velocity = new Vector2(0, 0);
+				_rigidbody.AddForce(new Vector2(vectorX, 2) * _speed, ForceMode2D.Impulse);
+				yield return new WaitForSeconds(0.5f);
+				_isMakingWalljump = false;
+			}
+			yield return null;
 
+		}
+
+		public void DoJumpOffTheWall()
+		{
+			StartCoroutine(JumpOffTheWall(-transform.localScale.x));
+		}
 	}
-
 }

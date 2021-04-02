@@ -8628,7 +8628,7 @@ PrefabInstance:
     - target: {fileID: 1951930349395553150, guid: d3686a34d8d5d334798f7b973c62208f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1951930349395553150, guid: d3686a34d8d5d334798f7b973c62208f,
         type: 3}
@@ -8688,10 +8688,20 @@ PrefabInstance:
       propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1578151598}
+    - target: {fileID: 2032397210555660370, guid: 06a62dd4d82589842ba06e6c561e502d,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2032397210555660370, guid: 06a62dd4d82589842ba06e6c561e502d,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2032397210555660372, guid: 06a62dd4d82589842ba06e6c561e502d,
         type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2032397210555660372, guid: 06a62dd4d82589842ba06e6c561e502d,
         type: 3}
@@ -8715,7 +8725,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2032397210555660372, guid: 06a62dd4d82589842ba06e6c561e502d,
         type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2032397210555660372, guid: 06a62dd4d82589842ba06e6c561e502d,
+        type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1429417734}
+    - target: {fileID: 2032397210555660372, guid: 06a62dd4d82589842ba06e6c561e502d,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1429417734}
     - target: {fileID: 2032397210555660372, guid: 06a62dd4d82589842ba06e6c561e502d,
@@ -8730,7 +8750,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2032397210555660372, guid: 06a62dd4d82589842ba06e6c561e502d,
         type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: jumpingOffTheWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 2032397210555660372, guid: 06a62dd4d82589842ba06e6c561e502d,
+        type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2032397210555660372, guid: 06a62dd4d82589842ba06e6c561e502d,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2032397210555660374, guid: 06a62dd4d82589842ba06e6c561e502d,
@@ -8905,36 +8935,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 617080823}
     m_Modifications:
-    - target: {fileID: 4148262280374704368, guid: 92c77fe0bf00a0240ab827535a2aaa54,
-        type: 3}
-      propertyPath: _heal
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4148262280374704368, guid: 92c77fe0bf00a0240ab827535a2aaa54,
-        type: 3}
-      propertyPath: _dealDamage
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4148262280374704368, guid: 92c77fe0bf00a0240ab827535a2aaa54,
-        type: 3}
-      propertyPath: _healOrDamage
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4148262280374704368, guid: 92c77fe0bf00a0240ab827535a2aaa54,
-        type: 3}
-      propertyPath: _healthPointsToChange
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4148262280374704368, guid: 92c77fe0bf00a0240ab827535a2aaa54,
-        type: 3}
-      propertyPath: _numberOfHealthPoints
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4148262280374704370, guid: 92c77fe0bf00a0240ab827535a2aaa54,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeHealthAmount
-      objectReference: {fileID: 0}
     - target: {fileID: 4148262280374704371, guid: 92c77fe0bf00a0240ab827535a2aaa54,
         type: 3}
       propertyPath: m_RootOrder

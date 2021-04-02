@@ -5174,6 +5174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 3
+  _speedSprintMultiplier: 0
   _jumpSpeed: 12
   _damageJumpSpeed: 12
   _fallingSpeedLimit: 15
@@ -5182,6 +5183,7 @@ MonoBehaviour:
     m_Bits: 1024
   _coinCunter: {fileID: 0}
   _groundCheck: {fileID: 2032397211698839589}
+  _wallCheck: {fileID: 0}
   _interactRadius: 1
   _footStepParticles: {fileID: 35387658}
   _jumpParticles: {fileID: 630617815}
@@ -5258,6 +5260,36 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 38fe6331-ba1e-4295-b91b-9915d770f00c
     m_ActionName: Hero/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: aa08831b-7cf2-41c9-a617-c871d1711ec9
+    m_ActionName: Hero/SpeedUp[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3b50be9a-8c11-4078-942d-8263cea806e7
+    m_ActionName: Hero/JumpingOfftheWall[/Keyboard/w]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero
@@ -5423,7 +5455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a41064f91ccd4cf4183a91ff72a68c10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _groundLayer:
+  _targetLayer:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 0
   IsTouchingLayer: 0

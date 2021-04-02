@@ -49,6 +49,14 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""JumpingOfftheWall"",
+                    ""type"": ""Button"",
+                    ""id"": ""3b50be9a-8c11-4078-942d-8263cea806e7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -194,6 +202,17 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""action"": ""SpeedUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""be095370-a66e-434d-a695-fc32fd0e63fb"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JumpingOfftheWall"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -206,6 +225,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         m_Hero_SaySomething = m_Hero.FindAction("SaySomething", throwIfNotFound: true);
         m_Hero_Interact = m_Hero.FindAction("Interact", throwIfNotFound: true);
         m_Hero_SpeedUp = m_Hero.FindAction("SpeedUp", throwIfNotFound: true);
+        m_Hero_JumpingOfftheWall = m_Hero.FindAction("JumpingOfftheWall", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -259,6 +279,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
     private readonly InputAction m_Hero_SaySomething;
     private readonly InputAction m_Hero_Interact;
     private readonly InputAction m_Hero_SpeedUp;
+    private readonly InputAction m_Hero_JumpingOfftheWall;
     public struct HeroActions
     {
         private @HeroInputAction m_Wrapper;
@@ -267,6 +288,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         public InputAction @SaySomething => m_Wrapper.m_Hero_SaySomething;
         public InputAction @Interact => m_Wrapper.m_Hero_Interact;
         public InputAction @SpeedUp => m_Wrapper.m_Hero_SpeedUp;
+        public InputAction @JumpingOfftheWall => m_Wrapper.m_Hero_JumpingOfftheWall;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -288,6 +310,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @SpeedUp.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnSpeedUp;
                 @SpeedUp.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnSpeedUp;
                 @SpeedUp.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnSpeedUp;
+                @JumpingOfftheWall.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnJumpingOfftheWall;
+                @JumpingOfftheWall.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnJumpingOfftheWall;
+                @JumpingOfftheWall.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnJumpingOfftheWall;
             }
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
@@ -304,6 +329,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @SpeedUp.started += instance.OnSpeedUp;
                 @SpeedUp.performed += instance.OnSpeedUp;
                 @SpeedUp.canceled += instance.OnSpeedUp;
+                @JumpingOfftheWall.started += instance.OnJumpingOfftheWall;
+                @JumpingOfftheWall.performed += instance.OnJumpingOfftheWall;
+                @JumpingOfftheWall.canceled += instance.OnJumpingOfftheWall;
             }
         }
     }
@@ -314,5 +342,6 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         void OnSaySomething(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnSpeedUp(InputAction.CallbackContext context);
+        void OnJumpingOfftheWall(InputAction.CallbackContext context);
     }
 }
