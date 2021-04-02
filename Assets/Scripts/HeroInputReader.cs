@@ -67,7 +67,6 @@ namespace Platformer
 		{
 			if (context.started)
 			{
-				Debug.Log("!!!");
 				_hero.DoJumpOffTheWall();
 			}
 		}

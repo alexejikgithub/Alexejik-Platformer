@@ -35,6 +35,7 @@ namespace Platformer
 
 		private bool _isGrounded;
 		private bool _isTouchingWall;
+		private bool _isSlidingOffTheWall;
 		private bool _allowSecondJump;
 		private bool _isJumping;
 		private bool _isSprinting;
@@ -64,6 +65,7 @@ namespace Platformer
 		{
 			_isGrounded = IsGrounded();
 			_isTouchingWall = IsTouchingWall(); // check if hero is sliding down the wall
+			_isSlidingOffTheWall = _isTouchingWall && !_isGrounded; //
 
 		}
 
@@ -74,13 +76,11 @@ namespace Platformer
 
 
 
-
-
 			float xVelocity = _direction.x * runningSpeed;
 			var yVelocity = CalculateYVelocity();
 
 			
-			if (!_isMakingWalljump) // Movement  through velocity turned off when jumping off the wall
+			if (!_isMakingWalljump&&!_isSlidingOffTheWall) // Movement  through velocity turned off when jumping off the wall
 			{
 				_rigidbody.velocity = new Vector2(xVelocity, yVelocity);
 			}
@@ -94,7 +94,12 @@ namespace Platformer
 			_animator.SetBool(IsGroundedKey, _isGrounded);
 			_animator.SetFloat(VerticalVelocity, _rigidbody.velocity.y);
 
-			UpdateSpriteDirection();
+
+			if(!_isSlidingOffTheWall) //Cannot change direction if sliding the wall
+			{
+				UpdateSpriteDirection();
+			}
+			
 
 
 		}
@@ -271,7 +276,7 @@ namespace Platformer
 
 		private IEnumerator JumpOffTheWall(float vectorX)
 		{
-			if (_isTouchingWall && !_isGrounded) // Jumping off the wall only if _isTouchingWall && !_isGrounded
+			if (_isSlidingOffTheWall) // Jumping off the wall only if _isTouchingWall && !_isGrounded
 			{
 
 				_isMakingWalljump = true;
@@ -279,12 +284,13 @@ namespace Platformer
 				_rigidbody.AddForce(new Vector2(vectorX, 2) * _speed, ForceMode2D.Impulse);
 				yield return new WaitForSeconds(0.5f);
 				_isMakingWalljump = false;
+				yield return null;
 			}
-			yield return null;
+			
 
 		}
 
-		public void DoJumpOffTheWall()
+		public void DoJumpOffTheWall() //public use of JumpOffTheWall
 		{
 			StartCoroutine(JumpOffTheWall(-transform.localScale.x));
 		}
