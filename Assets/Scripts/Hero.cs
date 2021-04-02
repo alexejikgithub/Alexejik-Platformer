@@ -32,6 +32,7 @@ namespace Platformer
 		private Rigidbody2D _rigidbody;
 		private Vector2 _direction;
 		private Animator _animator;
+		private float _gravity; // controlls the speed of falling depending on the condition
 
 		private bool _isGrounded;
 		private bool _isTouchingWall;
@@ -48,6 +49,11 @@ namespace Platformer
 		private static readonly int VerticalVelocity = Animator.StringToHash("verticalVelocity");
 		private static readonly int Hit = Animator.StringToHash("hitTrigger");
 		private static readonly int IsSprinting = Animator.StringToHash("isSprinting");
+
+		private void Start()
+		{
+			_gravity = _rigidbody.gravityScale;
+		}
 		private void Awake()
 		{
 			_rigidbody = GetComponent<Rigidbody2D>();
@@ -65,22 +71,28 @@ namespace Platformer
 		{
 			_isGrounded = IsGrounded();
 			_isTouchingWall = IsTouchingWall(); // check if hero is sliding down the wall
-			_isSlidingOffTheWall = _isTouchingWall && !_isGrounded; //
+			_isSlidingOffTheWall = _isTouchingWall && !_isGrounded && _rigidbody.velocity.y < 0; // if hero is falling down next to the wall, he will "stick" to it and will not be able to move away from it 
 
 		}
 
 		private void FixedUpdate()
 		{
-			float runningSpeed = _isSprinting ? (_speed * _speedSprintMultiplier) : _speed;
+			SetGravity();
+			float runningSpeed = _isSprinting ? (_speed * _speedSprintMultiplier) : _speed; //  sets the speed (sprint or normal)
 
 
-
-
-			float xVelocity = _direction.x * runningSpeed;
-			var yVelocity = CalculateYVelocity();
-
+			float xVelocity = 0;
+			if (!_isSlidingOffTheWall) // hero cannot move if he is sliding down the wall and cannot change direction
+			{
+				xVelocity = _direction.x * runningSpeed;
+				UpdateSpriteDirection();
+			}
 			
-			if (!_isMakingWalljump&&!_isSlidingOffTheWall) // Movement  through velocity turned off when jumping off the wall
+			var yVelocity = CalculateYVelocity();
+			
+
+
+			if (!_isMakingWalljump) // Movement via velocity is turned off when jumping off the wall
 			{
 				_rigidbody.velocity = new Vector2(xVelocity, yVelocity);
 			}
@@ -95,12 +107,9 @@ namespace Platformer
 			_animator.SetFloat(VerticalVelocity, _rigidbody.velocity.y);
 
 
-			if(!_isSlidingOffTheWall) //Cannot change direction if sliding the wall
-			{
-				UpdateSpriteDirection();
-			}
 			
-
+			
+			
 
 		}
 		private float CalculateYVelocity()
@@ -109,11 +118,7 @@ namespace Platformer
 
 			var isJumpPressing = _direction.y > 0;
 
-			//if (_isTouchingWall)//allow  second jump if hero is touching the wall (jump off the wall
-			//{
-
-			//_allowSecondJump = true;
-			//}
+			
 
 			if (_isGrounded)
 			{
@@ -161,6 +166,22 @@ namespace Platformer
 		}
 
 
+		private void SetGravity() // sets gravity. 2 states 1- hero is sliding down the wall, 2- normal
+		{
+
+			if (_isSlidingOffTheWall )
+			{
+				_rigidbody.gravityScale = _gravity / 2f;
+			}
+			else
+			{
+				_rigidbody.gravityScale = _gravity;
+			}
+				
+			
+
+			
+		}
 
 
 		private void UpdateSpriteDirection()
@@ -233,6 +254,7 @@ namespace Platformer
 
 			_hitParticles.gameObject.SetActive(true);
 			_hitParticles.Play();
+
 		}
 
 		public void Interact()
@@ -274,7 +296,7 @@ namespace Platformer
 
 		}
 
-		private IEnumerator JumpOffTheWall(float vectorX)
+		private IEnumerator JumpOffTheWall(float vectorX) // this method is used to make a jump if hero is touching the wall . called from HeroInputReader
 		{
 			if (_isSlidingOffTheWall) // Jumping off the wall only if _isTouchingWall && !_isGrounded
 			{

@@ -444,15 +444,6 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
-  - first: {x: -1, y: 0, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      m_AllTileFlags: 1073741825
   - first: {x: 0, y: 0, z: 0}
     second:
       serializedVersion: 2
@@ -707,19 +698,23 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 13
+  - m_RefCount: 12
     m_Data: {fileID: 11400000, guid: 0fdaa595daf452a4890e37d8d10209f3, type: 2}
   - m_RefCount: 33
     m_Data: {fileID: 11400000, guid: 8f98fb7e12100ea49859e7f24bdf9943, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileSpriteArray:
-  - m_RefCount: 13
+  - m_RefCount: 12
     m_Data: {fileID: -5995358177650987476, guid: 8c5485bac2892724c8ba4906b11ae06c,
       type: 3}
   - m_RefCount: 33
     m_Data: {fileID: -6586494562251989007, guid: 8c5485bac2892724c8ba4906b11ae06c,
       type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileMatrixArray:
-  - m_RefCount: 46
+  - m_RefCount: 45
     m_Data:
       e00: 1
       e01: 0
@@ -738,13 +733,13 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 46
+  - m_RefCount: 45
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -18, y: -4, z: 0}
-  m_Size: {x: 52, y: 9, z: 1}
+  m_Size: {x: 52, y: 14, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -770,80 +765,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4148262280354680571}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &371710074
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 371710075}
-  - component: {fileID: 371710077}
-  - component: {fileID: 371710076}
-  m_Layer: 0
-  m_Name: WallCheck
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &371710075
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 371710074}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1449022943}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &371710076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 371710074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a41064f91ccd4cf4183a91ff72a68c10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  IsTouchingLayer: 0
---- !u!61 &371710077
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 371710074}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.13171816, y: 0.04298508}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.24255276, y: 0.48791528}
-  m_EdgeRadius: 0
 --- !u!1 &498197382
 GameObject:
   m_ObjectHideFlags: 0
@@ -6151,18 +6072,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1951930350298500194}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1429417734 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2032397210555660375, guid: 06a62dd4d82589842ba06e6c561e502d,
-    type: 3}
-  m_PrefabInstance: {fileID: 2032397211466493366}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10ea0661001b0844eb986c73824a3310, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1449022943 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2032397210555660393, guid: 06a62dd4d82589842ba06e6c561e502d,
@@ -8688,106 +8597,11 @@ PrefabInstance:
       propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1578151598}
-    - target: {fileID: 2032397210555660370, guid: 06a62dd4d82589842ba06e6c561e502d,
-        type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2032397210555660370, guid: 06a62dd4d82589842ba06e6c561e502d,
-        type: 3}
-      propertyPath: m_GravityScale
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2032397210555660372, guid: 06a62dd4d82589842ba06e6c561e502d,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2032397210555660372, guid: 06a62dd4d82589842ba06e6c561e502d,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_ActionId
-      value: aa08831b-7cf2-41c9-a617-c871d1711ec9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2032397210555660372, guid: 06a62dd4d82589842ba06e6c561e502d,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_ActionName
-      value: Hero/SpeedUp[/Keyboard/leftShift]
-      objectReference: {fileID: 0}
-    - target: {fileID: 2032397210555660372, guid: 06a62dd4d82589842ba06e6c561e502d,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2032397210555660372, guid: 06a62dd4d82589842ba06e6c561e502d,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2032397210555660372, guid: 06a62dd4d82589842ba06e6c561e502d,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2032397210555660372, guid: 06a62dd4d82589842ba06e6c561e502d,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1429417734}
-    - target: {fileID: 2032397210555660372, guid: 06a62dd4d82589842ba06e6c561e502d,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1429417734}
-    - target: {fileID: 2032397210555660372, guid: 06a62dd4d82589842ba06e6c561e502d,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2032397210555660372, guid: 06a62dd4d82589842ba06e6c561e502d,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnSprint
-      objectReference: {fileID: 0}
-    - target: {fileID: 2032397210555660372, guid: 06a62dd4d82589842ba06e6c561e502d,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: jumpingOffTheWall
-      objectReference: {fileID: 0}
-    - target: {fileID: 2032397210555660372, guid: 06a62dd4d82589842ba06e6c561e502d,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 2032397210555660372, guid: 06a62dd4d82589842ba06e6c561e502d,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 2032397210555660374, guid: 06a62dd4d82589842ba06e6c561e502d,
-        type: 3}
-      propertyPath: _speed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2032397210555660374, guid: 06a62dd4d82589842ba06e6c561e502d,
-        type: 3}
-      propertyPath: _wallCheck
-      value: 
-      objectReference: {fileID: 371710076}
     - target: {fileID: 2032397210555660374, guid: 06a62dd4d82589842ba06e6c561e502d,
         type: 3}
       propertyPath: _coinCunter
       value: 
       objectReference: {fileID: 1831434900}
-    - target: {fileID: 2032397210555660374, guid: 06a62dd4d82589842ba06e6c561e502d,
-        type: 3}
-      propertyPath: _speedMultiplier
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2032397210555660374, guid: 06a62dd4d82589842ba06e6c561e502d,
-        type: 3}
-      propertyPath: _speedSprintMultiplier
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 2032397210555660393, guid: 06a62dd4d82589842ba06e6c561e502d,
         type: 3}
       propertyPath: m_RootOrder
@@ -8847,11 +8661,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hero
-      objectReference: {fileID: 0}
-    - target: {fileID: 2032397211698839589, guid: 06a62dd4d82589842ba06e6c561e502d,
-        type: 3}
-      propertyPath: _targetLayer.m_Bits
-      value: 768
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06a62dd4d82589842ba06e6c561e502d, type: 3}
