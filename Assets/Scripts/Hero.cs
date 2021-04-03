@@ -10,6 +10,7 @@ namespace Platformer
 		[SerializeField] private float _speed;
 		[SerializeField] private float _speedSprintMultiplier;
 		[SerializeField] private float _jumpSpeed;
+		[SerializeField] private float _wallJumpSpeed;
 		[SerializeField] private float _damageJumpSpeed;
 		[SerializeField] private float _fallingSpeedLimit;
 
@@ -69,9 +70,10 @@ namespace Platformer
 
 		private void Update()
 		{
+			
 			_isGrounded = IsGrounded();
 			_isTouchingWall = IsTouchingWall(); // check if hero is sliding down the wall
-			_isSlidingOffTheWall = _isTouchingWall && !_isGrounded && _rigidbody.velocity.y < 0; // if hero is falling down next to the wall, he will "stick" to it and will not be able to move away from it 
+			_isSlidingOffTheWall = _isTouchingWall && !_isGrounded;// && _rigidbody.velocity.y < 0; // if hero is falling down next to the wall, he will "stick" to it and will not be able to move away from it 
 
 		}
 
@@ -87,9 +89,14 @@ namespace Platformer
 				xVelocity = _direction.x * runningSpeed;
 				UpdateSpriteDirection();
 			}
-			
+
+			if(_isSlidingOffTheWall) //Check ifthe player wants to unhook of the wall when sliding
+			{
+				StartCoroutine(UnhookOfTheWall());
+			}
+
 			var yVelocity = CalculateYVelocity();
-			
+
 
 
 			if (!_isMakingWalljump) // Movement via velocity is turned off when jumping off the wall
@@ -107,9 +114,9 @@ namespace Platformer
 			_animator.SetFloat(VerticalVelocity, _rigidbody.velocity.y);
 
 
-			
-			
-			
+
+
+
 
 		}
 		private float CalculateYVelocity()
@@ -118,7 +125,7 @@ namespace Platformer
 
 			var isJumpPressing = _direction.y > 0;
 
-			
+
 
 			if (_isGrounded)
 			{
@@ -169,18 +176,18 @@ namespace Platformer
 		private void SetGravity() // sets gravity. 2 states 1- hero is sliding down the wall, 2- normal
 		{
 
-			if (_isSlidingOffTheWall )
+			if (_isSlidingOffTheWall && _rigidbody.velocity.y < 0)
 			{
-				_rigidbody.gravityScale = _gravity / 2f;
+				_rigidbody.gravityScale = _gravity / 4f;
 			}
 			else
 			{
 				_rigidbody.gravityScale = _gravity;
 			}
-				
-			
 
-			
+
+
+
 		}
 
 
@@ -303,18 +310,36 @@ namespace Platformer
 
 				_isMakingWalljump = true;
 				_rigidbody.velocity = new Vector2(0, 0);
-				_rigidbody.AddForce(new Vector2(vectorX, 2) * _speed, ForceMode2D.Impulse);
+
+				_rigidbody.AddForce(new Vector2(-vectorX, 2) * _wallJumpSpeed, ForceMode2D.Impulse);
+				transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
 				yield return new WaitForSeconds(0.5f);
 				_isMakingWalljump = false;
 				yield return null;
 			}
-			
+
 
 		}
 
 		public void DoJumpOffTheWall() //public use of JumpOffTheWall
 		{
-			StartCoroutine(JumpOffTheWall(-transform.localScale.x));
+			StartCoroutine(JumpOffTheWall(transform.localScale.x));
+		}
+
+		private IEnumerator UnhookOfTheWall() //this methods allows to unhook of the wall if you hold direction key for a while
+		{
+
+			if(_direction.x==-transform.localScale.x)
+			{
+				yield return new WaitForSeconds(0.15f);
+			}
+			if(_direction.x == -transform.localScale.x)
+			{
+				_isSlidingOffTheWall = false;
+				yield return new WaitForSeconds(0.1f);
+
+			}
+
 		}
 	}
 }
