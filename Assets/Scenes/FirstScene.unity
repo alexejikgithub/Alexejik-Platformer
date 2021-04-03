@@ -6072,6 +6072,51 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1951930350298500194}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1381296445
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1381296446}
+  - component: {fileID: 1381296447}
+  m_Layer: 0
+  m_Name: 'SlidingDustPosition '
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1381296446
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381296445}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1780917345}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1381296447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381296445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a1f084093d63a74d9763bacdab81d80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 1381296446}
+  _prefab: {fileID: 7728886563200359817, guid: 823632a443589bb4e9f7e4b4d9b8aa3c, type: 3}
 --- !u!4 &1449022943 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2032397210555660393, guid: 06a62dd4d82589842ba06e6c561e502d,
@@ -6342,6 +6387,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2511039936368378716, guid: 788412ae7a456ef4a892358945381cf7,
     type: 3}
   m_PrefabInstance: {fileID: 2511039937062758971}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1780917345 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 651596755, guid: 06a62dd4d82589842ba06e6c561e502d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2032397211466493366}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1831434899
 GameObject:
@@ -8931,6 +8982,11 @@ PrefabInstance:
       propertyPath: _wallJumpSpeed
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2032397210555660374, guid: 06a62dd4d82589842ba06e6c561e502d,
+        type: 3}
+      propertyPath: _slideParticles
+      value: 
+      objectReference: {fileID: 1381296447}
     - target: {fileID: 2032397210555660393, guid: 06a62dd4d82589842ba06e6c561e502d,
         type: 3}
       propertyPath: m_RootOrder

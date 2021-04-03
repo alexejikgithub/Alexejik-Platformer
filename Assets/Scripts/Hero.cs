@@ -26,6 +26,7 @@ namespace Platformer
 		[SerializeField] private SpawnComponent _footStepParticles;
 		[SerializeField] private SpawnComponent _jumpParticles;
 		[SerializeField] private SpawnComponent _landingParticles;
+		[SerializeField] private SpawnComponent _slideParticles;
 
 		[SerializeField] private ParticleSystem _hitParticles;
 
@@ -50,6 +51,7 @@ namespace Platformer
 		private static readonly int VerticalVelocity = Animator.StringToHash("verticalVelocity");
 		private static readonly int Hit = Animator.StringToHash("hitTrigger");
 		private static readonly int IsSprinting = Animator.StringToHash("isSprinting");
+		private static readonly int IsSliding = Animator.StringToHash("isSliding");
 
 		private void Start()
 		{
@@ -72,8 +74,8 @@ namespace Platformer
 		{
 			
 			_isGrounded = IsGrounded();
-			_isTouchingWall = IsTouchingWall(); // check if hero is sliding down the wall
-			_isSlidingOffTheWall = _isTouchingWall && !_isGrounded;// && _rigidbody.velocity.y < 0; // if hero is falling down next to the wall, he will "stick" to it and will not be able to move away from it 
+			_isTouchingWall = IsTouchingWall(); // check if hero is touching the wall
+			_isSlidingOffTheWall = _isTouchingWall && !_isGrounded; // if hero is falling down next to the wall, he will "stick" to it and will not be able to move away from it 
 
 		}
 
@@ -106,10 +108,11 @@ namespace Platformer
 
 
 
-
+			Debug.Log(_isSlidingOffTheWall);
 
 			_animator.SetBool(IsRunning, _direction.x != 0);
 			_animator.SetBool(IsSprinting, _isSprinting);
+			_animator.SetBool(IsSliding, _isSlidingOffTheWall);
 			_animator.SetBool(IsGroundedKey, _isGrounded);
 			_animator.SetFloat(VerticalVelocity, _rigidbody.velocity.y);
 
@@ -302,6 +305,10 @@ namespace Platformer
 			}
 
 		}
+		public void SpawnSlideDust()
+		{
+			_slideParticles.Spawn();
+		}
 
 		private IEnumerator JumpOffTheWall(float vectorX) // this method is used to make a jump if hero is touching the wall . called from HeroInputReader
 		{
@@ -335,8 +342,10 @@ namespace Platformer
 			}
 			if(_direction.x == -transform.localScale.x)
 			{
-				_isSlidingOffTheWall = false;
+
+				_wallCheck.GetComponent<Collider2D>().enabled = false;
 				yield return new WaitForSeconds(0.1f);
+				_wallCheck.GetComponent<Collider2D>().enabled = true;
 
 			}
 
