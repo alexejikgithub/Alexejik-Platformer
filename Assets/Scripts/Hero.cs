@@ -108,7 +108,7 @@ namespace Platformer
 
 
 
-			Debug.Log(_isSlidingOffTheWall);
+			
 
 			_animator.SetBool(IsRunning, _direction.x != 0);
 			_animator.SetBool(IsSprinting, _isSprinting);
