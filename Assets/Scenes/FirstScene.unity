@@ -128,6 +128,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1760960089, guid: 9d520dc8bf059374e9f05dc7184ab909, type: 3}
+      propertyPath: _animationStates.Array.data[0]._loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1760960089, guid: 9d520dc8bf059374e9f05dc7184ab909, type: 3}
+      propertyPath: _animationStates.Array.data[0]._allowNext
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1760960089, guid: 9d520dc8bf059374e9f05dc7184ab909, type: 3}
+      propertyPath: _animationStates.Array.data[1]._allowNext
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8968507708387009958, guid: 9d520dc8bf059374e9f05dc7184ab909,
         type: 3}
       propertyPath: m_Name
