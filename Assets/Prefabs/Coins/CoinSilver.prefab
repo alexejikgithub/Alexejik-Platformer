@@ -128,7 +128,8 @@ GameObject:
   - component: {fileID: 1278096446156702370}
   - component: {fileID: 1278096446156702371}
   - component: {fileID: 1278096446156702368}
-  - component: {fileID: 685187958}
+  - component: {fileID: 214238588}
+  - component: {fileID: 82574615}
   m_Layer: 0
   m_Name: CoinSilver
   m_TagString: Untagged
@@ -291,7 +292,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &685187958
+--- !u!114 &214238588
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -300,16 +301,46 @@ MonoBehaviour:
   m_GameObject: {fileID: 1278096446156702369}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe908d28fc1f32149b488497e260cde6, type: 3}
+  m_Script: {fileID: 11500000, guid: 0942bca9f5bd48e48895dab7cff1bc75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _nameOfTheClip: 
   _frameRate: 10
-  _loop: 1
-  _sprites:
-  - {fileID: -2322180950842035098, guid: bc5de6af7456e104081d329d6581d20c, type: 3}
-  - {fileID: -4893972260818282012, guid: bc5de6af7456e104081d329d6581d20c, type: 3}
-  - {fileID: -6323751108524238166, guid: bc5de6af7456e104081d329d6581d20c, type: 3}
-  - {fileID: 2722280177590742205, guid: bc5de6af7456e104081d329d6581d20c, type: 3}
-  _onComplete:
-    m_PersistentCalls:
-      m_Calls: []
+  _animationStates:
+  - _name: Silver
+    _loop: 1
+    _allowNext: 0
+    _sprites:
+    - {fileID: -2322180950842035098, guid: bc5de6af7456e104081d329d6581d20c, type: 3}
+    - {fileID: -4893972260818282012, guid: bc5de6af7456e104081d329d6581d20c, type: 3}
+    - {fileID: -6323751108524238166, guid: bc5de6af7456e104081d329d6581d20c, type: 3}
+    - {fileID: 2722280177590742205, guid: bc5de6af7456e104081d329d6581d20c, type: 3}
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!114 &82574615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278096446156702369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0942bca9f5bd48e48895dab7cff1bc75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nameOfTheClip: 
+  _frameRate: 10
+  _animationStates:
+  - _name: Silver
+    _loop: 1
+    _allowNext: 0
+    _sprites:
+    - {fileID: -2322180950842035098, guid: bc5de6af7456e104081d329d6581d20c, type: 3}
+    - {fileID: -4893972260818282012, guid: bc5de6af7456e104081d329d6581d20c, type: 3}
+    - {fileID: -6323751108524238166, guid: bc5de6af7456e104081d329d6581d20c, type: 3}
+    - {fileID: 2722280177590742205, guid: bc5de6af7456e104081d329d6581d20c, type: 3}
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls: []

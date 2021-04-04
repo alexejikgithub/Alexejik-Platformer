@@ -42,7 +42,7 @@ namespace Platformer
 
 		private void SetLockInput(PlayerInput input, bool isLocked)
 		{
-			
+
 			if (input != null)
 			{
 				input.enabled = !isLocked;

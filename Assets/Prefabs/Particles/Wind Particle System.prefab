@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7048504279772318053}
   - component: {fileID: 7048504279772318052}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: Wind Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -667,7 +667,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 70.12, y: -16, z: 1}
+    m_Scale: {x: 82.85, y: -25.4, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0

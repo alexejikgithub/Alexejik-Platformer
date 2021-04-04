@@ -72,7 +72,7 @@ namespace Platformer
 
 		private void Update()
 		{
-			
+
 			_isGrounded = IsGrounded();
 			_isTouchingWall = IsTouchingWall(); // check if hero is touching the wall
 			_isSlidingOffTheWall = _isTouchingWall && !_isGrounded; // if hero is falling down next to the wall, he will "stick" to it and will not be able to move away from it 
@@ -81,7 +81,7 @@ namespace Platformer
 
 		private void FixedUpdate()
 		{
-			SetGravity();
+			SetGravity(); // Gravity is different when hero is sliding down the wall
 			float runningSpeed = _isSprinting ? (_speed * _speedSprintMultiplier) : _speed; //  sets the speed (sprint or normal)
 
 
@@ -92,7 +92,7 @@ namespace Platformer
 				UpdateSpriteDirection();
 			}
 
-			if(_isSlidingOffTheWall) //Check ifthe player wants to unhook of the wall when sliding
+			if (_isSlidingOffTheWall) //Check ifthe player wants to unhook of the wall when sliding
 			{
 				StartCoroutine(UnhookOfTheWall());
 			}
@@ -108,7 +108,7 @@ namespace Platformer
 
 
 
-			
+
 
 			_animator.SetBool(IsRunning, _direction.x != 0);
 			_animator.SetBool(IsSprinting, _isSprinting);
@@ -297,7 +297,7 @@ namespace Platformer
 
 		public void SpawnlandingDust()
 		{
-			Debug.Log(_rigidbody.velocity.y);
+
 
 			if (_rigidbody.velocity.y < -_fallingSpeedLimit)
 			{
@@ -319,7 +319,7 @@ namespace Platformer
 				_rigidbody.velocity = new Vector2(0, 0);
 
 				_rigidbody.AddForce(new Vector2(-vectorX, 2) * _wallJumpSpeed, ForceMode2D.Impulse);
-				transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+				transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z); //turns Heroes direction
 				yield return new WaitForSeconds(0.5f);
 				_isMakingWalljump = false;
 				yield return null;
@@ -336,11 +336,11 @@ namespace Platformer
 		private IEnumerator UnhookOfTheWall() //this methods allows to unhook of the wall if you hold direction key for a while
 		{
 
-			if(_direction.x==-transform.localScale.x)
+			if (_direction.x == -transform.localScale.x)
 			{
 				yield return new WaitForSeconds(0.15f);
 			}
-			if(_direction.x == -transform.localScale.x)
+			if (_direction.x == -transform.localScale.x)
 			{
 
 				_wallCheck.GetComponent<Collider2D>().enabled = false;

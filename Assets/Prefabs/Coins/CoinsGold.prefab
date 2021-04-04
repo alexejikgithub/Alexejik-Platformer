@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 8968507708387009957}
   - component: {fileID: 8968507708387009956}
   - component: {fileID: 8968507708387009959}
-  - component: {fileID: 1760960089}
+  - component: {fileID: -5601877517615423952}
   m_Layer: 0
   m_Name: CoinsGold
   m_TagString: Untagged
@@ -258,9 +258,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: AddCoinsToCounter
-        m_Mode: 3
+      - m_Target: {fileID: 8968507708387009962}
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -269,13 +269,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8968507708387009962}
-        m_MethodName: set_enabled
-        m_Mode: 6
+      - m_Target: {fileID: 0}
+        m_MethodName: AddCoinsToCounter
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -291,7 +291,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1760960089
+--- !u!114 &-5601877517615423952
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -300,16 +300,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 8968507708387009958}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe908d28fc1f32149b488497e260cde6, type: 3}
+  m_Script: {fileID: 11500000, guid: 0942bca9f5bd48e48895dab7cff1bc75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _nameOfTheClip: 
   _frameRate: 10
-  _loop: 1
-  _sprites:
-  - {fileID: 6582046967323461550, guid: bc5de6af7456e104081d329d6581d20c, type: 3}
-  - {fileID: 1942777921290549423, guid: bc5de6af7456e104081d329d6581d20c, type: 3}
-  - {fileID: 8793606821965667882, guid: bc5de6af7456e104081d329d6581d20c, type: 3}
-  - {fileID: 3444832735345940322, guid: bc5de6af7456e104081d329d6581d20c, type: 3}
-  _onComplete:
-    m_PersistentCalls:
-      m_Calls: []
+  _animationStates:
+  - _name: Gold
+    _loop: 1
+    _allowNext: 0
+    _sprites:
+    - {fileID: 6582046967323461550, guid: bc5de6af7456e104081d329d6581d20c, type: 3}
+    - {fileID: 1942777921290549423, guid: bc5de6af7456e104081d329d6581d20c, type: 3}
+    - {fileID: 8793606821965667882, guid: bc5de6af7456e104081d329d6581d20c, type: 3}
+    - {fileID: 3444832735345940322, guid: bc5de6af7456e104081d329d6581d20c, type: 3}
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls: []

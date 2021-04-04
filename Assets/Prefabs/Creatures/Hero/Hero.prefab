@@ -5296,7 +5296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 4
   _speedSprintMultiplier: 1.5
-  _jumpSpeed: 12
+  _jumpSpeed: 12.1
   _wallJumpSpeed: 6
   _damageJumpSpeed: 12
   _fallingSpeedLimit: 15
