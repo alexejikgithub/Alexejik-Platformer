@@ -4904,5 +4904,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _destTransform: {fileID: 0}
-  _alphaTime: 1
-  _moveTime: 1
+  _alphaTime: 0.5
+  _moveTime: 0.5
