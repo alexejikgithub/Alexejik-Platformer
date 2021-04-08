@@ -63,6 +63,17 @@ namespace Platformer
 
 		}
 
+		public void OnAttack(InputAction.CallbackContext context)
+		{
+
+			if (context.canceled)
+			{
+				_hero.Attack();
+
+			}
+		}
+
+
 	}
 
 }

@@ -38,7 +38,7 @@ namespace Platformer
 		{
 			_secondsPerFrame = 1f / _frameRate;
 			_nextFrameTime = Time.time + _secondsPerFrame;
-			_currentSpriteIndex = 0;
+			//_currentSpriteIndex = 0;
 			_currentAnimationState = _animationStates[0];
 
 		}
@@ -82,9 +82,9 @@ namespace Platformer
 				else
 				{
 
-
+					
 					_currentAnimationState.OnComplete?.Invoke();
-					enabled = false;
+					//enabled = false;
 					
 					return;
 
@@ -100,6 +100,7 @@ namespace Platformer
 		}
 		public void SetClip(string name)
 		{
+			_currentSpriteIndex = 0;
 			for (int i = 0; i < _animationStates.Length; i++)
 			{
 				if (_animationStates[i].Name == name)

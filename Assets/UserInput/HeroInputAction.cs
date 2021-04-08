@@ -49,6 +49,14 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Attak"",
+                    ""type"": ""Button"",
+                    ""id"": ""221b630e-a621-4158-a9e5-71389be52ea3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -194,6 +202,17 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""action"": ""SpeedUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1407d4b0-b6aa-4acc-8fc5-659ceba60123"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attak"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -206,6 +225,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         m_Hero_SaySomething = m_Hero.FindAction("SaySomething", throwIfNotFound: true);
         m_Hero_Interact = m_Hero.FindAction("Interact", throwIfNotFound: true);
         m_Hero_SpeedUp = m_Hero.FindAction("SpeedUp", throwIfNotFound: true);
+        m_Hero_Attak = m_Hero.FindAction("Attak", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -259,6 +279,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
     private readonly InputAction m_Hero_SaySomething;
     private readonly InputAction m_Hero_Interact;
     private readonly InputAction m_Hero_SpeedUp;
+    private readonly InputAction m_Hero_Attak;
     public struct HeroActions
     {
         private @HeroInputAction m_Wrapper;
@@ -267,6 +288,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         public InputAction @SaySomething => m_Wrapper.m_Hero_SaySomething;
         public InputAction @Interact => m_Wrapper.m_Hero_Interact;
         public InputAction @SpeedUp => m_Wrapper.m_Hero_SpeedUp;
+        public InputAction @Attak => m_Wrapper.m_Hero_Attak;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -288,6 +310,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @SpeedUp.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnSpeedUp;
                 @SpeedUp.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnSpeedUp;
                 @SpeedUp.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnSpeedUp;
+                @Attak.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnAttak;
+                @Attak.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnAttak;
+                @Attak.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnAttak;
             }
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
@@ -304,6 +329,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @SpeedUp.started += instance.OnSpeedUp;
                 @SpeedUp.performed += instance.OnSpeedUp;
                 @SpeedUp.canceled += instance.OnSpeedUp;
+                @Attak.started += instance.OnAttak;
+                @Attak.performed += instance.OnAttak;
+                @Attak.canceled += instance.OnAttak;
             }
         }
     }
@@ -314,5 +342,6 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         void OnSaySomething(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnSpeedUp(InputAction.CallbackContext context);
+        void OnAttak(InputAction.CallbackContext context);
     }
 }

@@ -2,6 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Platformer.Utils;
+using UnityEditor;
+using UnityEditor.Animations;
+
 namespace Platformer
 {
 	public class Hero : MonoBehaviour
@@ -12,18 +16,31 @@ namespace Platformer
 		[SerializeField] private float _jumpSpeed;
 		[SerializeField] private float _damageJumpSpeed;
 		[SerializeField] private float _fallingSpeedLimit;
+		[SerializeField] private int _damage;
 
-
+		[SerializeField] private LayerMask _groundLayer;
 		[SerializeField] private LayerMask _interactionLayer;
+		[SerializeField] private float _interactRadius;
+
+
 		[SerializeField] private CoinCounter _coinCunter;
 
 
 		[SerializeField] private LayerCheck _groundCheck;
-		[SerializeField] private float _interactRadius;
 
+		[SerializeField] private CheckCircleOverlap _attackRange;
+
+
+		[SerializeField] private AnimatorController _armed;
+		[SerializeField] private AnimatorController _unarmed;
+
+
+		[Space]
+		[Header("Particles")]
 		[SerializeField] private SpawnComponent _footStepParticles;
 		[SerializeField] private SpawnComponent _jumpParticles;
 		[SerializeField] private SpawnComponent _landingParticles;
+		[SerializeField] private SpawnComponent _swordParticles;
 
 		[SerializeField] private ParticleSystem _hitParticles;
 
@@ -37,6 +54,8 @@ namespace Platformer
 		private bool _isJumping;
 		private bool _isSprinting;
 
+		private bool _isArmed;
+
 
 
 		private static readonly int IsRunning = Animator.StringToHash("isRunning");
@@ -44,6 +63,7 @@ namespace Platformer
 		private static readonly int VerticalVelocity = Animator.StringToHash("verticalVelocity");
 		private static readonly int Hit = Animator.StringToHash("hitTrigger");
 		private static readonly int IsSprinting = Animator.StringToHash("isSprinting");
+		private static readonly int AttackKey = Animator.StringToHash("attack");
 		private void Awake()
 		{
 			_rigidbody = GetComponent<Rigidbody2D>();
@@ -65,8 +85,8 @@ namespace Platformer
 
 		private void FixedUpdate()
 		{
-			float runningSpeed=_isSprinting? (_speed* _speedSprintMultiplier) : _speed;
-			
+			float runningSpeed = _isSprinting ? (_speed * _speedSprintMultiplier) : _speed;
+
 			var xVelocity = _direction.x * runningSpeed;
 			var yVelocity = CalculateYVelocity();
 
@@ -159,12 +179,16 @@ namespace Platformer
 
 		}
 
+#if UNITY_EDITOR
+
 		private void OnDrawGizmos() //Checking ray for jumping
 		{
-			Gizmos.color = IsGrounded() ? Color.green : Color.red;
-			Gizmos.DrawSphere(transform.position, 0.3f);
-		}
 
+
+			Handles.color = IsGrounded() ? HandlesUtils.TransparentGreen : HandlesUtils.TransparentRed;
+			Handles.DrawSolidDisc(transform.position, Vector3.forward, 0.3f);
+		}
+#endif
 
 		public void SaySomehting()
 		{
@@ -174,7 +198,7 @@ namespace Platformer
 		public void SetIsSprinting(bool state)
 		{
 			_isSprinting = state;
-			
+
 		}
 
 		public void TakeDamage()
@@ -221,6 +245,32 @@ namespace Platformer
 			}
 
 		}
+		public void Attack()
+		{
+			if (!_isArmed) return;
+			_animator.SetTrigger(AttackKey);
+			
+		}
+		public void OnAttacking()
+		{
+			var gos = _attackRange.GetObjectInRange();
+			foreach (var go in gos)
+			{
+				var hp = go.GetComponent<HealthComponent>();
+				if (hp != null && go.CompareTag("Enemy"))
+				{
+					hp.ApplyDamage(_damage);
+				}
+			}
+		}
+
+		public void ArmHero()
+		{
+			
+			_isArmed = true;
+			_animator.runtimeAnimatorController = _armed;
+		}
+
 		public void SpawnFootDust()
 		{
 			_footStepParticles.Spawn();
@@ -230,16 +280,33 @@ namespace Platformer
 		{
 			_jumpParticles.Spawn();
 		}
+		public void SpawnSwordDust()
+		{
+			_swordParticles.Spawn();
+		}
 
+
+		private void OnCollisionEnter2D(Collision2D collision)
+		{
+
+
+			if (collision.gameObject.IsInLayer(_groundLayer))
+			{
+
+				var contact = collision.contacts[0];
+				if (contact.relativeVelocity.y >= _fallingSpeedLimit)
+				{
+
+					SpawnlandingDust();
+				}
+
+			}
+		}
 		public void SpawnlandingDust()
 		{
-			Debug.Log(_rigidbody.velocity.y);
 
-			if (_rigidbody.velocity.y < -_fallingSpeedLimit)
-			{
-				_landingParticles.Spawn();
-			}
-
+			_landingParticles.Spawn();
+			
 		}
 
 
