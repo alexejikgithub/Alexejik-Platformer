@@ -95,10 +95,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0942bca9f5bd48e48895dab7cff1bc75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nameOfTheClip: 
   _frameRate: 10
-  _animationStates:
-  - _name: sword
+  _nameOfTheClip: 
+  _clips:
+  - _name: swing
     _loop: 0
     _allowNext: 0
     _sprites:

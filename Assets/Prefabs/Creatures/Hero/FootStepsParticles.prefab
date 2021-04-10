@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7728886563200359819}
   - component: {fileID: -357586498422944283}
   m_Layer: 0
-  m_Name: FootSteps
+  m_Name: FootStepsParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,10 +95,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0942bca9f5bd48e48895dab7cff1bc75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nameOfTheClip: 
   _frameRate: 10
-  _animationStates:
-  - _name: run
+  _nameOfTheClip: 
+  _clips:
+  - _name: 
     _loop: 0
     _allowNext: 0
     _sprites:
