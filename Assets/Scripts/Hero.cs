@@ -111,7 +111,7 @@ namespace Platformer
 
 
 			_animator.SetBool(IsRunning, _direction.x != 0);
-			_animator.SetBool(IsSprinting, _isSprinting);
+			_animator.SetFloat(IsSprinting,_isSprinting? 1f : 0f );
 			_animator.SetBool(IsSliding, _isSlidingOffTheWall);
 			_animator.SetBool(IsGroundedKey, _isGrounded);
 			_animator.SetFloat(VerticalVelocity, _rigidbody.velocity.y);
@@ -330,7 +330,10 @@ namespace Platformer
 
 		public void DoJumpOffTheWall() //public use of JumpOffTheWall
 		{
-			StartCoroutine(JumpOffTheWall(transform.localScale.x));
+			if (_isSlidingOffTheWall) // Jumping off the wall only if _isTouchingWall && !_isGrounded
+			{
+				StartCoroutine(JumpOffTheWall(transform.localScale.x));
+			}
 		}
 
 		private IEnumerator UnhookOfTheWall() //this methods allows to unhook of the wall if you hold direction key for a while
