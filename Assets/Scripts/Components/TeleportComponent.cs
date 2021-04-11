@@ -52,11 +52,12 @@ namespace Platformer
 		private IEnumerator MoveAnimation(GameObject target)
 		{
 			var moveTime = 0f;
+			var startPosition = target.transform.position;
 			while (moveTime < _moveTime)
 			{
 				moveTime += Time.deltaTime;
 				var progress = moveTime / _moveTime;
-				target.transform.position = Vector3.Lerp(target.transform.position, _destTransform.position, progress);
+				target.transform.position = Vector3.Lerp(startPosition, _destTransform.position, progress);
 				yield return null;
 			}
 		}

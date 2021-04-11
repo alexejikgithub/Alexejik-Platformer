@@ -5,6 +5,7 @@ using UnityEngine;
 using Platformer.Utils;
 using UnityEditor;
 using UnityEditor.Animations;
+using Platformer.Model;
 
 namespace Platformer
 {
@@ -54,7 +55,7 @@ namespace Platformer
 		private bool _isJumping;
 		private bool _isSprinting;
 
-		private bool _isArmed;
+
 
 
 
@@ -64,12 +65,30 @@ namespace Platformer
 		private static readonly int Hit = Animator.StringToHash("hitTrigger");
 		private static readonly int IsSprinting = Animator.StringToHash("isSprinting");
 		private static readonly int AttackKey = Animator.StringToHash("attack");
+
+		private GameSession _session;
+
+
 		private void Awake()
 		{
 			_rigidbody = GetComponent<Rigidbody2D>();
 			_animator = GetComponent<Animator>();
 
 
+		}
+
+		
+		private void Start()
+		{
+			_session = FindObjectOfType<GameSession>();
+
+			var health = GetComponent<HealthComponent>();
+			health.SetHealth(_session.Data.Hp);
+			UpdateHeroWeapon();
+		}
+		public void OnHealthChanged(int currentHealth)
+		{
+			_session.Data.Hp = currentHealth;
 		}
 
 		public void SetDirection(Vector2 direction)
@@ -96,7 +115,7 @@ namespace Platformer
 
 
 			_animator.SetBool(IsRunning, _direction.x != 0);
-			_animator.SetBool(IsSprinting, _isSprinting);
+			_animator.SetFloat(IsSprinting, _isSprinting ? 1f : 0f);
 			_animator.SetBool(IsGroundedKey, _isGrounded);
 			_animator.SetFloat(VerticalVelocity, _rigidbody.velocity.y);
 
@@ -247,9 +266,9 @@ namespace Platformer
 		}
 		public void Attack()
 		{
-			if (!_isArmed) return;
+			if (!_session.Data.IsArmed) return;
 			_animator.SetTrigger(AttackKey);
-			
+
 		}
 		public void OnAttacking()
 		{
@@ -266,9 +285,16 @@ namespace Platformer
 
 		public void ArmHero()
 		{
+
+			_session.Data.IsArmed = true;
+			UpdateHeroWeapon();
+
+		}
+
+		private void UpdateHeroWeapon()
+		{
+			_animator.runtimeAnimatorController = _session.Data.IsArmed ? _armed : _unarmed;
 			
-			_isArmed = true;
-			_animator.runtimeAnimatorController = _armed;
 		}
 
 		public void SpawnFootDust()
@@ -306,7 +332,7 @@ namespace Platformer
 		{
 
 			_landingParticles.Spawn();
-			
+
 		}
 
 

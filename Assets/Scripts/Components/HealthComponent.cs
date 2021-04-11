@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -7,17 +8,20 @@ namespace Platformer.Components
 {
 	public class HealthComponent : MonoBehaviour
 	{
-		[Range (0,100)]
+		[Range(0, 100)]
 		[SerializeField] private int _health;
 		[SerializeField] private UnityEvent _onDamage;
 		[SerializeField] private UnityEvent _onHealing;
 		[SerializeField] private UnityEvent _onDie;
 
+		[SerializeField] private HealthChangeEvent _onChange;
+
 		public void ApplyDamage(int damageValue)
 		{
 			_health -= damageValue;
+			_onChange?.Invoke(_health);
 			_onDamage?.Invoke();
-			if(_health<=0)
+			if (_health <= 0)
 			{
 				_onDie?.Invoke();
 			}
@@ -26,10 +30,33 @@ namespace Platformer.Components
 		public void ApplyHealing(int healingValue)
 		{
 			_health += healingValue;
+			_onChange?.Invoke(_health);
 			_onHealing?.Invoke();
-			
+
 		}
 
+#if UNITY_EDITOR
+		[ContextMenu("Update Health")]
+
+
+		private void UpdateHealth()
+		{
+			_onChange?.Invoke(_health);
+		}
+#endif
+
+
+		internal void SetHealth(int health)
+		{
+			_health = health;
+		}
+
+
+		[Serializable]
+		public class HealthChangeEvent : UnityEvent<int>
+		{
+
+		}
 	}
 
 }
