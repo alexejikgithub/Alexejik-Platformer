@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5010800098966159776}
   - component: {fileID: 5010800098966159783}
   - component: {fileID: 5010800098966159782}
+  - component: {fileID: 293172016}
   m_Layer: 9
   m_Name: DestructableBarrel
   m_TagString: Enemy
@@ -100,24 +101,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _frameRate: 10
-  _nameOfTheClip: 
   _clips:
   - _name: idle
-    _loop: 0
-    _allowNext: 0
     _sprites:
     - {fileID: 21300000, guid: e919e834a1ee7e9449e9be0292d1e55a, type: 3}
+    _loop: 0
+    _allowNext: 0
     _onComplete:
       m_PersistentCalls:
         m_Calls: []
   - _name: hit
-    _loop: 0
-    _allowNext: 0
     _sprites:
     - {fileID: 21300000, guid: 0fa73349f3ac3a84498eebde92c9a18c, type: 3}
     - {fileID: 21300000, guid: 67b99b5cd81d6a046985ef2d14a9b9a7, type: 3}
     - {fileID: 21300000, guid: e5a9ee3e82769fa4d91984aaa4bc4557, type: 3}
     - {fileID: 21300000, guid: 2c87da490524e1f489633bc35c741880, type: 3}
+    _loop: 0
+    _allowNext: 0
     _onComplete:
       m_PersistentCalls:
         m_Calls:
@@ -133,14 +133,13 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   - _name: destroy
-    _loop: 0
-    _allowNext: 0
     _sprites:
     - {fileID: 21300000, guid: 0fa73349f3ac3a84498eebde92c9a18c, type: 3}
     - {fileID: 21300000, guid: 67b99b5cd81d6a046985ef2d14a9b9a7, type: 3}
     - {fileID: 21300000, guid: e5a9ee3e82769fa4d91984aaa4bc4557, type: 3}
     - {fileID: 21300000, guid: 2c87da490524e1f489633bc35c741880, type: 3}
-    - {fileID: 21300000, guid: 0fa73349f3ac3a84498eebde92c9a18c, type: 3}
+    _loop: 0
+    _allowNext: 0
     _onComplete:
       m_PersistentCalls:
         m_Calls:
@@ -157,6 +156,17 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 5010800098966159779}
           m_MethodName: DestroyObject
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 293172016}
+          m_MethodName: Spawn
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -191,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d119d2e57e7ebe546bb900a4cae7c715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 1
+  _health: 3
   _onDamage:
     m_PersistentCalls:
       m_Calls:
@@ -223,6 +233,9 @@ MonoBehaviour:
           m_StringArgument: destroy
           m_BoolArgument: 0
         m_CallState: 2
+  _onChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!61 &5010800098966159776
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -284,3 +297,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 5010800098966159789}
   _prefab: {fileID: 2594260103802260084, guid: 8b2c7d847700f1449a4ecdc9db782a46, type: 3}
+--- !u!114 &293172016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5010800098966159790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281aa3915bed13742bb04b71b346572f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 5010800098966159789}
+  _arrayOfPrefabs:
+  - {fileID: 8968507708387009958, guid: 9d520dc8bf059374e9f05dc7184ab909, type: 3}
+  - {fileID: 1278096446156702369, guid: 3b1de30fefa00014fbe7fc99c2a5e00f, type: 3}
+  _numberOfSpawns: 100

@@ -16,15 +16,23 @@ namespace Platformer.Components
 
 		[SerializeField] private HealthChangeEvent _onChange;
 
+		private bool _isDead = false;
+		// _isDead will prevent invoking other events when target is already performing _onDie
+
 		public void ApplyDamage(int damageValue)
 		{
-			_health -= damageValue;
-			_onChange?.Invoke(_health);
-			_onDamage?.Invoke();
-			if (_health <= 0)
+			if(!_isDead)
 			{
-				_onDie?.Invoke();
+				_health -= damageValue;
+				_onChange?.Invoke(_health);
+				_onDamage?.Invoke();
+				if (_health <= 0)
+				{
+					_isDead = true;
+					_onDie?.Invoke();
+				}
 			}
+			
 		}
 
 		public void ApplyHealing(int healingValue)

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 35387657}
   - component: {fileID: 35387658}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FootStepPosition
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 431080626}
   - component: {fileID: 431080628}
   - component: {fileID: 431080627}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: DamageParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4867,7 +4867,7 @@ GameObject:
   m_Component:
   - component: {fileID: 630617816}
   - component: {fileID: 630617815}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: JumpDustPosition
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -4911,7 +4911,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 651596755}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: ParticlePositions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4946,7 +4946,7 @@ GameObject:
   m_Component:
   - component: {fileID: 754719538}
   - component: {fileID: 754719537}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LandingDustPosition
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -4981,6 +4981,82 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 754719538}
   _prefab: {fileID: 7728886563200359817, guid: 72a598e5e845cb9409818ee4d51d6bd8, type: 3}
+--- !u!1 &1156647558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1156647559}
+  - component: {fileID: 1156647562}
+  - component: {fileID: 1156647560}
+  m_Layer: 13
+  m_Name: InteractionCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1156647559
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156647558}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.101, y: 0.047, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2032397210555660393}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1156647562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156647558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38aa3eddd1669954cb40155004018990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radius: 0.5
+  _mask:
+    serializedVersion: 2
+    m_Bits: 7991
+  _tags:
+  - Interactable
+  _onOverlap:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1156647560}
+        m_MethodName: DoInteraction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1156647560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156647558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07b871e85df60f448af5e3896457a98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1617869314
 GameObject:
   m_ObjectHideFlags: 0
@@ -4991,7 +5067,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1617869315}
   - component: {fileID: 1617869316}
-  m_Layer: 0
+  - component: {fileID: 1925583741565123195}
+  m_Layer: 13
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -5025,6 +5102,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _radius: 0.2
+  _mask:
+    serializedVersion: 2
+    m_Bits: 4096
+  _tags:
+  - Enemy
+  _onOverlap:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1925583741565123195}
+        m_MethodName: ChangeHealthAmount
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1925583741565123195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617869314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a745f626bcbf22c44a5ef99f6149e7da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthPointsToChange: 1
+  _healOrDamage: 1
 --- !u!1 &1728574613
 GameObject:
   m_ObjectHideFlags: 0
@@ -5035,7 +5145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1728574615}
   - component: {fileID: 1728574614}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SwordParticlesPosition
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -5087,7 +5197,8 @@ GameObject:
   - component: {fileID: 2032397210555660373}
   - component: {fileID: 2032397210555660371}
   - component: {fileID: 1237855580}
-  m_Layer: 0
+  - component: {fileID: 19974107}
+  m_Layer: 13
   m_Name: Hero
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -5109,6 +5220,7 @@ Transform:
   - {fileID: 431080626}
   - {fileID: 651596755}
   - {fileID: 1617869315}
+  - {fileID: 1156647559}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5186,28 +5298,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d9408f587ced2746b8627159f005f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 4
-  _speedSprintMultiplier: 1.5
-  _jumpSpeed: 12
+  Speed: 4
+  JumpSpeed: 12
   _damageJumpSpeed: 10
-  _fallingSpeedLimit: 15
+  _damageVelocity: 10
   _damage: 1
-  _groundLayer:
+  GroundLayer:
     serializedVersion: 2
     m_Bits: 256
+  _groundCheck: {fileID: 2032397211698839589}
+  _attackRange: {fileID: 1617869316}
+  Particles: {fileID: 19974107}
+  _fallingSpeedLimit: 15
   _interactionLayer:
     serializedVersion: 2
     m_Bits: 1024
   _interactRadius: 1
+  _interactionCheck: {fileID: 1156647562}
   _coinCunter: {fileID: 0}
-  _groundCheck: {fileID: 2032397211698839589}
-  _attackRange: {fileID: 1617869316}
   _armed: {fileID: 9100000, guid: 6bcac67d3037afd498052f0d48e13e91, type: 2}
   _unarmed: {fileID: 9100000, guid: 289c02848a3c2a949b78c9a6a32ab706, type: 2}
-  _footStepParticles: {fileID: 35387658}
-  _jumpParticles: {fileID: 630617815}
-  _landingParticles: {fileID: 754719537}
-  _swordParticles: {fileID: 1728574614}
   _hitParticles: {fileID: 431080628}
 --- !u!114 &2032397210555660372
 MonoBehaviour:
@@ -5429,6 +5539,27 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &19974107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032397210555660395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a6365be4227aa246bca815e5eed410e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawners:
+  - Id: Run
+    Component: {fileID: 35387658}
+  - Id: Jump
+    Component: {fileID: 630617815}
+  - Id: SlamDown
+    Component: {fileID: 754719537}
+  - Id: SwordDust
+    Component: {fileID: 1728574614}
 --- !u!1 &2032397211698839591
 GameObject:
   m_ObjectHideFlags: 0
@@ -5440,7 +5571,7 @@ GameObject:
   - component: {fileID: 2032397211698839588}
   - component: {fileID: 2032397211698839586}
   - component: {fileID: 2032397211698839589}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5489,7 +5620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a41064f91ccd4cf4183a91ff72a68c10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _groundLayer:
+  Layer:
     serializedVersion: 2
     m_Bits: 768
-  IsTouchingLayer: 0
+  _isTouchingLayer: 0

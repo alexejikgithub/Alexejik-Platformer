@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Platformer.Creatures;
 
 namespace Platformer
 {
@@ -27,16 +28,7 @@ namespace Platformer
 
 		}
 
-		public void OnSaySomething(InputAction.CallbackContext context)
-		{
-
-			if (context.canceled)
-			{
-				_hero.SaySomehting();
-			}
-
-
-		}
+		
 
 		public void OnInteract(InputAction.CallbackContext context)
 		{
@@ -48,6 +40,7 @@ namespace Platformer
 			}
 		}
 
+		/*
 		public void OnSprint(InputAction.CallbackContext context)
 		{
 			if (context.started)
@@ -62,6 +55,7 @@ namespace Platformer
 			}
 
 		}
+		*/
 
 		public void OnAttack(InputAction.CallbackContext context)
 		{

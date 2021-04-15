@@ -11,7 +11,7 @@ namespace Platformer.Components
 		public void Reload()
 		{
 			var session = FindObjectOfType<GameSession>();
-			Destroy(session);
+			Destroy(session.gameObject);
 
 			var scene = SceneManager.GetActiveScene();
 			SceneManager.LoadScene(scene.name);

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8968507708387009959}
   - component: {fileID: 5273181040990084207}
   - component: {fileID: 6163307828000931182}
+  - component: {fileID: 1781152787}
   m_Layer: 0
   m_Name: CoinsGold
   m_TagString: Untagged
@@ -132,9 +133,9 @@ MonoBehaviour:
   _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: AddCoinsToCounter
-        m_Mode: 3
+      - m_Target: {fileID: 1781152787}
+        m_MethodName: AddCoins
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -225,3 +226,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 8968507708387009958}
+--- !u!114 &1781152787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8968507708387009958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c791d7c9a7379214da736231cc733e25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coinAmount: 0
+  _coinCounter: {fileID: 0}

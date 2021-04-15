@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 1278096446156702371}
   - component: {fileID: 1278096446156702368}
   - component: {fileID: 685187958}
+  - component: {fileID: 471120577973286568}
   m_Layer: 0
   m_Name: CoinSilver
   m_TagString: Untagged
@@ -258,9 +259,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: AddCoinsToCounter
-        m_Mode: 3
+      - m_Target: {fileID: 471120577973286568}
+        m_MethodName: AddCoins
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -313,3 +314,16 @@ MonoBehaviour:
   _onComplete:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &471120577973286568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278096446156702369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c791d7c9a7379214da736231cc733e25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coinAmount: 1

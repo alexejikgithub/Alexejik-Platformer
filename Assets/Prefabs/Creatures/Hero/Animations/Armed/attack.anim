@@ -73,8 +73,8 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: SpawnSwordDust
-    data: 
+    functionName: Spawn
+    data: SwordDust
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
