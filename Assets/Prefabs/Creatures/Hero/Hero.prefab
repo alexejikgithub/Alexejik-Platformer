@@ -5298,11 +5298,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d9408f587ced2746b8627159f005f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _invertScale: 0
   Speed: 4
   JumpSpeed: 12
   _damageJumpSpeed: 10
   _damageVelocity: 10
-  _damage: 1
   GroundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -5622,5 +5622,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Layer:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 4864
   _isTouchingLayer: 0
