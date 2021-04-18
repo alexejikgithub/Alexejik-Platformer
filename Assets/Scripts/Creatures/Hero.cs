@@ -64,6 +64,26 @@ namespace Platformer.Creatures
 			UpdateHeroWeapon();
 		}
 
+		internal  IEnumerator ThrowBunch()
+		{
+			int swordCount = _session.Data.SwordsCount > 3 ? 2 : _session.Data.SwordsCount - 2;
+
+			if(swordCount>=0)
+			{
+				_session.Data.SwordsCount -= swordCount;
+				Throw();
+				
+				while(swordCount>0)
+				{
+					yield return new WaitForSeconds(0.2f);
+					swordCount--;
+					OnDoThrow();
+					
+				}
+				
+			}
+		}
+
 		public void Throw()
 		{
 			if(_throwCooldown.IsReady && _session.Data.SwordsCount>1)

@@ -65,6 +65,14 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ThrowBunch"",
+                    ""type"": ""Button"",
+                    ""id"": ""ac0af2a0-b69a-4779-be29-f74b92a1d84d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -232,6 +240,17 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""action"": ""Throw"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5bd58a90-8028-440f-9d25-6c48e367e364"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": ""Hold(duration=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ThrowBunch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -246,6 +265,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         m_Hero_SpeedUp = m_Hero.FindAction("SpeedUp", throwIfNotFound: true);
         m_Hero_Attak = m_Hero.FindAction("Attak", throwIfNotFound: true);
         m_Hero_Throw = m_Hero.FindAction("Throw", throwIfNotFound: true);
+        m_Hero_ThrowBunch = m_Hero.FindAction("ThrowBunch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -301,6 +321,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
     private readonly InputAction m_Hero_SpeedUp;
     private readonly InputAction m_Hero_Attak;
     private readonly InputAction m_Hero_Throw;
+    private readonly InputAction m_Hero_ThrowBunch;
     public struct HeroActions
     {
         private @HeroInputAction m_Wrapper;
@@ -311,6 +332,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         public InputAction @SpeedUp => m_Wrapper.m_Hero_SpeedUp;
         public InputAction @Attak => m_Wrapper.m_Hero_Attak;
         public InputAction @Throw => m_Wrapper.m_Hero_Throw;
+        public InputAction @ThrowBunch => m_Wrapper.m_Hero_ThrowBunch;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -338,6 +360,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @Throw.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnThrow;
                 @Throw.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnThrow;
                 @Throw.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnThrow;
+                @ThrowBunch.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnThrowBunch;
+                @ThrowBunch.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnThrowBunch;
+                @ThrowBunch.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnThrowBunch;
             }
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
@@ -360,6 +385,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @Throw.started += instance.OnThrow;
                 @Throw.performed += instance.OnThrow;
                 @Throw.canceled += instance.OnThrow;
+                @ThrowBunch.started += instance.OnThrowBunch;
+                @ThrowBunch.performed += instance.OnThrowBunch;
+                @ThrowBunch.canceled += instance.OnThrowBunch;
             }
         }
     }
@@ -372,5 +400,6 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         void OnSpeedUp(InputAction.CallbackContext context);
         void OnAttak(InputAction.CallbackContext context);
         void OnThrow(InputAction.CallbackContext context);
+        void OnThrowBunch(InputAction.CallbackContext context);
     }
 }

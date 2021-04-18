@@ -60,6 +60,10 @@ namespace Platformer
 		public void OnAttack(InputAction.CallbackContext context)
 		{
 
+			if(context.started)
+			{
+
+			}
 			if (context.canceled)
 			{
 				_hero.Attack();
@@ -70,9 +74,19 @@ namespace Platformer
 		public void OnThrow(InputAction.CallbackContext context)
 		{
 
-			if (context.performed)
+			if (context.canceled)
 			{
 				_hero.Throw();
+
+			}
+		}
+
+		public void OnThrowBunch(InputAction.CallbackContext context)
+		{
+
+			if (context.performed)
+			{
+				StartCoroutine(_hero.ThrowBunch());
 
 			}
 		}
