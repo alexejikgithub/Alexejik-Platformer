@@ -28,6 +28,7 @@ namespace Platformer
         private void OnTriggerExit2D(Collider2D collision)
         {
             _isTouchingLayer = (_collider.IsTouchingLayers(Layer));
+            
         }
 
 

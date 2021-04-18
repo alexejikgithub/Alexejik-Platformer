@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 35387656}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.05, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 651596755}
   m_RootOrder: 1
@@ -297,6 +297,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   _action:
     m_PersistentCalls:
       m_Calls: []
@@ -357,7 +360,7 @@ GameObject:
   - component: {fileID: 1986067086}
   - component: {fileID: 1986067084}
   - component: {fileID: 1986067085}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Vision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -433,6 +436,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   _action:
     m_PersistentCalls:
       m_Calls:
@@ -572,7 +578,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -688246703
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 8c13c7d1ca2584445840d9410978ace7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

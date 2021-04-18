@@ -46,6 +46,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Tilemap
+    uniqueID: 2275527487
+    locked: 0
   - name: OutdorTiles
     uniqueID: 2334865683
     locked: 0

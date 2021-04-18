@@ -49,9 +49,16 @@ namespace Platformer.Creatures
 
 		private IEnumerator AgroToHero()
 		{
+			LookAtHero();
 			_particles.Spawn("Exclamation");
 			yield return new WaitForSeconds(_alarmDelay);
 			StartState(GoToHero());
+		}
+
+		private void LookAtHero()
+		{
+			var direction = GetDirectionToTarget();
+			_creature.UpdateSpriteDirection(direction);
 		}
 
 		private IEnumerator GoToHero()
@@ -75,8 +82,9 @@ namespace Platformer.Creatures
 				}
 				_particles.Spawn("MissHero");
 				_creature.SetDirection(Vector2.zero);
-				StartState(_patrol.DoPatrol());
 				yield return new WaitForSeconds(_missHeroCooldown);
+				StartState(_patrol.DoPatrol());
+				
 			}
 		}
 
@@ -92,9 +100,15 @@ namespace Platformer.Creatures
 
 		private void SetDirectionToTarget()
 		{
+			var direction = GetDirectionToTarget();
+			_creature.SetDirection(direction);
+		}
+
+		private Vector2 GetDirectionToTarget()
+		{
 			var direction = _target.transform.position - transform.position;
 			direction.y = 0;
-			_creature.SetDirection(direction.normalized);
+			return direction.normalized;
 		}
 
 		
@@ -111,12 +125,15 @@ namespace Platformer.Creatures
 
 		public void OnDie()
 		{
-			_isDead=true;
+			_creature.SetDirection(new Vector2(0, 0));
+			// Creature stops after death.
+			_isDead = true;
 			_animator.SetBool(IsDeadkKey, true);
 			if (_current != null)
 			{
 				StopCoroutine(_current);
 			}
+			
 		}
 		public void ChangeCapsuleColliderOnDeath()
 		{

@@ -13,10 +13,7 @@ namespace Platformer.Components
 		private void Start()
 		{
 			_session = FindObjectOfType<GameSession>();
-			if (_session.Data.IsArmed)
-			{
-				gameObject.SetActive(false);
-			}
+			
 		}
 		public void ArmHero (GameObject go)
 		{

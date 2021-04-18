@@ -27,7 +27,7 @@ namespace Platformer.Creatures
 
 		[SerializeField] private CoinCounter _coinCunter;
 
-
+		[SerializeField] private Cooldown _throwCooldown;
 		[SerializeField] private AnimatorController _armed;
 		[SerializeField] private AnimatorController _unarmed;
 
@@ -35,6 +35,8 @@ namespace Platformer.Creatures
 		[Space]
 		[Header("Particles")]
 		[SerializeField] private ParticleSystem _hitParticles;
+
+		private static readonly int ThrowKey = Animator.StringToHash("throw");
 
 
 
@@ -61,6 +63,23 @@ namespace Platformer.Creatures
 			health.SetHealth(_session.Data.Hp);
 			UpdateHeroWeapon();
 		}
+
+		public void Throw()
+		{
+			if(_throwCooldown.IsReady && _session.Data.SwordsCount>1)
+			{
+				Animator.SetTrigger(ThrowKey);
+				_throwCooldown.Reset();
+				_session.Data.SwordsCount -= 1;
+			}
+			
+		}
+
+		public void OnDoThrow()
+		{
+			Particles.Spawn("Throw");
+		}
+
 		public void OnHealthChanged(int currentHealth)
 		{
 			_session.Data.Hp = currentHealth;
@@ -172,7 +191,7 @@ namespace Platformer.Creatures
 		public void ArmHero()
 		{
 
-			_session.Data.IsArmed = true;
+			_session.Data.SwordsCount +=1;
 			UpdateHeroWeapon();
 
 		}

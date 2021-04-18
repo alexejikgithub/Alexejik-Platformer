@@ -4832,7 +4832,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -688246703
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
@@ -4912,7 +4912,7 @@ GameObject:
   m_Component:
   - component: {fileID: 651596755}
   m_Layer: 13
-  m_Name: ParticlePositions
+  m_Name: Positions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4933,6 +4933,7 @@ Transform:
   - {fileID: 35387657}
   - {fileID: 754719538}
   - {fileID: 1728574615}
+  - {fileID: 99185938857485604}
   m_Father: {fileID: 2032397210555660393}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5261,7 +5262,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -688246703
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 2de2713cfc7301e40a67d9592ff81039, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5316,6 +5317,8 @@ MonoBehaviour:
   _interactRadius: 1
   _interactionCheck: {fileID: 1156647562}
   _coinCunter: {fileID: 0}
+  _throwCooldown:
+    _value: 1
   _armed: {fileID: 9100000, guid: 6bcac67d3037afd498052f0d48e13e91, type: 2}
   _unarmed: {fileID: 9100000, guid: 289c02848a3c2a949b78c9a6a32ab706, type: 2}
   _hitParticles: {fileID: 431080628}
@@ -5420,6 +5423,21 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 221b630e-a621-4158-a9e5-71389be52ea3
     m_ActionName: Hero/Attak[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2032397210555660375}
+        m_MethodName: OnThrow
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 647300b0-9d4d-4e98-8b6e-30afcbc2a4ad
+    m_ActionName: Hero/Throw[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero
@@ -5472,7 +5490,7 @@ Animator:
   m_GameObject: {fileID: 2032397210555660395}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 289c02848a3c2a949b78c9a6a32ab706, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6bcac67d3037afd498052f0d48e13e91, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5560,6 +5578,8 @@ MonoBehaviour:
     Component: {fileID: 754719537}
   - Id: SwordDust
     Component: {fileID: 1728574614}
+  - Id: Throw
+    Component: {fileID: 458981460077896299}
 --- !u!1 &2032397211698839591
 GameObject:
   m_ObjectHideFlags: 0
@@ -5605,9 +5625,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.022660136, y: -0.050799012}
+  m_Offset: {x: -0.021375656, y: -0.050799012}
   serializedVersion: 2
-  m_Radius: 0.20794022
+  m_Radius: 0.17580605
 --- !u!114 &2032397211698839589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5624,3 +5644,48 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4864
   _isTouchingLayer: 0
+--- !u!1 &7599040448603723024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 99185938857485604}
+  - component: {fileID: 458981460077896299}
+  m_Layer: 13
+  m_Name: ThrowSwordSpawnPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &99185938857485604
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7599040448603723024}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.41, y: 0.05, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 651596755}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &458981460077896299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7599040448603723024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a1f084093d63a74d9763bacdab81d80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 99185938857485604}
+  _prefab: {fileID: 7728886563200359817, guid: a578471a67ca5704b8a772e085140b53, type: 3}

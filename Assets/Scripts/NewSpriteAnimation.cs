@@ -64,7 +64,7 @@ namespace Platformer
 		}
 		private void StartAnimation()
 		{
-			_nextFrameTime = Time.time + _secPerFrame;
+			_nextFrameTime = Time.time;
 			enabled = _isPlaying = true;
 			_currentFrame = 0;
 		}
@@ -74,7 +74,7 @@ namespace Platformer
 		private void OnEnable()
 		{
 			
-			_nextFrameTime = Time.time + _secPerFrame;
+			_nextFrameTime = Time.time;
 			
 
 		}

@@ -128,16 +128,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5709644175845974184, guid: 4e6a3caeb2715a94c9b630ef9b5a3e2f,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1789111040}
-    - target: {fileID: 5709644175845974184, guid: 4e6a3caeb2715a94c9b630ef9b5a3e2f,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Reload
-      objectReference: {fileID: 0}
     - target: {fileID: 5709644175845974185, guid: 4e6a3caeb2715a94c9b630ef9b5a3e2f,
         type: 3}
       propertyPath: m_Name
@@ -207,6 +197,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 53744926, guid: e54e2acb022ec4e42a4c86ab4d0f1939, type: 3}
+      propertyPath: _layer.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 562080604, guid: e54e2acb022ec4e42a4c86ab4d0f1939, type: 3}
       propertyPath: _points.Array.data[0]
       value: 
@@ -215,6 +209,10 @@ PrefabInstance:
       propertyPath: _points.Array.data[1]
       value: 
       objectReference: {fileID: 298497848}
+    - target: {fileID: 1986067085, guid: e54e2acb022ec4e42a4c86ab4d0f1939, type: 3}
+      propertyPath: _layer.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2032397210555660393, guid: e54e2acb022ec4e42a4c86ab4d0f1939,
         type: 3}
       propertyPath: m_RootOrder
@@ -428,6 +426,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2784679925770055632, guid: 291cb31dee400b64e857fd8f9634061c,
+        type: 3}
+      propertyPath: Layer.m_Bits
+      value: 768
+      objectReference: {fileID: 0}
+    - target: {fileID: 2784679925770055632, guid: 291cb31dee400b64e857fd8f9634061c,
+        type: 3}
+      propertyPath: _isTouchingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230404418718229514, guid: 291cb31dee400b64e857fd8f9634061c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230404418718229514, guid: 291cb31dee400b64e857fd8f9634061c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.83
+      objectReference: {fileID: 0}
     - target: {fileID: 7444451696229104948, guid: 291cb31dee400b64e857fd8f9634061c,
         type: 3}
       propertyPath: m_RootOrder
@@ -487,6 +505,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SharkyOnPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 8891380130070663235, guid: 291cb31dee400b64e857fd8f9634061c,
+        type: 3}
+      propertyPath: _layer.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8891380130786639824, guid: 291cb31dee400b64e857fd8f9634061c,
+        type: 3}
+      propertyPath: _layer.m_Bits
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 291cb31dee400b64e857fd8f9634061c, type: 3}
@@ -803,7 +831,7 @@ MonoBehaviour:
   _data:
     coins: 0
     Hp: 10
-    IsArmed: 0
+    SwordsCount: 0
 --- !u!4 &928672009
 Transform:
   m_ObjectHideFlags: 0
@@ -1014,11 +1042,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hero
       objectReference: {fileID: 0}
-    - target: {fileID: 2032397211698839589, guid: 06a62dd4d82589842ba06e6c561e502d,
-        type: 3}
-      propertyPath: Layer.m_Bits
-      value: 4864
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06a62dd4d82589842ba06e6c561e502d, type: 3}
 --- !u!1001 &1731061470
@@ -1028,21 +1051,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4148262280374704368, guid: 92c77fe0bf00a0240ab827535a2aaa54,
-        type: 3}
-      propertyPath: _healOrDamage
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4148262280374704368, guid: 92c77fe0bf00a0240ab827535a2aaa54,
-        type: 3}
-      propertyPath: _healthPointsToChange
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4148262280374704370, guid: 92c77fe0bf00a0240ab827535a2aaa54,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeHealthAmount
-      objectReference: {fileID: 0}
     - target: {fileID: 4148262280374704371, guid: 92c77fe0bf00a0240ab827535a2aaa54,
         type: 3}
       propertyPath: m_RootOrder
@@ -1129,6 +1137,7 @@ GameObject:
   - component: {fileID: 1802052355}
   - component: {fileID: 1802052354}
   - component: {fileID: 1802052353}
+  - component: {fileID: 1802052357}
   m_Layer: 8
   m_Name: Tilemap
   m_TagString: Untagged
@@ -1202,8 +1211,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2019439809
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -3317,6 +3326,27 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!50 &1802052357
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802052351}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1822224721
 GameObject:
   m_ObjectHideFlags: 0

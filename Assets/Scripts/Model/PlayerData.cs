@@ -7,7 +7,9 @@ namespace Platformer.Model
 	{
 		public int coins;
 		public int Hp;
-		public bool IsArmed;
+		public int SwordsCount = 0;
+		public bool IsArmed=> SwordsCount>=1;
+
 	}
 }
 
