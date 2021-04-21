@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 35387657}
   - component: {fileID: 35387658}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: FootStepPosition
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 431080626}
   - component: {fileID: 431080628}
   - component: {fileID: 431080627}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: DamageParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4867,7 +4867,7 @@ GameObject:
   m_Component:
   - component: {fileID: 630617816}
   - component: {fileID: 630617815}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: JumpDustPosition
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -4911,7 +4911,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 651596755}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: Positions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4947,7 +4947,7 @@ GameObject:
   m_Component:
   - component: {fileID: 754719538}
   - component: {fileID: 754719537}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: LandingDustPosition
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -4982,6 +4982,70 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 754719538}
   _prefab: {fileID: 7728886563200359817, guid: 72a598e5e845cb9409818ee4d51d6bd8, type: 3}
+--- !u!1 &1059744525
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1059744526}
+  - component: {fileID: 1059744528}
+  - component: {fileID: 1059744527}
+  m_Layer: 14
+  m_Name: WallCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1059744526
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059744525}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.264, y: 0.031, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2032397210555660393}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1059744528
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059744525}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.021375656, y: -0.050799012}
+  serializedVersion: 2
+  m_Radius: 0.17580605
+--- !u!114 &1059744527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059744525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a41064f91ccd4cf4183a91ff72a68c10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Layer:
+    serializedVersion: 2
+    m_Bits: 256
+  _isTouchingLayer: 0
 --- !u!1 &1156647558
 GameObject:
   m_ObjectHideFlags: 0
@@ -4993,7 +5057,7 @@ GameObject:
   - component: {fileID: 1156647559}
   - component: {fileID: 1156647562}
   - component: {fileID: 1156647560}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: InteractionCheck
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -5069,7 +5133,7 @@ GameObject:
   - component: {fileID: 1617869315}
   - component: {fileID: 1617869316}
   - component: {fileID: 1925583741565123195}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -5146,7 +5210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1728574615}
   - component: {fileID: 1728574614}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: SwordParticlesPosition
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -5222,6 +5286,7 @@ Transform:
   - {fileID: 651596755}
   - {fileID: 1617869315}
   - {fileID: 1156647559}
+  - {fileID: 1059744526}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5311,10 +5376,7 @@ MonoBehaviour:
   _attackRange: {fileID: 1617869316}
   Particles: {fileID: 19974107}
   _fallingSpeedLimit: 15
-  _interactionLayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  _interactRadius: 1
+  _wallCheck: {fileID: 1059744527}
   _interactionCheck: {fileID: 1156647562}
   _coinCunter: {fileID: 0}
   _throwCooldown:
@@ -5505,7 +5567,7 @@ Animator:
   m_GameObject: {fileID: 2032397210555660395}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6bcac67d3037afd498052f0d48e13e91, type: 2}
+  m_Controller: {fileID: 9100000, guid: 289c02848a3c2a949b78c9a6a32ab706, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5606,7 +5668,7 @@ GameObject:
   - component: {fileID: 2032397211698839588}
   - component: {fileID: 2032397211698839586}
   - component: {fileID: 2032397211698839589}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5669,7 +5731,7 @@ GameObject:
   m_Component:
   - component: {fileID: 99185938857485604}
   - component: {fileID: 458981460077896299}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: ThrowSwordSpawnPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -17,20 +17,20 @@ namespace Platformer
 		}
 		public void AddCoinsToCounter(int value)
 		{
-			_session.Data.coins += value;
+			_session.Data.Coins += value;
 			Debug.Log(value + " coins added to the bag");
-			Debug.Log("Now you have " + _session.Data.coins + " coins");
+			Debug.Log("Now you have " + _session.Data.Coins + " coins");
 
 		}
 		public void RemoveCoinsFromCounter(int value)
 		{
-			_session.Data.coins -= value;
+			_session.Data.Coins -= value;
 			Debug.Log(value + " coins lost from the bag");
-			Debug.Log("Now you have " + _session.Data.coins + " coins");
+			Debug.Log("Now you have " + _session.Data.Coins + " coins");
 		}
 		public int GiveCoinAmount()
 		{
-			return _session.Data.coins;
+			return _session.Data.Coins;
 		}
 	}
 

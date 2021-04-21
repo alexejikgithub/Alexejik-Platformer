@@ -21,8 +21,8 @@ TagManager:
   - Trash
   - Enemy
   - Hero
-  - 
-  - 
+  - Checks
+  - Collectables
   - 
   - 
   - 
@@ -54,6 +54,9 @@ TagManager:
     locked: 0
   - name: Hero
     uniqueID: 3606720593
+    locked: 0
+  - name: Creatures
+    uniqueID: 2798855741
     locked: 0
   - name: Props
     uniqueID: 829679621

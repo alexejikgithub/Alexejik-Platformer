@@ -1,4 +1,6 @@
 ﻿using Platformer.Components;
+using Platformer.Components.ColliderBased;
+using Platformer.Components.GoBased;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

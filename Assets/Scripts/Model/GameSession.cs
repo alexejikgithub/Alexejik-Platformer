@@ -10,6 +10,9 @@ namespace Platformer.Model
 
 		public PlayerData Data => _data;
 
+		private PlayerData _save;
+
+
 		private void Awake()
 		{
 			if (IsSessionExist())
@@ -18,6 +21,7 @@ namespace Platformer.Model
 			}
 			else
 			{
+				Save();
 				DontDestroyOnLoad(this);
 			}
 		}
@@ -32,6 +36,16 @@ namespace Platformer.Model
 				
 			}
 			return false;
+		}
+
+		public void Save()
+		{
+			_save = _data.Clone();
+		}
+
+		public void LoadLastSave()
+		{
+			_data = _save.Clone();
 		}
 	}
 }
