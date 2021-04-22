@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3520626113300775243, guid: 93cc9d41096b6374cafbcbd7aec978d2,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7149951628123585578, guid: 93cc9d41096b6374cafbcbd7aec978d2,
         type: 3}
       propertyPath: m_RootOrder

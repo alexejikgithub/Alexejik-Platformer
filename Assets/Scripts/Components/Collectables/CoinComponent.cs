@@ -9,20 +9,14 @@ namespace Platformer.Components.Collectables
 	public class CoinComponent : MonoBehaviour
 	{
 		[SerializeField] private int _coinAmount;
-		private CoinCounter _coinCounter;
-
-		private void Awake()
-		{
-			_coinCounter = (CoinCounter)FindObjectOfType(typeof(CoinCounter));
-			
-		}
-
 		
+	
 
 
-		public void AddCoins()
+		public void AddCoins(GameObject target)
 		{
-			_coinCounter.AddCoinsToCounter(_coinAmount);
+			var coinCounter = target.GetComponent<CoinCounter>();
+			coinCounter.AddCoinsToCounter(_coinAmount);
 		}
 	}
 	

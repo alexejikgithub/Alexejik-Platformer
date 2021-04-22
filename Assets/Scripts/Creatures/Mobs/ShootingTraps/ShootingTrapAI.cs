@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace Platformer.Creatures.Mobs
+namespace Platformer.Creatures.Mobs.ShootingTraps
 {
     public class ShootingTrapAI : MonoBehaviour
     {
