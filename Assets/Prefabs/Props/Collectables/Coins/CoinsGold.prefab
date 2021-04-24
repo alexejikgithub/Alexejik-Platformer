@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 8968507708387009959}
   - component: {fileID: 5273181040990084207}
   - component: {fileID: 6163307828000931182}
-  - component: {fileID: 1781152787}
   - component: {fileID: 3877128120178137233}
   - component: {fileID: 7854476466363146567}
+  - component: {fileID: 8923303772724350490}
   m_Layer: 15
   m_Name: CoinsGold
   m_TagString: Untagged
@@ -138,8 +138,8 @@ MonoBehaviour:
   _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1781152787}
-        m_MethodName: AddCoins
+      - m_Target: {fileID: 8923303772724350490}
+        m_MethodName: Add
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -231,19 +231,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 8968507708387009958}
---- !u!114 &1781152787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8968507708387009958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c791d7c9a7379214da736231cc733e25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _coinAmount: 10
 --- !u!114 &3877128120178137233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,3 +266,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8923303772724350490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8968507708387009958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78ab86f5bd9bcef4c8f2a42f2a5bac67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: Coin
+  _count: 10

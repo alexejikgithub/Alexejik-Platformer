@@ -48,8 +48,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8362286511804991526}
-        m_MethodName: AddCoins
+      - m_Target: {fileID: 6720192803978928197}
+        m_MethodName: Add
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -174,16 +174,16 @@ CircleCollider2D:
     type: 3}
   m_PrefabInstance: {fileID: 8252018305952661134}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8362286511804991526 stripped
+--- !u!114 &6720192803978928197 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 471120577973286568, guid: 3b1de30fefa00014fbe7fc99c2a5e00f,
+  m_CorrespondingSourceObject: {fileID: 3442972424152866507, guid: 3b1de30fefa00014fbe7fc99c2a5e00f,
     type: 3}
   m_PrefabInstance: {fileID: 8252018305952661134}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7149951628123585583}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c791d7c9a7379214da736231cc733e25, type: 3}
+  m_Script: {fileID: 11500000, guid: 78ab86f5bd9bcef4c8f2a42f2a5bac67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8252018305587784720 stripped

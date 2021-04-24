@@ -5263,7 +5263,6 @@ GameObject:
   - component: {fileID: 2032397210555660371}
   - component: {fileID: 1237855580}
   - component: {fileID: 19974107}
-  - component: {fileID: 1755750485}
   m_Layer: 13
   m_Name: Hero
   m_TagString: Player
@@ -5379,7 +5378,6 @@ MonoBehaviour:
   _fallingSpeedLimit: 15
   _wallCheck: {fileID: 1059744527}
   _interactionCheck: {fileID: 1156647562}
-  _coinCunter: {fileID: 1755750485}
   _throwCooldown:
     _value: 1
   _armed: {fileID: 9100000, guid: 6bcac67d3037afd498052f0d48e13e91, type: 2}
@@ -5568,7 +5566,7 @@ Animator:
   m_GameObject: {fileID: 2032397210555660395}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 289c02848a3c2a949b78c9a6a32ab706, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6bcac67d3037afd498052f0d48e13e91, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5658,18 +5656,6 @@ MonoBehaviour:
     Component: {fileID: 1728574614}
   - Id: Throw
     Component: {fileID: 458981460077896299}
---- !u!114 &1755750485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2032397210555660395}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75a491d8b0010ef41925c1bc747209f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2032397211698839591
 GameObject:
   m_ObjectHideFlags: 0

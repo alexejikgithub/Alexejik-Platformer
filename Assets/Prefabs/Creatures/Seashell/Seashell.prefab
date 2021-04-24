@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1046310195592889176}
   - component: {fileID: 1046310195592889177}
   - component: {fileID: 1046310195592889178}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: 'Vision '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 1046310195770105921}
   - component: {fileID: 1046310195770105922}
   - component: {fileID: 1046310195770105923}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -247,7 +247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1046310195967961815}
   - component: {fileID: 1046310195967961814}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: PearlThrowPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}

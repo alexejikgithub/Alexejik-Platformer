@@ -129,9 +129,9 @@ GameObject:
   - component: {fileID: 1278096446156702371}
   - component: {fileID: 1278096446156702368}
   - component: {fileID: 685187958}
-  - component: {fileID: 471120577973286568}
   - component: {fileID: 2831418437474690037}
   - component: {fileID: -8749665315651159958}
+  - component: {fileID: 3442972424152866507}
   m_Layer: 15
   m_Name: CoinSilver
   m_TagString: Untagged
@@ -264,8 +264,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 471120577973286568}
-        m_MethodName: AddCoins
+      - m_Target: {fileID: 3442972424152866507}
+        m_MethodName: Add
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -319,19 +319,6 @@ MonoBehaviour:
   _onComplete:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &471120577973286568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1278096446156702369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c791d7c9a7379214da736231cc733e25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _coinAmount: 1
 --- !u!114 &2831418437474690037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,3 +354,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3442972424152866507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278096446156702369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78ab86f5bd9bcef4c8f2a42f2a5bac67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: Coin
+  _count: 1
