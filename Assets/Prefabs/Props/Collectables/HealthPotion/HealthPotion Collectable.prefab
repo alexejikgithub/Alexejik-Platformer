@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 786879673}
   - component: {fileID: 1006823217}
   - component: {fileID: 1006823220}
-  - component: {fileID: 1006823221}
+  - component: {fileID: 872143581}
   m_Layer: 15
-  m_Name: HealthPotion
+  m_Name: HealthPotion Collectable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,8 +140,8 @@ MonoBehaviour:
   _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1006823221}
-        m_MethodName: ChangeHealthAmount
+      - m_Target: {fileID: 872143581}
+        m_MethodName: Add
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -173,7 +173,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1006823221
+--- !u!114 &872143581
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,8 +182,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 327758019452014556}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a745f626bcbf22c44a5ef99f6149e7da, type: 3}
+  m_Script: {fileID: 11500000, guid: 78ab86f5bd9bcef4c8f2a42f2a5bac67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthPointsToChange: 5
-  _healOrDamage: 0
+  _id: HealPotion
+  _count: 1

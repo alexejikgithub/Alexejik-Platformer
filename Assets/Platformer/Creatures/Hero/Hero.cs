@@ -53,6 +53,7 @@ namespace Platformer.Creatures.Hero
 
 		private int SwordCount => _session.Data.Inventory.Count("Sword");
 		private int CoinsCount => _session.Data.Inventory.Count("Coin");
+		private int HealPotionCount => _session.Data.Inventory.Count("HealPotion");
 
 
 		protected override void Awake()
@@ -105,7 +106,7 @@ namespace Platformer.Creatures.Hero
 
 			if (swordCount >= 0)
 			{
-				
+
 				Throw();
 
 				while (swordCount > 0)
@@ -139,6 +140,7 @@ namespace Platformer.Creatures.Hero
 		public void OnHealthChanged(int currentHealth)
 		{
 			_session.Data.Hp = currentHealth;
+			Debug.Log(currentHealth);
 		}
 
 
@@ -217,10 +219,23 @@ namespace Platformer.Creatures.Hero
 			}
 
 		}
+
+		public void Heal()
+		{
+			if(HealPotionCount>0)
+			{
+				var health = GetComponent<HealthComponent>();
+				health.ApplyHealing(5);
+				_session.Data.Inventory.Remove("HealPotion", 1);
+			}
+			
+		}
+
+
 		public void SpawnCoins()
 		{
 			var numCoinsToDispose = Mathf.Min(CoinsCount, 5);
-			_session.Data.Inventory.Remove("Coins", numCoinsToDispose);
+			_session.Data.Inventory.Remove("Coin", numCoinsToDispose);
 
 			var burst = _hitParticles.emission.GetBurst(0);
 			burst.count = numCoinsToDispose;
@@ -270,7 +285,7 @@ namespace Platformer.Creatures.Hero
 			Animator.runtimeAnimatorController = SwordCount > 0 ? _armed : _unarmed;
 
 		}
-		
+
 	}
 
 }

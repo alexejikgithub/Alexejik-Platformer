@@ -91,6 +91,15 @@ namespace Platformer.Creatures.Hero
 			}
 		}
 
+		public void OnUseHealthPotion(InputAction.CallbackContext context)
+		{
+			if (context.canceled)
+			{
+				_hero.Heal();
+
+			}
+		}
+
 	}
 
 }
