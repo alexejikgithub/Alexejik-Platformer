@@ -30,9 +30,12 @@ namespace Platformer.Model.Definitions
 		[SerializeField] private string _id;
 		public string Id => _id;
 
+
 		[SerializeField] private int _maxAmount;
 		public int MaxAmount => _maxAmount;
-		
+
+		[SerializeField] private bool _stackable;
+		public bool Stackable => _stackable;
 
 		public bool IsVoid => string.IsNullOrEmpty(_id);
 	}

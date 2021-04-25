@@ -9,6 +9,11 @@ public class MakeCildOfInventoryCollectableParent : MonoBehaviour
 	private void Awake()
 	{
 		var target = FindObjectOfType<InventoryCollectableParent>();
-		transform.parent = target.transform;
+		if(target!=null)
+		{
+			transform.parent = target.transform;
+		}
+		
+		
 	}
 }

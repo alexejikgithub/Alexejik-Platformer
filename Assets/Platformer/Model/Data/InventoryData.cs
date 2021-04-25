@@ -30,8 +30,17 @@ namespace Platformer.Model.Data
 				item = new InventoryItemData(id);
 				_inventory.Add(item);
 			}
-			if (count >= itemDef.MaxAmount) return; // If current amount== maximum amount, nothing will be added.
-
+			
+			if (count >= itemDef.MaxAmount&& !itemDef.Stackable) return; // If current amount== maximum amount and not stackable, nothing will be added.
+			
+			if (count >= itemDef.MaxAmount && itemDef.Stackable)
+			{
+				
+				item = new InventoryItemData(id);
+				_inventory.Add(item);
+				count = 0;
+			}
+			
 			item.Value += (itemDef.MaxAmount- count)>value? value: (itemDef.MaxAmount - count); // will add the required amount to counter. If value is higher than maximum amount, it will add up to maximum.
 
 			OnChanged?.Invoke(id, Count(id));

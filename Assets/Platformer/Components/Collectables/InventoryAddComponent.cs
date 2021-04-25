@@ -38,7 +38,7 @@ namespace Platformer.Components.Collectables
 				if (session != null)
 				{
 
-					if (session.Data.Inventory.Count(_id) >= itemDef.MaxAmount)
+					if (session.Data.Inventory.Count(_id) >= itemDef.MaxAmount && !itemDef.Stackable)
 					{
 						return;
 					}
