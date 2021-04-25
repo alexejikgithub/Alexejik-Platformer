@@ -21,7 +21,7 @@ namespace Platformer.Creatures
 
 		[Header("Checkers")]
 		[SerializeField] protected LayerMask GroundLayer;
-		[SerializeField] private LayerCheck _groundCheck;
+		[SerializeField] private ColliderCheck _groundCheck;
 		[SerializeField] private CheckCircleOverlap _attackRange;
 		[SerializeField] protected SpawnListComponent Particles;
 

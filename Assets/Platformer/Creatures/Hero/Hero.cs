@@ -20,7 +20,7 @@ namespace Platformer.Creatures.Hero
 
 
 		[SerializeField] private float _fallingSpeedLimit;
-		[SerializeField] private LayerCheck _wallCheck;
+		[SerializeField] private ColliderCheck _wallCheck;
 
 
 

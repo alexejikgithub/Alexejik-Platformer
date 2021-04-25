@@ -11,12 +11,12 @@ namespace Platformer.Creatures.Mobs.ShootingTraps
 {
     public class ShootingTrapAI : MonoBehaviour
     {
-        [SerializeField] private LayerCheck _vision;
+        [SerializeField] private ColliderCheck _vision;
 
         [Header ("Melee")]
         [SerializeField] private Cooldown _meleeCooldown;
         [SerializeField] private CheckCircleOverlap _meleeAttack;
-        [SerializeField] private LayerCheck _meleecanAttack;
+        [SerializeField] private ColliderCheck _meleecanAttack;
 
         [Header("Range")]
         [SerializeField] private Cooldown _rangeCooldown;
