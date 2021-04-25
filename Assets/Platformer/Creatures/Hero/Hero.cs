@@ -87,7 +87,7 @@ namespace Platformer.Creatures.Hero
 
 		private void OnInventoryChanged(string id, int value)
 		{
-			Debug.Log(Animator);
+			
 			if (id == "Sword")
 			{
 

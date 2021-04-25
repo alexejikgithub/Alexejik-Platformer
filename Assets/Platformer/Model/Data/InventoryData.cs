@@ -24,13 +24,15 @@ namespace Platformer.Model.Data
 			if (itemDef.IsVoid) return;
 
 			var item = GetItem(id);
+			var count = Count(id); // Current amount will be compared to maximum amount. 
 			if (item == null)
 			{
 				item = new InventoryItemData(id);
 				_inventory.Add(item);
 			}
+			if (count >= itemDef.MaxAmount) return; // If current amount== maximum amount, nothing will be added.
 
-			item.Value += value;
+			item.Value += (itemDef.MaxAmount- count)>value? value: (itemDef.MaxAmount - count); // will add the required amount to counter. If value is higher than maximum amount, it will add up to maximum.
 
 			OnChanged?.Invoke(id, Count(id));
 		}

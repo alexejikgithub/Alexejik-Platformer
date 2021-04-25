@@ -183,6 +183,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7274451341918426705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7274451341918426710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78ab86f5bd9bcef4c8f2a42f2a5bac67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: Key
+  _count: 1
+  _action:
+    m_PersistentCalls:
+      m_Calls:
       - m_Target: {fileID: 7274451341918426707}
         m_MethodName: set_enabled
         m_Mode: 6
@@ -205,20 +222,7 @@ MonoBehaviour:
           m_StringArgument: destroy
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7274451341918426705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7274451341918426710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78ab86f5bd9bcef4c8f2a42f2a5bac67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _id: Key
-  _count: 1
+  _inventoryCollectableParent: {fileID: 0}
 --- !u!114 &7274451341918426703
 MonoBehaviour:
   m_ObjectHideFlags: 0

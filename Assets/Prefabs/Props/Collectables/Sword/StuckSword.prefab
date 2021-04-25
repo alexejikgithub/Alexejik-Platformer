@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5161829600783191718}
   - component: {fileID: 7500630387765590159}
   - component: {fileID: 6597375434210572072}
+  - component: {fileID: 2941211611749437116}
   m_Layer: 15
   m_Name: StuckSword
   m_TagString: Untagged
@@ -192,17 +193,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: -357586498422944283}
-        m_MethodName: DestroyObject
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &6597375434210572072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,3 +207,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: Sword
   _count: 1
+  _action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -357586498422944283}
+        m_MethodName: DestroyObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _inventoryCollectableParent: {fileID: 0}
+--- !u!114 &2941211611749437116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7728886563200359817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a988a78e64a8a14782324d58a4c3b13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

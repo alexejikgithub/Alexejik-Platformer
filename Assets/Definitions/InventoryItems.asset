@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _items:
   - _id: Coin
+    _maxAmount: 15
   - _id: Sword
+    _maxAmount: 10
   - _id: Key
+    _maxAmount: 5
   - _id: HealPotion
+    _maxAmount: 10

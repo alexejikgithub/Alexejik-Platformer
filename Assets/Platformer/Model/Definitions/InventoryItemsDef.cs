@@ -28,8 +28,11 @@ namespace Platformer.Model.Definitions
 	public struct ItemDef
 	{
 		[SerializeField] private string _id;
-
 		public string Id => _id;
+
+		[SerializeField] private int _maxAmount;
+		public int MaxAmount => _maxAmount;
+		
 
 		public bool IsVoid => string.IsNullOrEmpty(_id);
 	}
