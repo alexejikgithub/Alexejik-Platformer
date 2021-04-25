@@ -8,6 +8,7 @@ using UnityEditor.Animations;
 using Platformer.Model;
 using Platformer.Components.ColliderBased;
 using Platformer.Components.Health;
+using Platformer.Components.GoBased;
 
 namespace Platformer.Creatures.Hero
 
@@ -32,18 +33,27 @@ namespace Platformer.Creatures.Hero
 		[SerializeField] private AnimatorController _armed;
 		[SerializeField] private AnimatorController _unarmed;
 
+		[Space]
+		[Header("Super throw")]
+		[SerializeField] private Cooldown _SuperThrowCooldown;
+		[SerializeField] private int _superThrowParticles;
+		[SerializeField] private float _superThrowDelay;
 
 		[Space]
-		[Header("Particles")]
-		[SerializeField] private ParticleSystem _hitParticles;
+		
+		[SerializeField] private ProbabilityDropComponent _hitDrop;
 
 		private static readonly int ThrowKey = Animator.StringToHash("throw");
+
+
+
 		private static readonly int IsOnWall = Animator.StringToHash("is-on-wall");
 
 
 
 		private bool _allowSecondJump;
 		private bool _isOnWall;
+		private bool _superThrow;
 		//private bool _isSprinting;
 
 
@@ -87,7 +97,7 @@ namespace Platformer.Creatures.Hero
 
 		private void OnInventoryChanged(string id, int value)
 		{
-			
+
 			if (id == "Sword")
 			{
 
@@ -99,42 +109,52 @@ namespace Platformer.Creatures.Hero
 		{
 			_session.Data.Inventory.Add(id, value);
 		}
-
-		internal IEnumerator ThrowBunch()
+		public void StartThrowing()
 		{
-			int swordCount = SwordCount > 3 ? 2 : SwordCount - 2;
+			
+				_SuperThrowCooldown.Reset();
+		}
+		public void PerformThrowing()
+		{
+			if (!_throwCooldown.IsReady || SwordCount <= 1) return;
+			if (_SuperThrowCooldown.IsReady) _superThrow = true;
 
-			if (swordCount >= 0)
-			{
-
-				Throw();
-
-				while (swordCount > 0)
-				{
-					_session.Data.Inventory.Remove("Sword", 1);
-					yield return new WaitForSeconds(0.2f);
-					swordCount--;
-					OnDoThrow();
-
-				}
-
-			}
+			Animator.SetTrigger(ThrowKey);
+			_throwCooldown.Reset();
 		}
 
-		public void Throw()
-		{
-			if (_throwCooldown.IsReady && SwordCount > 1)
-			{
-				Animator.SetTrigger(ThrowKey);
-				_throwCooldown.Reset();
-				_session.Data.Inventory.Remove("Sword", 1);
-			}
-
-		}
+				
 
 		public void OnDoThrow()
 		{
+			if(_superThrow)
+			{
+				var numThrows = Mathf.Min(_superThrowParticles, SwordCount - 1);
+				StartCoroutine(DoSuperThrow(numThrows));
+
+			}
+			else
+			{
+				ThrowAndRemoveFromInventory();
+			}
+			_superThrow = false;
+
+
+		}
+
+		private IEnumerator DoSuperThrow(int numThrows)
+		{
+			for(int i =0; i< numThrows; i++)
+			{
+				ThrowAndRemoveFromInventory();
+				yield return new WaitForSeconds(_superThrowDelay);
+			}
+		}
+
+		private void ThrowAndRemoveFromInventory()
+		{
 			Particles.Spawn("Throw");
+			_session.Data.Inventory.Remove("Sword", 1);
 		}
 
 		public void OnHealthChanged(int currentHealth)
@@ -222,13 +242,13 @@ namespace Platformer.Creatures.Hero
 
 		public void Heal()
 		{
-			if(HealPotionCount>0)
+			if (HealPotionCount > 0)
 			{
 				var health = GetComponent<HealthComponent>();
 				health.ApplyHealing(5);
 				_session.Data.Inventory.Remove("HealPotion", 1);
 			}
-			
+
 		}
 
 
@@ -237,13 +257,8 @@ namespace Platformer.Creatures.Hero
 			var numCoinsToDispose = Mathf.Min(CoinsCount, 5);
 			_session.Data.Inventory.Remove("Coin", numCoinsToDispose);
 
-			var burst = _hitParticles.emission.GetBurst(0);
-			burst.count = numCoinsToDispose;
-
-			_hitParticles.emission.SetBurst(0, burst);
-
-			_hitParticles.gameObject.SetActive(true);
-			_hitParticles.Play();
+			_hitDrop.SetCount(numCoinsToDispose);
+			_hitDrop.CalculateDrop();
 		}
 
 		public void Interact()

@@ -54,14 +54,6 @@
                     "interactions": ""
                 },
                 {
-                    "name": "ThrowBunch",
-                    "type": "Button",
-                    "id": "ac0af2a0-b69a-4779-be29-f74b92a1d84d",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "UseHealPotion",
                     "type": "Button",
                     "id": "252199be-27fa-481d-a448-94071473fa0f",
@@ -233,17 +225,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Throw",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5bd58a90-8028-440f-9d25-6c48e367e364",
-                    "path": "<Keyboard>/f",
-                    "interactions": "Hold(duration=1)",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ThrowBunch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

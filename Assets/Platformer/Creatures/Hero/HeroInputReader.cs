@@ -74,22 +74,22 @@ namespace Platformer.Creatures.Hero
 		public void OnThrow(InputAction.CallbackContext context)
 		{
 
+			if (context.started)
+			{
+				_hero.StartThrowing();
+				
+
+			}
 			if (context.canceled)
 			{
-				_hero.Throw();
+				_hero.PerformThrowing();
+
 
 			}
+			
 		}
 
-		public void OnThrowBunch(InputAction.CallbackContext context)
-		{
-
-			if (context.performed)
-			{
-				StartCoroutine(_hero.ThrowBunch());
-
-			}
-		}
+		
 
 		public void OnUseHealthPotion(InputAction.CallbackContext context)
 		{
