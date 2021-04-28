@@ -155,6 +155,7 @@ namespace Platformer.Creatures.Hero
 		{
 			Particles.Spawn("Throw");
 			_session.Data.Inventory.Remove("Sword", 1);
+			Sounds.Play("Range");
 		}
 
 		public void OnHealthChanged(int currentHealth)
@@ -177,6 +178,7 @@ namespace Platformer.Creatures.Hero
 			{
 				_isOnWall = true;
 				Rigidbody.gravityScale = 0;
+
 			}
 			else
 			{
@@ -201,7 +203,7 @@ namespace Platformer.Creatures.Hero
 			{
 				_allowSecondJump = true;
 			}
-			if (!isJumpPressing && _isOnWall)
+			if ( _isOnWall) //   !isJumpPressing && убрал
 			{
 				return 0f;
 			}
@@ -215,7 +217,7 @@ namespace Platformer.Creatures.Hero
 		{
 			if (!IsGrounded && _allowSecondJump && !_isOnWall)
 			{
-				Particles.Spawn("Jump");
+				DoJumpVfx();
 				_allowSecondJump = false;
 				return JumpSpeed;
 			}

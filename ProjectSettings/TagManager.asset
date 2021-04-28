@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Interactable
+  - MainMusicTheme
   layers:
   - Default
   - TransparentFX

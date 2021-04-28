@@ -11,7 +11,8 @@ namespace Platformer.Components.ColliderBased
 	{
 		[SerializeField] private string _tag;
 		[SerializeField] private LayerMask _layer = ~0;
-		[SerializeField] private EnterEvent _action;
+		[SerializeField] private EnterEvent _enterAction;
+		[SerializeField] private EnterEvent _exitAction;
 
 
 		private void OnTriggerEnter2D(Collider2D other)
@@ -21,8 +22,13 @@ namespace Platformer.Components.ColliderBased
 
 			if (!string.IsNullOrEmpty(_tag) && !other.gameObject.CompareTag(_tag)) return;
 
-			_action?.Invoke(other.gameObject);
+			_enterAction?.Invoke(other.gameObject);
 
+		}
+
+		private void OnTriggerExit2D(Collider2D collision)
+		{
+			
 		}
 		[Serializable]
 		public class EnterEvent : UnityEvent<GameObject>

@@ -1,4 +1,5 @@
 ﻿using Platformer.Components;
+using Platformer.Components.Audio;
 using Platformer.Components.ColliderBased;
 using Platformer.Components.GoBased;
 using System.Collections;
@@ -28,6 +29,7 @@ namespace Platformer.Creatures
 		protected Rigidbody2D Rigidbody;
 		protected Vector2 Direction;
 		protected Animator Animator;
+		protected PlaySoundsComponent Sounds;
 		protected bool IsGrounded;
 		private bool _isJumping;
 
@@ -43,7 +45,8 @@ namespace Platformer.Creatures
 		protected virtual void Awake()
 		{
 			Rigidbody = GetComponent<Rigidbody2D>();
-			Animator = GetComponent<Animator>();
+			Animator = GetComponent<Animator>(); 
+			Sounds = GetComponent<PlaySoundsComponent>();
 		}
 
 		public void SetDirection(Vector2 direction)
@@ -107,10 +110,16 @@ namespace Platformer.Creatures
 
 			if (IsGrounded)
 			{
-				Particles.Spawn("Jump");
+				DoJumpVfx();
 				yVelocity = JumpSpeed;
 			}
 			return yVelocity;
+		}
+
+		protected void DoJumpVfx()
+		{
+			Particles.Spawn("Jump");
+			Sounds.Play("Jump");
 		}
 
 		public void UpdateSpriteDirection(Vector2 direction)
@@ -135,11 +144,13 @@ namespace Platformer.Creatures
 		public virtual void Attack()
 		{
 			Animator.SetTrigger(AttackKey);
+			Sounds.Play("Melee");
 		}
 
 		public void OnAttacking()
 		{
 			_attackRange.Check();
+			
 		}
 
 

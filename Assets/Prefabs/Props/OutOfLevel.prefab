@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5709644175845974190}
   - component: {fileID: 5709644175845974191}
-  - component: {fileID: 5709644175845974184}
   - component: {fileID: 5709644175845974189}
+  - component: {fileID: 7994659997552958543}
   m_Layer: 0
   m_Name: OutOfLevel
   m_TagString: Untagged
@@ -59,7 +59,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 65, y: 3}
   m_EdgeRadius: 0
---- !u!114 &5709644175845974184
+--- !u!114 &5709644175845974189
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -68,14 +68,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 5709644175845974185}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 389753c44e378d94ab0bdf0b8c1e75ec, type: 3}
+  m_Script: {fileID: 11500000, guid: 3dff079eaef72654bb75f112c584b199, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7994659997552958543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5709644175845974185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff2f0db52657504e81ae1d80324be50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
   _layer:
     serializedVersion: 2
-    m_Bits: 4294967295
-  _action:
+    m_Bits: 8192
+  _enterAction:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5709644175845974189}
@@ -89,15 +101,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5709644175845974189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5709644175845974185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dff079eaef72654bb75f112c584b199, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _exitAction:
+    m_PersistentCalls:
+      m_Calls: []

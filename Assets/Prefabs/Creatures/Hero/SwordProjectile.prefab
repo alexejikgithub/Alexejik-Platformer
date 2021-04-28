@@ -14,10 +14,10 @@ GameObject:
   - component: {fileID: -357586498422944283}
   - component: {fileID: 3700163331234691019}
   - component: {fileID: 5161829600783191718}
-  - component: {fileID: 7500630387765590159}
   - component: {fileID: 8671668943609561177}
-  - component: {fileID: 4960883628531181084}
   - component: {fileID: -9004165742564884559}
+  - component: {fileID: 4463230639316373534}
+  - component: {fileID: -8954048012069178980}
   m_Layer: 0
   m_Name: SwordProjectile
   m_TagString: Untagged
@@ -165,7 +165,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.0045039654}
   serializedVersion: 2
   m_Radius: 0.29898834
---- !u!114 &7500630387765590159
+--- !u!114 &8671668943609561177
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -174,14 +174,86 @@ MonoBehaviour:
   m_GameObject: {fileID: 7728886563200359817}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 389753c44e378d94ab0bdf0b8c1e75ec, type: 3}
+  m_Script: {fileID: 11500000, guid: a745f626bcbf22c44a5ef99f6149e7da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tag: Untagged
+  _healthPointsToChange: 1
+  _healOrDamage: 1
+--- !u!114 &-9004165742564884559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7728886563200359817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117742dc7c6fbc541a8535e11c616a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 10
+  _invertX: 0
+--- !u!114 &4463230639316373534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7728886563200359817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff2f0db52657504e81ae1d80324be50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tag: Enemy
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4096
+  _enterAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -357586498422944283}
+        m_MethodName: DestroyObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8671668943609561177}
+        m_MethodName: ChangeHealthAmount
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _exitAction:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &-8954048012069178980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7728886563200359817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff2f0db52657504e81ae1d80324be50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tag: 
   _layer:
     serializedVersion: 2
     m_Bits: 256
-  _action:
+  _enterAction:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8570269288461761549}
@@ -206,75 +278,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8671668943609561177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7728886563200359817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a745f626bcbf22c44a5ef99f6149e7da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _healthPointsToChange: 1
-  _healOrDamage: 1
---- !u!114 &4960883628531181084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7728886563200359817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 389753c44e378d94ab0bdf0b8c1e75ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tag: Enemy
-  _layer:
-    serializedVersion: 2
-    m_Bits: 4608
-  _action:
+  _exitAction:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8671668943609561177}
-        m_MethodName: ChangeHealthAmount
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: -357586498422944283}
-        m_MethodName: DestroyObject
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &-9004165742564884559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7728886563200359817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 117742dc7c6fbc541a8535e11c616a7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 10
-  _invertX: 0
+      m_Calls: []
 --- !u!1 &8710478417329430516
 GameObject:
   m_ObjectHideFlags: 0
