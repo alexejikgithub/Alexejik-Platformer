@@ -8,17 +8,35 @@ namespace Platformer.Components.Audio
 {
 	public class MusicController : MonoBehaviour
 	{
-		[SerializeField] private AudioMixer _mixer;
-		[ContextMenu("On")]
-		public void SetEchoOn()
+		private AudioMixer _audioMixer;
+		public void SetEchoOn(GameObject target)
 		{
-			_mixer.SetFloat("Echo", 0);
+
+			foreach (Transform child in target.transform)
+			{
+				if (child.CompareTag("MainMusicTheme"))
+				{
+					_audioMixer = child.GetComponent<AudioSource>().outputAudioMixerGroup.audioMixer;
+				}
+			}
+
+			_audioMixer.SetFloat("Echo", 0);
 		}
 
 		[ContextMenu("Off")]
-		public void SetEchoOff()
+		public void SetEchoOff(GameObject target)
 		{
-			_mixer.SetFloat("Echo", -80);
+
+			foreach (Transform child in target.transform)
+			{
+				if (child.CompareTag("MainMusicTheme"))
+				{
+					_audioMixer = child.GetComponent<AudioSource>().outputAudioMixerGroup.audioMixer;
+				}
+			}
+
+			_audioMixer.SetFloat("Echo", -80);
+			
 		}
 	}
 }

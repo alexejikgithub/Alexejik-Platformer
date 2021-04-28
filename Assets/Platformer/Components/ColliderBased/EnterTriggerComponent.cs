@@ -26,9 +26,13 @@ namespace Platformer.Components.ColliderBased
 
 		}
 
-		private void OnTriggerExit2D(Collider2D collision)
+		private void OnTriggerExit2D(Collider2D other)
 		{
-			
+			if (!other.gameObject.IsInLayer(_layer)) return;
+
+			if (!string.IsNullOrEmpty(_tag) && !other.gameObject.CompareTag(_tag)) return;
+
+			_exitAction?.Invoke(other.gameObject);
 		}
 		[Serializable]
 		public class EnterEvent : UnityEvent<GameObject>

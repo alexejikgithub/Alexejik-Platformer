@@ -433,7 +433,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.607
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1211,9 +1211,10 @@ GameObject:
   - component: {fileID: 1867156457064155093}
   - component: {fileID: 3337880035769800171}
   - component: {fileID: 8651764603466289833}
+  - component: {fileID: 371210635}
   m_Layer: 13
   m_Name: MainTheme
-  m_TagString: Untagged
+  m_TagString: MainMusicTheme
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1337,3 +1338,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &371210635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7786218495810788215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14908352eb9e28c41a669e94c96cf4e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mixer: {fileID: 24100000, guid: cbceba17235d4324f8ca7e55cb1d045d, type: 2}
