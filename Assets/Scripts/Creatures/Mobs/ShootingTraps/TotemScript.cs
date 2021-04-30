@@ -8,15 +8,31 @@ namespace Platformer.Creatures.Mobs.ShootingTraps
 {
 	public class TotemScript : MonoBehaviour
 	{
-		[SerializeField] private TotemConstructor _totemConstructor;
+		
 		[SerializeField] private float _attackDelay = 0.5f;
-		[SerializeField] private TotemHead _firstHead;
+		
 		[SerializeField] private Cooldown _rangeCooldown;
-		private List<TotemHead> _heads;
-		private void Start()
+		[SerializeField] private List<TotemHead> _heads;
+		
+
+		public List<TotemHead> ReturnListOfHeads()
 		{
-			_heads = _totemConstructor.ReturnListOfHeads();
+			return _heads;
 		}
+		private void Awake()
+		{
+			for (int i=0; i<_heads.Count;i++)
+			{
+				_heads[i].StreachAndCenterCollider(_heads.Count - i);
+				if(i>0)
+				{
+					_heads[i].GetComponent<BoxCollider2D>().enabled = false;
+				}
+			}
+		}
+
+
+
 
 		[ContextMenu("Attack")]
 		public void Attack()
@@ -29,12 +45,7 @@ namespace Platformer.Creatures.Mobs.ShootingTraps
 
 		private IEnumerator DoAttack()
 		{
-			if (_firstHead != null)
-			{
-				_firstHead?.RangeAttack();
-				_rangeCooldown.Reset();
-			}
-			yield return new WaitForSeconds(_attackDelay);
+			
 			foreach (var head in _heads)
 			{
 				if(head !=null)
@@ -49,7 +60,21 @@ namespace Platformer.Creatures.Mobs.ShootingTraps
 
 			
 		}
+		public void TurnOnTopCollider()
+		{
+			if(_heads.Count>1)
+			{
+				_heads.RemoveAt(0);
+				_heads[0].GetComponent<BoxCollider2D>().enabled = true;
+			}
+			
+			
+		}
 
+
+		
+
+		
 
 	}
 }

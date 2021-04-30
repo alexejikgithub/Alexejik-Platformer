@@ -40,7 +40,7 @@ namespace Platformer.Creatures.Mobs.ShootingTraps
 				{
                     if(_meleeCooldown.IsReady)
 					{
-                        MeleecanAttack();
+                        MeleeAttack();
 						return;
 					}
 				}
@@ -57,7 +57,7 @@ namespace Platformer.Creatures.Mobs.ShootingTraps
 			_animator.SetTrigger(Range);
 		}
 
-		private void MeleecanAttack()
+		private void MeleeAttack()
 		{
 			_meleeCooldown.Reset();
 			_animator.SetTrigger(Melee);
