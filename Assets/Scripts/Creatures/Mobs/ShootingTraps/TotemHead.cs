@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Platformer.Creatures.Mobs.ShootingTraps
 
 {
-	[System.Serializable]
+	[RequireComponent(typeof(Animator))]
 	public class TotemHead : MonoBehaviour
 	{
 		[SerializeField] private SpawnComponent _rangeAttack;
@@ -18,10 +18,25 @@ namespace Platformer.Creatures.Mobs.ShootingTraps
 
 		private TotemScript _totemScript;
 
+		private BoxCollider2D _collider;
+
+		public BoxCollider2D Collider
+		{
+			get
+			{
+				if (!_collider)
+				{
+					_collider = GetComponent<BoxCollider2D>();
+				}
+				return _collider;
+			}
+		}
+
 		private void Awake()
 		{
 			_animator = GetComponent<Animator>();
 			_totemScript = GetComponentInParent<TotemScript>();
+			
 		}
 
 		[ContextMenu("Attack")]
@@ -37,10 +52,11 @@ namespace Platformer.Creatures.Mobs.ShootingTraps
 		}
 		public void StreachAndCenterCollider(int count)
 		{
-			var collider = gameObject.GetComponent<BoxCollider2D>();
-			float offsetMultiplier = -(count - 1) / 2;
-			collider.offset = new Vector2(collider.offset.x, collider.offset.y + (collider.size.y * offsetMultiplier));
-			collider.size = new Vector2(collider.size.x, collider.size.y * count);
+			
+			float offsetMultiplier = -(count - 1) / 2f;
+
+			Collider.offset = new Vector2(Collider.offset.x, Collider.offset.y + (Collider.size.y * offsetMultiplier));
+			Collider.size = new Vector2(Collider.size.x, Collider.size.y * count);
 
 		}
 		public void DoTurnOnTopCollider()

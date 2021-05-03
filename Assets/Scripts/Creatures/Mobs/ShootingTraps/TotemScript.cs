@@ -26,7 +26,7 @@ namespace Platformer.Creatures.Mobs.ShootingTraps
 				_heads[i].StreachAndCenterCollider(_heads.Count - i);
 				if(i>0)
 				{
-					_heads[i].GetComponent<BoxCollider2D>().enabled = false;
+					_heads[i].Collider.enabled = false;
 				}
 			}
 		}
@@ -65,7 +65,7 @@ namespace Platformer.Creatures.Mobs.ShootingTraps
 			if(_heads.Count>1)
 			{
 				_heads.RemoveAt(0);
-				_heads[0].GetComponent<BoxCollider2D>().enabled = true;
+				_heads[0].Collider.enabled = true;
 			}
 			
 			
