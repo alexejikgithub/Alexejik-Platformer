@@ -9,11 +9,12 @@ using Platformer.Model;
 using Platformer.Components.ColliderBased;
 using Platformer.Components.Health;
 using Platformer.Components.GoBased;
+using Assets.Platformer.Model.Data;
 
 namespace Platformer.Creatures.Hero
 
 {
-	public class Hero : Creature
+	public class Hero : Creature, ICanAddInInventory
 	{
 
 

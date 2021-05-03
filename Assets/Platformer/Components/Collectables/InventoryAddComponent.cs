@@ -1,4 +1,5 @@
-﻿using Platformer.Creatures.Hero;
+﻿using Assets.Platformer.Model.Data;
+using Platformer.Creatures.Hero;
 using Platformer.Model;
 using Platformer.Model.Definitions;
 using System;
@@ -46,11 +47,9 @@ namespace Platformer.Components.Collectables
 			}
 			// If invantory is full, do not collect
 
-			var hero = go.GetComponent<Hero>();
-			if (hero != null)
-			{
-				hero.AddInInventory(_id, _count);
-			}
+			var hero = go.GetComponent<ICanAddInInventory>();
+			hero?.AddInInventory(_id, _count);
+			
 			_action?.Invoke();
 		}
 		
