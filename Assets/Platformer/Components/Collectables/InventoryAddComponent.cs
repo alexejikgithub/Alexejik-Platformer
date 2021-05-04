@@ -24,7 +24,7 @@ namespace Platformer.Components.Collectables
 
 		void Start()
 		{
-			_inventoryCollectableParent = (InventoryCollectableParent)GetComponentInParent(typeof(InventoryCollectableParent));
+			_inventoryCollectableParent = GetComponentInParent<InventoryCollectableParent>();
 			
 				
 		}

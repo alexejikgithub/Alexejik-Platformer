@@ -30,18 +30,18 @@ namespace Platformer.Model.Data
 				item = new InventoryItemData(id);
 				_inventory.Add(item);
 			}
-			
-			if (count >= itemDef.MaxAmount&& !itemDef.Stackable) return; // If current amount== maximum amount and not stackable, nothing will be added.
-			
-			if (count >= itemDef.MaxAmount && itemDef.Stackable)
+
+			if (!itemDef.Stackable && count >= itemDef.MaxAmount) return; // If current amount== maximum amount and not stackable, nothing will be added.
+
+			if (itemDef.Stackable && count >= itemDef.MaxAmount)
 			{
-				
+
 				item = new InventoryItemData(id);
 				_inventory.Add(item);
 				count = 0;
 			}
-			
-			item.Value += (itemDef.MaxAmount- count)>value? value: (itemDef.MaxAmount - count); // will add the required amount to counter. If value is higher than maximum amount, it will add up to maximum.
+
+			item.Value += (itemDef.MaxAmount - count) > value ? value : (itemDef.MaxAmount - count); // will add the required amount to counter. If value is higher than maximum amount, it will add up to maximum.
 
 			OnChanged?.Invoke(id, Count(id));
 		}
@@ -55,7 +55,7 @@ namespace Platformer.Model.Data
 
 			item.Value -= value;
 
-			if(item.Value<=0)
+			if (item.Value <= 0)
 			{
 				_inventory.Remove(item);
 			}
