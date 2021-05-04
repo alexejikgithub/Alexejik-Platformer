@@ -36,7 +36,7 @@ namespace Platformer.Creatures.Mobs.ShootingTraps
 		{
 			_animator = GetComponent<Animator>();
 			_totemScript = GetComponentInParent<TotemScript>();
-			
+
 		}
 
 		[ContextMenu("Attack")]
@@ -52,7 +52,7 @@ namespace Platformer.Creatures.Mobs.ShootingTraps
 		}
 		public void StreachAndCenterCollider(int count)
 		{
-			
+
 			float offsetMultiplier = -(count - 1) / 2f;
 
 			Collider.offset = new Vector2(Collider.offset.x, Collider.offset.y + (Collider.size.y * offsetMultiplier));

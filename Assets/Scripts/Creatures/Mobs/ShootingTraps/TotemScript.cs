@@ -8,12 +8,12 @@ namespace Platformer.Creatures.Mobs.ShootingTraps
 {
 	public class TotemScript : MonoBehaviour
 	{
-		
+
 		[SerializeField] private float _attackDelay = 0.5f;
-		
+
 		[SerializeField] private Cooldown _rangeCooldown;
 		[SerializeField] private List<TotemHead> _heads;
-		
+
 
 		public List<TotemHead> ReturnListOfHeads()
 		{
@@ -21,10 +21,10 @@ namespace Platformer.Creatures.Mobs.ShootingTraps
 		}
 		private void Awake()
 		{
-			for (int i=0; i<_heads.Count;i++)
+			for (int i = 0; i < _heads.Count; i++)
 			{
 				_heads[i].StreachAndCenterCollider(_heads.Count - i);
-				if(i>0)
+				if (i > 0)
 				{
 					_heads[i].Collider.enabled = false;
 				}
@@ -45,36 +45,36 @@ namespace Platformer.Creatures.Mobs.ShootingTraps
 
 		private IEnumerator DoAttack()
 		{
-			
+
 			foreach (var head in _heads)
 			{
-				if(head !=null)
+				if (head != null)
 				{
 					head?.RangeAttack();
 					_rangeCooldown.Reset();
 					yield return new WaitForSeconds(_attackDelay);
 
 				}
-				
+
 			}
 
-			
+
 		}
 		public void TurnOnTopCollider()
 		{
-			if(_heads.Count>1)
+			if (_heads.Count > 1)
 			{
 				_heads.RemoveAt(0);
 				_heads[0].Collider.enabled = true;
 			}
-			
-			
+
+
 		}
 
 
-		
 
-		
+
+
 
 	}
 }
