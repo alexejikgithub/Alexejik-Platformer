@@ -20,6 +20,7 @@ namespace Platformer.Creatures.Mobs.ShootingTraps
 		{
 			return _heads;
 		}
+		
 		private void Awake()
 		{
 			for (int i = 0; i < _heads.Count; i++)
@@ -37,7 +38,7 @@ namespace Platformer.Creatures.Mobs.ShootingTraps
 		{
 			for (int i = 1; i < _heads.Count; i++)
 			{
-				_heads[i]._animator.SetTrigger("hit");
+				_heads[i].PlayHitAnimation();
 			}
 			
 		}

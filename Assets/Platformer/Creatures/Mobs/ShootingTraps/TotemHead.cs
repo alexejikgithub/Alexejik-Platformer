@@ -14,7 +14,7 @@ namespace Platformer.Creatures.Mobs.ShootingTraps
 
 		private static readonly int Range = Animator.StringToHash("range");
 
-		public Animator _animator;
+		private Animator _animator;
 
 		private TotemScript _totemScript;
 
@@ -64,6 +64,10 @@ namespace Platformer.Creatures.Mobs.ShootingTraps
 			_totemScript.TurnOnTopCollider();
 		}
 
+		public void PlayHitAnimation()
+		{
+			_animator.SetTrigger("hit");
+		}
 
 
 	}
