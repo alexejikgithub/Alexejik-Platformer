@@ -59,14 +59,15 @@ namespace Platformer.Components
 			[Range(0f, 100f)] public float Probability;
 		}
 
-		[Serializable]
-		public class DropEvent : UnityEvent<GameObject[]>
-		{
-		}
+		
 
 		public void SetCount(int count)
 		{
 			_count = count;
 		}
+	}
+	[Serializable]
+	public class DropEvent : UnityEvent<GameObject[]>
+	{
 	}
 }

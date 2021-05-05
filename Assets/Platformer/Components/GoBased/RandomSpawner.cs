@@ -25,11 +25,21 @@ namespace Platformer.Components.GoBased
 		private Coroutine _routine;
 
 
+
+
 		public void SrartDrop(GameObject[] items)
 		{
 			TryStopRoutine();
 
 			_routine = StartCoroutine(StartSpawn(items));
+		}
+
+		public void DropImmeddiate(GameObject[]items)
+		{
+			foreach (var item in items)
+			{
+				Spawn(item);
+			}
 		}
 
 		private IEnumerator StartSpawn(GameObject[] particles)

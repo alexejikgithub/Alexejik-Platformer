@@ -1,4 +1,5 @@
-﻿using Platformer.Utils;
+﻿using Platformer.Components.Health;
+using Platformer.Utils;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,15 +9,41 @@ namespace Platformer.Creatures.Mobs.ShootingTraps
 {
 	public class TotemScript : MonoBehaviour
 	{
-		[SerializeField] private TotemConstructor _totemConstructor;
+
 		[SerializeField] private float _attackDelay = 0.5f;
-		[SerializeField] private TotemHead _firstHead;
+
 		[SerializeField] private Cooldown _rangeCooldown;
-		private List<TotemHead> _heads;
-		private void Start()
+		[SerializeField] private List<TotemHead> _heads;
+
+
+		public List<TotemHead> ReturnListOfHeads()
 		{
-			_heads = _totemConstructor.ReturnListOfHeads();
+			return _heads;
 		}
+		private void Awake()
+		{
+			for (int i = 0; i < _heads.Count; i++)
+			{
+				var hp = _heads[i].GetComponent<HealthComponent>();
+				hp._onDamage.AddListener(() => OnTrapDamaged());
+				_heads[i].StreachAndCenterCollider(_heads.Count - i);
+				if (i > 0)
+				{
+					_heads[i].Collider.enabled = false;
+				}
+			}
+		}
+		private void OnTrapDamaged()
+		{
+			for (int i = 1; i < _heads.Count; i++)
+			{
+				_heads[i]._animator.SetTrigger("hit");
+			}
+			
+		}
+
+
+
 
 		[ContextMenu("Attack")]
 		public void Attack()
@@ -29,26 +56,39 @@ namespace Platformer.Creatures.Mobs.ShootingTraps
 
 		private IEnumerator DoAttack()
 		{
-			if (_firstHead != null)
-			{
-				_firstHead?.RangeAttack();
-				_rangeCooldown.Reset();
-			}
-			yield return new WaitForSeconds(_attackDelay);
+
 			foreach (var head in _heads)
 			{
-				if(head !=null)
+				if (head != null)
 				{
 					head?.RangeAttack();
 					_rangeCooldown.Reset();
 					yield return new WaitForSeconds(_attackDelay);
 
 				}
-				
+
 			}
 
-			
+
 		}
+		public void TurnOnTopCollider()
+		{
+			if (_heads.Count > 1)
+			{
+				_heads.RemoveAt(0);
+				_heads[0].Collider.enabled = true;
+			}
+			else
+			{
+				Destroy(gameObject, 1f);
+			}
+
+
+		}
+
+
+
+
 
 
 	}

@@ -10,7 +10,7 @@ namespace Platformer.Components.Health
 	{
 		[Range(0, 100)]
 		[SerializeField] private int _health;
-		[SerializeField] private UnityEvent _onDamage;
+		[SerializeField] public UnityEvent _onDamage;
 		[SerializeField] private UnityEvent _onHealing;
 		[SerializeField] private UnityEvent _onDie;
 
@@ -57,6 +57,11 @@ namespace Platformer.Components.Health
 		internal void SetHealth(int health)
 		{
 			_health = health;
+		}
+
+		private void OnDestroy()
+		{
+			_onDamage.RemoveAllListeners();
 		}
 
 

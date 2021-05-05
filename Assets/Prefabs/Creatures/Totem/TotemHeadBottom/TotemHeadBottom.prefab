@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 511790160}
   - component: {fileID: 627318481494109848}
   - component: {fileID: -7418183779685856497}
-  - component: {fileID: -5545287513847554917}
   m_Layer: 12
   m_Name: TotemHeadBottom
   m_TagString: Enemy
@@ -35,6 +34,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4589171093259674994}
+  - {fileID: 4174866881933729953}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -190,8 +190,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: -5545287513847554917}
-        m_MethodName: Spawn
+      - m_Target: {fileID: 837702698098492934}
+        m_MethodName: Drop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 511790160}
+        m_MethodName: DoTurnOnTopCollider
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -217,20 +228,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 2721299838356628970}
---- !u!114 &-5545287513847554917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2721299838356628970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a1f084093d63a74d9763bacdab81d80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _target: {fileID: 3571952341122008583}
-  _prefab: {fileID: 1566317794199841729, guid: 6f55aa64baa16f34ca79133fa960ef32, type: 3}
 --- !u!1 &5314176539669768639
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,3 +273,81 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 4589171093259674994}
   _prefab: {fileID: 1742778463675635255, guid: 7d68b8b656e5a9f469adff75d11ff179, type: 3}
+--- !u!1 &7553867763117011091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4174866881933729953}
+  - component: {fileID: 837702698098492934}
+  - component: {fileID: 2173307977553407166}
+  m_Layer: 0
+  m_Name: SpawnTrash
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4174866881933729953
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7553867763117011091}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.31068063, y: -0.15134525, z: -0.11911703}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3571952341122008583}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &837702698098492934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7553867763117011091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed94144dbb4912409f8bfc66b38e61d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gos:
+  - {fileID: 4690482475499178486, guid: b7a3782c0b5d6e748b4d78524aa8581c, type: 3}
+  - {fileID: 4999980724601441925, guid: 2c2df7eb49333dc4cbf557113b77da98, type: 3}
+  - {fileID: 3453729958294631957, guid: 6eb4a0a7ceff1594285224b0d33e66ed, type: 3}
+  _onDrop:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2173307977553407166}
+        m_MethodName: DropImmeddiate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2173307977553407166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7553867763117011091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d5e0a1e6599ec54d8051875724700b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sectorAngle: 60
+  _sectorRotation: 0
+  _waitTime: 0.1
+  _speed: 6
