@@ -35,14 +35,16 @@ namespace Platformer.Components.Collectables
 			{
 				var itemDef = DefsFacade.I.Items.Get(_id);
 				var session = _inventoryCollectableParent.Session;
-				
+				var isFull = session.Data.Inventory.Inventory.Count >= DefsFacade.I.Player.InventorySize;
+				var item = session.Data.Inventory.GetItem(_id);
+
+
 				if (session != null)
 				{
 
-					if (session.Data.Inventory.Count(_id) >= itemDef.MaxAmount && !itemDef.Stackable)
-					{
-						return;
-					}
+					if (itemDef.Stackable && session.Data.Inventory.Count(_id) >= itemDef.MaxAmount) return;
+					if (item == null && isFull) return;
+					if (!itemDef.Stackable && session.Data.Inventory.Count(_id) >= itemDef.MaxAmount && isFull) return;
 				}
 			}
 			// If invantory is full, do not collect

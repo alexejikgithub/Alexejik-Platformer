@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using UnityEngine;
 
 namespace Platformer.Model.Definitions
@@ -8,8 +9,10 @@ namespace Platformer.Model.Definitions
 	public class DefsFacade : ScriptableObject
 	{
 		[SerializeField] private InventoryItemsDef _items;
+		[SerializeField] private PlayerDef _player;
 
 		public InventoryItemsDef Items => _items;
+		public PlayerDef Player => _player;
 
 
 		private static DefsFacade _instance;
