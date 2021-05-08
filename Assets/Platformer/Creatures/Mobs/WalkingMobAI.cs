@@ -10,7 +10,7 @@ using UnityEngine;
 namespace Platformer.Creatures.Mobs
 {
 
-	public class MobAI : MonoBehaviour
+	public class WalkingMobAI : BaseMobAI
 	{
 		[SerializeField] private ColliderCheck _vision;
 		[SerializeField] private ColliderCheck _canAttack;
@@ -24,7 +24,7 @@ namespace Platformer.Creatures.Mobs
 		private static readonly int IsDeadkKey = Animator.StringToHash("is-dead");
 
 		private SpawnListComponent _particles;
-		private Creature _creature;
+		private WlkingCreature _creature;
 		private Animator _animator;
 		private bool _isDead;
 		private Patrol _patrol;
@@ -32,7 +32,7 @@ namespace Platformer.Creatures.Mobs
 		private void Awake()
 		{
 			_particles = GetComponent<SpawnListComponent>();
-			_creature = GetComponent<Creature>();
+			_creature = GetComponent<WlkingCreature>();
 			_animator = GetComponent<Animator>();
 			_patrol = GetComponent<Patrol>();
 		}

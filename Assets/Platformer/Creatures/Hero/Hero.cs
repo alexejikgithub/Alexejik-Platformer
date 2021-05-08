@@ -14,7 +14,7 @@ using Assets.Platformer.Model.Data;
 namespace Platformer.Creatures.Hero
 
 {
-	public class Hero : Creature, ICanAddInInventory
+	public class Hero : WlkingCreature, ICanAddInInventory
 	{
 
 

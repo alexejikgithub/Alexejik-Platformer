@@ -8,7 +8,7 @@ namespace Platformer.Creatures.Mobs.Patrolling
 {
 	public class PlatformPatrol : Patrol
 	{
-		private Creature _creature;
+		private WlkingCreature _creature;
 
 		[SerializeField] private ChooseDirection _chooseDirection;
 
@@ -32,7 +32,7 @@ namespace Platformer.Creatures.Mobs.Patrolling
 
 		private void Awake()
 		{
-			_creature = GetComponent<Creature>();
+			_creature = GetComponent<WlkingCreature>();
 		}
 
 		public override IEnumerator DoPatrol()
