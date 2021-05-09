@@ -10,12 +10,12 @@ namespace Platformer.Creatures.Mobs.Patrolling
         [SerializeField] private Transform[] _points;
         [SerializeField] private float _treshold = 1f;
 
-		private WlkingCreature _creature;
+		private Creature _creature;
 		private int _destinationPointIndex;
 
 		private void Awake()
 		{
-			_creature = GetComponent<WlkingCreature>();
+			_creature = GetComponent<Creature>();
 		}
 
 		public override IEnumerator DoPatrol()
