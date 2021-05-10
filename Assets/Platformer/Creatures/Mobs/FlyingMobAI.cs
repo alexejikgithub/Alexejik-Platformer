@@ -9,7 +9,7 @@ namespace Platformer.Creatures.Mobs
 	{
 		[SerializeField] FindPathGrid _grid;
 
-		public bool _agro=false;
+		public bool _agro = false;
 
 		public void AgroOn()
 		{
@@ -23,11 +23,11 @@ namespace Platformer.Creatures.Mobs
 		protected override Vector2 GetDirectionToTarget()
 
 		{
-			
+
 			Vector2 direction;
-			if(_grid.Path!=null)
+			if (_grid.Path != null)
 			{
-				 direction = _grid.Path[0].WorldPosition - transform.position;
+				direction = _grid.Path[0].WorldPosition - transform.position;
 			}
 			else
 			{

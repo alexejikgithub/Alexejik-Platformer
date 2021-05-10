@@ -84,9 +84,9 @@ namespace Platformer.Creatures
 
 		public virtual void TakeDamage()
 		{
-			
+
 			Animator.SetTrigger(Hit);
-			
+
 		}
 		[ContextMenu("Attack")]
 		public virtual void Attack()
@@ -104,4 +104,4 @@ namespace Platformer.Creatures
 
 	}
 }
-	
+

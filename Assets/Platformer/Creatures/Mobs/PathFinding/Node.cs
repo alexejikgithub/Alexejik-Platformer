@@ -5,33 +5,33 @@ using UnityEngine;
 namespace Platformer.Creatures.Mobs.PathFinding
 
 {
-    public class Node 
-    {
-        public bool Walkable;
-        public Vector3 WorldPosition;
+	public class Node
+	{
+		public bool Walkable;
+		public Vector3 WorldPosition;
 
-        public int GridX;
-        public int GridY;
+		public int GridX;
+		public int GridY;
 
-        public Node Parent;
+		public Node Parent;
 
-        public int GCost;
-        public int HCost;
-        public int FCost
-        {
-            get { return GCost + HCost; }
-        }
-
-
-        public Node (bool walkable, Vector3 worldPos, int gridX, int gridY)
+		public int GCost;
+		public int HCost;
+		public int FCost
 		{
-            Walkable = walkable;
-            WorldPosition = worldPos;
-            GridX = gridX;
-            GridY = gridY;
+			get { return GCost + HCost; }
+		}
 
-        }
 
-        
-    }
+		public Node(bool walkable, Vector3 worldPos, int gridX, int gridY)
+		{
+			Walkable = walkable;
+			WorldPosition = worldPos;
+			GridX = gridX;
+			GridY = gridY;
+
+		}
+
+
+	}
 }

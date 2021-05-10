@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace Platformer.Creatures.Mobs.Patrolling
 {
-    public class PointPatrol : Patrol
-    {
-        [SerializeField] private Transform[] _points;
-        [SerializeField] private float _treshold = 1f;
+	public class PointPatrol : Patrol
+	{
+		[SerializeField] private Transform[] _points;
+		[SerializeField] private float _treshold = 1f;
 
 		private Creature _creature;
 		private int _destinationPointIndex;
@@ -20,16 +20,16 @@ namespace Platformer.Creatures.Mobs.Patrolling
 
 		public override IEnumerator DoPatrol()
 		{
-            while (enabled)
+			while (enabled)
 			{
-				
+
 				if (IsOnPoint())
 				{
-					
+
 					_destinationPointIndex = (int)Mathf.Repeat(_destinationPointIndex + 1, _points.Length);
 				}
 				var direction = _points[_destinationPointIndex].position - transform.position;
-				
+
 				_creature.SetDirection(direction.normalized);
 				yield return null;
 			}
@@ -37,7 +37,7 @@ namespace Platformer.Creatures.Mobs.Patrolling
 
 		private bool IsOnPoint()
 		{
-			
+
 			return (_points[_destinationPointIndex].position - transform.position).magnitude < _treshold;
 		}
 	}

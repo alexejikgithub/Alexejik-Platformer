@@ -12,8 +12,8 @@ namespace Platformer.Creatures.Mobs
 
 	public class WalkingMobAI : BaseMobAI
 	{
-		
-		
+
+
 
 		protected override IEnumerator GoToHero()
 		{
@@ -45,7 +45,7 @@ namespace Platformer.Creatures.Mobs
 
 
 
-		
+
 		protected override void ChangeOnDeath()
 		{
 			var collider = GetComponent<CapsuleCollider2D>();

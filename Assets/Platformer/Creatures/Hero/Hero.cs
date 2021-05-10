@@ -41,7 +41,7 @@ namespace Platformer.Creatures.Hero
 		[SerializeField] private float _superThrowDelay;
 
 		[Space]
-		
+
 		[SerializeField] private ProbabilityDropComponent _hitDrop;
 
 		private static readonly int ThrowKey = Animator.StringToHash("throw");
@@ -112,8 +112,8 @@ namespace Platformer.Creatures.Hero
 		}
 		public void StartThrowing()
 		{
-			
-				_SuperThrowCooldown.Reset();
+
+			_SuperThrowCooldown.Reset();
 		}
 		public void PerformThrowing()
 		{
@@ -124,11 +124,11 @@ namespace Platformer.Creatures.Hero
 			_throwCooldown.Reset();
 		}
 
-				
+
 
 		public void OnDoThrow()
 		{
-			if(_superThrow)
+			if (_superThrow)
 			{
 				var numThrows = Mathf.Min(_superThrowParticles, SwordCount - 1);
 				StartCoroutine(DoSuperThrow(numThrows));
@@ -145,7 +145,7 @@ namespace Platformer.Creatures.Hero
 
 		private IEnumerator DoSuperThrow(int numThrows)
 		{
-			for(int i =0; i< numThrows; i++)
+			for (int i = 0; i < numThrows; i++)
 			{
 				ThrowAndRemoveFromInventory();
 				yield return new WaitForSeconds(_superThrowDelay);
@@ -204,7 +204,7 @@ namespace Platformer.Creatures.Hero
 			{
 				_allowSecondJump = true;
 			}
-			if ( _isOnWall) //   !isJumpPressing && убрал
+			if (_isOnWall) //   !isJumpPressing && убрал
 			{
 				return 0f;
 			}

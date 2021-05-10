@@ -20,9 +20,9 @@ namespace Platformer.Creatures
 		[Header("Checkers")]
 		[SerializeField] protected LayerMask GroundLayer;
 		[SerializeField] private ColliderCheck _groundCheck;
-		
 
-		
+
+
 		protected bool IsGrounded;
 		private bool _isJumping;
 
@@ -38,7 +38,7 @@ namespace Platformer.Creatures
 			base.Awake();
 		}
 
-		
+
 
 		protected virtual void Update()
 		{
@@ -46,7 +46,7 @@ namespace Platformer.Creatures
 		}
 
 
-		
+
 		protected override void FixedUpdate()
 		{
 

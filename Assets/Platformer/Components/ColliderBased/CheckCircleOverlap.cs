@@ -16,9 +16,9 @@ namespace Platformer.Components.ColliderBased
 		[SerializeField] private LayerMask _mask;
 		[SerializeField] private string[] _tags;
 		[SerializeField] private OnOverlapEvent _onOverlap;
- 		private Collider2D[] _interactResult = new Collider2D[10];
+		private Collider2D[] _interactResult = new Collider2D[10];
 
-		
+
 
 		private void OnDrawGizmosSelected()
 		{
@@ -30,19 +30,19 @@ namespace Platformer.Components.ColliderBased
 			var size = Physics2D.OverlapCircleNonAlloc(
 				transform.position,
 				_radius,
-				_interactResult,_mask);
+				_interactResult, _mask);
 
 			var overlaps = new List<GameObject>();
 			for (int i = 0; i < size; i++)
 			{
 				var overlapResult = _interactResult[i];
 				var isInTags = _tags.Any(tag => overlapResult.CompareTag(tag));
-				if(isInTags)
+				if (isInTags)
 				{
 					_onOverlap?.Invoke(overlapResult.gameObject);
 				}
-				
-				
+
+
 			}
 		}
 		[Serializable]

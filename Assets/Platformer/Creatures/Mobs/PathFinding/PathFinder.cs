@@ -23,11 +23,11 @@ namespace Platformer.Creatures.Mobs.PathFinding
 
 		private void Update()
 		{
-			if(_seekerAi._agro&&!_seekerAi._isDead)
+			if (_seekerAi._agro && !_seekerAi._isDead)
 			{
 				FindPath(_seeker.position, _target.position);
 			}
-			
+
 		}
 
 		private void FindPath(Vector2 startPos, Vector2 targetPos)
@@ -51,7 +51,7 @@ namespace Platformer.Creatures.Mobs.PathFinding
 				}
 				openSet.Remove(currentNode);
 				closedSet.Add(currentNode);
-				
+
 
 				if (currentNode == targetNode)
 				{
@@ -66,7 +66,7 @@ namespace Platformer.Creatures.Mobs.PathFinding
 						continue;
 					}
 					int newCostToNeighbour = currentNode.GCost + GetDistance(currentNode, neighbour);
-					if (newCostToNeighbour<neighbour.GCost||!openSet.Contains(neighbour))
+					if (newCostToNeighbour < neighbour.GCost || !openSet.Contains(neighbour))
 					{
 						neighbour.GCost = newCostToNeighbour;
 						neighbour.HCost = GetDistance(neighbour, targetNode);
@@ -86,7 +86,7 @@ namespace Platformer.Creatures.Mobs.PathFinding
 			List<Node> path = new List<Node>();
 			Node currentNode = endNode;
 
-			while (currentNode!=startNode)
+			while (currentNode != startNode)
 			{
 				path.Add(currentNode);
 				currentNode = currentNode.Parent;
@@ -99,12 +99,12 @@ namespace Platformer.Creatures.Mobs.PathFinding
 		{
 			int distX = Mathf.Abs(nodeA.GridX - nodeB.GridX);
 			int distY = Mathf.Abs(nodeA.GridY - nodeB.GridY);
-			
-			if(distX>distY)
+
+			if (distX > distY)
 			{
 				return 14 * distY + 10 * (distX - distY);
 			}
-			return 14 * distX + 10*(distY - distX);
+			return 14 * distX + 10 * (distY - distX);
 
 		}
 	}

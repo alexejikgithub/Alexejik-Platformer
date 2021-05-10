@@ -15,7 +15,7 @@ namespace Platformer.Components.ColliderBased
 
 		private void OnCollisionEnter2D(Collision2D other)
 		{
-			foreach(var tag in _tags)
+			foreach (var tag in _tags)
 			{
 				if (other.gameObject.CompareTag(tag))
 				{
@@ -25,7 +25,7 @@ namespace Platformer.Components.ColliderBased
 
 				}
 			}
-			
+
 
 		}
 		[Serializable]
