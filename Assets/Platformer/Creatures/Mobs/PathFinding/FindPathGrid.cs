@@ -49,7 +49,7 @@ namespace Platformer.Creatures.Mobs.PathFinding
 			{
 				for (int y = -1; y <= 1; y++)
 				{
-					if (x == 0 && y == 0)
+					if (Mathf.Abs(x)== Mathf.Abs(y))
 					{
 						continue;
 					}
