@@ -88,7 +88,7 @@ namespace Platformer.Creatures.Mobs
 			StartState(GoToHero());
 		}
 
-		protected Vector2 GetDirectionToTarget()
+		protected virtual Vector2 GetDirectionToTarget()
 		{
 			var direction = _target.transform.position - transform.position;
 			direction.y = 0;
