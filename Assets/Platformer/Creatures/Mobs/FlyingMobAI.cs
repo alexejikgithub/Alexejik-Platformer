@@ -9,6 +9,17 @@ namespace Platformer.Creatures.Mobs
 	{
 		[SerializeField] FindPathGrid _grid;
 
+		public bool _agro=false;
+
+		public void AgroOn()
+		{
+			_agro = true;
+		}
+		public void AgroOff()
+		{
+			_agro = false;
+		}
+
 		protected override Vector2 GetDirectionToTarget()
 
 		{
@@ -56,7 +67,7 @@ namespace Platformer.Creatures.Mobs
 		{
 			var rb = GetComponent<Rigidbody2D>();
 			rb.bodyType = RigidbodyType2D.Dynamic;
-			rb.gravityScale = 5;
+			rb.gravityScale = 50;
 		}
 	}
 }

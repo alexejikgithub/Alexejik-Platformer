@@ -6,7 +6,14 @@ namespace Platformer.Creatures.Mobs.PathFinding
 {
 	public class PathFinder : MonoBehaviour
 	{
-		[SerializeField] private Transform _seeker, _target; 
+		[SerializeField] private Transform _seeker, _target;
+
+		private FlyingMobAI _seekerAi;
+
+		private void Start()
+		{
+			_seekerAi = _seeker.gameObject.GetComponent<FlyingMobAI>();
+		}
 
 		private FindPathGrid _grid;
 		private void Awake()
@@ -16,7 +23,11 @@ namespace Platformer.Creatures.Mobs.PathFinding
 
 		private void Update()
 		{
-			FindPath(_seeker.position, _target.position);
+			if(_seekerAi._agro&&!_seekerAi._isDead)
+			{
+				FindPath(_seeker.position, _target.position);
+			}
+			
 		}
 
 		private void FindPath(Vector2 startPos, Vector2 targetPos)

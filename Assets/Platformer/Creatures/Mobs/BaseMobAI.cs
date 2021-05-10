@@ -25,7 +25,7 @@ namespace Platformer.Creatures.Mobs
 
 
 		protected Animator _animator;
-		protected bool _isDead;
+		public bool _isDead;
 		protected Patrol _patrol;
 
 		protected Creature _creature;

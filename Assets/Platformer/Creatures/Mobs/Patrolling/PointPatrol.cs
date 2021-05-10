@@ -37,6 +37,7 @@ namespace Platformer.Creatures.Mobs.Patrolling
 
 		private bool IsOnPoint()
 		{
+			
 			return (_points[_destinationPointIndex].position - transform.position).magnitude < _treshold;
 		}
 	}

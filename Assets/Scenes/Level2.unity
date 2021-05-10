@@ -2268,76 +2268,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1157986679 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2004169344968496439, guid: cc34651edc46a31409e4d2560751aff2,
-    type: 3}
-  m_PrefabInstance: {fileID: 2097396210}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1157986681 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 755695814, guid: cc34651edc46a31409e4d2560751aff2,
-    type: 3}
-  m_PrefabInstance: {fileID: 2097396210}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1157986679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0942bca9f5bd48e48895dab7cff1bc75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!58 &1157986683 stripped
-CircleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 755695813, guid: cc34651edc46a31409e4d2560751aff2,
-    type: 3}
-  m_PrefabInstance: {fileID: 2097396210}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1157986685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1157986679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cad71b55bbe9fd94bb9a78bcd9b41a82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _required:
-  - Id: Key
-    Value: 1
-  - Id: Coin
-    Value: 5
-  _removeAfterUse: 1
-  _onSucces:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1157986681}
-        m_MethodName: SetClip
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: open
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1157986683}
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _onFail:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &1161352365 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7274451341918426700, guid: aa61637a48c752541ac05f12cd97da1f,
@@ -8295,58 +8225,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1448445922}
     m_Modifications:
-    - target: {fileID: 755695812, guid: cc34651edc46a31409e4d2560751aff2, type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 755695812, guid: cc34651edc46a31409e4d2560751aff2, type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 755695812, guid: cc34651edc46a31409e4d2560751aff2, type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1157986685}
-    - target: {fileID: 755695812, guid: cc34651edc46a31409e4d2560751aff2, type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Check
-      objectReference: {fileID: 0}
-    - target: {fileID: 755695812, guid: cc34651edc46a31409e4d2560751aff2, type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 755695812, guid: cc34651edc46a31409e4d2560751aff2, type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 1788240741, guid: cc34651edc46a31409e4d2560751aff2, type: 3}
-      propertyPath: _sceneName
-      value: Level1
-      objectReference: {fileID: 0}
     - target: {fileID: 2004169344968496439, guid: cc34651edc46a31409e4d2560751aff2,
         type: 3}
       propertyPath: m_Name
       value: WoodenDoor
-      objectReference: {fileID: 0}
-    - target: {fileID: 2004169344968496439, guid: cc34651edc46a31409e4d2560751aff2,
-        type: 3}
-      propertyPath: m_TagString
-      value: Interactable
-      objectReference: {fileID: 0}
-    - target: {fileID: 4026170584863430065, guid: cc34651edc46a31409e4d2560751aff2,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4026170584863430065, guid: cc34651edc46a31409e4d2560751aff2,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4026170584863430065, guid: cc34651edc46a31409e4d2560751aff2,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1188173757
       objectReference: {fileID: 0}
     - target: {fileID: 7618343942374749956, guid: cc34651edc46a31409e4d2560751aff2,
         type: 3}
@@ -8356,12 +8238,12 @@ PrefabInstance:
     - target: {fileID: 7618343942374749956, guid: cc34651edc46a31409e4d2560751aff2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.2255573
+      value: -4.12
       objectReference: {fileID: 0}
     - target: {fileID: 7618343942374749956, guid: cc34651edc46a31409e4d2560751aff2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.87854
+      value: -11.54
       objectReference: {fileID: 0}
     - target: {fileID: 7618343942374749956, guid: cc34651edc46a31409e4d2560751aff2,
         type: 3}
