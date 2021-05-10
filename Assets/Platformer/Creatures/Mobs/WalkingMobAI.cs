@@ -46,7 +46,7 @@ namespace Platformer.Creatures.Mobs
 
 
 		
-		protected override void ChangeCapsuleColliderOnDeath()
+		protected override void ChangeOnDeath()
 		{
 			var collider = GetComponent<CapsuleCollider2D>();
 			collider.direction = CapsuleDirection2D.Horizontal;

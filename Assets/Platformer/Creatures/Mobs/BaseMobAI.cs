@@ -113,11 +113,11 @@ namespace Platformer.Creatures.Mobs
 			{
 				StopCoroutine(_current);
 			}
-
+			ChangeOnDeath();
 
 		}
 
-		protected virtual void ChangeCapsuleColliderOnDeath()
+		protected virtual void ChangeOnDeath()
 		{
 
 		}

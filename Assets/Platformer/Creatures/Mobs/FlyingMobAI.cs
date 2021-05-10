@@ -52,6 +52,11 @@ namespace Platformer.Creatures.Mobs
 
 			}
 		}
-
+		protected override void ChangeOnDeath()
+		{
+			var rb = GetComponent<Rigidbody2D>();
+			rb.bodyType = RigidbodyType2D.Dynamic;
+			rb.gravityScale = 5;
+		}
 	}
 }
