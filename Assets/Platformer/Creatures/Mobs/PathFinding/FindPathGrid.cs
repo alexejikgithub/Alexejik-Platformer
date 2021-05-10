@@ -35,7 +35,7 @@ namespace Platformer.Creatures.Mobs.PathFinding
 				for (int y = 0; y < gridSizeY; y++)
 				{
 					Vector2 worldPoint = worldBottomLeft + Vector2.right * (x * _nodeDiameter + _nodeRadius) + Vector2.up * (y * _nodeDiameter + _nodeRadius);
-					bool walkable = !Physics2D.OverlapCircle(worldPoint, _nodeRadius - 0.1f, _unwalkableMask);
+					bool walkable = !Physics2D.OverlapCircle(worldPoint, _nodeRadius - 0.02f, _unwalkableMask);
 					_grid[x, y] = new Node(walkable, worldPoint, x, y);
 				}
 			}

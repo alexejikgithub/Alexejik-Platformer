@@ -10,8 +10,18 @@ namespace Platformer.Creatures.Mobs
 		[SerializeField] FindPathGrid _grid;
 
 		protected override Vector2 GetDirectionToTarget()
+
 		{
-			var direction = _grid.Path[0].WorldPosition - transform.position;
+			
+			Vector2 direction;
+			if(_grid.Path!=null)
+			{
+				 direction = _grid.Path[0].WorldPosition - transform.position;
+			}
+			else
+			{
+				direction = transform.position;
+			}
 			return direction.normalized;
 		}
 
