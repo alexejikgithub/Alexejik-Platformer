@@ -100,6 +100,15 @@ namespace Platformer.Creatures.Hero
 			}
 		}
 
+		public void OnCallGameMenu(InputAction.CallbackContext context)
+		{
+			if (context.canceled)
+			{
+				
+				_hero.OpenGameMenu();
+			}
+		}
+
 	}
 
 }

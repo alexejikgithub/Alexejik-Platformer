@@ -73,6 +73,14 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""GameMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""675b4e54-5aa7-43e9-b918-045b777d10f3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -251,6 +259,17 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""action"": ""UseHealPotion"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""95ae7a98-53fb-434c-950f-4418a3877f70"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GameMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -266,6 +285,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         m_Hero_Attak = m_Hero.FindAction("Attak", throwIfNotFound: true);
         m_Hero_Throw = m_Hero.FindAction("Throw", throwIfNotFound: true);
         m_Hero_UseHealPotion = m_Hero.FindAction("UseHealPotion", throwIfNotFound: true);
+        m_Hero_GameMenu = m_Hero.FindAction("GameMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -322,6 +342,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
     private readonly InputAction m_Hero_Attak;
     private readonly InputAction m_Hero_Throw;
     private readonly InputAction m_Hero_UseHealPotion;
+    private readonly InputAction m_Hero_GameMenu;
     public struct HeroActions
     {
         private @HeroInputAction m_Wrapper;
@@ -333,6 +354,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         public InputAction @Attak => m_Wrapper.m_Hero_Attak;
         public InputAction @Throw => m_Wrapper.m_Hero_Throw;
         public InputAction @UseHealPotion => m_Wrapper.m_Hero_UseHealPotion;
+        public InputAction @GameMenu => m_Wrapper.m_Hero_GameMenu;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -363,6 +385,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @UseHealPotion.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseHealPotion;
                 @UseHealPotion.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseHealPotion;
                 @UseHealPotion.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseHealPotion;
+                @GameMenu.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnGameMenu;
+                @GameMenu.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnGameMenu;
+                @GameMenu.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnGameMenu;
             }
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
@@ -388,6 +413,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @UseHealPotion.started += instance.OnUseHealPotion;
                 @UseHealPotion.performed += instance.OnUseHealPotion;
                 @UseHealPotion.canceled += instance.OnUseHealPotion;
+                @GameMenu.started += instance.OnGameMenu;
+                @GameMenu.performed += instance.OnGameMenu;
+                @GameMenu.canceled += instance.OnGameMenu;
             }
         }
     }
@@ -401,5 +429,6 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         void OnAttak(InputAction.CallbackContext context);
         void OnThrow(InputAction.CallbackContext context);
         void OnUseHealPotion(InputAction.CallbackContext context);
+        void OnGameMenu(InputAction.CallbackContext context);
     }
 }

@@ -827,18 +827,7 @@ MonoBehaviour:
     m_ActionId: ceb47c7c-1f14-4026-b642-9945b2a73e2a
     m_ActionName: Hero/HorizontalMovement[/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2032397210555660375}
-        m_MethodName: OnSaySomething
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: bcfacc00-62d7-4ee3-9b0a-3a3a31ffdddf
     m_ActionName: Hero/SaySomething[/Mouse/leftButton]
   - m_PersistentCalls:
@@ -916,6 +905,21 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 252199be-27fa-481d-a448-94071473fa0f
     m_ActionName: Hero/UseHealPotion[/Keyboard/h]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2032397210555660375}
+        m_MethodName: OnCallGameMenu
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 675b4e54-5aa7-43e9-b918-045b777d10f3
+    m_ActionName: Hero/GameMenu[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero
@@ -1211,7 +1215,6 @@ GameObject:
   - component: {fileID: 1867156457064155093}
   - component: {fileID: 3337880035769800171}
   - component: {fileID: 8651764603466289833}
-  - component: {fileID: 371210635}
   m_Layer: 13
   m_Name: MainTheme
   m_TagString: MainMusicTheme
@@ -1338,16 +1341,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &371210635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7786218495810788215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14908352eb9e28c41a669e94c96cf4e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mixer: {fileID: 24100000, guid: cbceba17235d4324f8ca7e55cb1d045d, type: 2}

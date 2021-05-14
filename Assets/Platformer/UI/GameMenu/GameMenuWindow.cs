@@ -1,20 +1,32 @@
-﻿using System;
+﻿using Platformer.Components.LevelManagement;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Platformer.UI.MainMenu
+namespace Platformer.UI.GameMenu
 {
-	public class MainMenuWindow : AnimatedWindow
-
-	{
+    public class GameMenuWindow : AnimatedWindow
+    {
 
 		private Action _closeAction;
+		private ReloadLevelComponent _reloader;
 
-		public void OnStartGame()
+		
+
+		public void OnContinue()
 		{
-			_closeAction = () => { SceneManager.LoadScene("Level2"); };
+			
+				Close();
+		}
+		public void OnRestart()
+		{
+			_reloader = FindObjectOfType<ReloadLevelComponent>();
+			_closeAction = () =>
+			{
+				_reloader.Reload();
+			};
 			Close();
 		}
 		public void OnShowSettings()
@@ -27,7 +39,7 @@ namespace Platformer.UI.MainMenu
 		{
 			_closeAction = () =>
 			{
-				base.OnCloseAnimationComplete();
+				
 
 				Application.Quit();
 
@@ -43,7 +55,7 @@ namespace Platformer.UI.MainMenu
 			_closeAction?.Invoke();
 			base.OnCloseAnimationComplete();
 
-			
+
 		}
 
 	}

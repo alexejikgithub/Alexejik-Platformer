@@ -10,6 +10,8 @@ using Platformer.Components.ColliderBased;
 using Platformer.Components.Health;
 using Platformer.Components.GoBased;
 using Assets.Platformer.Model.Data;
+using Platformer.UI.GameMenu;
+using UnityEngine.InputSystem;
 
 namespace Platformer.Creatures.Hero
 
@@ -55,9 +57,11 @@ namespace Platformer.Creatures.Hero
 		private bool _allowSecondJump;
 		private bool _isOnWall;
 		private bool _superThrow;
+
 		//private bool _isSprinting;
 
-
+		
+		private GameMenuWindow _gameMenu;
 
 		private GameSession _session;
 		private float _defautGravityScale;
@@ -302,6 +306,24 @@ namespace Platformer.Creatures.Hero
 
 			Animator.runtimeAnimatorController = SwordCount > 0 ? _armed : _unarmed;
 
+		}
+
+		public void OpenGameMenu()
+		{
+			
+			if(_gameMenu==null)
+			{
+				var window = Resources.Load<GameObject>("UI/GameMenuWindow");
+				var canvas = FindObjectOfType<Canvas>();
+				_gameMenu=Instantiate(window, canvas.transform).GetComponent<GameMenuWindow>();
+				
+			}
+			else
+			{
+				_gameMenu.OnContinue();
+				
+			}
+			
 		}
 
 	}
