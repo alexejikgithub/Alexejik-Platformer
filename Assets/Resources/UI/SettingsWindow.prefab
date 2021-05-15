@@ -200,8 +200,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 28.739986, y: -19.602823}
-  m_SizeDelta: {x: 12.471191, y: 10.64135}
+  m_AnchoredPosition: {x: 30.43, y: -19.602823}
+  m_SizeDelta: {x: 16.1, y: 10.64135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7339473353665144092
 CanvasRenderer:
@@ -243,7 +243,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 98
+  m_Text: 100
 --- !u!1 &1169833254163993176
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,6 +424,7 @@ GameObject:
   - component: {fileID: 1169833255681032054}
   - component: {fileID: 1169833255681032053}
   - component: {fileID: 1169833255681032052}
+  - component: {fileID: 4155427192315330227}
   m_Layer: 5
   m_Name: OkButton
   m_TagString: Untagged
@@ -546,6 +547,19 @@ MonoBehaviour:
         m_CallState: 2
   _normal: {fileID: 1169833255922286931}
   _pressed: {fileID: 1169833254163993176}
+--- !u!114 &4155427192315330227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169833255681032050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 216544f64645af54d8fab2140c673e94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: 3b7a828a646174088aa48ee1db9c439c, type: 3}
 --- !u!1 &1169833255748810183
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,6 +629,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 647cd81a430e2a444b07f9f87209c5ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _music: {fileID: 6654648028696405040}
+  _sfx: {fileID: 8929002063374613869}
 --- !u!1 &1169833255922286931
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,8 +874,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9098269689353645024}
+  - component: {fileID: 8929002063374613869}
   m_Layer: 5
-  m_Name: VolumeItem (1)
+  m_Name: SfxOption
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -887,6 +904,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 74.07077, y: 27.745663}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8929002063374613869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2411792490408743894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d8dda4c0992cbd4ea2e62afc5fc0958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slider: {fileID: 387668065769158655}
+  _value: {fileID: 7892720724836364629}
 --- !u!1 &3611272388875889963
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,8 +1027,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00097585, y: 4.3994}
-  m_SizeDelta: {x: 70.32767, y: 58.001236}
+  m_AnchoredPosition: {x: -0.31, y: 4.3994}
+  m_SizeDelta: {x: 76.48877, y: 58.001236}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1160877710371323530
 MonoBehaviour:
@@ -1058,8 +1089,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 28.739986, y: -19.602823}
-  m_SizeDelta: {x: 12.471191, y: 10.64135}
+  m_AnchoredPosition: {x: 30.43, y: -19.602823}
+  m_SizeDelta: {x: 16.1, y: 10.64135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &264310234446374779
 CanvasRenderer:
@@ -1101,7 +1132,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 98
+  m_Text: 100
 --- !u!1 &5047516209487121116
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,8 +1290,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2468897495754798831}
+  - component: {fileID: 6654648028696405040}
   m_Layer: 5
-  m_Name: VolumeItem
+  m_Name: MusicOption
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1288,6 +1320,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 74.07077, y: 27.745663}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6654648028696405040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5915449546266864295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d8dda4c0992cbd4ea2e62afc5fc0958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slider: {fileID: 7112803676346229826}
+  _value: {fileID: 304018618261084922}
 --- !u!1 &6123145867712171150
 GameObject:
   m_ObjectHideFlags: 0

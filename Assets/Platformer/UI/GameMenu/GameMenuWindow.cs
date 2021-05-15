@@ -7,18 +7,18 @@ using UnityEngine.SceneManagement;
 
 namespace Platformer.UI.GameMenu
 {
-    public class GameMenuWindow : AnimatedWindow
-    {
+	public class GameMenuWindow : AnimatedWindow
+	{
 
 		private Action _closeAction;
 		private ReloadLevelComponent _reloader;
 
-		
+
 
 		public void OnContinue()
 		{
-			
-				Close();
+
+			Close();
 		}
 		public void OnRestart()
 		{
@@ -39,7 +39,7 @@ namespace Platformer.UI.GameMenu
 		{
 			_closeAction = () =>
 			{
-				
+
 
 				Application.Quit();
 

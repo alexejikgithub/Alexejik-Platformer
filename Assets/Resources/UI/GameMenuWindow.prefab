@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 6785695647110897420}
   - component: {fileID: 1574437960078889074}
   - component: {fileID: 2368317713750360705}
+  - component: {fileID: 6175822184078895582}
   m_Layer: 5
   m_Name: ContinueButton
   m_TagString: Untagged
@@ -212,6 +213,19 @@ MonoBehaviour:
         m_CallState: 2
   _normal: {fileID: 8281177774543887968}
   _pressed: {fileID: 38457367192061648}
+--- !u!114 &6175822184078895582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2458748954828384757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 216544f64645af54d8fab2140c673e94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: 3b7a828a646174088aa48ee1db9c439c, type: 3}
 --- !u!1 &4301300637775604239
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,6 +316,7 @@ GameObject:
   - component: {fileID: 4301300637882518293}
   - component: {fileID: 4301300637882518294}
   - component: {fileID: 4301300637882518295}
+  - component: {fileID: 3822187920585657943}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -424,6 +439,19 @@ MonoBehaviour:
         m_CallState: 2
   _normal: {fileID: 4301300639594824303}
   _pressed: {fileID: 4301300639563643896}
+--- !u!114 &3822187920585657943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4301300637882518297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 216544f64645af54d8fab2140c673e94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: 3b7a828a646174088aa48ee1db9c439c, type: 3}
 --- !u!1 &4301300638085856579
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,6 +631,7 @@ GameObject:
   - component: {fileID: 4301300638689310661}
   - component: {fileID: 4301300638689310662}
   - component: {fileID: 4301300638689310663}
+  - component: {fileID: 5000787436253347270}
   m_Layer: 5
   m_Name: Options
   m_TagString: Untagged
@@ -725,6 +754,19 @@ MonoBehaviour:
         m_CallState: 2
   _normal: {fileID: 4301300639416338321}
   _pressed: {fileID: 4301300639596107417}
+--- !u!114 &5000787436253347270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4301300638689310665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 216544f64645af54d8fab2140c673e94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: 3b7a828a646174088aa48ee1db9c439c, type: 3}
 --- !u!1 &4301300639127088427
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,6 +779,7 @@ GameObject:
   - component: {fileID: 4301300639127088423}
   - component: {fileID: 4301300639127088424}
   - component: {fileID: 4301300639127088425}
+  - component: {fileID: 7162854154561258858}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -859,6 +902,19 @@ MonoBehaviour:
         m_CallState: 2
   _normal: {fileID: 4301300638085856579}
   _pressed: {fileID: 4301300639182332402}
+--- !u!114 &7162854154561258858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4301300639127088427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 216544f64645af54d8fab2140c673e94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: 3b7a828a646174088aa48ee1db9c439c, type: 3}
 --- !u!1 &4301300639182332402
 GameObject:
   m_ObjectHideFlags: 0

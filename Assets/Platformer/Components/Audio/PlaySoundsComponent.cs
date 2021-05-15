@@ -9,7 +9,7 @@ namespace Platformer.Components.Audio
 {
 	public class PlaySoundsComponent : MonoBehaviour
 	{
-		[SerializeField] private AudioSource _source;
+		private AudioSource _source;
 		[SerializeField] private AudioData[] _sounds;
 
 		public void Play(string id)
@@ -17,6 +17,11 @@ namespace Platformer.Components.Audio
 			foreach (var audiodata in _sounds)
 			{
 				if (audiodata.Id != id) continue;
+
+				if (_source == null)
+				{
+					_source = GameObject.FindWithTag("SfxAudioSourse").GetComponent<AudioSource>();
+				}
 
 				_source.PlayOneShot(audiodata.Clip);
 				break;

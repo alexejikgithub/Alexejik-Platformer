@@ -43,7 +43,7 @@ namespace Platformer.UI.MainMenu
 			_closeAction?.Invoke();
 			base.OnCloseAnimationComplete();
 
-			
+
 		}
 
 	}

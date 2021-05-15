@@ -28,7 +28,7 @@ namespace Platformer.Creatures.Hero
 
 		}
 
-		
+
 
 		public void OnInteract(InputAction.CallbackContext context)
 		{
@@ -60,7 +60,7 @@ namespace Platformer.Creatures.Hero
 		public void OnAttack(InputAction.CallbackContext context)
 		{
 
-			if(context.started)
+			if (context.started)
 			{
 
 			}
@@ -77,7 +77,7 @@ namespace Platformer.Creatures.Hero
 			if (context.started)
 			{
 				_hero.StartThrowing();
-				
+
 
 			}
 			if (context.canceled)
@@ -86,10 +86,10 @@ namespace Platformer.Creatures.Hero
 
 
 			}
-			
+
 		}
 
-		
+
 
 		public void OnUseHealthPotion(InputAction.CallbackContext context)
 		{
@@ -104,7 +104,7 @@ namespace Platformer.Creatures.Hero
 		{
 			if (context.canceled)
 			{
-				
+
 				_hero.OpenGameMenu();
 			}
 		}
