@@ -8,7 +8,7 @@ TagManager:
   - Interactable
   - MainMusicTheme
   - SfxAudioSourse
-  - MenuCanvas
+  - MainCanvas
   layers:
   - Default
   - TransparentFX

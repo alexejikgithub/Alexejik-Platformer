@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace Assets.Platformer.UI.HUD
+namespace Platformer.UI.HUD
 {
     public class HudController : MonoBehaviour
     {

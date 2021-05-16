@@ -20,7 +20,8 @@ namespace Platformer.UI.MainMenu
 		public void OnShowSettings()
 		{
 			var window = Resources.Load<GameObject>("UI/SettingsWindow");
-			var canvas = FindObjectOfType<Canvas>();
+			GameObject[] canvases = GameObject.FindGameObjectsWithTag("MainCanvas") ;
+			var canvas = canvases[0];
 			Instantiate(window, canvas.transform);
 		}
 		public void OnExit()

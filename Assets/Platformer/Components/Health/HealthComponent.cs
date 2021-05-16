@@ -16,6 +16,8 @@ namespace Platformer.Components.Health
 
 		[SerializeField] private HealthChangeEvent _onChange;
 
+		public int Health => _health;
+
 		private bool _isDead = false;
 		// _isDead will prevent invoking other events when target is already performing _onDie
 
