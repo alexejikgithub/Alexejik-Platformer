@@ -868,9 +868,31 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2966856015237339883}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onChange:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 588240321}
+        m_MethodName: UpdateHealthBar
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2966856015008223243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1163,6 +1185,7 @@ GameObject:
   - component: {fileID: 5929240479001108270}
   - component: {fileID: 5929240479001108268}
   - component: {fileID: 5929240479001108271}
+  - component: {fileID: 1159123467}
   m_Layer: 12
   m_Name: HealthBar
   m_TagString: Untagged
@@ -1227,6 +1250,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1159123467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5929240479001108265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 006257021b29174498b4469438418669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bar: {fileID: 7834031193988071068}
 --- !u!1 &6170381512706806727
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,8 +1321,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5633301999780628141}
+  - component: {fileID: 588240321}
   m_Layer: 12
-  m_Name: HudController
+  m_Name: HealthBarController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1312,6 +1349,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &588240321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6947001571231445366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c146c9ee13b6ec4da2cde81e0bcc4f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthBar: {fileID: 1159123467}
+  _healthComponent: {fileID: 2966856015954524812}
 --- !u!1 &7791084577881564443
 GameObject:
   m_ObjectHideFlags: 0
@@ -1369,7 +1420,7 @@ GameObject:
   - component: {fileID: 4653406845873128322}
   - component: {fileID: 7834031193988071068}
   m_Layer: 12
-  m_Name: Image
+  m_Name: Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
