@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Platformer.Model.Data.Properties
 {
-	public abstract class PrefsPersistentProperty<TPropertyType> : PersistentProperty<TPropertyType>
+	public abstract class PrefsPersistentProperty<TPropertyType> : PersistantProperty<TPropertyType>
 	{
 		protected string Key;
 

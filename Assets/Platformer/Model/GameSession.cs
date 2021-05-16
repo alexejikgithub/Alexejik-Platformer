@@ -1,7 +1,8 @@
 ﻿
 using Platformer.Model.Data;
+using System;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 namespace Platformer.Model
 {
@@ -16,6 +17,9 @@ namespace Platformer.Model
 
 		private void Awake()
 		{
+
+			LoadHud();
+
 			if (IsSessionExist())
 			{
 				Destroy(gameObject);
@@ -27,6 +31,11 @@ namespace Platformer.Model
 			}
 		}
 
+		private void LoadHud()
+		{
+			SceneManager.LoadScene("Hud", LoadSceneMode.Additive);
+		}
+
 		private bool IsSessionExist()
 		{
 			var sessions = FindObjectsOfType<GameSession>();
@@ -34,7 +43,7 @@ namespace Platformer.Model
 			{
 				if (gameSession != this)
 					return true;
-				
+
 			}
 			return false;
 		}

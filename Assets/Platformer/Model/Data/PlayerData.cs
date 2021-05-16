@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Platformer.Model.Data.Properties;
+using System;
 using UnityEngine;
 
 namespace Platformer.Model.Data
@@ -10,7 +11,8 @@ namespace Platformer.Model.Data
 		[SerializeField] private InventoryData _inventory;
 		public InventoryData Inventory => _inventory;
 
-		public int Hp;
+		
+		public IntProperty Hp =new IntProperty();
 		
 		
 

@@ -21,7 +21,7 @@ namespace Platformer.UI.Widgets
 		public void SetModel(FloatPersistentProperty model)
 		{
 			_model = model;
-			model.onChanged += OnValueChanged;
+			model.OnChanged += OnValueChanged;
 			OnValueChanged(model.Value, model.Value);
 		}
 
@@ -44,7 +44,7 @@ namespace Platformer.UI.Widgets
 		private void OnDestroy()
 		{
 			_slider.onValueChanged.RemoveListener(OnSliderValueChanged);
-			_model.onChanged -= OnValueChanged;
+			_model.OnChanged -= OnValueChanged;
 		}
 	}
 }

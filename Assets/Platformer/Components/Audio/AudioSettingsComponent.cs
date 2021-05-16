@@ -19,7 +19,7 @@ namespace Platformer.Components.Audio
 		{
 			_sourse = GetComponent<AudioSource>();
 			_model = FindProperty();
-			_model.onChanged += OnSoundSettingsChanged;
+			_model.OnChanged += OnSoundSettingsChanged;
 			OnSoundSettingsChanged(_model.Value, _model.Value);
 
 		}
@@ -47,7 +47,7 @@ namespace Platformer.Components.Audio
 		}
 		private void OnDestroy()
 		{
-			_model.onChanged -= OnSoundSettingsChanged;
+			_model.OnChanged -= OnSoundSettingsChanged;
 		}
 
 	}

@@ -956,7 +956,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0bada7dd756fa442aa4b88b80c42954, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _source: {fileID: 0}
   _sounds:
   - _id: Jump
     _clip: {fileID: 8300000, guid: 23a81c9c5fc27eb4aab7f033872f628a, type: 3}
@@ -1087,7 +1086,7 @@ GameObject:
   - component: {fileID: 3337880035769800171}
   m_Layer: 13
   m_Name: AudioListener
-  m_TagString: MainMusicTheme
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -84,7 +84,7 @@ namespace Platformer.Creatures.Hero
 			_session = FindObjectOfType<GameSession>();
 
 			var health = GetComponent<HealthComponent>();
-			health.SetHealth(_session.Data.Hp);
+			health.SetHealth(_session.Data.Hp.Value);
 			UpdateHeroWeapon();
 			_session.Data.Inventory.OnChanged += OnInventoryChanged;
 			_session.Data.Inventory.OnChanged += AnotherHandler;
@@ -165,7 +165,7 @@ namespace Platformer.Creatures.Hero
 
 		public void OnHealthChanged(int currentHealth)
 		{
-			_session.Data.Hp = currentHealth;
+			_session.Data.Hp.Value = currentHealth;
 			Debug.Log(currentHealth);
 		}
 

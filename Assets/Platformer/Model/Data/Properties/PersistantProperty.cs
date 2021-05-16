@@ -6,19 +6,19 @@ using UnityEngine;
 namespace Platformer.Model.Data.Properties
 {
     [Serializable]
-    public abstract class PersistentProperty<TPropertyType>
+    public abstract class PersistantProperty<TPropertyType>
     {
 
-        [SerializeField] private TPropertyType _value;
-        private TPropertyType _stored;
+        [SerializeField] protected TPropertyType _value;
+        protected TPropertyType _stored;
 
         private TPropertyType _defaultValue;
 
         public delegate void OnPropertychanged(TPropertyType newValue, TPropertyType oldValue);
 
-        public event OnPropertychanged onChanged;
+        public event OnPropertychanged OnChanged;
 
-        public PersistentProperty(TPropertyType defaultValue)
+        public PersistantProperty(TPropertyType defaultValue)
 		{
             _defaultValue = defaultValue;
 		}
@@ -35,7 +35,7 @@ namespace Platformer.Model.Data.Properties
                 Write(value);
                 _stored=_value = value;
 
-                onChanged?.Invoke(value, oldValue);
+                OnChanged?.Invoke(value, oldValue);
 			}
 		}
         public void Init()
