@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Platformer.Utils;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,8 @@ namespace Platformer.Components.Audio
 {
 	public class PlaySoundsComponent : MonoBehaviour
 	{
+
+		
 		private AudioSource _source;
 		[SerializeField] private AudioData[] _sounds;
 
@@ -20,7 +23,7 @@ namespace Platformer.Components.Audio
 
 				if (_source == null)
 				{
-					_source = GameObject.FindWithTag("SfxAudioSourse").GetComponent<AudioSource>();
+					_source = AudioUtils.FindSfxSourse();
 				}
 
 				_source.PlayOneShot(audiodata.Clip);

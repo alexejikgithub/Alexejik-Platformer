@@ -11,6 +11,8 @@ namespace Platformer.Components.Audio
 	[RequireComponent(typeof(AudioSource))]
 	public class AudioSettingsComponent : MonoBehaviour
 	{
+
+		
 		[SerializeField] private SoundSetting _mode;
 		private FloatPersistentProperty _model;
 		private AudioSource _sourse;

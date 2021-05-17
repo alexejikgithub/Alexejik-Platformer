@@ -316,7 +316,7 @@ namespace Platformer.Creatures.Hero
 				var window = Resources.Load<GameObject>("UI/GameMenuWindow");
 				GameObject[] canvases = GameObject.FindGameObjectsWithTag("MainCanvas");
 				var canvas = canvases[0];
-				Instantiate(window, canvas.transform);
+				_gameMenu = Instantiate(window, canvas.transform).GetComponent<GameMenuWindow>(); 
 
 			}
 			else

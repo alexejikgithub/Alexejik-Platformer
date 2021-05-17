@@ -7,7 +7,7 @@ TagManager:
   - Enemy
   - Interactable
   - MainMusicTheme
-  - SfxAudioSourse
+  - SfxAudioSource
   - MainCanvas
   layers:
   - Default

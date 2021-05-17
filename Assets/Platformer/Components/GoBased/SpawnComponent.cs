@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Platformer.Utils;
 
 
 namespace Platformer.Components.GoBased
@@ -15,7 +16,7 @@ namespace Platformer.Components.GoBased
         [ContextMenu ("Spawn")]
         public void Spawn()
 		{
-            var instantiate = Instantiate(_prefab, _target.position, Quaternion.identity);
+            var instantiate = SpawnUtils.Spawn(_prefab, _target.position);
             instantiate.transform.localScale = _target.lossyScale;
             instantiate.SetActive(true);
 		}

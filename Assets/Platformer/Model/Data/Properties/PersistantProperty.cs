@@ -1,29 +1,27 @@
-﻿using System;
+﻿using Platformer.Utils.Disposables;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Platformer.Model.Data.Properties
 {
-    [Serializable]
-    public abstract class PersistantProperty<TPropertyType>
+   
+    public abstract class PersistantProperty<TPropertyType>:ObservableProperty<TPropertyType>
     {
 
-        [SerializeField] protected TPropertyType _value;
+        
         protected TPropertyType _stored;
 
         private TPropertyType _defaultValue;
 
-        public delegate void OnPropertychanged(TPropertyType newValue, TPropertyType oldValue);
-
-        public event OnPropertychanged OnChanged;
 
         public PersistantProperty(TPropertyType defaultValue)
 		{
             _defaultValue = defaultValue;
 		}
 
-        public TPropertyType Value
+        public override TPropertyType Value
 		{
             get => _stored;
             set
@@ -35,8 +33,8 @@ namespace Platformer.Model.Data.Properties
                 Write(value);
                 _stored=_value = value;
 
-                OnChanged?.Invoke(value, oldValue);
-			}
+                InvokeChangedEvent(value, oldValue);
+            }
 		}
         public void Init()
 		{

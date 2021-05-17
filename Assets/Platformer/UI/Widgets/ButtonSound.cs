@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using Platformer.Components.Audio;
+using Platformer.Utils;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -13,7 +15,7 @@ namespace Assets.Platformer.UI.Widgets
 		{
 			if (_source == null)
 			{
-				_source = GameObject.FindWithTag("SfxAudioSourse").GetComponent<AudioSource>();
+				_source = AudioUtils.FindSfxSourse();
 			}
 			_source.PlayOneShot(_audioClip);
 		}
