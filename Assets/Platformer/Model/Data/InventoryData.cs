@@ -36,14 +36,14 @@ namespace Platformer.Model.Data
 
 			
 
-			if (itemDef.Stackable && count >= itemDef.MaxAmount) return; // If current amount== maximum amount and stackable, nothing will be added.
+			if (itemDef.HasTag(ItemTag.Stackable) && count >= itemDef.MaxAmount) return; // If current amount== maximum amount and stackable, nothing will be added.
 
-			if (itemDef.Stackable)
+			if (itemDef.HasTag(ItemTag.Stackable))
 			{
 				AddToStack(id, value);
 			}
 
-			if (!itemDef.Stackable)
+			if (!itemDef.HasTag(ItemTag.Stackable))
 			{
 				
 				AddNonStack(id, value);
@@ -53,6 +53,27 @@ namespace Platformer.Model.Data
 
 			OnChanged?.Invoke(id, Count(id));
 		}
+
+
+		public InventoryItemData[] GetAll(params ItemTag[] tags)
+		{
+			
+			var retValue = new List<InventoryItemData>();
+			foreach (var item in _inventory)
+			{
+				var itemDef = DefsFacade.I.Items.Get(item.Id);
+				Debug.Log("!");
+				var isAllRequirementsMet = tags.All(x => itemDef.HasTag(x));
+				
+				if (isAllRequirementsMet)
+				{
+					retValue.Add(item);
+				}
+			}
+			
+			return retValue.ToArray();
+		}
+
 		private void AddToStack(string id, int value)
 		{
 			if (item == null)

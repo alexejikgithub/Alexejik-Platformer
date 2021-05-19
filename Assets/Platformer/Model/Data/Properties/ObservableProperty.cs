@@ -20,6 +20,14 @@ namespace Platformer.Model.Data.Properties
 			OnChanged += call;
 			return new ActionDisposable(() => OnChanged -= call);
 		}
+		
+		public IDisposable SubscribeAndInvoke(OnPropertychanged call)
+		{
+			OnChanged += call;
+			var dispose = new ActionDisposable(() => OnChanged -= call);
+			call(_value, _value);
+			return dispose;
+		}
 		public virtual TPropertyType Value
 		{
 			get => _value;

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 namespace Platformer.Model.Definitions
 {
@@ -34,8 +35,14 @@ namespace Platformer.Model.Definitions
 		[SerializeField] private int _maxAmount;
 		public int MaxAmount => _maxAmount;
 
-		[SerializeField] private bool _stackable;
-		public bool Stackable => _stackable;
+		[SerializeField] private ItemTag[] _tags;
+		public bool HasTag(ItemTag tag)
+		{
+			return _tags.Contains(tag);
+		}
+
+		[SerializeField] private Sprite _icon;
+		public Sprite Icon => _icon;
 
 		public bool IsVoid => string.IsNullOrEmpty(_id);
 	}

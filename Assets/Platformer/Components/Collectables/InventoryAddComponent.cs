@@ -42,9 +42,9 @@ namespace Platformer.Components.Collectables
 				if (session != null)
 				{
 
-					if (itemDef.Stackable && session.Data.Inventory.Count(_id) >= itemDef.MaxAmount) return;
+					if (itemDef.HasTag(ItemTag.Stackable) && session.Data.Inventory.Count(_id) >= itemDef.MaxAmount) return;
 					if (item == null && isFull) return;
-					if (!itemDef.Stackable && session.Data.Inventory.Count(_id) >= itemDef.MaxAmount && isFull) return;
+					if (!itemDef.HasTag(ItemTag.Stackable) && session.Data.Inventory.Count(_id) >= itemDef.MaxAmount && isFull) return;
 				}
 			}
 			// If invantory is full, do not collect
