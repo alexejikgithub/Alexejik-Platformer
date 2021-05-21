@@ -2005,7 +2005,11 @@ MonoBehaviour:
     _inventory:
       _inventory:
       - Id: Sword
+        Value: 0
+      - Id: HealPotion
         Value: 1
+      - Id: PearlProjectile
+        Value: 4
     Hp:
       _value: 5
 --- !u!4 &928672009

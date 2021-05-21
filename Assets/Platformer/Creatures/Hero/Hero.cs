@@ -12,6 +12,7 @@ using Platformer.Components.GoBased;
 using Assets.Platformer.Model.Data;
 using Platformer.UI.GameMenu;
 using UnityEngine.InputSystem;
+using Platformer.Model.Definitions;
 
 namespace Platformer.Creatures.Hero
 
@@ -41,10 +42,14 @@ namespace Platformer.Creatures.Hero
 		[SerializeField] private Cooldown _SuperThrowCooldown;
 		[SerializeField] private int _superThrowParticles;
 		[SerializeField] private float _superThrowDelay;
+		[SerializeField] private SpawnComponent _throwSpawner;
 
 		[Space]
 		
 		[SerializeField] private ProbabilityDropComponent _hitDrop;
+
+
+		
 
 		private static readonly int ThrowKey = Animator.StringToHash("throw");
 
@@ -66,10 +71,28 @@ namespace Platformer.Creatures.Hero
 		private GameSession _session;
 		private float _defautGravityScale;
 
-		private int SwordCount => _session.Data.Inventory.Count("Sword");
+
+		private const string SwordId = "Sword";
+		private int SwordCount => _session.Data.Inventory.Count(SwordId);
 		private int CoinsCount => _session.Data.Inventory.Count("Coin");
 		private int HealPotionCount => _session.Data.Inventory.Count("HealPotion");
 
+		private string SelectedItemId => _session.QuickInventory.SelectedItem.Id;
+
+		private bool CanThrow
+		{
+			get
+			{
+				if (SelectedItemId == SwordId)
+					return SwordCount > 1;
+
+
+				var def = DefsFacade.I.Items.Get(SelectedItemId);
+
+				return def.HasTag(ItemTag.Throwable);
+				
+			}
+		}
 
 		protected override void Awake()
 		{
@@ -103,7 +126,7 @@ namespace Platformer.Creatures.Hero
 		private void OnInventoryChanged(string id, int value)
 		{
 
-			if (id == "Sword")
+			if (id == SwordId)
 			{
 
 				UpdateHeroWeapon();
@@ -121,7 +144,7 @@ namespace Platformer.Creatures.Hero
 		}
 		public void PerformThrowing()
 		{
-			if (!_throwCooldown.IsReady || SwordCount <= 1) return;
+			if (!_throwCooldown.IsReady || !CanThrow) return;
 			if (_SuperThrowCooldown.IsReady) _superThrow = true;
 
 			Animator.SetTrigger(ThrowKey);
@@ -134,7 +157,9 @@ namespace Platformer.Creatures.Hero
 		{
 			if(_superThrow)
 			{
-				var numThrows = Mathf.Min(_superThrowParticles, SwordCount - 1);
+				var throwableCount = _session.Data.Inventory.Count(SelectedItemId);
+				var possibleCount = SelectedItemId == SwordId ? throwableCount - 1 : throwableCount;
+				var numThrows = Mathf.Min(_superThrowParticles, possibleCount);
 				StartCoroutine(DoSuperThrow(numThrows));
 
 			}
@@ -158,9 +183,17 @@ namespace Platformer.Creatures.Hero
 
 		private void ThrowAndRemoveFromInventory()
 		{
-			Particles.Spawn("Throw");
-			_session.Data.Inventory.Remove("Sword", 1);
 			Sounds.Play("Range");
+			
+
+			
+			var throwableId =_session.QuickInventory.SelectedItem.Id;
+			Debug.Log(throwableId);
+			var throwableDef = DefsFacade.I.ThrowableItems.Get(throwableId);
+			_throwSpawner.SetPrefab(throwableDef.Projectile);
+			_throwSpawner.Spawn();
+			_session.Data.Inventory.Remove(throwableId, 1);
+			
 		}
 
 		public void OnHealthChanged(int currentHealth)
@@ -325,6 +358,10 @@ namespace Platformer.Creatures.Hero
 				
 			}
 			
+		}
+		internal void NextItem()
+		{
+			_session.QuickInventory.SetNextItem();
 		}
 
 	}

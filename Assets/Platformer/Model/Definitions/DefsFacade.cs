@@ -9,6 +9,7 @@ namespace Platformer.Model.Definitions
 	public class DefsFacade : ScriptableObject
 	{
 		[SerializeField] private InventoryItemsDef _items;
+		[SerializeField] private ThrowableItemsDef _throwableItems;
 		[SerializeField] private PlayerDef _player;
 
 		public InventoryItemsDef Items => _items;
@@ -17,6 +18,8 @@ namespace Platformer.Model.Definitions
 
 		private static DefsFacade _instance;
 		public static DefsFacade I => _instance == null ? LoadDefs() : _instance;
+
+		public ThrowableItemsDef ThrowableItems => _throwableItems; 
 
 		private static DefsFacade LoadDefs()
 		{

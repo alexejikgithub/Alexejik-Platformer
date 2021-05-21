@@ -62,7 +62,7 @@ namespace Platformer.Model.Data
 			foreach (var item in _inventory)
 			{
 				var itemDef = DefsFacade.I.Items.Get(item.Id);
-				Debug.Log("!");
+				
 				var isAllRequirementsMet = tags.All(x => itemDef.HasTag(x));
 				
 				if (isAllRequirementsMet)

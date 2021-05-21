@@ -18,6 +18,8 @@ namespace
 
 		public event Action OnChanged;
 
+		public InventoryItemData SelectedItem =>Inventory[SelectedIndex.Value];
+
 		public IDisposable Subscribe(Action call)
 		{
 			OnChanged += call;
@@ -35,15 +37,22 @@ namespace
 
 		private void OnInventoryChanged(string id, int value)
 		{
+			
 			var indexFound = Array.FindIndex(Inventory, x => x.Id == id);
-			if (indexFound != -1)
+			if (indexFound != -1)//Зачем это???
 			{
-				Inventory = _data.Inventory.GetAll();
+				
+				Inventory = _data.Inventory.GetAll(ItemTag.Usable);
 				SelectedIndex.Value = Mathf.Clamp(SelectedIndex.Value, 0, Inventory.Length - 1);
 				OnChanged?.Invoke();
 			}
+			
 
+		}
 
+		internal void SetNextItem()
+		{
+			SelectedIndex.Value = (int)Mathf.Repeat(SelectedIndex.Value + 1, Inventory.Length);
 		}
 	}
 }

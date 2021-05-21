@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Platformer.Utils;
-
+using Platformer.Model.Definitions;
+using System;
 
 namespace Platformer.Components.GoBased
 {
@@ -21,5 +22,9 @@ namespace Platformer.Components.GoBased
             instantiate.SetActive(true);
 		}
 
-    }
+		internal void SetPrefab(GameObject prefab)
+		{
+            _prefab = prefab;
+		}
+	}
 }
