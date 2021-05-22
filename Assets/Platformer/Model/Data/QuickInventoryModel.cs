@@ -8,7 +8,7 @@ using UnityEngine;
 namespace
 	Platformer.Model.Data
 {
-	public class QuickInventoryModel
+	public class QuickInventoryModel: IDisposable
 	{
 		private readonly PlayerData _data;
 
@@ -18,7 +18,7 @@ namespace
 
 		public event Action OnChanged;
 
-		public InventoryItemData SelectedItem =>Inventory[SelectedIndex.Value];
+		public InventoryItemData SelectedItem => Inventory[SelectedIndex.Value];
 
 		public IDisposable Subscribe(Action call)
 		{
@@ -27,32 +27,33 @@ namespace
 		}
 		public QuickInventoryModel(PlayerData data)
 		{
-			
+
 			_data = data;
-			
+
 			Inventory = _data.Inventory.GetAll(ItemTag.Usable);
-			
+
 			_data.Inventory.OnChanged += OnInventoryChanged;
 		}
 
 		private void OnInventoryChanged(string id, int value)
 		{
-			
-			var indexFound = Array.FindIndex(Inventory, x => x.Id == id);
-			if (indexFound != -1)//Зачем это???
-			{
-				
-				Inventory = _data.Inventory.GetAll(ItemTag.Usable);
-				SelectedIndex.Value = Mathf.Clamp(SelectedIndex.Value, 0, Inventory.Length - 1);
-				OnChanged?.Invoke();
-			}
-			
+
+
+			Inventory = _data.Inventory.GetAll(ItemTag.Usable);
+			SelectedIndex.Value = Mathf.Clamp(SelectedIndex.Value, 0, Inventory.Length - 1);
+			OnChanged?.Invoke();
+
 
 		}
 
 		internal void SetNextItem()
 		{
 			SelectedIndex.Value = (int)Mathf.Repeat(SelectedIndex.Value + 1, Inventory.Length);
+		}
+
+		public void Dispose()
+		{
+			_data.Inventory.OnChanged -= OnInventoryChanged;
 		}
 	}
 }

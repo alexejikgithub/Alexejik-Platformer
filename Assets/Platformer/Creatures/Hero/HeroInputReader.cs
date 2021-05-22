@@ -91,11 +91,11 @@ namespace Platformer.Creatures.Hero
 
 
 
-		public void OnUseHealthPotion(InputAction.CallbackContext context)
+		public void OnUsePotion(InputAction.CallbackContext context)
 		{
 			if (context.canceled)
 			{
-				_hero.Heal();
+				_hero.DrinkPotion();
 
 			}
 		}

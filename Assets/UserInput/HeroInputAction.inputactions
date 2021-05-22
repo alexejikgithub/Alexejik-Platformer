@@ -54,7 +54,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "UseHealPotion",
+                    "name": "UsePotion",
                     "type": "Button",
                     "id": "252199be-27fa-481d-a448-94071473fa0f",
                     "expectedControlType": "Button",
@@ -251,7 +251,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "UseHealPotion",
+                    "action": "UsePotion",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

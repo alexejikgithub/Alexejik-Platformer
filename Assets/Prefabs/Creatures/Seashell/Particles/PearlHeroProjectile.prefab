@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff2f0db52657504e81ae1d80324be50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tag: Player
+  _tag: Enemy
   _layer:
     serializedVersion: 2
     m_Bits: 4096

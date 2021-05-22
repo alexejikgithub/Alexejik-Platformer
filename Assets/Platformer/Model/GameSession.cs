@@ -1,5 +1,6 @@
 ﻿
 using Platformer.Model.Data;
+using Platformer.Utils.Disposables;
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,6 +14,8 @@ namespace Platformer.Model
 		public PlayerData Data => _data;
 
 		private PlayerData _save;
+
+		private readonly CompositeDisposable _trash = new CompositeDisposable();
 
 		public QuickInventoryModel QuickInventory { get; private set; }
 
@@ -41,7 +44,7 @@ namespace Platformer.Model
 		{
 			
 			QuickInventory = new QuickInventoryModel(Data);
-
+			_trash.Retain(QuickInventory);
 		}
 
 		private void LoadHud()
@@ -70,6 +73,12 @@ namespace Platformer.Model
 		{
 			_data = _save.Clone();
 		}
+		private void OnDestroy()
+		{
+			_trash.Dispose();
+		}
 	}
+
+	
 }
 

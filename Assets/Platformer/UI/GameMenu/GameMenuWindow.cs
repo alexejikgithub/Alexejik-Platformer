@@ -1,4 +1,5 @@
 ﻿using Platformer.Components.LevelManagement;
+using Platformer.UI.MainMenu;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -32,8 +33,7 @@ namespace Platformer.UI.GameMenu
 		public void OnShowSettings()
 		{
 			var window = Resources.Load<GameObject>("UI/SettingsWindow");
-			GameObject[] canvases = GameObject.FindGameObjectsWithTag("MainCanvas") ;
-			var canvas = canvases[0];
+			var canvas = FindObjectOfType<MainCanvas>();
 			Instantiate(window, canvas.transform);
 		}
 		public void OnExit()

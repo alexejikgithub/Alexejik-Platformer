@@ -32,6 +32,7 @@ namespace Platformer.Creatures
 		protected PlaySoundsComponent Sounds;
 		protected bool IsGrounded;
 		private bool _isJumping;
+		protected float _speedMultiplier = 1;
 
 
 		private static readonly int IsRunning = Animator.StringToHash("isRunning");
@@ -40,6 +41,9 @@ namespace Platformer.Creatures
 		private static readonly int Hit = Animator.StringToHash("hitTrigger");
 		private static readonly int IsSprinting = Animator.StringToHash("isSprinting");
 		private static readonly int AttackKey = Animator.StringToHash("attack");
+
+		public delegate void OnDirectionChanged(Vector2 direction);
+		public OnDirectionChanged OnChangedDirection;
 
 
 		protected virtual void Awake()
@@ -63,7 +67,7 @@ namespace Platformer.Creatures
 		protected virtual void FixedUpdate()
 		{
 			//float runningSpeed = _isSprinting ? (_speed * _speedSprintMultiplier) : _speed;
-			var xVelocity = Direction.x * Speed;
+			var xVelocity = Direction.x * Speed*_speedMultiplier;
 
 
 			var yVelocity = CalculateYVelocity();
@@ -133,6 +137,7 @@ namespace Platformer.Creatures
 			{
 				transform.localScale = new Vector3(-1 * multiplier, 1, 1);
 			}
+			OnChangedDirection?.Invoke(direction);
 
 		}
 		public virtual void TakeDamage()

@@ -67,7 +67,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""UseHealPotion"",
+                    ""name"": ""UsePotion"",
                     ""type"": ""Button"",
                     ""id"": ""252199be-27fa-481d-a448-94071473fa0f"",
                     ""expectedControlType"": ""Button"",
@@ -264,7 +264,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""UseHealPotion"",
+                    ""action"": ""UsePotion"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -303,7 +303,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         m_Hero_SpeedUp = m_Hero.FindAction("SpeedUp", throwIfNotFound: true);
         m_Hero_Attak = m_Hero.FindAction("Attak", throwIfNotFound: true);
         m_Hero_Throw = m_Hero.FindAction("Throw", throwIfNotFound: true);
-        m_Hero_UseHealPotion = m_Hero.FindAction("UseHealPotion", throwIfNotFound: true);
+        m_Hero_UsePotion = m_Hero.FindAction("UsePotion", throwIfNotFound: true);
         m_Hero_GameMenu = m_Hero.FindAction("GameMenu", throwIfNotFound: true);
         m_Hero_NextItem = m_Hero.FindAction("NextItem", throwIfNotFound: true);
     }
@@ -361,7 +361,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
     private readonly InputAction m_Hero_SpeedUp;
     private readonly InputAction m_Hero_Attak;
     private readonly InputAction m_Hero_Throw;
-    private readonly InputAction m_Hero_UseHealPotion;
+    private readonly InputAction m_Hero_UsePotion;
     private readonly InputAction m_Hero_GameMenu;
     private readonly InputAction m_Hero_NextItem;
     public struct HeroActions
@@ -374,7 +374,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         public InputAction @SpeedUp => m_Wrapper.m_Hero_SpeedUp;
         public InputAction @Attak => m_Wrapper.m_Hero_Attak;
         public InputAction @Throw => m_Wrapper.m_Hero_Throw;
-        public InputAction @UseHealPotion => m_Wrapper.m_Hero_UseHealPotion;
+        public InputAction @UsePotion => m_Wrapper.m_Hero_UsePotion;
         public InputAction @GameMenu => m_Wrapper.m_Hero_GameMenu;
         public InputAction @NextItem => m_Wrapper.m_Hero_NextItem;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
@@ -404,9 +404,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @Throw.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnThrow;
                 @Throw.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnThrow;
                 @Throw.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnThrow;
-                @UseHealPotion.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseHealPotion;
-                @UseHealPotion.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseHealPotion;
-                @UseHealPotion.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseHealPotion;
+                @UsePotion.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePotion;
+                @UsePotion.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePotion;
+                @UsePotion.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePotion;
                 @GameMenu.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnGameMenu;
                 @GameMenu.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnGameMenu;
                 @GameMenu.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnGameMenu;
@@ -435,9 +435,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @Throw.started += instance.OnThrow;
                 @Throw.performed += instance.OnThrow;
                 @Throw.canceled += instance.OnThrow;
-                @UseHealPotion.started += instance.OnUseHealPotion;
-                @UseHealPotion.performed += instance.OnUseHealPotion;
-                @UseHealPotion.canceled += instance.OnUseHealPotion;
+                @UsePotion.started += instance.OnUsePotion;
+                @UsePotion.performed += instance.OnUsePotion;
+                @UsePotion.canceled += instance.OnUsePotion;
                 @GameMenu.started += instance.OnGameMenu;
                 @GameMenu.performed += instance.OnGameMenu;
                 @GameMenu.canceled += instance.OnGameMenu;
@@ -456,7 +456,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         void OnSpeedUp(InputAction.CallbackContext context);
         void OnAttak(InputAction.CallbackContext context);
         void OnThrow(InputAction.CallbackContext context);
-        void OnUseHealPotion(InputAction.CallbackContext context);
+        void OnUsePotion(InputAction.CallbackContext context);
         void OnGameMenu(InputAction.CallbackContext context);
         void OnNextItem(InputAction.CallbackContext context);
     }
