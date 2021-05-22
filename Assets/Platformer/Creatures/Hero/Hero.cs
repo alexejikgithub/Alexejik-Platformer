@@ -311,9 +311,10 @@ namespace Platformer.Creatures.Hero
 		{
 			_isSpeedUp = true;
 			_speedMultiplier *= 2;
+			_session.Data.Inventory.Remove("SpeedPotion", 1);
 			yield return new WaitForSeconds(5);
 			_speedMultiplier = 1;
-			_session.Data.Inventory.Remove("SpeedPotion", 1);
+
 			_isSpeedUp = false;
 		}
 

@@ -32,7 +32,7 @@ namespace Platformer.Creatures
 		protected PlaySoundsComponent Sounds;
 		protected bool IsGrounded;
 		private bool _isJumping;
-		protected float _speedMultiplier = 1;
+		protected float _speedMultiplier;
 
 
 		private static readonly int IsRunning = Animator.StringToHash("isRunning");
@@ -51,6 +51,7 @@ namespace Platformer.Creatures
 			Rigidbody = GetComponent<Rigidbody2D>();
 			Animator = GetComponent<Animator>(); 
 			Sounds = GetComponent<PlaySoundsComponent>();
+			_speedMultiplier = 1;
 		}
 
 		public void SetDirection(Vector2 direction)

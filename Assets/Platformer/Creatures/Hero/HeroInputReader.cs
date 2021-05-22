@@ -83,7 +83,7 @@ namespace Platformer.Creatures.Hero
 			if (context.canceled)
 			{
 				_hero.PerformThrowing();
-
+				_hero.DrinkPotion();
 
 			}
 
@@ -93,11 +93,7 @@ namespace Platformer.Creatures.Hero
 
 		public void OnUsePotion(InputAction.CallbackContext context)
 		{
-			if (context.canceled)
-			{
-				_hero.DrinkPotion();
-
-			}
+			
 		}
 
 		public void OnCallGameMenu(InputAction.CallbackContext context)
