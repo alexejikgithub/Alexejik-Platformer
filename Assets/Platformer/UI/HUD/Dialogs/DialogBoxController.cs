@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace Platformer.UI.HUD.Dialogs
 {
-	public class DialogsBoxController : MonoBehaviour
+	public class DialogBoxController : MonoBehaviour
 	{
 
 		[SerializeField] private Text _text;
