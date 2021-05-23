@@ -13,6 +13,7 @@ namespace Platformer.Components.Dialogs
 		[SerializeField] private Mode _mode;
 		[SerializeField] private DialogData _bound;
 		[SerializeField] private DialogDef _external;
+		
 
 		private DialogBoxController _dialogBox;
 		public void Show()

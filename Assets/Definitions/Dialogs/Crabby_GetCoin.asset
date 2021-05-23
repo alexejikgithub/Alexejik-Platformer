@@ -14,5 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data:
     _sentences:
-    - Get Me a Coin.
-    - And I will show you a miracle
+    - _sentence: Do you want to see a miracle?
+      _iconSprite: {fileID: 21300000, guid: 071577a77703d2740abcc9d2560677b1, type: 3}
+      _dialogBoxSide: 2
+    - _sentence: Yes
+      _iconSprite: {fileID: 21300000, guid: 2de2713cfc7301e40a67d9592ff81039, type: 3}
+      _dialogBoxSide: 1
+    - _sentence: Give me a coin and I will show you
+      _iconSprite: {fileID: 21300000, guid: 071577a77703d2740abcc9d2560677b1, type: 3}
+      _dialogBoxSide: 2
