@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Platformer.Utils;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,10 +20,7 @@ namespace Platformer.UI.MainMenu
 		}
 		public void OnShowSettings()
 		{
-			var window = Resources.Load<GameObject>("UI/SettingsWindow");
-			var canvas = FindObjectOfType<MainCanvas>();
-
-			Instantiate(window, canvas.transform);
+			WindowUtils.CreateWindow("UI/SettingsWindow");
 		}
 		public void OnExit()
 		{

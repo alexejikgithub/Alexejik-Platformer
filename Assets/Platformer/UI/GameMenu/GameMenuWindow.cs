@@ -1,10 +1,12 @@
 ﻿using Platformer.Components.LevelManagement;
+using Platformer.Model;
 using Platformer.UI.MainMenu;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Platformer.Utils;
 
 namespace Platformer.UI.GameMenu
 {
@@ -13,9 +15,18 @@ namespace Platformer.UI.GameMenu
 
 		private Action _closeAction;
 		private ReloadLevelComponent _reloader;
+		private float _defaultTimescale;
 
-
-
+		protected override void Start()
+		{
+			base.Start();
+			_defaultTimescale = Time.timeScale;
+			Time.timeScale = 0;
+		}
+		private void OnDestroy()
+		{
+			Time.timeScale = _defaultTimescale;
+		}
 		public void OnContinue()
 		{
 
@@ -32,23 +43,18 @@ namespace Platformer.UI.GameMenu
 		}
 		public void OnShowSettings()
 		{
-			var window = Resources.Load<GameObject>("UI/SettingsWindow");
-			var canvas = FindObjectOfType<MainCanvas>();
-			Instantiate(window, canvas.transform);
+			WindowUtils.CreateWindow("UI/SettingsWindow");
+			
 		}
 		public void OnExit()
 		{
-			_closeAction = () =>
-			{
+			
 
-
-				Application.Quit();
-
-#if UNITY_EDITOR
-				UnityEditor.EditorApplication.isPlaying = false;
-#endif
-			};
-			Close();
+				SceneManager.LoadScene("MainMenu");
+				var session = FindObjectOfType<GameSession>();
+				Destroy(session.gameObject);
+				
+			
 		}
 
 		public override void OnCloseAnimationComplete()

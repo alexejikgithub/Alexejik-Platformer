@@ -11,10 +11,10 @@ namespace Platformer.Components.Health
 		[Range(0, 100)]
 		[SerializeField] private int _health;
 		[SerializeField] public UnityEvent _onDamage;
-		[SerializeField] private UnityEvent _onHealing;
-		[SerializeField] private UnityEvent _onDie;
+		[SerializeField] public UnityEvent _onHealing;
+		[SerializeField] public UnityEvent _onDie;
 
-		[SerializeField] private HealthChangeEvent _onChange;
+		[SerializeField] public HealthChangeEvent _onChange;
 
 		public int Health => _health;
 
