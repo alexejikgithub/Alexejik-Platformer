@@ -1255,12 +1255,12 @@ MonoBehaviour:
   _mode: 0
   _bound:
     _sentences:
-    - _sentence: Find a Key
-      _iconSprite: {fileID: 0}
+    - _iconSprite: {fileID: 0}
       _dialogBoxSide: 0
-    - _sentence: AndI will open
-      _iconSprite: {fileID: 0}
+      _key: door_line_1
+    - _iconSprite: {fileID: 0}
       _dialogBoxSide: 0
+      _key: door_line_2
   _external: {fileID: 0}
 --- !u!114 &1157986681 stripped
 MonoBehaviour:
@@ -6549,6 +6549,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1448445922}
     m_Modifications:
+    - target: {fileID: 3388981389722202108, guid: 66dbaa8f2033e664da93e5fe94dd59ad,
+        type: 3}
+      propertyPath: _mode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3388981389722202110, guid: 66dbaa8f2033e664da93e5fe94dd59ad,
         type: 3}
       propertyPath: m_Name

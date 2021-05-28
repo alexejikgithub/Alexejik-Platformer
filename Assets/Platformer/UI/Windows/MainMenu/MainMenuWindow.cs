@@ -18,6 +18,11 @@ namespace Platformer.UI.MainMenu
 			_closeAction = () => { SceneManager.LoadScene("Level2"); };
 			Close();
 		}
+
+		public void OnLanguages()
+		{
+			WindowUtils.CreateWindow("UI/LocalizationWindow");
+		}
 		public void OnShowSettings()
 		{
 			WindowUtils.CreateWindow("UI/SettingsWindow");

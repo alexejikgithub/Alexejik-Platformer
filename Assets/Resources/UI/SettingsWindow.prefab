@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 624152856262170186}
   - component: {fileID: 6848442683089081069}
   - component: {fileID: 3292918893682909363}
+  - component: {fileID: 8626523119560442229}
   m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
@@ -166,6 +167,20 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 'Music:'
+--- !u!114 &8626523119560442229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829475100374227200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e655c1e255a86b845a045059fd36fafe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: music_setting
+  _capitalize: 1
 --- !u!1 &929535382044345223
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +344,7 @@ GameObject:
   - component: {fileID: 1169833254163993177}
   - component: {fileID: 1169833254163993179}
   - component: {fileID: 1169833254163993178}
+  - component: {fileID: 9149771722442038145}
   m_Layer: 5
   m_Name: PressedText
   m_TagString: Untagged
@@ -396,6 +412,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: OK
+--- !u!114 &9149771722442038145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169833254163993176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e655c1e255a86b845a045059fd36fafe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: button_ok
+  _capitalize: 1
 --- !u!1 &1169833254619686188
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,6 +747,7 @@ GameObject:
   - component: {fileID: 1169833255922286932}
   - component: {fileID: 1169833255922286934}
   - component: {fileID: 1169833255922286933}
+  - component: {fileID: 5324798175722192261}
   m_Layer: 5
   m_Name: NormalText
   m_TagString: Untagged
@@ -784,6 +815,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: OK
+--- !u!114 &5324798175722192261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169833255922286931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e655c1e255a86b845a045059fd36fafe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: button_ok
+  _capitalize: 1
 --- !u!1 &1169833255944288497
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,6 +840,7 @@ GameObject:
   - component: {fileID: 1169833255944288498}
   - component: {fileID: 1169833255944288500}
   - component: {fileID: 1169833255944288499}
+  - component: {fileID: 8800352549610883692}
   m_Layer: 5
   m_Name: Header
   m_TagString: Untagged
@@ -862,6 +908,20 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Options
+--- !u!114 &8800352549610883692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169833255944288497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e655c1e255a86b845a045059fd36fafe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: options_title
+  _capitalize: 1
 --- !u!1 &1666085975584543103
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,6 +933,7 @@ GameObject:
   - component: {fileID: 7868117627303334702}
   - component: {fileID: 7787936431949138936}
   - component: {fileID: 5452124346861077132}
+  - component: {fileID: 126530057089931515}
   m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
@@ -940,6 +1001,20 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 'SFX:'
+--- !u!114 &126530057089931515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666085975584543103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e655c1e255a86b845a045059fd36fafe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: sfx_setting
+  _capitalize: 1
 --- !u!1 &2411792490408743894
 GameObject:
   m_ObjectHideFlags: 0

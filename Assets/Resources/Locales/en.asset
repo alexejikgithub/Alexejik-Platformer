@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35f5b61f2ca2152468f25afdbe26ed01, type: 3}
+  m_Name: en
+  m_EditorClassIdentifier: 
+  _url: https://docs.google.com/spreadsheets/d/e/2PACX-1vT32jeckZjnsxSQu25KeGR9L3K2LsXIEM3ru3w7sCuVeGVsfU2mciGzsSsfr5UELuIQ6MSF2KbjaQCm/pub?gid=0&single=true&output=tsv
+  _localeItems:
+  - Key: menu_title
+    Value: "main menu\r"
+  - Key: button_start
+    Value: "start\r"
+  - Key: button_option
+    Value: "options\r"
+  - Key: button_exit
+    Value: "exit\r"
+  - Key: selected_language
+    Value: "selected language is {0}\r"
+  - Key: button_locales
+    Value: "language\r"
+  - Key: button_back
+    Value: "back\r"
+  - Key: game_meny_title
+    Value: "game menu\r"
+  - Key: button_continue
+    Value: "continue\r"
+  - Key: button_restart
+    Value: "restart\r"
+  - Key: locales_title
+    Value: "languages\r"
+  - Key: options_title
+    Value: "options\r"
+  - Key: music_setting
+    Value: "music:\r"
+  - Key: sfx_setting
+    Value: "sfx:\r"
+  - Key: button_ok
+    Value: "ok\r"
+  - Key: door_line_1
+    Value: "Door is closed\r"
+  - Key: door_line_2
+    Value: "Find a key\r"
+  - Key: Crabby_GetCoin_1
+    Value: "Do you want to see a miracle\r"
+  - Key: Crabby_GetCoin_2
+    Value: "Yes\r"
+  - Key: Crabby_GetCoin_3
+    Value: "Give me a coin\r"
+  - Key: Crabby_CoinObtained_1
+    Value: "Here is the miracle\r"
+  - Key: Crabby_CoinObtained_2
+    Value: "Now I have a coin \r"
+  - Key: Crabby_CoinObtained_3
+    Value: "And you don't\r"
+  - Key: Crabby_CoinObtained_4
+    Value: "Ahahahaha\r"
+  - Key: Crabby_CoinObtained_5
+    Value: "That was impressive\r"
+  - Key: continue_line
+    Value: Continue...

@@ -72,6 +72,9 @@ namespace Platformer.Model
 		public void LoadLastSave()
 		{
 			_data = _save.Clone();
+
+			_trash.Dispose();
+			InitModels();
 		}
 		private void OnDestroy()
 		{
