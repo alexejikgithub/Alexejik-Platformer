@@ -15,8 +15,9 @@ GameObject:
   - component: {fileID: 872143581}
   - component: {fileID: 6066393653681173841}
   - component: {fileID: 6855612053668734748}
+  - component: {fileID: 746004363}
   m_Layer: 15
-  m_Name: HealthPotion Collectable
+  m_Name: SpeedPotion Collectable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 829679621
   m_SortingLayer: 5
   m_SortingOrder: 3
-  m_Sprite: {fileID: 3714227102187029162, guid: 210c7677d9c6f6844868c272b93e0e71,
+  m_Sprite: {fileID: 1185527514606905908, guid: 210c7677d9c6f6844868c272b93e0e71,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -134,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78ab86f5bd9bcef4c8f2a42f2a5bac67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: HealPotion
+  _id: SpeedPotion
   _count: 1
   _action:
     m_PersistentCalls:
@@ -219,3 +220,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _clip: {fileID: 8300000, guid: cc98b8ccdf9a248059887d064e7e5067, type: 3}
+--- !u!114 &746004363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327758019452014556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f2e5a58ba6ea584e86324ce8078204d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectToDestroy: {fileID: 327758019452014556}

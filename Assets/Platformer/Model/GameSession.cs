@@ -22,7 +22,7 @@ namespace Platformer.Model
 
 		private void Awake()
 		{
-
+			
 			LoadHud();
 			
 			if (IsSessionExist())

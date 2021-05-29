@@ -24,34 +24,38 @@ namespace Platformer.Model.Data
 
 		public void Add(string id, int value)
 		{
+			
 			if (value <= 0) return;
+			
 			itemDef = DefsFacade.I.Items.Get(id);
+			
 			if (itemDef.IsVoid) return;
-
+			
 			isFull = _inventory.Count >= DefsFacade.I.Player.InventorySize;
+			
 			item = GetItem(id);
+			
 			count = Count(id); // Current amount will be compared to maximum amount. 
 
 
 
-			
-
 			if (itemDef.HasTag(ItemTag.Stackable) && count >= itemDef.MaxAmount) return; // If current amount== maximum amount and stackable, nothing will be added.
-
+			
 			if (itemDef.HasTag(ItemTag.Stackable))
 			{
 				AddToStack(id, value);
 			}
-
+			
 			if (!itemDef.HasTag(ItemTag.Stackable))
 			{
 				
 				AddNonStack(id, value);
 			}
 
-
+			Debug.Log(OnChanged.GetInvocationList().Length);
 
 			OnChanged?.Invoke(id, Count(id));
+			
 		}
 
 

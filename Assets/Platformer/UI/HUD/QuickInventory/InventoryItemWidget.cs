@@ -20,6 +20,7 @@ namespace Platformer.UI.HUD.QuickInventory
 
 		private int _index;
 
+		
 		private void Start()
 		{
 			var session = FindObjectOfType<GameSession>();
