@@ -31,7 +31,11 @@ namespace Platformer.UI.HUD
 
 		private void OnDestroy()
 		{
-			_sesson.Data.Hp.OnChanged -= OnHealthChanged;
+			if(_sesson!=null)
+			{
+				_sesson.Data.Hp.OnChanged -= OnHealthChanged;
+			}
+			
 		}
 	}
 }

@@ -46,7 +46,10 @@ namespace Platformer.UI.HUD.Dialogs
 			_text.text = string.Empty;
 			_container.SetActive(true);
 
-
+			if (_sfxSource==null)
+			{
+				_sfxSource = AudioUtils.FindSfxSourse();
+			}
 			_sfxSource.PlayOneShot(_open);
 			_animator.SetBool(IsOpen, true);
 		}

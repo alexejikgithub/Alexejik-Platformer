@@ -38,7 +38,7 @@ namespace Platformer.Model.Definitions
 		[SerializeField] private ItemTag[] _tags;
 		public bool HasTag(ItemTag tag)
 		{
-			return _tags.Contains(tag);
+			return _tags != null ? _tags.Contains(tag) : false;
 		}
 
 		[SerializeField] private Sprite _icon;

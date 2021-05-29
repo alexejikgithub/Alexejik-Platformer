@@ -19,8 +19,30 @@ namespace Platformer.UI.HUD.QuickInventory
 		private GameSession _session;
 		private List<InventoryItemWidget> _createdItems = new List<InventoryItemWidget>();
 
+		private void Awake()
+		{
 
-		private void Start()
+			if (DoesThisExist())
+			{
+				Destroy(gameObject);
+			}
+			
+
+		}
+		private bool DoesThisExist()
+		{
+			var controllers = FindObjectsOfType<QuckInventoryController>();
+			foreach (var controller in controllers)
+			{
+				if (controller != this)
+					return true;
+
+			}
+			return false;
+		}
+
+	
+	private void Start()
 		{
 			_session = FindObjectOfType<GameSession>();
 			

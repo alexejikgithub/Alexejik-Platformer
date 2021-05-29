@@ -80,7 +80,7 @@ namespace Platformer.Creatures.Hero
 		private int HealPotionCount => _session.Data.Inventory.Count("HealPotion");
 		private int SpeedPotionCount => _session.Data.Inventory.Count("SpeedPotion");
 
-		private string SelectedItemId => _session.QuickInventory.SelectedItem.Id;
+		private string SelectedItemId => _session.QuickInventory.SelectedItem != null ? _session.QuickInventory.SelectedItem.Id : "null";
 
 		private bool CanThrow
 		{
@@ -290,7 +290,7 @@ namespace Platformer.Creatures.Hero
 			var def = DefsFacade.I.Items.Get(SelectedItemId);
 			var defId = def.Id;
 
-			Debug.Log(defId);
+			
 			if (defId == "HealPotion" && HealPotionCount > 0)
 			{
 				var health = GetComponent<HealthComponent>();

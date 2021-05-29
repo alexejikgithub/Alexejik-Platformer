@@ -18,7 +18,8 @@ namespace
 
 		public event Action OnChanged;
 
-		public InventoryItemData SelectedItem => Inventory[SelectedIndex.Value];
+		public InventoryItemData SelectedItem => Inventory.Length > 0 ? Inventory[SelectedIndex.Value] : null;
+
 
 		public IDisposable Subscribe(Action call)
 		{
