@@ -1374,7 +1374,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data:
     _inventory:
-      _inventory: []
+      _inventory:
+      - Id: Coin
+        Value: 5
+      - Id: Key
+        Value: 1
     Hp:
       _value: 10
 --- !u!4 &928672009

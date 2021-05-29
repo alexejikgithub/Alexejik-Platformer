@@ -122,13 +122,14 @@ namespace Platformer.Creatures.Hero
 		}
 		private void AnotherHandler(string id, int value)
 		{
+			
 			Debug.Log($"Inventory changed: {id}: {value}");
 
 		}
 
 		private void OnInventoryChanged(string id, int value)
 		{
-
+			
 			if (id == SwordId)
 			{
 
@@ -138,7 +139,7 @@ namespace Platformer.Creatures.Hero
 
 		public void AddInInventory(string id, int value)
 		{
-
+			
 			_session.Data.Inventory.Add(id, value);
 		}
 		public void StartThrowing()
@@ -203,7 +204,7 @@ namespace Platformer.Creatures.Hero
 		public void OnHealthChanged(int currentHealth)
 		{
 			_session.Data.Hp.Value = currentHealth;
-			Debug.Log(currentHealth);
+			
 		}
 
 
@@ -278,7 +279,7 @@ namespace Platformer.Creatures.Hero
 		public override void TakeDamage()
 		{
 			base.TakeDamage();
-			Debug.Log(CoinsCount);
+			
 			if (CoinsCount > 0)
 			{
 				SpawnCoins();

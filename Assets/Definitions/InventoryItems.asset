@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _items:
   - _id: Coin
-    _maxAmount: 15
+    _maxAmount: 150
     _tags: 00000000
     _icon: {fileID: -2322180950842035098, guid: bc5de6af7456e104081d329d6581d20c,
       type: 3}
   - _id: Sword
-    _maxAmount: 10
+    _maxAmount: 100
     _tags: 000000000100000002000000
     _icon: {fileID: 21300000, guid: 60854008e8b05de4187f5571ca47ce14, type: 3}
   - _id: Key
@@ -27,14 +27,14 @@ MonoBehaviour:
     _tags: 01000000
     _icon: {fileID: 21300000, guid: 4d76723bc584609499c469e0089838f4, type: 3}
   - _id: HealPotion
-    _maxAmount: 10
+    _maxAmount: 100
     _tags: 0100000000000000
     _icon: {fileID: 3714227102187029162, guid: 210c7677d9c6f6844868c272b93e0e71, type: 3}
   - _id: PearlProjectile
-    _maxAmount: 10
+    _maxAmount: 100
     _tags: 010000000000000002000000
     _icon: {fileID: 21300000, guid: c788040347d1d6e48abe3e8f8c179da6, type: 3}
   - _id: SpeedPotion
-    _maxAmount: 10
+    _maxAmount: 100
     _tags: 0100000000000000
     _icon: {fileID: 1185527514606905908, guid: 210c7677d9c6f6844868c272b93e0e71, type: 3}

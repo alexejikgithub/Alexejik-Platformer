@@ -42,7 +42,6 @@ namespace
 			Inventory = _data.Inventory.GetAll(ItemTag.Usable);
 			
 			SelectedIndex.Value = Mathf.Clamp(SelectedIndex.Value, 0, Inventory.Length - 1);
-			Debug.Log(OnChanged.GetInvocationList()[0]);
 			OnChanged?.Invoke();
 
 

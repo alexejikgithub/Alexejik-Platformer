@@ -33,6 +33,7 @@ namespace Platformer.Components.Collectables
 			
 			if(_inventoryCollectableParent!=null)
 			{
+				
 				var itemDef = DefsFacade.I.Items.Get(_id);
 				var session = _inventoryCollectableParent.Session;
 				var isFull = session.Data.Inventory.Inventory.Count >= DefsFacade.I.Player.InventorySize;
@@ -48,11 +49,13 @@ namespace Platformer.Components.Collectables
 				}
 			}
 			// If invantory is full, do not collect
-
+			
 			var hero = go.GetComponent<ICanAddInInventory>();
+			
 			hero?.AddInInventory(_id, _count);
 			
 			_action?.Invoke();
+			
 		}
 		
 

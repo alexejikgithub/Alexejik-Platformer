@@ -52,7 +52,7 @@ namespace Platformer.Model.Data
 				AddNonStack(id, value);
 			}
 
-			Debug.Log(OnChanged.GetInvocationList().Length);
+			
 
 			OnChanged?.Invoke(id, Count(id));
 			
