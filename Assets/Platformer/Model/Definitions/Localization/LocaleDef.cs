@@ -9,14 +9,15 @@ namespace Platformer.Model.Definitions.Localization
 	public class LocaleDef : ScriptableObject
 	{
 
-		
+
 
 		[SerializeField] private string _url;
+		[SerializeField] private string _fileName;
 		[SerializeField] private List<LocaleItem> _localeItems;
 
 		private UnityWebRequest _request;
 
-		public Dictionary<string,string> GetData()
+		public Dictionary<string, string> GetData()
 		{
 
 			var dictionary = new Dictionary<string, string>();
@@ -27,19 +28,33 @@ namespace Platformer.Model.Definitions.Localization
 			return dictionary;
 		}
 
-		[ContextMenu("Update locale")]
-		public void UpdateLocale()
+		[ContextMenu("Update locale from URL")]
+		public void UpdateLocaleFromURL()
 		{
 			if (_request != null) return;
 
 			_request = UnityWebRequest.Get(_url);
 
-			_request.SendWebRequest().completed+=OnDataLoaded;
+			_request.SendWebRequest().completed += OnWebDataLoaded;
+		}
+		[ContextMenu("Update locale FromResources")]
+		public void UpdateLocaleFromResources()
+		{
+			
+			var file = Resources.Load<TextAsset>($"Locales/LocaleFiles/{_fileName}");
+			
+			var rows = file.text.Split('\n');
+			_localeItems.Clear();
+			foreach (var row in rows)
+			{
+				AddLocaleItem(row);
+			}
 		}
 
-		private void OnDataLoaded(AsyncOperation operation)
+
+		private void OnWebDataLoaded(AsyncOperation operation)
 		{
-			if(operation.isDone)
+			if (operation.isDone)
 			{
 				var rows = _request.downloadHandler.text.Split('\n');
 				_localeItems.Clear();
@@ -47,10 +62,9 @@ namespace Platformer.Model.Definitions.Localization
 				{
 					AddLocaleItem(row);
 				}
-
-				
-
+				_request = null;
 			}
+
 		}
 
 		private void AddLocaleItem(string row)

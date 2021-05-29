@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: en
   m_EditorClassIdentifier: 
   _url: https://docs.google.com/spreadsheets/d/e/2PACX-1vT32jeckZjnsxSQu25KeGR9L3K2LsXIEM3ru3w7sCuVeGVsfU2mciGzsSsfr5UELuIQ6MSF2KbjaQCm/pub?gid=0&single=true&output=tsv
+  _fileName: EN
   _localeItems:
   - Key: menu_title
     Value: "main menu\r"

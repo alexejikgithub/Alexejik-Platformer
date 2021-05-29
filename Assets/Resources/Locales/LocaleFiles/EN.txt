@@ -1,0 +1,26 @@
+menu_title	main menuaa
+button_start	startaa
+button_option	optionsaa
+button_exit	exitaa
+selected_language	selected language is {0}
+button_locales	languageaa
+button_back	backaa
+game_meny_title	game menuaa
+button_continue	continueaa
+button_restart	restartaa
+locales_title	languagesaa
+options_title	optionsaa
+music_setting	music:
+sfx_setting	sfx:
+button_ok	ok
+door_line_1	Door is closedaa
+door_line_2	Find a keyaa
+Crabby_GetCoin_1	Do you want to see a miracleaa
+Crabby_GetCoin_2	Yesaa
+Crabby_GetCoin_3	Give me a coinaa
+Crabby_CoinObtained_1	Here is the miracle
+Crabby_CoinObtained_2	Now I have a coin 
+Crabby_CoinObtained_3	And you don't
+Crabby_CoinObtained_4	Ahahahaha
+Crabby_CoinObtained_5	That was impressive
+continue_line	Continue...

@@ -1,0 +1,26 @@
+menu_title	главное меню
+button_start	стартasfdasfdsaf
+button_option	опции
+button_exit	выход
+selected_language	выбран {0} язык
+button_locales	язык
+button_back	назад
+game_meny_title	меню игры
+button_continue	продолжить
+button_restart	рестарт
+locales_title	языки
+options_title	опции
+music_setting	муз:
+sfx_setting	звук:
+button_ok	ок
+door_line_1	Дверь закрыта
+door_line_2	Найди ключ
+Crabby_GetCoin_1	Хочешь чудо покажу?
+Crabby_GetCoin_2	Да
+Crabby_GetCoin_3	Принеси мне монету
+Crabby_CoinObtained_1	Вот тебе чудо
+Crabby_CoinObtained_2	Теперь у меня есть монета
+Crabby_CoinObtained_3	А у тебя нет
+Crabby_CoinObtained_4	Ахахахаха
+Crabby_CoinObtained_5	Впечатляет
+continue_line	Далее...

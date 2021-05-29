@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ch
   m_EditorClassIdentifier: 
   _url: https://docs.google.com/spreadsheets/d/e/2PACX-1vT32jeckZjnsxSQu25KeGR9L3K2LsXIEM3ru3w7sCuVeGVsfU2mciGzsSsfr5UELuIQ6MSF2KbjaQCm/pub?gid=501403716&single=true&output=tsv
+  _fileName: CH
   _localeItems:
   - Key: menu_title
     Value: "\u7099\u5355\r"
