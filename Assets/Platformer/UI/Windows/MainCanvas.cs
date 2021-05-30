@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Platformer.UI.MainMenu
 {
-	public class MainCanvas : MonoBehaviour
+	public class MainCanvas : BaseCanvas
 	{
 		private void Awake()
 		{
