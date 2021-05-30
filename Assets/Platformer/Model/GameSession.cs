@@ -49,12 +49,16 @@ namespace Platformer.Model
 				StartSession(_defaultCheckpoint);
 			}
 
+
+			// reloads HudController
 			var hud = FindObjectOfType<HudController>();
 			if(hud!=null)
 			{
 				hud.OnLoad();
 			}
 
+
+			// reloads QuckInventoryController
 			var qInventory = FindObjectOfType<QuckInventoryController>();
 			if (qInventory != null)
 			{
