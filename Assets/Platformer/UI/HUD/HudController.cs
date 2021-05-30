@@ -14,16 +14,30 @@ namespace Platformer.UI.HUD
         [SerializeField] private ProgressBarWidget _healthBar;
 
 		private GameSession _sesson;
+		private void Awake()
+		{
+			
+			
+		}
+
 		private void Start()
+		{
+
+			OnLoad();
+
+		}
+
+		public void OnLoad()
 		{
 			_sesson = FindObjectOfType<GameSession>();
 			_sesson.Data.Hp.OnChanged += OnHealthChanged;
 			OnHealthChanged(_sesson.Data.Hp.Value, _sesson.Data.Hp.Value);
-
 		}
+
 
 		private void OnHealthChanged(int newValue, int oldValue)
 		{
+			Debug.Log("QQQQQQQQQQ");
 			var maxHealth = DefsFacade.I.Player.MaxHealth;
 			var value = (float)newValue / maxHealth;
 			_healthBar.SetProgress(value);
@@ -31,7 +45,8 @@ namespace Platformer.UI.HUD
 
 		private void OnDestroy()
 		{
-			if(_sesson!=null)
+			
+			if (_sesson!=null)
 			{
 				_sesson.Data.Hp.OnChanged -= OnHealthChanged;
 			}

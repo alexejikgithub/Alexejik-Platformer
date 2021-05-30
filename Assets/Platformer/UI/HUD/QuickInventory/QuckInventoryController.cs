@@ -44,15 +44,20 @@ namespace Platformer.UI.HUD.QuickInventory
 	
 	private void Start()
 		{
+			OnLoad();
+		}
+
+		public void OnLoad()
+		{
 			_session = FindObjectOfType<GameSession>();
-			
+
 			_trash.Retain(_session.QuickInventory.Subscribe(Rebuild));
 
 
 			Rebuild();
 		}
 
-		private void Rebuild()
+			private void Rebuild()
 		{
 			var inventory = _session.QuickInventory.Inventory;
 
