@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5010800098966159776}
   - component: {fileID: 5010800098966159783}
   - component: {fileID: 5010800098966159782}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: DestructableBarrel
   m_TagString: Enemy
   m_Icon: {fileID: 0}

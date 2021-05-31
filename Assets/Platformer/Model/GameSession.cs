@@ -1,4 +1,5 @@
 ﻿
+using Assets.Platformer.Components.LevelManagement;
 using Platformer.Components.LevelManagement;
 using Platformer.Model.Data;
 using Platformer.UI.HUD;
@@ -26,7 +27,9 @@ namespace Platformer.Model
 		public QuickInventoryModel QuickInventory { get; private set; }
 
 		private readonly List<string> _checkpoints = new List<string>();
+		private readonly List<string> _levelItemsDead = new List<string>(); // list that stores destroyed prefabs
 
+		
 
 		private void Awake()
 		{
@@ -74,21 +77,48 @@ namespace Platformer.Model
 			SetChecked(defaultCheckpoint);
 			LoadHud();
 			SpawnHero();
+			EnableitemsOnLevel();
 		}
 
 		private void SpawnHero()
 		{
 			var checkpoints =FindObjectsOfType<CheckPointComponent>();
 			var lastCheckpoint = _checkpoints.Last();
+			
 			foreach (var checkPoint in checkpoints)
 			{
 				if(checkPoint.Id == lastCheckpoint)
 				{
 					checkPoint.SpawnHero();
-					break;
+					return;
 				}
 			}
+
+			// This code will allow to return to the previous level
+			if(_checkpoints.Count>1)
+			{
+				_checkpoints.RemoveAt(_checkpoints.Count - 1);
+				SpawnHero();
+			}
+			
 		}
+
+		private void EnableitemsOnLevel()
+		{
+			var itemsToEnable = FindObjectsOfType<EnableItemManager>();
+			foreach (var item in itemsToEnable)
+			{
+
+				if(!_levelItemsDead.Contains(item.Id))
+				{
+					
+					item.Enable();
+				}
+
+			}
+			
+		}
+		
 
 		private void InitModels()
 		{
@@ -144,6 +174,10 @@ namespace Platformer.Model
 				Save();
 				_checkpoints.Add(id);
 			}
+		}
+		public void AddToLevelItemsDead(string id)
+		{
+			_levelItemsDead.Add(id);
 		}
 	}
 
