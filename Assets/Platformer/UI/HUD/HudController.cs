@@ -37,7 +37,7 @@ namespace Platformer.UI.HUD
 
 		private void OnHealthChanged(int newValue, int oldValue)
 		{
-			Debug.Log("QQQQQQQQQQ");
+
 			var maxHealth = DefsFacade.I.Player.MaxHealth;
 			var value = (float)newValue / maxHealth;
 			_healthBar.SetProgress(value);
