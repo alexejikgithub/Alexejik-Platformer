@@ -6,26 +6,9 @@ namespace Platformer.Model.Definitions.Repositories.Items
 	[CreateAssetMenu(menuName = "Defs/Items", fileName = "Items")]
 	public class ItemsRepository : DefRepository<ItemDef>
 	{
-		[SerializeField] private ItemDef[] _items;
-
-		private void OnEnable()
-		{
-			_collection = _items;
-		}
-
-		public ItemDef Get(string id)
-		{
-			foreach (var itemDef in _items)
-			{
-				if (itemDef.Id == id)
-				{
-					return itemDef;
-				}
-			}
-			return default;
-		}
+		
 #if UNITY_EDITOR
-		public ItemDef[] ItemsForEditor => _items;
+		public ItemDef[] ItemsForEditor => _collection;
 #endif
 	}
 
@@ -43,7 +26,7 @@ namespace Platformer.Model.Definitions.Repositories.Items
 		[SerializeField] private ItemTag[] _tags;
 		public bool HasTag(ItemTag tag)
 		{
-			return _tags != null ? _tags.Contains(tag) : false;
+			return _tags?.Contains(tag) ?? false;
 		}
 
 		[SerializeField] private Sprite _icon;

@@ -1334,7 +1334,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data:
     _inventory:
-      _inventory: []
+      _inventory:
+      - Id: PearlProjectile
+        Value: 3
+      - Id: SmallHealthPotion
+        Value: 5
+      - Id: LargeHealthPotion
+        Value: 3
     Hp:
       _value: 10
   _defaultCheckpoint: level1-checkpoint1
@@ -10436,6 +10442,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 418267499}
     m_Modifications:
+    - target: {fileID: 872143581, guid: cabd5dba905702542bca79fd09aa1273, type: 3}
+      propertyPath: _id
+      value: SmallHealthPotion
+      objectReference: {fileID: 0}
     - target: {fileID: 327758019452014556, guid: cabd5dba905702542bca79fd09aa1273,
         type: 3}
       propertyPath: m_Name

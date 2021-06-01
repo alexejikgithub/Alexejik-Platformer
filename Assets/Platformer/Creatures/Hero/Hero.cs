@@ -146,7 +146,33 @@ namespace Platformer.Creatures.Hero
 
 			_SuperThrowCooldown.Reset();
 		}
-		public void PerformThrowing()
+		public void UseInventory()
+		{
+
+			if (IsSelectedItem(ItemTag.Throwable))
+			{
+				PerformThrowing();
+			}
+			else if (IsSelectedItem(ItemTag.Potion))
+			{
+				UsePotion();
+			}
+		}
+
+		private void UsePotion()
+		{
+			var potion = DefsFacade.I.Potions.Get(SelectedItemId);
+			_session.Data.Hp.Value += (int)potion.Value;
+
+			_session.Data.Inventory.Remove(potion.Id, 1);
+		}
+
+		private bool IsSelectedItem(ItemTag tag)
+		{
+			return _session.QuickInventory.SelectedDef.HasTag(tag);
+		}
+
+		private void PerformThrowing()
 		{
 			if (!_throwCooldown.IsReady || !CanThrow) return;
 			if (_SuperThrowCooldown.IsReady) _superThrow = true;
@@ -154,8 +180,6 @@ namespace Platformer.Creatures.Hero
 			Animator.SetTrigger(ThrowKey);
 			_throwCooldown.Reset();
 		}
-
-
 
 		public void OnDoThrow()
 		{
@@ -286,27 +310,27 @@ namespace Platformer.Creatures.Hero
 
 		}
 
-		public void DrinkPotion()
-		{
-			var def = DefsFacade.I.Items.Get(SelectedItemId);
-			var defId = def.Id;
-
-			
-			if (defId == "HealPotion" && HealPotionCount > 0)
-			{
-				var health = GetComponent<HealthComponent>();
-				health.ApplyHealing(5);
-				_session.Data.Inventory.Remove("HealPotion", 1);
-			}
-			if (defId == "SpeedPotion" && SpeedPotionCount > 0 && !_isSpeedUp)
-			{
-
-				StartCoroutine(SpeedUp());
+		//public void DrinkPotion()
+		//{
+		//	var def = DefsFacade.I.Items.Get(SelectedItemId);
+		//	var defId = def.Id;
 
 
+		//	if (defId == "HealPotion" && HealPotionCount > 0)
+		//	{
+		//		var health = GetComponent<HealthComponent>();
+		//		health.ApplyHealing(5);
+		//		_session.Data.Inventory.Remove("HealPotion", 1);
+		//	}
+		//	if (defId == "SpeedPotion" && SpeedPotionCount > 0 && !_isSpeedUp)
+		//	{
 
-			}
-		}
+		//		StartCoroutine(SpeedUp());
+
+
+
+		//	}
+		//}
 
 		private IEnumerator SpeedUp()
 		{

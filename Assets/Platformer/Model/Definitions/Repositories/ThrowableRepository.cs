@@ -7,31 +7,9 @@ using UnityEngine;
 namespace Platformer.Model.Definitions.Repositories
 {
 
-	[CreateAssetMenu(menuName = "Defs/ThrowableItemsDef", fileName = "ThrowableItemsDef")]
-	public class ThrowableItemsDef : DefRepository<ThrowableDef>
+	[CreateAssetMenu(menuName = "Defs/Throwable", fileName = "Throwable")]
+	public class ThrowableRepository : DefRepository<ThrowableDef>
 	{
-		[SerializeField] private ThrowableDef[] _items;
-
-		private void OnEnable()
-		{
-			_collection = _items;
-		}
-
-		public ThrowableDef Get(string id)
-		{
-			foreach (var itemDef in _items)
-			{
-				if (itemDef.Id == id)
-				{
-					return itemDef;
-				}
-			}
-			return default;
-		}
-
-		
-
-
 	}
 	[Serializable]
 	public struct ThrowableDef : IHaveId

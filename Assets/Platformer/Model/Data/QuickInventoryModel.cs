@@ -19,7 +19,20 @@ namespace
 
 		public event Action OnChanged;
 
-		public InventoryItemData SelectedItem => Inventory.Length > 0 ? Inventory[SelectedIndex.Value] : null;
+		public InventoryItemData SelectedItem
+		{
+			get
+			{
+				if (Inventory.Length > 0 && Inventory.Length > SelectedIndex.Value)
+				{
+					return Inventory[SelectedIndex.Value];
+				}
+				return null;
+			}
+		}
+
+		public ItemDef SelectedDef => DefsFacade.I.Items.Get(SelectedItem?.Id);
+		
 
 
 		public IDisposable Subscribe(Action call)

@@ -8,6 +8,7 @@ namespace Platformer.Model.Definitions.Repositories.Items
 
 		Stackable,
 		Usable,
-		Throwable
+		Throwable,
+		Potion
 	}
 }

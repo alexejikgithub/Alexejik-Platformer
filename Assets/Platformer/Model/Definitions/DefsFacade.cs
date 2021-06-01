@@ -11,17 +11,20 @@ namespace Platformer.Model.Definitions
 	public class DefsFacade : ScriptableObject
 	{
 		[SerializeField] private ItemsRepository _items;
-		[SerializeField] private ThrowableItemsDef _throwableItems;
+		[SerializeField] private ThrowableRepository _throwableItems;
+		[SerializeField] private PotionRepository _potions;
 		[SerializeField] private PlayerDef _player;
 
 		public ItemsRepository Items => _items;
 		public PlayerDef Player => _player;
 
+		public ThrowableRepository ThrowableItems => _throwableItems;
+		public PotionRepository Potions => _potions;
 
 		private static DefsFacade _instance;
 		public static DefsFacade I => _instance == null ? LoadDefs() : _instance;
 
-		public ThrowableItemsDef ThrowableItems => _throwableItems; 
+		
 
 		private static DefsFacade LoadDefs()
 		{
