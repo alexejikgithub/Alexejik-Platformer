@@ -17,6 +17,7 @@ namespace Platformer.UI.HUD
 		private void Start()
 		{
 			_sesson = FindObjectOfType<GameSession>();
+			_sesson.Data.Hp.OnChanged -= OnHealthChanged;
 			_sesson.Data.Hp.OnChanged += OnHealthChanged;
 			OnHealthChanged(_sesson.Data.Hp.Value, _sesson.Data.Hp.Value);
 
