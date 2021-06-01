@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-namespace Platformer.Model.Definitions.Editor
+namespace Platformer.Model.Definitions.Repositories.Items.Editor
 {
 	[CustomPropertyDrawer(typeof(InventoryIdAttribute))]
 	public class InventoryIdAttributeDrawer : PropertyDrawer

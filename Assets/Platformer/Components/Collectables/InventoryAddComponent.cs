@@ -2,6 +2,7 @@
 using Platformer.Creatures.Hero;
 using Platformer.Model;
 using Platformer.Model.Definitions;
+using Platformer.Model.Definitions.Repositories.Items;
 using System;
 using System.Collections;
 using System.Collections.Generic;

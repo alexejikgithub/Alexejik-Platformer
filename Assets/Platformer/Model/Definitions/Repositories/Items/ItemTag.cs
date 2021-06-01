@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Platformer.Model.Definitions
+namespace Platformer.Model.Definitions.Repositories.Items
 {
 	public enum ItemTag 
 	{

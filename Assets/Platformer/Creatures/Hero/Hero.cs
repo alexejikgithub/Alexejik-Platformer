@@ -14,6 +14,7 @@ using Platformer.UI.GameMenu;
 using UnityEngine.InputSystem;
 using Platformer.Model.Definitions;
 using Platformer.UI.MainMenu;
+using Platformer.Model.Definitions.Repositories.Items;
 
 namespace Platformer.Creatures.Hero
 

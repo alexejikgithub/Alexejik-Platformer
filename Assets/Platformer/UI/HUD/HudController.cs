@@ -30,6 +30,7 @@ namespace Platformer.UI.HUD
 		public void OnLoad()
 		{
 			_sesson = FindObjectOfType<GameSession>();
+			_sesson.Data.Hp.OnChanged -= OnHealthChanged; // костыль для перехода в сцены
 			_sesson.Data.Hp.OnChanged += OnHealthChanged;
 			OnHealthChanged(_sesson.Data.Hp.Value, _sesson.Data.Hp.Value);
 		}

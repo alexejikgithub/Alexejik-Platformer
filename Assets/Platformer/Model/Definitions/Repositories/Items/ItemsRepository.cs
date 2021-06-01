@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Linq;
 using UnityEngine;
-namespace Platformer.Model.Definitions
+namespace Platformer.Model.Definitions.Repositories.Items
 {
-	[CreateAssetMenu(menuName = "Defs/InventoryyItems", fileName = "InventoryItems")]
-	public class InventoryItemsDef : ScriptableObject
+	[CreateAssetMenu(menuName = "Defs/Items", fileName = "Items")]
+	public class ItemsRepository : DefRepository<ItemDef>
 	{
 		[SerializeField] private ItemDef[] _items;
+
+		private void OnEnable()
+		{
+			_collection = _items;
+		}
 
 		public ItemDef Get(string id)
 		{
@@ -26,7 +31,7 @@ namespace Platformer.Model.Definitions
 
 
 	[Serializable]
-	public struct ItemDef
+	public struct ItemDef : IHaveId
 	{
 		[SerializeField] private string _id;
 		public string Id => _id;

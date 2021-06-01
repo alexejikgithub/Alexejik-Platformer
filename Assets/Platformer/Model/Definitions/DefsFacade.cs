@@ -1,4 +1,6 @@
 ﻿
+using Platformer.Model.Definitions.Repositories;
+using Platformer.Model.Definitions.Repositories.Items;
 using System;
 using UnityEngine;
 
@@ -8,11 +10,11 @@ namespace Platformer.Model.Definitions
 	[CreateAssetMenu(menuName = "Defs/DefsFacade", fileName = "DefsFacade")]
 	public class DefsFacade : ScriptableObject
 	{
-		[SerializeField] private InventoryItemsDef _items;
+		[SerializeField] private ItemsRepository _items;
 		[SerializeField] private ThrowableItemsDef _throwableItems;
 		[SerializeField] private PlayerDef _player;
 
-		public InventoryItemsDef Items => _items;
+		public ItemsRepository Items => _items;
 		public PlayerDef Player => _player;
 
 
