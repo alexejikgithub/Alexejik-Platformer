@@ -14,8 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collection:
   - _id: SmallHealthPotion
+    _effect: 0
     _value: 5
     _time: 0
   - _id: LargeHealthPotion
+    _effect: 0
     _value: 10
     _time: 0
+  - _id: SpeedPotion
+    _effect: 1
+    _value: 5
+    _time: 5

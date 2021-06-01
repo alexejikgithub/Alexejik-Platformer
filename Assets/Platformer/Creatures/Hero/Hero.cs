@@ -15,6 +15,7 @@ using UnityEngine.InputSystem;
 using Platformer.Model.Definitions;
 using Platformer.UI.MainMenu;
 using Platformer.Model.Definitions.Repositories.Items;
+using Platformer.Model.Definitions.Repositories;
 
 namespace Platformer.Creatures.Hero
 
@@ -64,7 +65,7 @@ namespace Platformer.Creatures.Hero
 		private bool _allowSecondJump;
 		private bool _isOnWall;
 		private bool _superThrow;
-		private bool _isSpeedUp;
+		//private bool _isSpeedUp;
 
 		//private bool _isSprinting;
 
@@ -74,6 +75,8 @@ namespace Platformer.Creatures.Hero
 		private GameSession _session;
 		private float _defautGravityScale;
 
+		private Cooldown _speedUpCooldown = new Cooldown();
+		private float _additionalSpeed;
 
 		private const string SwordId = "Sword";
 		private int SwordCount => _session.Data.Inventory.Count(SwordId);
@@ -161,10 +164,36 @@ namespace Platformer.Creatures.Hero
 
 		private void UsePotion()
 		{
+			
 			var potion = DefsFacade.I.Potions.Get(SelectedItemId);
-			_session.Data.Hp.Value += (int)potion.Value;
+			switch (potion.Effect)
+			{
+
+				case Effect.AddHp:
+					_session.Data.Hp.Value += (int)potion.Value;
+					break;
+
+				case Effect.SpeedUp:
+					_speedUpCooldown.Value = _speedUpCooldown.TimesLasts + potion.Time;
+					_additionalSpeed = Mathf.Max(potion.Value, _additionalSpeed);
+					_speedUpCooldown.Reset();
+					break;
+
+			}
 
 			_session.Data.Inventory.Remove(potion.Id, 1);
+		}
+
+
+
+		protected override float CalculateSpeed()
+		{
+
+			if (_speedUpCooldown.IsReady)
+			{
+				_additionalSpeed = 0f;
+			}
+			return base.CalculateSpeed() + _additionalSpeed;
 		}
 
 		private bool IsSelectedItem(ItemTag tag)
@@ -237,7 +266,7 @@ namespace Platformer.Creatures.Hero
 
 
 			base.Update();
-
+			
 			var moveToSameDirection = Direction.x * transform.lossyScale.x > 0;
 
 			if (_wallCheck.IsTouchingLayer && moveToSameDirection)
@@ -324,7 +353,6 @@ namespace Platformer.Creatures.Hero
 		//	}
 		//	if (defId == "SpeedPotion" && SpeedPotionCount > 0 && !_isSpeedUp)
 		//	{
-
 		//		StartCoroutine(SpeedUp());
 
 
@@ -332,16 +360,16 @@ namespace Platformer.Creatures.Hero
 		//	}
 		//}
 
-		private IEnumerator SpeedUp()
-		{
-			_isSpeedUp = true;
-			_speedMultiplier *= 2;
-			_session.Data.Inventory.Remove("SpeedPotion", 1);
-			yield return new WaitForSeconds(5);
-			_speedMultiplier = 1;
+		//private IEnumerator SpeedUp()
+		//{
+		//	_isSpeedUp = true;
+		//	_speedMultiplier *= 2;
+		//	_session.Data.Inventory.Remove("SpeedPotion", 1);
+		//	yield return new WaitForSeconds(5);
+		//	_speedMultiplier = 1;
 
-			_isSpeedUp = false;
-		}
+		//	_isSpeedUp = false;
+		//}
 
 		public void SpawnCoins()
 		{

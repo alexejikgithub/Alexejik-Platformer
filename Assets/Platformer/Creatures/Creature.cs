@@ -32,14 +32,14 @@ namespace Platformer.Creatures
 		protected PlaySoundsComponent Sounds;
 		protected bool IsGrounded;
 		private bool _isJumping;
-		protected float _speedMultiplier;
+		
 
 
 		private static readonly int IsRunning = Animator.StringToHash("isRunning");
 		private static readonly int IsGroundedKey = Animator.StringToHash("isGrounded");
 		private static readonly int VerticalVelocity = Animator.StringToHash("verticalVelocity");
 		private static readonly int Hit = Animator.StringToHash("hitTrigger");
-		private static readonly int IsSprinting = Animator.StringToHash("isSprinting");
+		// private static readonly int IsSprinting = Animator.StringToHash("isSprinting");
 		private static readonly int AttackKey = Animator.StringToHash("attack");
 
 		public delegate void OnDirectionChanged(Vector2 direction);
@@ -51,7 +51,7 @@ namespace Platformer.Creatures
 			Rigidbody = GetComponent<Rigidbody2D>();
 			Animator = GetComponent<Animator>(); 
 			Sounds = GetComponent<PlaySoundsComponent>();
-			_speedMultiplier = 1;
+			
 		}
 
 		public void SetDirection(Vector2 direction)
@@ -68,7 +68,7 @@ namespace Platformer.Creatures
 		protected virtual void FixedUpdate()
 		{
 			//float runningSpeed = _isSprinting ? (_speed * _speedSprintMultiplier) : _speed;
-			var xVelocity = Direction.x * Speed*_speedMultiplier;
+			var xVelocity = CalculateXVelocity();
 
 
 			var yVelocity = CalculateYVelocity();
@@ -84,6 +84,14 @@ namespace Platformer.Creatures
 			Animator.SetFloat(VerticalVelocity, Rigidbody.velocity.y);
 
 			UpdateSpriteDirection(Direction);
+		}
+		protected virtual float CalculateXVelocity()
+		{
+			return Direction.x * CalculateSpeed();
+		}
+		protected virtual float CalculateSpeed()
+		{
+			return Speed;
 		}
 		protected virtual float CalculateYVelocity()
 		{

@@ -8,18 +8,23 @@ namespace Platformer.Utils
 
 {
 	[Serializable]
-	public class Cooldown 
+	public class Cooldown
 	{
 		[SerializeField] private float _value;
 
 		private float _timesUp;
 
+		public float Value { get => _value; set => _value = value; }
+
 		public void Reset()
 		{
-			_timesUp = Time.time + _value;
+			_timesUp = Time.time + Value;
 		}
+		public float TimesLasts => Mathf.Max(_timesUp - Time.time, 0);
 
 		public bool IsReady => _timesUp <= Time.time;
+
+		
 	}
 }
 
