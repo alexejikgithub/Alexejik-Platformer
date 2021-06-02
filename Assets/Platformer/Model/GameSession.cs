@@ -29,15 +29,15 @@ namespace Platformer.Model
 		private readonly List<string> _checkpoints = new List<string>();
 		private readonly List<string> _levelItemsDead = new List<string>(); // list that stores destroyed prefabs
 
-		
+
 
 		private void Awake()
 		{
 
-			
+
 
 			var existsingSession = GetExistingSession();
-			if (existsingSession!=null)
+			if (existsingSession != null)
 			{
 				existsingSession.StartSession(_defaultCheckpoint);
 				Destroy(gameObject);
@@ -55,7 +55,7 @@ namespace Platformer.Model
 
 			// reloads HudController
 			var hud = FindObjectOfType<HudController>();
-			if(hud!=null)
+			if (hud != null)
 			{
 				hud.OnLoad();
 			}
@@ -73,7 +73,7 @@ namespace Platformer.Model
 
 		private void StartSession(string defaultCheckpoint)
 		{
-			
+
 			SetChecked(defaultCheckpoint);
 			LoadHud();
 			SpawnHero();
@@ -82,12 +82,12 @@ namespace Platformer.Model
 
 		private void SpawnHero()
 		{
-			var checkpoints =FindObjectsOfType<CheckPointComponent>();
+			var checkpoints = FindObjectsOfType<CheckPointComponent>();
 			var lastCheckpoint = _checkpoints.Last();
-			
+
 			foreach (var checkPoint in checkpoints)
 			{
-				if(checkPoint.Id == lastCheckpoint)
+				if (checkPoint.Id == lastCheckpoint)
 				{
 					checkPoint.SpawnHero();
 					return;
@@ -95,12 +95,12 @@ namespace Platformer.Model
 			}
 
 			// This code will allow to return to the previous level
-			if(_checkpoints.Count>1)
+			if (_checkpoints.Count > 1)
 			{
 				_checkpoints.RemoveAt(_checkpoints.Count - 1);
 				SpawnHero();
 			}
-			
+
 		}
 
 		private void EnableitemsOnLevel()
@@ -109,16 +109,16 @@ namespace Platformer.Model
 			foreach (var item in itemsToEnable)
 			{
 
-				if(!_levelItemsDead.Contains(item.Id))
+				if (!_levelItemsDead.Contains(item.Id))
 				{
-					
+
 					item.Enable();
 				}
 
 			}
-			
+
 		}
-		
+
 
 		private void InitModels()
 		{
@@ -155,7 +155,7 @@ namespace Platformer.Model
 
 			_trash.Dispose();
 			InitModels();
-			
+
 		}
 		private void OnDestroy()
 		{
