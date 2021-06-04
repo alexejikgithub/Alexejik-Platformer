@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Platformer.Model.Definitions.Repositories
@@ -23,5 +24,8 @@ namespace Platformer.Model.Definitions.Repositories
 			}
 			return default;
 		}
+
+		public TDefType[] All => new List<TDefType>(_collection).ToArray();
+
 	}
 }

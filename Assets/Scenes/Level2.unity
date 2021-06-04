@@ -1016,7 +1016,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data:
     _inventory:
-      _inventory: []
+      _inventory:
+      - Id: Coin
+        Value: 20
+      - Id: Sword
+        Value: 20
+    Perks:
+      _used:
+        _value: 
+      _unlocked: []
     Hp:
       _value: 10
   _defaultCheckpoint: level2-checkpoint1
@@ -1769,6 +1777,7 @@ Transform:
   m_Children:
   - {fileID: 1583863299}
   - {fileID: 7799473429476821807}
+  - {fileID: 2026031783}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6302,6 +6311,118 @@ Transform:
   m_Father: {fileID: 431595199}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1901694890
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1448445922}
+    m_Modifications:
+    - target: {fileID: 3388981389722202108, guid: 66dbaa8f2033e664da93e5fe94dd59ad,
+        type: 3}
+      propertyPath: _mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388981389722202110, guid: 66dbaa8f2033e664da93e5fe94dd59ad,
+        type: 3}
+      propertyPath: m_Name
+      value: TalkingCrabby (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807839634186385933, guid: 66dbaa8f2033e664da93e5fe94dd59ad,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2026031784}
+    - target: {fileID: 3807839634186385933, guid: 66dbaa8f2033e664da93e5fe94dd59ad,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Show
+      objectReference: {fileID: 0}
+    - target: {fileID: 6728908406870035917, guid: 66dbaa8f2033e664da93e5fe94dd59ad,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6728908406870035917, guid: 66dbaa8f2033e664da93e5fe94dd59ad,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 6728908406870035917, guid: 66dbaa8f2033e664da93e5fe94dd59ad,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 6728908406870035917, guid: 66dbaa8f2033e664da93e5fe94dd59ad,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6728908406870035917, guid: 66dbaa8f2033e664da93e5fe94dd59ad,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6728908406870035917, guid: 66dbaa8f2033e664da93e5fe94dd59ad,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6728908406870035917, guid: 66dbaa8f2033e664da93e5fe94dd59ad,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6728908406870035917, guid: 66dbaa8f2033e664da93e5fe94dd59ad,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6728908406870035917, guid: 66dbaa8f2033e664da93e5fe94dd59ad,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6728908406870035917, guid: 66dbaa8f2033e664da93e5fe94dd59ad,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6728908406870035917, guid: 66dbaa8f2033e664da93e5fe94dd59ad,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3388981389722202109, guid: 66dbaa8f2033e664da93e5fe94dd59ad, type: 3}
+    - {fileID: 3388981389722202111, guid: 66dbaa8f2033e664da93e5fe94dd59ad, type: 3}
+    - {fileID: 3388981389722202108, guid: 66dbaa8f2033e664da93e5fe94dd59ad, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 66dbaa8f2033e664da93e5fe94dd59ad, type: 3}
+--- !u!1 &2026031782 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3388981389722202110, guid: 66dbaa8f2033e664da93e5fe94dd59ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 1901694890}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2026031783 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6728908406870035917, guid: 66dbaa8f2033e664da93e5fe94dd59ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 1901694890}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2026031784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026031782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb26c944c50727d4dbef0755851f40d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _path: UI/ManagePerksWindow
 --- !u!1 &2032895921
 GameObject:
   m_ObjectHideFlags: 0

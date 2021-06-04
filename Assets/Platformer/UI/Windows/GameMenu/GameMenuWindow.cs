@@ -45,6 +45,7 @@ namespace Platformer.UI.GameMenu
 		{
 			WindowUtils.CreateWindow("UI/SettingsWindow");
 			
+			
 		}
 		public void OnExit()
 		{

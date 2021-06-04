@@ -212,7 +212,7 @@ namespace Platformer.Creatures.Hero
 
 		public void OnDoThrow()
 		{
-			if (_superThrow)
+			if (_superThrow && _session.PerksModel.IsSuperThrowSupported)
 			{
 				var throwableCount = _session.Data.Inventory.Count(SelectedItemId);
 				var possibleCount = SelectedItemId == SwordId ? throwableCount - 1 : throwableCount;
@@ -310,7 +310,7 @@ namespace Platformer.Creatures.Hero
 		}
 		protected override float CalculateJumpVelocity(float yVelocity)
 		{
-			if (!IsGrounded && _allowSecondJump && !_isOnWall)
+			if (!IsGrounded && _allowSecondJump && _session.PerksModel.IsDoubleJumpSupported && !_isOnWall)
 			{
 				DoJumpVfx();
 				_allowSecondJump = false;

@@ -1343,6 +1343,10 @@ MonoBehaviour:
         Value: 3
       - Id: SpeedPotion
         Value: 3
+    Perks:
+      _used:
+        _value: 
+      _unlocked: []
     Hp:
       _value: 10
   _defaultCheckpoint: level1-checkpoint1

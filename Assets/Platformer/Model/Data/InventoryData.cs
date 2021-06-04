@@ -1,4 +1,5 @@
 ﻿using Platformer.Model.Definitions;
+using Platformer.Model.Definitions.Repositories;
 using Platformer.Model.Definitions.Repositories.Items;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,9 @@ namespace Platformer.Model.Data
 	public class InventoryData
 	{
 		[SerializeField] private List<InventoryItemData> _inventory = new List<InventoryItemData>();
+
+
+
 		public List<InventoryItemData> Inventory => _inventory;
 
 
@@ -35,7 +39,7 @@ namespace Platformer.Model.Data
 
 
 
-			
+
 
 			if (itemDef.HasTag(ItemTag.Stackable) && count >= itemDef.MaxAmount) return; // If current amount== maximum amount and stackable, nothing will be added.
 
@@ -46,7 +50,7 @@ namespace Platformer.Model.Data
 
 			if (!itemDef.HasTag(ItemTag.Stackable))
 			{
-				
+
 				AddNonStack(id, value);
 			}
 
@@ -58,20 +62,20 @@ namespace Platformer.Model.Data
 
 		public InventoryItemData[] GetAll(params ItemTag[] tags)
 		{
-			
+
 			var retValue = new List<InventoryItemData>();
 			foreach (var item in _inventory)
 			{
 				var itemDef = DefsFacade.I.Items.Get(item.Id);
-				
+
 				var isAllRequirementsMet = tags.All(x => itemDef.HasTag(x));
-				
+
 				if (isAllRequirementsMet)
 				{
 					retValue.Add(item);
 				}
 			}
-			
+
 			return retValue.ToArray();
 		}
 
@@ -82,18 +86,18 @@ namespace Platformer.Model.Data
 				if (isFull) return;
 				item = new InventoryItemData(id);
 				_inventory.Add(item);
-				
+
 			}
 			item.Value += (itemDef.MaxAmount - count) > value ? value : (itemDef.MaxAmount - count); // will add the required amount to counter. If value is higher than maximum amount, it will add up to maximum.v 
 		}
 
 		private void AddNonStack(string id, int value)
 		{
-			
+
 			var itemLasts = DefsFacade.I.Player.InventorySize - _inventory.Count;
 			value = Mathf.Min(itemLasts, value);
 
-			
+
 			for (int i = 0; i < value; i++)
 			{
 
@@ -146,6 +150,31 @@ namespace Platformer.Model.Data
 			}
 			return count;
 
+		}
+
+		public bool IsEnough(params ItemWithCount[] items)
+		{
+			var joined = new Dictionary<string, int>();
+			foreach (var item in items)
+			{
+				if (joined.ContainsKey(item.ItemId))
+				{
+					joined[item.ItemId] += item.Count;
+				}
+				else
+				{
+					joined.Add(item.ItemId, item.Count);
+				}
+			}
+			foreach(var kvp in joined)
+			{
+				var count = Count(kvp.Key);
+				if (count<kvp.Value)
+				{
+					return false;
+				}
+			}
+			return true;
 		}
 	}
 

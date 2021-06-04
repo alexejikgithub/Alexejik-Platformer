@@ -13,6 +13,7 @@ namespace Platformer.Model.Definitions
 		[SerializeField] private ItemsRepository _items;
 		[SerializeField] private ThrowableRepository _throwableItems;
 		[SerializeField] private PotionRepository _potions;
+		[SerializeField] private PerkRepository _perks;
 		[SerializeField] private PlayerDef _player;
 
 		public ItemsRepository Items => _items;
@@ -20,6 +21,7 @@ namespace Platformer.Model.Definitions
 
 		public ThrowableRepository ThrowableItems => _throwableItems;
 		public PotionRepository Potions => _potions;
+		public PerkRepository Perks => _perks;
 
 		private static DefsFacade _instance;
 		public static DefsFacade I => _instance == null ? LoadDefs() : _instance;
@@ -30,5 +32,6 @@ namespace Platformer.Model.Definitions
 		{
 			return _instance = Resources.Load<DefsFacade>("DefsFacade");
 		}
+
 	}
 }

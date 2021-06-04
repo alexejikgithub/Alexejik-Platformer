@@ -2,6 +2,7 @@
 using Assets.Platformer.Components.LevelManagement;
 using Platformer.Components.LevelManagement;
 using Platformer.Model.Data;
+using Platformer.Model.Models;
 using Platformer.UI.HUD;
 using Platformer.UI.HUD.QuickInventory;
 using Platformer.Utils.Disposables;
@@ -17,14 +18,17 @@ namespace Platformer.Model
 	{
 		[SerializeField] private PlayerData _data;
 		[SerializeField] private string _defaultCheckpoint;
+		
 
 		public PlayerData Data => _data;
+		
 
 		private PlayerData _save;
 
 		private readonly CompositeDisposable _trash = new CompositeDisposable();
 
 		public QuickInventoryModel QuickInventory { get; private set; }
+		public PerksModel PerksModel { get; private set; }
 
 		private readonly List<string> _checkpoints = new List<string>();
 		private readonly List<string> _levelItemsDead = new List<string>(); // list that stores destroyed prefabs
@@ -33,9 +37,6 @@ namespace Platformer.Model
 
 		private void Awake()
 		{
-
-
-
 			var existsingSession = GetExistingSession();
 			if (existsingSession != null)
 			{
@@ -73,7 +74,6 @@ namespace Platformer.Model
 
 		private void StartSession(string defaultCheckpoint)
 		{
-
 			SetChecked(defaultCheckpoint);
 			LoadHud();
 			SpawnHero();
@@ -100,7 +100,6 @@ namespace Platformer.Model
 				_checkpoints.RemoveAt(_checkpoints.Count - 1);
 				SpawnHero();
 			}
-
 		}
 
 		private void EnableitemsOnLevel()
@@ -108,15 +107,12 @@ namespace Platformer.Model
 			var itemsToEnable = FindObjectsOfType<EnableItemManager>();
 			foreach (var item in itemsToEnable)
 			{
-
 				if (!_levelItemsDead.Contains(item.Id))
 				{
 
 					item.Enable();
 				}
-
 			}
-
 		}
 
 
@@ -125,6 +121,9 @@ namespace Platformer.Model
 
 			QuickInventory = new QuickInventoryModel(Data);
 			_trash.Retain(QuickInventory);
+
+			PerksModel = new PerksModel(_data);
+			_trash.Retain(PerksModel);
 		}
 
 		private void LoadHud()
