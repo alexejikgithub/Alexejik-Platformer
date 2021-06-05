@@ -1,9 +1,11 @@
 ﻿using Platformer.Model.Data;
 using Platformer.Model.Data.Properties;
 using Platformer.Model.Definitions;
+using Platformer.UI.Windows.Perks;
 using Platformer.Utils.Disposables;
 using System;
 using System.Net.Mime;
+using UnityEngine;
 
 namespace Platformer.Model.Models
 {
@@ -53,6 +55,9 @@ namespace Platformer.Model.Models
 		internal void UsePerk(string selected)
 		{
 			_data.Perks.Used.Value = selected;
+			var display = GameObject.FindObjectOfType<PerksDisplayWidget>(); // bad idea
+			display.UpdateView();
+
 		}
 
 

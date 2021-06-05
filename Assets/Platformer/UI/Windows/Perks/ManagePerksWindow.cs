@@ -21,6 +21,8 @@ namespace Platformer.UI.Windows.Perks
 		private PredefinedDataGroup<PerkDef, PerkWidget> _dataGroup;
 		private readonly CompositeDisposable _trash = new CompositeDisposable();
 		private GameSession _session;
+		private PerksDisplayWidget _perksDisplay;
+
 		protected override void Start()
 		{
 			base.Start();
@@ -58,6 +60,13 @@ namespace Platformer.UI.Windows.Perks
 		{
 			var selected = _session.PerksModel.InterfaceSelection.Value;
 			_session.PerksModel.UsePerk(selected);
+
+
+			if(_perksDisplay==null)
+			{
+				_perksDisplay = FindObjectOfType<PerksDisplayWidget>(); // bad idea?
+			}
+			_perksDisplay.UpdateView();
 		}
 
 		private void OnBuy()
