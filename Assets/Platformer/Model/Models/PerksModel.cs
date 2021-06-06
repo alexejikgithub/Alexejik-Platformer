@@ -1,11 +1,9 @@
 ﻿using Platformer.Model.Data;
 using Platformer.Model.Data.Properties;
 using Platformer.Model.Definitions;
-using Platformer.UI.Windows.Perks;
 using Platformer.Utils.Disposables;
 using System;
 using System.Net.Mime;
-using UnityEngine;
 
 namespace Platformer.Model.Models
 {
@@ -14,10 +12,12 @@ namespace Platformer.Model.Models
 		private readonly PlayerData _data;
 		public readonly StringProperty InterfaceSelection = new StringProperty();
 
-		
+
 
 		private readonly CompositeDisposable _trash = new CompositeDisposable();
 		public event Action OnChanged;
+
+		
 
 		public PerksModel(PlayerData data)
 		{
@@ -37,6 +37,13 @@ namespace Platformer.Model.Models
 		public bool IsSuperThrowSupported => _data.Perks.Used.Value == "super-throw";
 		public bool IsDoubleJumpSupported => _data.Perks.Used.Value == "double-jump";
 
+		private bool _perkIsReady;
+		public bool PerkIsReady
+		{
+			get { return _perkIsReady; }
+			set { _perkIsReady = value; }
+		}
+
 		public void Unlock(string id)
 		{
 			var def = DefsFacade.I.Perks.Get(id);
@@ -48,16 +55,13 @@ namespace Platformer.Model.Models
 				_data.Perks.AddPerk(id);
 				OnChanged?.Invoke();
 			}
-			
+
 		}
 
 
 		internal void UsePerk(string selected)
 		{
 			_data.Perks.Used.Value = selected;
-			var display = GameObject.FindObjectOfType<PerksDisplayWidget>(); // bad idea
-			display.UpdateView();
-
 		}
 
 
@@ -84,5 +88,7 @@ namespace Platformer.Model.Models
 		{
 			_trash.Dispose();
 		}
+
+		
 	}
 }

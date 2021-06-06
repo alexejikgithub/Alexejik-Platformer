@@ -16,6 +16,7 @@ using Platformer.Model.Definitions;
 using Platformer.UI.MainMenu;
 using Platformer.Model.Definitions.Repositories.Items;
 using Platformer.Model.Definitions.Repositories;
+using Platformer.UI.Windows.Perks;
 
 namespace Platformer.Creatures.Hero
 
@@ -65,6 +66,9 @@ namespace Platformer.Creatures.Hero
 		private bool _allowSecondJump;
 		private bool _isOnWall;
 		private bool _superThrow;
+
+		private bool DoubleJumpPerkCanBePerformed => _session.PerksModel.IsDoubleJumpSupported && _session.PerksModel.PerkIsReady;
+		private bool SuperThrowpPerkCanBePerformed => _session.PerksModel.IsSuperThrowSupported && _session.PerksModel.PerkIsReady;
 		//private bool _isSpeedUp;
 
 		//private bool _isSprinting;
@@ -81,8 +85,10 @@ namespace Platformer.Creatures.Hero
 		private const string SwordId = "Sword";
 		private int SwordCount => _session.Data.Inventory.Count(SwordId);
 		private int CoinsCount => _session.Data.Inventory.Count("Coin");
-		private int HealPotionCount => _session.Data.Inventory.Count("HealPotion");
-		private int SpeedPotionCount => _session.Data.Inventory.Count("SpeedPotion");
+		//private int HealPotionCount => _session.Data.Inventory.Count("HealPotion");
+		//private int SpeedPotionCount => _session.Data.Inventory.Count("SpeedPotion");
+
+		PerksDisplayWidget _perksDisplay;
 
 		private string SelectedItemId => _session.QuickInventory.SelectedItem != null ? _session.QuickInventory.SelectedItem.Id : "null";
 
@@ -101,6 +107,7 @@ namespace Platformer.Creatures.Hero
 			}
 		}
 
+
 		protected override void Awake()
 		{
 			base.Awake();
@@ -112,7 +119,7 @@ namespace Platformer.Creatures.Hero
 		private void Start()
 		{
 			_session = FindObjectOfType<GameSession>();
-
+			_perksDisplay = FindObjectOfType<PerksDisplayWidget>();
 			var health = GetComponent<HealthComponent>();
 			health.SetHealth(_session.Data.Hp.Value);
 			UpdateHeroWeapon();
@@ -212,8 +219,9 @@ namespace Platformer.Creatures.Hero
 
 		public void OnDoThrow()
 		{
-			if (_superThrow && _session.PerksModel.IsSuperThrowSupported)
+			if (_superThrow && SuperThrowpPerkCanBePerformed)
 			{
+				_perksDisplay.PerkReload();
 				var throwableCount = _session.Data.Inventory.Count(SelectedItemId);
 				var possibleCount = SelectedItemId == SwordId ? throwableCount - 1 : throwableCount;
 				var numThrows = Mathf.Min(_superThrowParticles, possibleCount);
@@ -310,8 +318,9 @@ namespace Platformer.Creatures.Hero
 		}
 		protected override float CalculateJumpVelocity(float yVelocity)
 		{
-			if (!IsGrounded && _allowSecondJump && _session.PerksModel.IsDoubleJumpSupported && !_isOnWall)
+			if (!IsGrounded && _allowSecondJump && DoubleJumpPerkCanBePerformed && !_isOnWall)
 			{
+				_perksDisplay.PerkReload();
 				DoJumpVfx();
 				_allowSecondJump = false;
 				return JumpSpeed;

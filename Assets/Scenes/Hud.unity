@@ -234,7 +234,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icon: {fileID: 1884805901}
-  _isLocked: {fileID: 535189483}
+  _lockImage: {fileID: 535189485}
+  _cooldownTime: 5
 --- !u!114 &210729459
 MonoBehaviour:
   m_ObjectHideFlags: 0
