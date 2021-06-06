@@ -19,18 +19,18 @@ namespace Platformer.UI.HUD.QuickInventory
 
 		private readonly CompositeDisposable _trash = new CompositeDisposable();
 
+		private GameSession _session;
 		private int _index;
+
 
 		private void Start()
 		{
-			var session = FindObjectOfType<GameSession>();
-			var index = session.QuickInventory.SelectedIndex;
-
-			_trash.Retain(index.SubscribeAndInvoke(OnIndexChanged));
+			OnLoad();
 		}
 
 		private void OnIndexChanged(int newValue, int oldValue)
 		{
+
 			_selection.SetActive(_index == newValue);
 		}
 
@@ -40,6 +40,14 @@ namespace Platformer.UI.HUD.QuickInventory
 			var def = DefsFacade.I.Items.Get(item.Id);
 			_icon.sprite = def.Icon;
 			_value.text = def.HasTag(ItemTag.Stackable) ? item.Value.ToString() : string.Empty;
+		}
+
+		public void OnLoad()
+		{
+			_session = FindObjectOfType<GameSession>();
+			var index = _session.QuickInventory.SelectedIndex;
+			_trash.Dispose();
+			_trash.Retain(index.SubscribeAndInvoke(OnIndexChanged));
 		}
 
 		private void OnDestroy()

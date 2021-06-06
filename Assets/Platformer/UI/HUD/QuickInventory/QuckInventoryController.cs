@@ -26,7 +26,7 @@ namespace Platformer.UI.HUD.QuickInventory
 			{
 				Destroy(gameObject);
 			}
-			
+
 
 		}
 		private bool DoesThisExist()
@@ -41,8 +41,8 @@ namespace Platformer.UI.HUD.QuickInventory
 			return false;
 		}
 
-	
-	private void Start()
+
+		private void Start()
 		{
 			OnLoad();
 		}
@@ -57,7 +57,7 @@ namespace Platformer.UI.HUD.QuickInventory
 			Rebuild();
 		}
 
-			private void Rebuild()
+		private void Rebuild()
 		{
 			var inventory = _session.QuickInventory.Inventory;
 
@@ -84,7 +84,7 @@ namespace Platformer.UI.HUD.QuickInventory
 
 
 
-			
+
 
 		}
 	}

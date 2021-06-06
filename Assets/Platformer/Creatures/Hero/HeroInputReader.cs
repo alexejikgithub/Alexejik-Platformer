@@ -111,6 +111,16 @@ namespace Platformer.Creatures.Hero
 			}
 		}
 
+		public void OnUseShield(InputAction.CallbackContext context)
+		{
+			if (context.performed)
+			{
+
+				StartCoroutine(_hero.UseShield());
+				
+			}
+		}
+
 	}
 
 }

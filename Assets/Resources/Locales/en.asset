@@ -66,4 +66,10 @@ MonoBehaviour:
   - Key: Crabby_CoinObtained_5
     Value: "That was impressive\r"
   - Key: continue_line
-    Value: Continue...
+    Value: "Continue...\r"
+  - Key: perk_doublejimp_info
+    Value: "This is double jump\r"
+  - Key: perk_superthrow_info
+    Value: "This is super throw\r"
+  - Key: perk_shield_info
+    Value: This is shield

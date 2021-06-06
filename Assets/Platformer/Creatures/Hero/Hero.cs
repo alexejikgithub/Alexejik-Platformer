@@ -51,6 +51,7 @@ namespace Platformer.Creatures.Hero
 		[Space]
 
 		[SerializeField] private ProbabilityDropComponent _hitDrop;
+		[SerializeField] private GameObject _shield;
 
 
 
@@ -69,6 +70,7 @@ namespace Platformer.Creatures.Hero
 
 		private bool DoubleJumpPerkCanBePerformed => _session.PerksModel.IsDoubleJumpSupported && _session.PerksModel.PerkIsReady;
 		private bool SuperThrowpPerkCanBePerformed => _session.PerksModel.IsSuperThrowSupported && _session.PerksModel.PerkIsReady;
+		private bool ShieldPerkCanBePerformed => _session.PerksModel.IsShieldSupported && _session.PerksModel.PerkIsReady;
 		//private bool _isSpeedUp;
 
 		//private bool _isSprinting;
@@ -89,6 +91,8 @@ namespace Platformer.Creatures.Hero
 		//private int SpeedPotionCount => _session.Data.Inventory.Count("SpeedPotion");
 
 		PerksDisplayWidget _perksDisplay;
+
+		HealthComponent _health;
 
 		private string SelectedItemId => _session.QuickInventory.SelectedItem != null ? _session.QuickInventory.SelectedItem.Id : "null";
 
@@ -120,8 +124,8 @@ namespace Platformer.Creatures.Hero
 		{
 			_session = FindObjectOfType<GameSession>();
 			_perksDisplay = FindObjectOfType<PerksDisplayWidget>();
-			var health = GetComponent<HealthComponent>();
-			health.SetHealth(_session.Data.Hp.Value);
+			_health = GetComponent<HealthComponent>();
+			_health.SetHealth(_session.Data.Hp.Value);
 			UpdateHeroWeapon();
 			_session.Data.Inventory.OnChanged += OnInventoryChanged;
 			_session.Data.Inventory.OnChanged += AnotherHandler;
@@ -171,13 +175,15 @@ namespace Platformer.Creatures.Hero
 
 		private void UsePotion()
 		{
-			
+
 			var potion = DefsFacade.I.Potions.Get(SelectedItemId);
 			switch (potion.Effect)
 			{
 
 				case Effect.AddHp:
-					_session.Data.Hp.Value += (int)potion.Value;
+					Debug.Log("heal");
+					_health.ApplyHealing( (int)potion.Value); // переделал, чтобы работало
+					
 					break;
 
 				case Effect.SpeedUp:
@@ -264,7 +270,7 @@ namespace Platformer.Creatures.Hero
 		public void OnHealthChanged(int currentHealth)
 		{
 			_session.Data.Hp.Value = currentHealth;
-			Debug.Log(currentHealth);
+
 		}
 
 
@@ -274,7 +280,7 @@ namespace Platformer.Creatures.Hero
 
 
 			base.Update();
-			
+
 			var moveToSameDirection = Direction.x * transform.lossyScale.x > 0;
 
 			if (_wallCheck.IsTouchingLayer && moveToSameDirection)
@@ -340,7 +346,6 @@ namespace Platformer.Creatures.Hero
 		public override void TakeDamage()
 		{
 			base.TakeDamage();
-			Debug.Log(CoinsCount);
 			if (CoinsCount > 0)
 			{
 				SpawnCoins();
@@ -449,6 +454,28 @@ namespace Platformer.Creatures.Hero
 		internal void NextItem()
 		{
 			_session.QuickInventory.SetNextItem();
+		}
+
+		public IEnumerator UseShield()
+		{
+			if (ShieldPerkCanBePerformed)
+			{
+				_perksDisplay.PerkReload();
+				_shield.SetActive(true);
+				_health.IsInvinsible = true;
+				yield return new WaitForSeconds(2);
+				for (int i = 0; i < 5; i++)
+				{
+
+					_shield.SetActive(false);
+					yield return new WaitForSeconds(0.1f);
+					_shield.SetActive(true);
+					yield return new WaitForSeconds(0.1f);
+				}
+				_shield.SetActive(false);
+				_health.IsInvinsible = false;
+
+			}
 		}
 
 	}

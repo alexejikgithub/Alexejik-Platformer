@@ -16,6 +16,9 @@ namespace Platformer.Components.Health
 
 		[SerializeField] public HealthChangeEvent _onChange;
 
+
+		public bool IsInvinsible { get; set; }
+
 		public int Health => _health;
 
 		private bool _isDead = false;
@@ -23,7 +26,7 @@ namespace Platformer.Components.Health
 
 		public void ApplyDamage(int damageValue)
 		{
-			if(!_isDead)
+			if (!_isDead && !IsInvinsible)
 			{
 				_health -= damageValue;
 				_onChange?.Invoke(_health);
@@ -34,7 +37,7 @@ namespace Platformer.Components.Health
 					_onDie?.Invoke();
 				}
 			}
-			
+
 		}
 
 		public void ApplyHealing(int healingValue)

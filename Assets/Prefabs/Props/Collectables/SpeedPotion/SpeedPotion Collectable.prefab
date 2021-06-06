@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78ab86f5bd9bcef4c8f2a42f2a5bac67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: HealPotion
+  _id: SpeedPotion
   _count: 1
   _action:
     m_PersistentCalls:

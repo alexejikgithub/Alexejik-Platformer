@@ -64,6 +64,7 @@ namespace
 		internal void SetNextItem()
 		{
 			SelectedIndex.Value = (int)Mathf.Repeat(SelectedIndex.Value + 1, Inventory.Length);
+			Debug.Log(SelectedIndex.Value);
 		}
 
 		public void Dispose()

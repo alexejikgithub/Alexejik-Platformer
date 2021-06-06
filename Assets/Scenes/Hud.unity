@@ -235,7 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 1884805901}
   _lockImage: {fileID: 535189485}
-  _cooldownTime: 5
+  _cooldownTime: 10
 --- !u!114 &210729459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1299,6 +1299,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1136864832}
     m_Modifications:
+    - target: {fileID: 1176379569, guid: 81f0df23038dfc84facb73ab02644275, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176379569, guid: 81f0df23038dfc84facb73ab02644275, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176379569, guid: 81f0df23038dfc84facb73ab02644275, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176379569, guid: 81f0df23038dfc84facb73ab02644275, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -13
+      objectReference: {fileID: 0}
     - target: {fileID: 1988154341920099930, guid: 81f0df23038dfc84facb73ab02644275,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1352,7 +1368,7 @@ PrefabInstance:
     - target: {fileID: 1988154342399690877, guid: 81f0df23038dfc84facb73ab02644275,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 40
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 1988154342399690877, guid: 81f0df23038dfc84facb73ab02644275,
         type: 3}

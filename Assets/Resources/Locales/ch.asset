@@ -66,4 +66,10 @@ MonoBehaviour:
   - Key: Crabby_CoinObtained_5
     Value: "\u5389\u5BB3\r"
   - Key: continue_line
-    Value: "\u7EE7\u7EED..."
+    Value: "\u7EE7\u7EED...\r"
+  - Key: perk_doublejimp_info
+    Value: "\u8FD9\u662F\u4E8C\u6BB5\u8DF3\r"
+  - Key: perk_superthrow_info
+    Value: "\u8FD9\u662F\u8D85\u6254\r"
+  - Key: perk_shield_info
+    Value: "\u8FD9\u662F\u76FE\u724C"

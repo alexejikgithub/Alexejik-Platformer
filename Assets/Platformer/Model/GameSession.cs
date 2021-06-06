@@ -53,13 +53,14 @@ namespace Platformer.Model
 				StartSession(_defaultCheckpoint);
 			}
 
-
-			// reloads HudController
-			var hud = FindObjectOfType<HudController>();
-			if (hud != null)
+			// reloads InvantoryItemWidgets
+			var InventoryItemWidgets = FindObjectsOfType<InventoryItemWidget>();
+			foreach (var widget in InventoryItemWidgets)
 			{
-				hud.OnLoad();
+				widget.OnLoad();
 			}
+
+			
 
 
 			// reloads QuckInventoryController
@@ -69,6 +70,13 @@ namespace Platformer.Model
 				qInventory.OnLoad();
 			}
 
+
+			// reloads HudController
+			var hud = FindObjectOfType<HudController>();
+			if (hud != null)
+			{
+				hud.OnLoad();
+			}
 
 		}
 

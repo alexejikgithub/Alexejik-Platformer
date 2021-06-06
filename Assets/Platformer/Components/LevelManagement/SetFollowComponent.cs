@@ -12,7 +12,12 @@ namespace Platformer.Components.LevelManagement
 		private void Start()
 		{
 			var vCamera = GetComponent<CinemachineVirtualCamera>();
-			vCamera.Follow = FindObjectOfType<Hero>().transform;
+			var hero = FindObjectOfType<Hero>();
+			if (hero != null)
+			{
+				vCamera.Follow = hero.transform;
+			}
+
 		}
 	}
 }
