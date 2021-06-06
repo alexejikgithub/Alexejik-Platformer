@@ -22,7 +22,7 @@ namespace Platformer.UI.HUD.QuickInventory
 		private GameSession _session;
 		private int _index;
 
-
+	
 		private void Start()
 		{
 			OnLoad();
@@ -30,7 +30,6 @@ namespace Platformer.UI.HUD.QuickInventory
 
 		private void OnIndexChanged(int newValue, int oldValue)
 		{
-
 			_selection.SetActive(_index == newValue);
 		}
 
@@ -42,6 +41,7 @@ namespace Platformer.UI.HUD.QuickInventory
 			_value.text = def.HasTag(ItemTag.Stackable) ? item.Value.ToString() : string.Empty;
 		}
 
+		[ContextMenu("OnLoad")]
 		public void OnLoad()
 		{
 			_session = FindObjectOfType<GameSession>();

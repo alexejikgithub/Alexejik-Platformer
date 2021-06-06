@@ -79,7 +79,9 @@ namespace Platformer.UI.HUD.QuickInventory
 			// Hide unused items.
 			for (var i = inventory.Length; i < _createdItems.Count; i++)
 			{
-				_createdItems[i].gameObject.SetActive(false);
+				
+				Destroy(_createdItems[i].gameObject);
+				_createdItems.RemoveAt(i);
 			}
 
 
