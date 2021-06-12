@@ -40,7 +40,7 @@ namespace Platformer.Components.Health
 			//{
 			//	_healthPointsToChange = (int) _session.StatsModel.GetValue(StatId.RangeDamage);
 			//}
-			Debug.Log(_usedStats.Length);
+			
 			foreach (var stat in _usedStats)
 			{
 				
@@ -51,8 +51,7 @@ namespace Platformer.Components.Health
 						break;
 					case StatId.CritDamage:
 						var randomInt = Random.Range(0, 100);
-						Debug.Log(randomInt);
-						Debug.Log((int)_session.StatsModel.GetValue(StatId.CritDamage));
+						
 
 
 						if(randomInt<= (int)_session.StatsModel.GetValue(StatId.CritDamage))
