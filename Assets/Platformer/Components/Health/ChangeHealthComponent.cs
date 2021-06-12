@@ -1,43 +1,59 @@
-﻿using System.Collections;
+﻿using Platformer.Model;
+using Platformer.Model.Definitions.Player;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Platformer.Components.Health
 {
-    public class ChangeHealthComponent : MonoBehaviour
-    {
-        [Range(0,100)]
-        [SerializeField] private int _healthPointsToChange;
-        [SerializeField] private ChangingHealsStates _healOrDamage;
+	public class ChangeHealthComponent : MonoBehaviour
+	{
+		[Range(0, 100)]
+		[SerializeField] private int _healthPointsToChange;
+		[SerializeField] private ChangingHealsStates _healOrDamage;
 
+		[Header("Using Stats")] 
+		[SerializeField] private bool _useHeroStats;
+		[SerializeField] private StatId _usedStat;
 
-        public bool _dealHealing =>_healOrDamage == ChangingHealsStates.Heal;
-        public bool _dealDamage => _healOrDamage == ChangingHealsStates.Damage;
-        
-        private enum ChangingHealsStates
+		GameSession _session;
+
+		public bool _dealHealing => _healOrDamage == ChangingHealsStates.Heal;
+		public bool _dealDamage => _healOrDamage == ChangingHealsStates.Damage;
+
+		private void Start()
 		{
-            Heal,
-            Damage
+			_session = FindObjectOfType<GameSession>();
 		}
-        
 
-
-        public void ChangeHealthAmount(GameObject target)
+		private enum ChangingHealsStates
 		{
-            var healthComponent = target.GetComponent<HealthComponent>();
-            if(healthComponent!=null)
+			Heal,
+			Damage
+		}
+
+		
+
+		public void ChangeHealthAmount(GameObject target)
+		{
+			if(_useHeroStats)
 			{
-                if(_dealDamage)
+				_healthPointsToChange = (int) _session.StatsModel.GetValue(StatId.RangeDamage);
+			}
+			var healthComponent = target.GetComponent<HealthComponent>();
+			if (healthComponent != null)
+			{
+				if (_dealDamage)
 				{
-                    healthComponent.ApplyDamage(_healthPointsToChange);
-                }
-                else 
-                {
-                    healthComponent.ApplyHealing(_healthPointsToChange);
-                }
+					healthComponent.ApplyDamage(_healthPointsToChange);
+				}
+				else
+				{
+					healthComponent.ApplyHealing(_healthPointsToChange);
+				}
 
 
-            }
+			}
 		}
-    }
+	}
 }

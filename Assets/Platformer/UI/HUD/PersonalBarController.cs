@@ -25,7 +25,11 @@ namespace Platformer.UI.HUD
 			_maxHealth = _healthComponent.Health;
 			_healthBar.SetProgress(1);
 			_creature = _healthComponent.gameObject.GetComponent<Creature>();
-			_creature.OnChangedDirection += OnDirectionChanged;
+			if(_creature!=null)
+			{
+				_creature.OnChangedDirection += OnDirectionChanged;
+			}
+			
 
 			_trash.Retain(_healthComponent._onChange.Subscribe(UpdateHealthBar));
 			_trash.Retain(_healthComponent._onDie.Subscribe(OnDie));
