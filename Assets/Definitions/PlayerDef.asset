@@ -75,3 +75,23 @@ MonoBehaviour:
       _price:
         _itemId: Coin
         _count: 100
+  - _name: critDamage_stat
+    _id: 3
+    _icon: {fileID: 21300000, guid: 0b3a3a159d5d49749ba7a33644008e18, type: 3}
+    _levels:
+    - _value: 0
+      _price:
+        _itemId: Coin
+        _count: 0
+    - _value: 10
+      _price:
+        _itemId: Coin
+        _count: 10
+    - _value: 30
+      _price:
+        _itemId: Coin
+        _count: 50
+    - _value: 40
+      _price:
+        _itemId: Coin
+        _count: 70
