@@ -2,6 +2,7 @@
 using Assets.Platformer.Components.LevelManagement;
 using Platformer.Components.LevelManagement;
 using Platformer.Model.Data;
+using Platformer.Model.Definitions.Player;
 using Platformer.Model.Models;
 using Platformer.UI.HUD;
 using Platformer.UI.HUD.QuickInventory;
@@ -18,10 +19,10 @@ namespace Platformer.Model
 	{
 		[SerializeField] private PlayerData _data;
 		[SerializeField] private string _defaultCheckpoint;
-		
+
 
 		public PlayerData Data => _data;
-		
+
 
 		private PlayerData _save;
 
@@ -29,6 +30,7 @@ namespace Platformer.Model
 
 		public QuickInventoryModel QuickInventory { get; private set; }
 		public PerksModel PerksModel { get; private set; }
+		public StatsModel StatsModel { get; private set; }
 
 		private readonly List<string> _checkpoints = new List<string>();
 		private readonly List<string> _levelItemsDead = new List<string>(); // list that stores destroyed prefabs
@@ -60,7 +62,7 @@ namespace Platformer.Model
 				widget.OnLoad();
 			}
 
-			
+
 
 
 			// reloads QuckInventoryController
@@ -132,6 +134,11 @@ namespace Platformer.Model
 
 			PerksModel = new PerksModel(_data);
 			_trash.Retain(PerksModel);
+
+			StatsModel = new StatsModel(_data);
+			_trash.Retain(StatsModel);
+
+			_data.Hp.Value = (int)StatsModel.GetValue(StatId.Hp);
 		}
 
 		private void LoadHud()

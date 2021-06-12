@@ -1,4 +1,5 @@
 ﻿
+using Platformer.Model.Definitions.Player;
 using Platformer.Model.Definitions.Repositories;
 using Platformer.Model.Definitions.Repositories.Items;
 using System;

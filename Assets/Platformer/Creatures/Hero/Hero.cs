@@ -17,6 +17,8 @@ using Platformer.UI.MainMenu;
 using Platformer.Model.Definitions.Repositories.Items;
 using Platformer.Model.Definitions.Repositories;
 using Platformer.UI.Windows.Perks;
+using Platformer.Model.Definitions.Player;
+using Platformer.Model.Data.Properties;
 
 namespace Platformer.Creatures.Hero
 
@@ -129,11 +131,28 @@ namespace Platformer.Creatures.Hero
 			UpdateHeroWeapon();
 			_session.Data.Inventory.OnChanged += OnInventoryChanged;
 			_session.Data.Inventory.OnChanged += AnotherHandler;
+			_session.StatsModel.OnUpgraded += OnHeroUpgraded;
 		}
+
+		private void OnHeroUpgraded(StatId stateId)
+		{
+			switch (stateId)
+			{
+				case StatId.Hp:
+					var health = (int) _session.StatsModel.GetValue(stateId);
+					_session.Data.Hp.Value = health;
+					_health.SetHealth(health);
+					break;
+			}
+		}
+
+
+
 		void OnDestroy()
 		{
 			_session.Data.Inventory.OnChanged -= OnInventoryChanged;
 			_session.Data.Inventory.OnChanged -= AnotherHandler;
+			_session.StatsModel.OnUpgraded -= OnHeroUpgraded;
 		}
 		private void AnotherHandler(string id, int value)
 		{
@@ -182,8 +201,8 @@ namespace Platformer.Creatures.Hero
 
 				case Effect.AddHp:
 					Debug.Log("heal");
-					_health.ApplyHealing( (int)potion.Value); // переделал, чтобы работало
-					
+					_health.ApplyHealing((int)potion.Value); // переделал, чтобы работало
+
 					break;
 
 				case Effect.SpeedUp:
@@ -206,7 +225,9 @@ namespace Platformer.Creatures.Hero
 			{
 				_additionalSpeed = 0f;
 			}
-			return base.CalculateSpeed() + _additionalSpeed;
+
+			var defaultSpeed = _session.StatsModel.GetValue(StatId.Speed);
+			return defaultSpeed + _additionalSpeed;
 		}
 
 		private bool IsSelectedItem(ItemTag tag)

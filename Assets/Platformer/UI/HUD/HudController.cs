@@ -1,6 +1,8 @@
 ﻿using Platformer.Model;
 using Platformer.Model.Definitions;
+using Platformer.Model.Definitions.Player;
 using Platformer.UI.Widgets;
+using Platformer.Utils;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -39,7 +41,7 @@ namespace Platformer.UI.HUD
 		private void OnHealthChanged(int newValue, int oldValue)
 		{
 
-			var maxHealth = DefsFacade.I.Player.MaxHealth;
+			var maxHealth = _sesson.StatsModel.GetValue(StatId.Hp);
 			var value = (float)newValue / maxHealth;
 			_healthBar.SetProgress(value);
 		}
@@ -52,6 +54,11 @@ namespace Platformer.UI.HUD
 				_sesson.Data.Hp.OnChanged -= OnHealthChanged;
 			}
 			
+		}
+
+		public void ShowDebug()
+		{
+			WindowUtils.CreateWindow("UI/PlayerStatsWindow");
 		}
 	}
 }

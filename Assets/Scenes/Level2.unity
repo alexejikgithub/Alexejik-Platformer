@@ -1018,13 +1018,15 @@ MonoBehaviour:
     _inventory:
       _inventory:
       - Id: Coin
-        Value: 20
+        Value: 600
       - Id: Sword
         Value: 20
     Perks:
       _used:
         _value: 
       _unlocked: []
+    Levels:
+      _progress: []
     Hp:
       _value: 10
   _defaultCheckpoint: level2-checkpoint1

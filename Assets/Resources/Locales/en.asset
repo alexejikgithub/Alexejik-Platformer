@@ -72,4 +72,12 @@ MonoBehaviour:
   - Key: perk_superthrow_info
     Value: "This is super throw\r"
   - Key: perk_shield_info
-    Value: This is shield
+    Value: "This is shield\r"
+  - Key: button_upgrade
+    Value: "upgrade\r"
+  - Key: health_stat
+    Value: "Health\r"
+  - Key: speed_stat
+    Value: "Speed\r"
+  - Key: rangeDamage_stat
+    Value: Range Damage

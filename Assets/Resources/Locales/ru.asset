@@ -73,4 +73,12 @@ MonoBehaviour:
   - Key: perk_superthrow_info
     Value: "\u042D\u0442\u043E \u0441\u0443\u043F\u0435\u0440 \u0431\u0440\u043E\u0441\u043E\u043A\r"
   - Key: perk_shield_info
-    Value: "\u042D\u0442\u043E \u0449\u0438\u0442"
+    Value: "\u042D\u0442\u043E \u0449\u0438\u0442\r"
+  - Key: button_upgrade
+    Value: "\u0430\u043F\u0433\u0440\u0435\u0439\u0434\r"
+  - Key: health_stat
+    Value: "\u0417\u0434\u043E\u0440\u043E\u0432\u044C\u0435\r"
+  - Key: speed_stat
+    Value: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C\r"
+  - Key: rangeDamage_stat
+    Value: "\u0423\u0440\u043E\u043D \u0431\u0440\u043E\u0441\u043A\u0430"
