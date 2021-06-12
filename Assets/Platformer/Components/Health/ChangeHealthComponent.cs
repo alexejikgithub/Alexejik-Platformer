@@ -12,10 +12,10 @@ namespace Platformer.Components.Health
 		[SerializeField] private int _healthPointsToChange;
 		[SerializeField] private ChangingHealsStates _healOrDamage;
 
-		[Header("Using Stats")] 
-		[SerializeField] private bool _useHeroStats;
-		[SerializeField] private StatId _usedStat;
-
+		[Header("Using Stats")]
+		// [SerializeField] private bool _useHeroStats;
+		[SerializeField] private StatId[] _usedStats;
+		private int _critDamageMultiplier = 1;
 		GameSession _session;
 
 		public bool _dealHealing => _healOrDamage == ChangingHealsStates.Heal;
@@ -32,20 +32,47 @@ namespace Platformer.Components.Health
 			Damage
 		}
 
-		
+
 
 		public void ChangeHealthAmount(GameObject target)
 		{
-			if(_useHeroStats)
+			//if(_useHeroStats)
+			//{
+			//	_healthPointsToChange = (int) _session.StatsModel.GetValue(StatId.RangeDamage);
+			//}
+			Debug.Log(_usedStats.Length);
+			foreach (var stat in _usedStats)
 			{
-				_healthPointsToChange = (int) _session.StatsModel.GetValue(StatId.RangeDamage);
+				
+				switch (stat)
+				{
+					case StatId.RangeDamage:
+						_healthPointsToChange = (int)_session.StatsModel.GetValue(StatId.RangeDamage);
+						break;
+					case StatId.CritDamage:
+						var randomInt = Random.Range(0, 100);
+						Debug.Log(randomInt);
+						Debug.Log((int)_session.StatsModel.GetValue(StatId.CritDamage));
+
+
+						if(randomInt<= (int)_session.StatsModel.GetValue(StatId.CritDamage))
+						{
+							_critDamageMultiplier = 2;
+
+						}
+						else
+						{
+							_critDamageMultiplier = 1;
+						}
+						break;
+				}
 			}
 			var healthComponent = target.GetComponent<HealthComponent>();
 			if (healthComponent != null)
 			{
 				if (_dealDamage)
 				{
-					healthComponent.ApplyDamage(_healthPointsToChange);
+					healthComponent.ApplyDamage(_healthPointsToChange * _critDamageMultiplier);
 				}
 				else
 				{

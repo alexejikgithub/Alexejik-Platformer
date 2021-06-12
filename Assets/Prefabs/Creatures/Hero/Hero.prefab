@@ -575,6 +575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthPointsToChange: 1
   _healOrDamage: 1
+  _usedStats: 03000000
 --- !u!1 &1728574613
 GameObject:
   m_ObjectHideFlags: 0

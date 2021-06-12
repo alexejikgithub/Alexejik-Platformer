@@ -138,8 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthPointsToChange: 1
   _healOrDamage: 1
-  _useHeroStats: 1
-  _usedStat: 2
+  _usedStats: 0200000003000000
 --- !u!114 &6559417657592272637
 MonoBehaviour:
   m_ObjectHideFlags: 0
