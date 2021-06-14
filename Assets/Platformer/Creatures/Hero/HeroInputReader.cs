@@ -121,6 +121,14 @@ namespace Platformer.Creatures.Hero
 			}
 		}
 
+		public void OnDropDown(InputAction.CallbackContext context)
+		{
+			if(context.performed)
+			{
+				_hero.DropDown();
+			}
+		}
+
 	}
 
 }

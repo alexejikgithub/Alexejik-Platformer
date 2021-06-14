@@ -89,6 +89,14 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""DropDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""b9f232a5-3835-43e7-86f3-823c73ac1f96"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -289,6 +297,39 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""action"": ""NextItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Button With One Modifier"",
+                    ""id"": ""6c26ea23-96e1-4466-bfdd-ca45c1d3a858"",
+                    ""path"": ""ButtonWithOneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DropDown"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""2af33c63-1bbd-4150-a321-55467d9cf905"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DropDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""button"",
+                    ""id"": ""3b3c48a1-bc81-4e76-a6be-f72ecd2910ab"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DropDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -306,6 +347,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         m_Hero_UseShield = m_Hero.FindAction("UseShield", throwIfNotFound: true);
         m_Hero_GameMenu = m_Hero.FindAction("GameMenu", throwIfNotFound: true);
         m_Hero_NextItem = m_Hero.FindAction("NextItem", throwIfNotFound: true);
+        m_Hero_DropDown = m_Hero.FindAction("DropDown", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -364,6 +406,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
     private readonly InputAction m_Hero_UseShield;
     private readonly InputAction m_Hero_GameMenu;
     private readonly InputAction m_Hero_NextItem;
+    private readonly InputAction m_Hero_DropDown;
     public struct HeroActions
     {
         private @HeroInputAction m_Wrapper;
@@ -377,6 +420,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         public InputAction @UseShield => m_Wrapper.m_Hero_UseShield;
         public InputAction @GameMenu => m_Wrapper.m_Hero_GameMenu;
         public InputAction @NextItem => m_Wrapper.m_Hero_NextItem;
+        public InputAction @DropDown => m_Wrapper.m_Hero_DropDown;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -413,6 +457,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @NextItem.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnNextItem;
                 @NextItem.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnNextItem;
                 @NextItem.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnNextItem;
+                @DropDown.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnDropDown;
+                @DropDown.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnDropDown;
+                @DropDown.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnDropDown;
             }
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
@@ -444,6 +491,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @NextItem.started += instance.OnNextItem;
                 @NextItem.performed += instance.OnNextItem;
                 @NextItem.canceled += instance.OnNextItem;
+                @DropDown.started += instance.OnDropDown;
+                @DropDown.performed += instance.OnDropDown;
+                @DropDown.canceled += instance.OnDropDown;
             }
         }
     }
@@ -459,5 +509,6 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         void OnUseShield(InputAction.CallbackContext context);
         void OnGameMenu(InputAction.CallbackContext context);
         void OnNextItem(InputAction.CallbackContext context);
+        void OnDropDown(InputAction.CallbackContext context);
     }
 }

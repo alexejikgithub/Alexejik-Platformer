@@ -64,7 +64,7 @@ namespace Platformer.Creatures.Hero
 
 		private static readonly int IsOnWall = Animator.StringToHash("is-on-wall");
 
-
+		
 
 		private bool _allowSecondJump;
 		private bool _isOnWall;
@@ -499,6 +499,16 @@ namespace Platformer.Creatures.Hero
 			}
 		}
 
+		internal void DropDown()
+		{
+			var endPosition = transform.position + new Vector3(0, -1);
+			var hit = Physics2D.Linecast(transform.position, endPosition, GroundLayer);
+			if (hit.collider == null) return;
+			var component = hit.collider.GetComponent<TmpDisableComponent>();
+			if (component == null) return;
+			component.DisableCollider();
+
+		}
 	}
 
 }

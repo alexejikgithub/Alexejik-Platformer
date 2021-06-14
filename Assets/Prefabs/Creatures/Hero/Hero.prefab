@@ -918,6 +918,21 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d1c3cbdb-2445-4aaf-9cbe-267bc27460f3
     m_ActionName: Hero/NextItem[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2032397210555660375}
+        m_MethodName: OnDropDown
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b9f232a5-3835-43e7-86f3-823c73ac1f96
+    m_ActionName: Hero/DropDown[/Keyboard/s,/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero

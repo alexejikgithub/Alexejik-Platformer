@@ -76,6 +76,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "DropDown",
+                    "type": "Button",
+                    "id": "b9f232a5-3835-43e7-86f3-823c73ac1f96",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -276,6 +284,39 @@
                     "action": "NextItem",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "Button With One Modifier",
+                    "id": "6c26ea23-96e1-4466-bfdd-ca45c1d3a858",
+                    "path": "ButtonWithOneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DropDown",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "2af33c63-1bbd-4150-a321-55467d9cf905",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DropDown",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "button",
+                    "id": "3b3c48a1-bc81-4e76-a6be-f72ecd2910ab",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DropDown",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
