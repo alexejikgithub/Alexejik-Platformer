@@ -10,10 +10,10 @@ namespace Platformer.UI.HUD.Dialogs
 	public class DialogBoxController : MonoBehaviour
 	{
 
-		[SerializeField] private Text _text;
+		
 		[SerializeField] private GameObject _container;
 		[SerializeField] private Animator _animator;
-		[SerializeField] private Image _icon;
+		
 
 		[Space]
 
@@ -23,6 +23,7 @@ namespace Platformer.UI.HUD.Dialogs
 		[SerializeField] private AudioClip _typing;
 		[SerializeField] private AudioClip _open;
 		[SerializeField] private AudioClip _close;
+		[Space] [SerializeField] protected DialogContent _content;
 
 		private static readonly int IsOpen = Animator.StringToHash("IsOpen");
 
@@ -31,11 +32,12 @@ namespace Platformer.UI.HUD.Dialogs
 		private AudioSource _sfxSource;
 		private Coroutine _typingRoutine;
 
+		protected DalogSentenceData CurrentSentence => _data.Sentences[_currentSentence];
 
 		private void Start()
 		{
 			_sfxSource = AudioUtils.FindSfxSourse();
-			_icon.gameObject.SetActive(false);
+			//_icon.gameObject.SetActive(false);
 
 		}
 
@@ -43,7 +45,7 @@ namespace Platformer.UI.HUD.Dialogs
 		{
 			_data = data;
 			_currentSentence = 0;
-			_text.text = string.Empty;
+			CurrentContent.Text.text = string.Empty;
 			_container.SetActive(true);
 
 			if (_sfxSource==null)
@@ -53,57 +55,63 @@ namespace Platformer.UI.HUD.Dialogs
 			_sfxSource.PlayOneShot(_open);
 			_animator.SetBool(IsOpen, true);
 		}
-		private void SetIcon(DialogData data)
-		{
+		//private void SetIcon(DialogData data)
+		//{
 
-			if (data.GetIconSprite(_currentSentence) != null)
-			{
-				var currentIconSprite = data.GetIconSprite(_currentSentence);
-				_icon.gameObject.SetActive(true);
-				_icon.sprite = currentIconSprite;
-			}
-			else
-			{
-				_icon.gameObject.SetActive(false);
-			}
-		}
-		private void SetSide(DialogData data)
-		{
-			DalogSentenceData.Side side = data.Sentences[_currentSentence].DialogBoxSide;
-			var dialogBoxRectTransform = gameObject.GetComponent<RectTransform>();
+		//	if (data.GetIconSprite(_currentSentence) != null)
+		//	{
+		//		var currentIconSprite = data.GetIconSprite(_currentSentence);
+		//		_icon.gameObject.SetActive(true);
+		//		_icon.sprite = currentIconSprite;
+		//	}
+		//	else
+		//	{
+		//		_icon.gameObject.SetActive(false);
+		//	}
+		//}
+		//private void SetSide(DialogData data)
+		//{
+		//	Side side = data.Sentences[_currentSentence].DialogBoxSide;
+		//	var dialogBoxRectTransform = gameObject.GetComponent<RectTransform>();
 
-			switch (side)
-			{
-				case DalogSentenceData.Side.Center:
-					dialogBoxRectTransform.anchoredPosition = new Vector2(0, dialogBoxRectTransform.anchoredPosition.y);
-					return;
-				case DalogSentenceData.Side.Left:
-					dialogBoxRectTransform.anchoredPosition = new Vector2(-50, dialogBoxRectTransform.anchoredPosition.y);
-					return;
-				case DalogSentenceData.Side.Right:
-					dialogBoxRectTransform.anchoredPosition = new Vector2(50, dialogBoxRectTransform.anchoredPosition.y);
-					return;
-			}
-		}
+		//	switch (side)
+		//	{
+		//		case Side.Center:
+		//			dialogBoxRectTransform.anchoredPosition = new Vector2(0, dialogBoxRectTransform.anchoredPosition.y);
+		//			return;
+		//		case Side.Left:
+		//			dialogBoxRectTransform.anchoredPosition = new Vector2(-50, dialogBoxRectTransform.anchoredPosition.y);
+		//			return;
+		//		case Side.Right:
+		//			dialogBoxRectTransform.anchoredPosition = new Vector2(50, dialogBoxRectTransform.anchoredPosition.y);
+		//			return;
+		//	}
+		//}
+
+
+		
 
 		private IEnumerator TypeDialogText()
 		{
-			_text.text = string.Empty;
-			var sentances = _data.Sentences[_currentSentence].Sentence;
-			foreach (var letter in sentances)
+			CurrentContent.Text.text = string.Empty;
+			var sentances = CurrentSentence;
+			CurrentContent.TrySetIcon(CurrentSentence.IconSprite);
+			foreach (var letter in sentances.Value)
 			{
-				_text.text += letter;
+				CurrentContent.Text.text += letter;
 				_sfxSource.PlayOneShot(_typing);
 				yield return new WaitForSeconds(_textSpeed);
 			}
 			_typingRoutine = null;
 		}
 
+		protected virtual DialogContent CurrentContent => _content;
+
 		public void OnSkip()
 		{
 			if (_typingRoutine == null) return;
 			StopTypeAnimation();
-			_text.text = _data.Sentences[_currentSentence].Sentence;
+			CurrentContent.Text.text = _data.Sentences[_currentSentence].Value;
 		}
 		public void OnContinue()
 		{
@@ -117,8 +125,8 @@ namespace Platformer.UI.HUD.Dialogs
 			else
 			{
 				OnStartDialogAnimation();
-				SetIcon(_data);
-				SetSide(_data);
+				// SetIcon(_data);
+				// SetSide(_data);
 			}
 		}
 
@@ -139,10 +147,10 @@ namespace Platformer.UI.HUD.Dialogs
 
 		}
 
-		public void OnStartDialogAnimation()
+		protected virtual void OnStartDialogAnimation()
 		{
-			SetIcon(_data);
-			SetSide(_data);
+			//SetIcon(_data);
+			// SetSide(_data);
 			_typingRoutine = StartCoroutine(TypeDialogText());
 		}
 

@@ -33,7 +33,9 @@ namespace Platformer.Model
 		public StatsModel StatsModel { get; private set; }
 
 		private readonly List<string> _checkpoints = new List<string>();
-		private readonly List<string> _levelItemsDead = new List<string>(); // list that stores destroyed prefabs
+
+		// Previous attempt to make permanently destroyed objects
+		// private readonly List<string> _levelItemsDead = new List<string>(); // list that stores destroyed prefabs
 
 
 
@@ -87,7 +89,9 @@ namespace Platformer.Model
 			SetChecked(defaultCheckpoint);
 			LoadHud();
 			SpawnHero();
-			EnableitemsOnLevel();
+
+			// Previous attempt to make permanently destroyed objects
+			// EnableitemsOnLevel();
 		}
 
 		private void SpawnHero()
@@ -112,18 +116,20 @@ namespace Platformer.Model
 			}
 		}
 
-		private void EnableitemsOnLevel()
-		{
-			var itemsToEnable = FindObjectsOfType<EnableItemManager>();
-			foreach (var item in itemsToEnable)
-			{
-				if (!_levelItemsDead.Contains(item.Id))
-				{
 
-					item.Enable();
-				}
-			}
-		}
+		// Previous attempt to make permanently destroyed objects
+		//private void EnableitemsOnLevel()
+		//{
+		//	var itemsToEnable = FindObjectsOfType<EnableItemManager>();
+		//	foreach (var item in itemsToEnable)
+		//	{
+		//		if (!_levelItemsDead.Contains(item.Id))
+		//		{
+
+		//			item.Enable();
+		//		}
+		//	}
+		//}
 
 
 		private void InitModels()
@@ -189,9 +195,24 @@ namespace Platformer.Model
 				_checkpoints.Add(id);
 			}
 		}
-		public void AddToLevelItemsDead(string id)
+		//public void AddToLevelItemsDead(string id)
+		//{
+		//	_levelItemsDead.Add(id);
+		//}
+
+		private List<string> _removedItems = new List<string>();
+		internal void StoreState(string InstanceId)
 		{
-			_levelItemsDead.Add(id);
+			if(!_removedItems.Contains(InstanceId))
+			{
+				_removedItems.Add(InstanceId);
+			}
+			
+		}
+
+		internal bool RestoreState(string InstanceId)
+		{
+			return _removedItems.Contains(InstanceId);
 		}
 	}
 

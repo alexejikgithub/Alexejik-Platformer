@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -37,34 +38,49 @@ namespace Platformer.Model.Definitions.Localization
 
 			_request.SendWebRequest().completed += OnWebDataLoaded;
 		}
-		[ContextMenu("Update locale FromResources")]
+
+#if UNITY_EDITOR
+		[ContextMenu("Update locale From Resources")]
 		public void UpdateLocaleFromResources()
 		{
-			
-			var file = Resources.Load<TextAsset>($"Locales/LocaleFiles/{_fileName}");
-			
-			var rows = file.text.Split('\n');
-			_localeItems.Clear();
-			foreach (var row in rows)
+			var path = UnityEditor.EditorUtility.OpenFilePanel("Choose locale file","","tsv");
+		
+			if(path.Length!=0)
 			{
-				AddLocaleItem(row);
+				var data = File.ReadAllText(path);
+				ParseData(data);
 			}
+			//var file = Resources.Load<TextAsset>($"Locales/LocaleFiles/{_fileName}");
+			
+			//var rows = file.text.Split('\n');
+			//_localeItems.Clear();
+			//foreach (var row in rows)
+			//{
+			//	AddLocaleItem(row);
+			//}
 		}
-
+#endif
 
 		private void OnWebDataLoaded(AsyncOperation operation)
 		{
 			if (operation.isDone)
 			{
-				var rows = _request.downloadHandler.text.Split('\n');
-				_localeItems.Clear();
-				foreach (var row in rows)
-				{
-					AddLocaleItem(row);
-				}
+				var data = _request.downloadHandler.text;
+				ParseData(data);
+
 				_request = null;
 			}
 
+		}
+
+		private void ParseData(string data)
+		{
+			var rows = data.Split('\n');
+			_localeItems.Clear();
+			foreach (var row in rows)
+			{
+				AddLocaleItem(row);
+			}
 		}
 
 		private void AddLocaleItem(string row)
