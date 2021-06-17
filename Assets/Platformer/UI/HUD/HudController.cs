@@ -14,6 +14,7 @@ namespace Platformer.UI.HUD
     public class HudController : MonoBehaviour
     {
         [SerializeField] private ProgressBarWidget _healthBar;
+		[SerializeField] private CoinCounterWidget _coinCounter;
 
 		private GameSession _sesson;
 		private void Awake()
@@ -35,6 +36,7 @@ namespace Platformer.UI.HUD
 			_sesson.Data.Hp.OnChanged -= OnHealthChanged; // костыль для перехода в сцены
 			_sesson.Data.Hp.OnChanged += OnHealthChanged;
 			OnHealthChanged(_sesson.Data.Hp.Value, _sesson.Data.Hp.Value);
+			_coinCounter.OnLoad();
 		}
 
 
@@ -45,6 +47,7 @@ namespace Platformer.UI.HUD
 			var value = (float)newValue / maxHealth;
 			_healthBar.SetProgress(value);
 		}
+
 
 		private void OnDestroy()
 		{

@@ -3094,6 +3094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthBar: {fileID: 327208830}
+  _coinCounter: {fileID: 2065697235}
 --- !u!1 &1950779077
 GameObject:
   m_ObjectHideFlags: 0
