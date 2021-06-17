@@ -1042,7 +1042,7 @@ MonoBehaviour:
     _inventory:
       _inventory:
       - Id: Coin
-        Value: 600
+        Value: 40
       - Id: Sword
         Value: 20
     Perks:
@@ -6721,6 +6721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 233279547293359702}
+  _state: {fileID: 0}
 --- !u!4 &2118848620989691296 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9043631230308740856, guid: a1f761cc5def3934fbfce8b46244dbd6,
