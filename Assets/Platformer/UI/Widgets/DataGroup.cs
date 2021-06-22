@@ -16,6 +16,8 @@ namespace Platformer.UI.Widgets
 			_prefab = prefab;
 			_container = container;
 		}
+		
+		
 
 		public virtual void SetData(IList<TDataType> data)
 		{

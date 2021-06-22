@@ -12,6 +12,7 @@ namespace Platformer.Model.Data
 		public InventoryData Inventory => _inventory;
 		public PerksData Perks = new PerksData();
 		public LevelData Levels = new LevelData();
+		// public ShopData Shop = new ShopData(); not required in the player data
 		
 		public IntProperty Hp =new IntProperty();
 		

@@ -33,5 +33,8 @@ namespace Platformer.Model.Definitions.Repositories.Items
 		public Sprite Icon => _icon;
 
 		public bool IsVoid => string.IsNullOrEmpty(_id);
+
+		[SerializeField] private string _description;
+		public string Description => _description;
 	}
 }
