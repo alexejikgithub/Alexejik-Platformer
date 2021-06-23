@@ -2,6 +2,7 @@
 using Platformer.Model.Data;
 using Platformer.Model.Definitions;
 using Platformer.Model.Definitions.Repositories.Items;
+using Platformer.Model.Models;
 using Platformer.UI.Widgets;
 using Platformer.Utils.Disposables;
 using System;
@@ -24,6 +25,7 @@ namespace Platformer.UI.Windows.ShopWindow
 		[SerializeField] private Text _description;
 		public ShopData ShopData{ get; set; }
 		
+		
 		private ItemsRepository _itemRep;
 
 
@@ -44,6 +46,7 @@ namespace Platformer.UI.Windows.ShopWindow
 		private DataGroup<ShopItemData, ShopItemWidget> _dataGroup;
 
 		private GameSession _session;
+		private ShopModel _shopModel;
 		private readonly CompositeDisposable _trash = new CompositeDisposable();
 
 		protected override void Start()
@@ -53,8 +56,8 @@ namespace Platformer.UI.Windows.ShopWindow
 			//_dataGroup = new DataGroup<ShopItemData, ShopItemWidget>(_prefab, _itemContainer);
 
 			_session = FindObjectOfType<GameSession>();
-			
-
+			_shopModel = _session.ShopModel;
+			_shopModel.ShopWindowIsOpen = true;
 
 
 
@@ -89,9 +92,13 @@ namespace Platformer.UI.Windows.ShopWindow
 			InfoChanged();
 		}
 
-		public void CloseWindow()
+		protected override void Close()
 		{
-			GameObject.Destroy(this);
+			
+			_shopModel.ShopWindowIsOpen = false;
+
+			base.Close();
+			
 		}
 
 		public void BuyButton()

@@ -81,4 +81,20 @@ MonoBehaviour:
   - Key: speed_stat
     Value: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C\r"
   - Key: rangeDamage_stat
-    Value: "\u0423\u0440\u043E\u043D \u0431\u0440\u043E\u0441\u043A\u0430"
+    Value: "\u0423\u0440\u043E\u043D \u0431\u0440\u043E\u0441\u043A\u0430\r"
+  - Key: button_buy
+    Value: "\u043A\u0443\u043F\u0438\u0442\u044C\r"
+  - Key: Coin
+    Value: "\u041C\u043E\u043D\u0435\u0442\u0430\r"
+  - Key: Sword
+    Value: "\u0421\u0430\u0431\u043B\u044F\r"
+  - Key: Key
+    Value: "\u041A\u043B\u044E\u0447\r"
+  - Key: SmallHealthPotion
+    Value: "\u041C\u0430\u043B\u0435\u043D\u044C\u043A\u043E\u0435 \u0437\u0435\u043B\u044C\u0435\r"
+  - Key: LargeHealthPotion
+    Value: "\u0411\u043E\u043B\u044C\u0448\u043E\u0435 \u0437\u0435\u043B\u044C\u0435\r"
+  - Key: PearlProjectile
+    Value: "\u041F\u0443\u043B\u044F \u0436\u0435\u043C\u0447\u0443\u0433\r"
+  - Key: SpeedPotion
+    Value: "\u0423\u0441\u043A\u043E\u0440\u0438\u0442\u0435\u043B\u044C"

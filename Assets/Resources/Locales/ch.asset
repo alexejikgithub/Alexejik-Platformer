@@ -80,4 +80,20 @@ MonoBehaviour:
   - Key: speed_stat
     Value: "\u901F\u5EA6\r"
   - Key: rangeDamage_stat
-    Value: "\u6254"
+    Value: "\u6254\r"
+  - Key: button_buy
+    Value: "\u4E70\r"
+  - Key: Coin
+    Value: "\r"
+  - Key: Sword
+    Value: "\r"
+  - Key: Key
+    Value: "\r"
+  - Key: SmallHealthPotion
+    Value: "\r"
+  - Key: LargeHealthPotion
+    Value: "\r"
+  - Key: PearlProjectile
+    Value: "\r"
+  - Key: SpeedPotion
+    Value: 

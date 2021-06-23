@@ -80,4 +80,20 @@ MonoBehaviour:
   - Key: speed_stat
     Value: "Speed\r"
   - Key: rangeDamage_stat
-    Value: Range Damage
+    Value: "Range Damage\r"
+  - Key: button_buy
+    Value: "buy\r"
+  - Key: Coin
+    Value: "Coin\r"
+  - Key: Sword
+    Value: "Sword\r"
+  - Key: Key
+    Value: "Key\r"
+  - Key: SmallHealthPotion
+    Value: "Small Health Potion\r"
+  - Key: LargeHealthPotion
+    Value: "Large Health Potion\r"
+  - Key: PearlProjectile
+    Value: "Pearl Projectile\r"
+  - Key: SpeedPotion
+    Value: Speed Potion

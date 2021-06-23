@@ -16,7 +16,7 @@ namespace Platformer.UI
 			_animator.SetTrigger(Show);
 		}
 
-		public void Close()
+		protected virtual void Close()
 		{
 			_animator.SetTrigger(Hide);
 		}

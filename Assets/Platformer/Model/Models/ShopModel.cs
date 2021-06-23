@@ -18,12 +18,14 @@ namespace Platformer.Model.Models
 		public event Action OnChanged;
 		private ShopWindow _shopWindow;
 		private ShopData _shopData;
+		public bool ShopWindowIsOpen { get; set; }
+		
 
 
 		public ShopModel(PlayerData data)
 		{
 			_playerData = data;
-
+			ShopWindowIsOpen = false;
 		}
 
 
