@@ -30,7 +30,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "SpeedUp",
+                    "name": "Dash",
                     "type": "Button",
                     "id": "aa08831b-7cf2-41c9-a617-c871d1711ec9",
                     "expectedControlType": "Button",
@@ -226,7 +226,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SpeedUp",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

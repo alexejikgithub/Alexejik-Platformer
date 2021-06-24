@@ -35,10 +35,10 @@ namespace Platformer.Creatures
 		
 
 
-		private static readonly int IsRunning = Animator.StringToHash("isRunning");
-		private static readonly int IsGroundedKey = Animator.StringToHash("isGrounded");
-		private static readonly int VerticalVelocity = Animator.StringToHash("verticalVelocity");
-		private static readonly int Hit = Animator.StringToHash("hitTrigger");
+		protected static readonly int IsRunning = Animator.StringToHash("isRunning");
+		protected static readonly int IsGroundedKey = Animator.StringToHash("isGrounded");
+		protected static readonly int VerticalVelocity = Animator.StringToHash("verticalVelocity");
+		protected static readonly int Hit = Animator.StringToHash("hitTrigger");
 		// private static readonly int IsSprinting = Animator.StringToHash("isSprinting");
 		private static readonly int AttackKey = Animator.StringToHash("attack");
 

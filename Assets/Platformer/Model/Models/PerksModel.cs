@@ -37,6 +37,7 @@ namespace Platformer.Model.Models
 		public bool IsSuperThrowSupported => _data.Perks.Used.Value == "super-throw";
 		public bool IsDoubleJumpSupported => _data.Perks.Used.Value == "double-jump";
 		public bool IsShieldSupported => _data.Perks.Used.Value == "shield";
+		public bool IsDashSupported => _data.Perks.Used.Value == "dash";
 
 		private bool _perkIsReady;
 		public bool PerkIsReady

@@ -31,3 +31,9 @@ MonoBehaviour:
     _price:
       _itemId: Coin
       _count: 15
+  - _id: dash
+    _icon: {fileID: 21300000, guid: 4458b9f7354292444b8ab3141a6feb74, type: 3}
+    _info: perk_dash_info
+    _price:
+      _itemId: Coin
+      _count: 15

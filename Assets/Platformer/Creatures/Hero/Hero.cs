@@ -28,7 +28,8 @@ namespace Platformer.Creatures.Hero
 
 
 		// [SerializeField] private float _speedSprintMultiplier;
-
+		[SerializeField] private int _dashSpeed;
+		[SerializeField] private GameObject _dashtrail;
 
 		[SerializeField] private float _fallingSpeedLimit;
 		[SerializeField] private ColliderCheck _wallCheck;
@@ -69,10 +70,12 @@ namespace Platformer.Creatures.Hero
 		private bool _allowSecondJump;
 		private bool _isOnWall;
 		private bool _superThrow;
+		private bool _dashing=false;
 
 		private bool DoubleJumpPerkCanBePerformed => _session.PerksModel.IsDoubleJumpSupported && _session.PerksModel.PerkIsReady;
 		private bool SuperThrowpPerkCanBePerformed => _session.PerksModel.IsSuperThrowSupported && _session.PerksModel.PerkIsReady;
 		private bool ShieldPerkCanBePerformed => _session.PerksModel.IsShieldSupported && _session.PerksModel.PerkIsReady;
+		private bool DashPerkCanBePerformed => _session.PerksModel.IsDashSupported && _session.PerksModel.PerkIsReady;
 		//private bool _isSpeedUp;
 
 		//private bool _isSprinting;
@@ -320,8 +323,23 @@ namespace Platformer.Creatures.Hero
 
 		protected override void FixedUpdate()
 		{
+			
+			var xVelocity = CalculateXVelocity();
 
-			base.FixedUpdate();
+			var yVelocity = CalculateYVelocity();
+
+			if(!_dashing)
+			{
+				Rigidbody.velocity = new Vector2(xVelocity, yVelocity);
+			}
+
+			Animator.SetBool(IsRunning, Direction.x != 0);
+			
+			Animator.SetBool(IsGroundedKey, IsGrounded);
+			Animator.SetFloat(VerticalVelocity, Rigidbody.velocity.y);
+
+			UpdateSpriteDirection(Direction);
+			
 		}
 
 
@@ -508,6 +526,28 @@ namespace Platformer.Creatures.Hero
 			if (component == null) return;
 			component.DisableCollider();
 
+		}
+
+
+		// Called from HeroInputReader
+		public IEnumerator PerformDash()
+		{
+			
+			if (DashPerkCanBePerformed)
+			{
+				_perksDisplay.PerkReload();
+				_dashtrail.SetActive(true);
+				_dashing = true;
+				Rigidbody.velocity = new Vector2(0, 0);
+				Rigidbody.AddForce(new Vector2(transform.localScale.x, 0.1f) * _dashSpeed, ForceMode2D.Impulse);
+
+				yield return new WaitForSeconds(0.2f);
+				_dashing = false;
+				_dashtrail.SetActive(false);
+				yield return null;
+			}
+				
+			
 		}
 	}
 

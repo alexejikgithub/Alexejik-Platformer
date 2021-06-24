@@ -129,6 +129,15 @@ namespace Platformer.Creatures.Hero
 			}
 		}
 
+		public void OnPerformingDash(InputAction.CallbackContext context)
+		{
+			if (context.performed)
+			{
+				
+				StartCoroutine(_hero.PerformDash());
+			}
+		}
+
 	}
 
 }

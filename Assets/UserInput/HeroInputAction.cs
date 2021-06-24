@@ -43,7 +43,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""SpeedUp"",
+                    ""name"": ""Dash"",
                     ""type"": ""Button"",
                     ""id"": ""aa08831b-7cf2-41c9-a617-c871d1711ec9"",
                     ""expectedControlType"": ""Button"",
@@ -239,7 +239,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""SpeedUp"",
+                    ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -341,7 +341,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         m_Hero_HorizontalMovement = m_Hero.FindAction("HorizontalMovement", throwIfNotFound: true);
         m_Hero_SaySomething = m_Hero.FindAction("SaySomething", throwIfNotFound: true);
         m_Hero_Interact = m_Hero.FindAction("Interact", throwIfNotFound: true);
-        m_Hero_SpeedUp = m_Hero.FindAction("SpeedUp", throwIfNotFound: true);
+        m_Hero_Dash = m_Hero.FindAction("Dash", throwIfNotFound: true);
         m_Hero_Attak = m_Hero.FindAction("Attak", throwIfNotFound: true);
         m_Hero_Throw = m_Hero.FindAction("Throw", throwIfNotFound: true);
         m_Hero_UseShield = m_Hero.FindAction("UseShield", throwIfNotFound: true);
@@ -400,7 +400,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
     private readonly InputAction m_Hero_HorizontalMovement;
     private readonly InputAction m_Hero_SaySomething;
     private readonly InputAction m_Hero_Interact;
-    private readonly InputAction m_Hero_SpeedUp;
+    private readonly InputAction m_Hero_Dash;
     private readonly InputAction m_Hero_Attak;
     private readonly InputAction m_Hero_Throw;
     private readonly InputAction m_Hero_UseShield;
@@ -414,7 +414,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         public InputAction @HorizontalMovement => m_Wrapper.m_Hero_HorizontalMovement;
         public InputAction @SaySomething => m_Wrapper.m_Hero_SaySomething;
         public InputAction @Interact => m_Wrapper.m_Hero_Interact;
-        public InputAction @SpeedUp => m_Wrapper.m_Hero_SpeedUp;
+        public InputAction @Dash => m_Wrapper.m_Hero_Dash;
         public InputAction @Attak => m_Wrapper.m_Hero_Attak;
         public InputAction @Throw => m_Wrapper.m_Hero_Throw;
         public InputAction @UseShield => m_Wrapper.m_Hero_UseShield;
@@ -439,9 +439,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @Interact.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnInteract;
-                @SpeedUp.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnSpeedUp;
-                @SpeedUp.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnSpeedUp;
-                @SpeedUp.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnSpeedUp;
+                @Dash.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnDash;
+                @Dash.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnDash;
+                @Dash.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnDash;
                 @Attak.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnAttak;
                 @Attak.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnAttak;
                 @Attak.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnAttak;
@@ -473,9 +473,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
-                @SpeedUp.started += instance.OnSpeedUp;
-                @SpeedUp.performed += instance.OnSpeedUp;
-                @SpeedUp.canceled += instance.OnSpeedUp;
+                @Dash.started += instance.OnDash;
+                @Dash.performed += instance.OnDash;
+                @Dash.canceled += instance.OnDash;
                 @Attak.started += instance.OnAttak;
                 @Attak.performed += instance.OnAttak;
                 @Attak.canceled += instance.OnAttak;
@@ -503,7 +503,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         void OnHorizontalMovement(InputAction.CallbackContext context);
         void OnSaySomething(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
-        void OnSpeedUp(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
         void OnAttak(InputAction.CallbackContext context);
         void OnThrow(InputAction.CallbackContext context);
         void OnUseShield(InputAction.CallbackContext context);
