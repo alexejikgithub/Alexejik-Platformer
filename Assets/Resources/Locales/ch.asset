@@ -84,16 +84,18 @@ MonoBehaviour:
   - Key: button_buy
     Value: "\u4E70\r"
   - Key: Coin
-    Value: "\r"
+    Value: "Translate later\r"
   - Key: Sword
-    Value: "\r"
+    Value: "Translate later\r"
   - Key: Key
-    Value: "\r"
+    Value: "Translate later\r"
   - Key: SmallHealthPotion
-    Value: "\r"
+    Value: "Translate later\r"
   - Key: LargeHealthPotion
-    Value: "\r"
+    Value: "Translate later\r"
   - Key: PearlProjectile
-    Value: "\r"
+    Value: "Translate later\r"
   - Key: SpeedPotion
-    Value: 
+    Value: "Translate later\r"
+  - Key: perk_dash_info
+    Value: Translate later

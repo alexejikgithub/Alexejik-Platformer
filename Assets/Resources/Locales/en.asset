@@ -96,4 +96,6 @@ MonoBehaviour:
   - Key: PearlProjectile
     Value: "Pearl Projectile\r"
   - Key: SpeedPotion
-    Value: Speed Potion
+    Value: "Speed Potion\r"
+  - Key: perk_dash_info
+    Value: Use SHIFT to Dash
