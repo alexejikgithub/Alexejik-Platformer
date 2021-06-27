@@ -91,7 +91,7 @@ MonoBehaviour:
       _price:
         _itemId: Coin
         _count: 50
-    - _value: 40
+    - _value: 70
       _price:
         _itemId: Coin
         _count: 70

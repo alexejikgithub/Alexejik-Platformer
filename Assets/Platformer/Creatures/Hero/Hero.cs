@@ -284,9 +284,28 @@ namespace Platformer.Creatures.Hero
 
 			var throwableDef = DefsFacade.I.ThrowableItems.Get(throwableId);
 			_throwSpawner.SetPrefab(throwableDef.Projectile);
-			_throwSpawner.Spawn();
+			var instance = _throwSpawner.SpawnInstance();
+			AplyRangeDamageStat(instance);
 			_session.Data.Inventory.Remove(throwableId, 1);
 
+		}
+
+		private void AplyRangeDamageStat(GameObject projectile)
+		{
+			var hpModify = projectile.GetComponent<ChangeHealthComponent>();
+			var value = (int) _session.StatsModel.GetValue(StatId.RangeDamage);
+			value = ModifyDamageByCrit(value);
+			hpModify.SetAmount(value); 
+		}
+
+		private int ModifyDamageByCrit(int damage)
+		{
+			var critChanse = _session.StatsModel.GetValue(StatId.CritDamage);
+			if(Random.value*100<= critChanse)
+			{
+				return damage * 2;
+			}
+			return damage;
 		}
 
 		public void OnHealthChanged(int currentHealth)
@@ -447,6 +466,17 @@ namespace Platformer.Creatures.Hero
 			if (SwordCount <= 0) return;
 			base.Attack();
 
+
+		}
+		protected override void OnAttacking()
+		{
+			var hpModify = _attackRange.GetComponent<ChangeHealthComponent>();
+			var defaultValue = hpModify.HealthPointsToChange;
+			var value = ModifyDamageByCrit(defaultValue);
+			hpModify.SetAmount(value);
+
+			_attackRange.Check();
+			hpModify.SetAmount(defaultValue);
 
 		}
 

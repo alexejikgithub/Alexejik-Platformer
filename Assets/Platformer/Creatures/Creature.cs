@@ -23,7 +23,7 @@ namespace Platformer.Creatures
 		[Header("Checkers")]
 		[SerializeField] protected LayerMask GroundLayer;
 		[SerializeField] private ColliderCheck _groundCheck;
-		[SerializeField] private CheckCircleOverlap _attackRange;
+		[SerializeField] protected CheckCircleOverlap _attackRange;
 		[SerializeField] protected SpawnListComponent Particles;
 
 		protected Rigidbody2D Rigidbody;
@@ -159,9 +159,10 @@ namespace Platformer.Creatures
 		{
 			Animator.SetTrigger(AttackKey);
 			Sounds.Play("Melee");
+
 		}
 
-		public void OnAttacking()
+		protected virtual void OnAttacking()
 		{
 			_attackRange.Check();
 			

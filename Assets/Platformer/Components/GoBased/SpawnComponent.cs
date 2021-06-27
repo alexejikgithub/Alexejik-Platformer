@@ -17,10 +17,17 @@ namespace Platformer.Components.GoBased
         [ContextMenu ("Spawn")]
         public void Spawn()
 		{
+            SpawnInstance();
+
+        }
+
+        public GameObject SpawnInstance()
+		{
             var instantiate = SpawnUtils.Spawn(_prefab, _target.position);
             instantiate.transform.localScale = _target.lossyScale;
             instantiate.SetActive(true);
-		}
+            return instantiate;
+        }
 
 		internal void SetPrefab(GameObject prefab)
 		{
