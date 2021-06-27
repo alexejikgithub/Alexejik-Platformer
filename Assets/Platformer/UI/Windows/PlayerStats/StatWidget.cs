@@ -50,11 +50,13 @@ namespace Assets.Platformer.UI.Windows.PlayerStats
 			var statsModel = _session.StatsModel;
 			_icon.sprite = _data.Icon;
 			_name.text = LocalizationManager.I.Localize(_data.Name);
-			_currentValue.text = statsModel.GetValue(_data.Id).ToString(CultureInfo.InvariantCulture);
+			var currentLevelValue = statsModel.GetValue(_data.Id);
+			_currentValue.text = currentLevelValue.ToString(CultureInfo.InvariantCulture);
 
 			var currentLevel = statsModel.GetCurrentLevel(_data.Id);
 			var nextLevel = currentLevel + 1;
-			var increaseValue = statsModel.GetValue(_data.Id, nextLevel);
+			var nextLevelValue = statsModel.GetValue(_data.Id, nextLevel);
+			var increaseValue = nextLevelValue - currentLevelValue;
 			_increaseValue.text = $"+ {increaseValue}";
 			_increaseValue.gameObject.SetActive(increaseValue > 0);
 

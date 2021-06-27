@@ -116,7 +116,7 @@ namespace Platformer.Creatures.Hero
 			if (context.performed)
 			{
 
-				StartCoroutine(_hero.UseShield());
+				_hero.UseShield();
 				
 			}
 		}

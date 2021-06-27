@@ -20,7 +20,7 @@ namespace Platformer.Utils
 		{
 			_timesUp = Time.time + Value;
 		}
-		public float TimesLasts => Mathf.Max(_timesUp - Time.time, 0);
+		public float RemainingTime => Mathf.Max(_timesUp - Time.time, 0);
 
 		public bool IsReady => _timesUp <= Time.time;
 

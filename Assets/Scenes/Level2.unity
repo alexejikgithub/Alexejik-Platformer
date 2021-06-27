@@ -219,6 +219,9 @@ MonoBehaviour:
     _sentences: []
     _type: 0
   _external: {fileID: 0}
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &53893743 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4148262280374704371, guid: 92c77fe0bf00a0240ab827535a2aaa54,
@@ -1295,6 +1298,9 @@ MonoBehaviour:
       _key: door_line_2
     _type: 0
   _external: {fileID: 0}
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1157986681 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 755695814, guid: cc34651edc46a31409e4d2560751aff2,
@@ -6359,7 +6365,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2026031784}
+      objectReference: {fileID: 2026031789}
     - target: {fileID: 3807839634186385933, guid: 66dbaa8f2033e664da93e5fe94dd59ad,
         type: 3}
       propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -6450,6 +6456,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _path: UI/ManagePerksWindow
+--- !u!114 &2026031789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026031782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e969822b57fd11649852c30e39e32666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mode: 0
+  _bound:
+    _sentences:
+    - _iconSprite: {fileID: 21300000, guid: 39403c1953bcb6a42a795a6a89d70941, type: 3}
+      _dialogBoxSide: 0
+      _key: I can teach you
+    - _iconSprite: {fileID: 21300000, guid: 9cdea9e9f7c61004eb402affa45a47e0, type: 3}
+      _dialogBoxSide: 1
+      _key: Ok
+    _type: 1
+  _external: {fileID: 0}
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2026031784}
+        m_MethodName: Show
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2032895921
 GameObject:
   m_ObjectHideFlags: 0
@@ -6721,6 +6764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 233279547293359702}
+  _state: {fileID: 0}
 --- !u!4 &2118848620989691296 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9043631230308740856, guid: a1f761cc5def3934fbfce8b46244dbd6,

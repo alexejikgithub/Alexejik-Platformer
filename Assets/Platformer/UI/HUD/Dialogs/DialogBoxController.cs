@@ -3,6 +3,7 @@ using Platformer.Utils;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace Platformer.UI.HUD.Dialogs
@@ -31,6 +32,7 @@ namespace Platformer.UI.HUD.Dialogs
 		private int _currentSentence;
 		private AudioSource _sfxSource;
 		private Coroutine _typingRoutine;
+		private UnityEvent _onComplete;
 
 		protected DalogSentenceData CurrentSentence => _data.Sentences[_currentSentence];
 
@@ -41,8 +43,9 @@ namespace Platformer.UI.HUD.Dialogs
 
 		}
 
-		public void ShowDialog(DialogData data)
+		public void ShowDialog(DialogData data, UnityEvent onComplete)
 		{
+			_onComplete = onComplete;
 			_data = data;
 			_currentSentence = 0;
 			CurrentContent.Text.text = string.Empty;
@@ -121,6 +124,7 @@ namespace Platformer.UI.HUD.Dialogs
 			if (isDialogComplete)
 			{
 				HideDialogBox();
+				_onComplete?.Invoke();
 			}
 			else
 			{

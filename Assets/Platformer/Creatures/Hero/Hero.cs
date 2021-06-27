@@ -53,8 +53,8 @@ namespace Platformer.Creatures.Hero
 		[Space]
 
 		[SerializeField] private ProbabilityDropComponent _hitDrop;
-		[SerializeField] private GameObject _shield;
-
+		// [SerializeField] private GameObject _shield;
+		[SerializeField] private ShieldComponent _shield;
 
 
 
@@ -70,9 +70,9 @@ namespace Platformer.Creatures.Hero
 		private bool _isOnWall;
 		private bool _superThrow;
 
-		private bool DoubleJumpPerkCanBePerformed => _session.PerksModel.IsDoubleJumpSupported && _session.PerksModel.PerkIsReady;
-		private bool SuperThrowpPerkCanBePerformed => _session.PerksModel.IsSuperThrowSupported && _session.PerksModel.PerkIsReady;
-		private bool ShieldPerkCanBePerformed => _session.PerksModel.IsShieldSupported && _session.PerksModel.PerkIsReady;
+		private bool DoubleJumpPerkCanBePerformed => _session.PerksModel.IsDoubleJumpSupported; //&& _session.PerksModel.PerkIsReady;
+		private bool SuperThrowpPerkCanBePerformed => _session.PerksModel.IsSuperThrowSupported; //&& _session.PerksModel.PerkIsReady;
+		private bool ShieldPerkCanBePerformed => _session.PerksModel.IsShieldSupported;// && _session.PerksModel.PerkIsReady;
 		//private bool _isSpeedUp;
 
 		//private bool _isSprinting;
@@ -206,7 +206,7 @@ namespace Platformer.Creatures.Hero
 					break;
 
 				case Effect.SpeedUp:
-					_speedUpCooldown.Value = _speedUpCooldown.TimesLasts + potion.Time;
+					_speedUpCooldown.Value = _speedUpCooldown.RemainingTime + potion.Time;
 					_additionalSpeed = Mathf.Max(potion.Value, _additionalSpeed);
 					_speedUpCooldown.Reset();
 					break;
@@ -248,10 +248,11 @@ namespace Platformer.Creatures.Hero
 		{
 			if (_superThrow && SuperThrowpPerkCanBePerformed)
 			{
-				_perksDisplay.PerkReload();
+				///*_perksDisplay.PerkReload()*/;
 				var throwableCount = _session.Data.Inventory.Count(SelectedItemId);
 				var possibleCount = SelectedItemId == SwordId ? throwableCount - 1 : throwableCount;
 				var numThrows = Mathf.Min(_superThrowParticles, possibleCount);
+				_session.PerksModel.Cooldown.Reset();
 				StartCoroutine(DoSuperThrow(numThrows));
 
 			}
@@ -347,9 +348,10 @@ namespace Platformer.Creatures.Hero
 		{
 			if (!IsGrounded && _allowSecondJump && DoubleJumpPerkCanBePerformed && !_isOnWall)
 			{
-				_perksDisplay.PerkReload();
+				///*_perksDisplay.PerkReload()*/;
 				DoJumpVfx();
 				_allowSecondJump = false;
+				_session.PerksModel.Cooldown.Reset();
 				return JumpSpeed;
 			}
 			return base.CalculateJumpVelocity(yVelocity);
@@ -477,27 +479,36 @@ namespace Platformer.Creatures.Hero
 			_session.QuickInventory.SetNextItem();
 		}
 
-		public IEnumerator UseShield()
+		public void UseShield()
 		{
 			if (ShieldPerkCanBePerformed)
 			{
-				_perksDisplay.PerkReload();
-				_shield.SetActive(true);
-				_health.IsInvinsible = true;
-				yield return new WaitForSeconds(2);
-				for (int i = 0; i < 5; i++)
-				{
-
-					_shield.SetActive(false);
-					yield return new WaitForSeconds(0.1f);
-					_shield.SetActive(true);
-					yield return new WaitForSeconds(0.1f);
-				}
-				_shield.SetActive(false);
-				_health.IsInvinsible = false;
-
+				_shield.Use();
+				_session.PerksModel.Cooldown.Reset();
 			}
 		}
+		//public IEnumerator UseShield()
+		//{
+		//	if (ShieldPerkCanBePerformed)
+		//	{
+		//		//_perksDisplay.PerkReload();
+		//		_session.PerksModel.Cooldown.Reset();
+		//		_shield.SetActive(true);
+		//		_health.IsInvinsible = true;
+		//		yield return new WaitForSeconds(2);
+		//		for (int i = 0; i < 5; i++)
+		//		{
+
+		//			_shield.SetActive(false);
+		//			yield return new WaitForSeconds(0.1f);
+		//			_shield.SetActive(true);
+		//			yield return new WaitForSeconds(0.1f);
+		//		}
+		//		_shield.SetActive(false);
+		//		_health.IsInvinsible = false;
+
+		//	}
+		//}
 
 		internal void DropDown()
 		{

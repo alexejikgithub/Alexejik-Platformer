@@ -6,6 +6,7 @@ using Platformer.Model.Definitions.Player;
 using Platformer.Model.Models;
 using Platformer.UI.HUD;
 using Platformer.UI.HUD.QuickInventory;
+using Platformer.UI.Windows.Perks;
 using Platformer.Utils.Disposables;
 using System;
 using System.Collections.Generic;
@@ -46,6 +47,7 @@ namespace Platformer.Model
 			{
 				existsingSession.StartSession(_defaultCheckpoint);
 				Destroy(gameObject);
+				
 
 			}
 			else
@@ -53,17 +55,18 @@ namespace Platformer.Model
 
 				Save();
 				InitModels();
+				
 				DontDestroyOnLoad(this);
 				StartSession(_defaultCheckpoint);
 			}
 
+			
 			// reloads InvantoryItemWidgets
 			var InventoryItemWidgets = FindObjectsOfType<InventoryItemWidget>();
 			foreach (var widget in InventoryItemWidgets)
 			{
 				widget.OnLoad();
 			}
-
 
 
 
@@ -82,6 +85,7 @@ namespace Platformer.Model
 				hud.OnLoad();
 			}
 
+			
 		}
 
 		private void StartSession(string defaultCheckpoint)
@@ -134,12 +138,16 @@ namespace Platformer.Model
 
 		private void InitModels()
 		{
-
+			
 			QuickInventory = new QuickInventoryModel(Data);
 			_trash.Retain(QuickInventory);
 
-			PerksModel = new PerksModel(_data);
-			_trash.Retain(PerksModel);
+			if(PerksModel==null)
+			{
+				PerksModel = new PerksModel(_data);
+				_trash.Retain(PerksModel);
+			}
+			
 
 			StatsModel = new StatsModel(_data);
 			_trash.Retain(StatsModel);
