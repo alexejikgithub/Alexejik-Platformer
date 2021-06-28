@@ -30,12 +30,6 @@ namespace Platformer.UI.HUD
 		private void Start()
 		{
 
-			OnLoad();
-
-		}
-
-		public void OnLoad()
-		{
 			_session = FindObjectOfType<GameSession>();
 			_trash.Retain(_session.Data.Hp.SubscribeAndInvoke(OnHealthChanged));
 			//_session.Data.Hp.OnChanged -= OnHealthChanged; // костыль для перехода в сцены
@@ -43,7 +37,10 @@ namespace Platformer.UI.HUD
 			_trash.Retain(_session.PerksModel.Subscribe(OnPerkChanged));
 			// OnHealthChanged(_session.Data.Hp.Value, _session.Data.Hp.Value);
 			OnPerkChanged();
+
 		}
+
+		
 		private void OnPerkChanged()
 		{
 			var usedPerkId = _session.PerksModel.Used;

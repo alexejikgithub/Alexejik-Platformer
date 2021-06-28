@@ -5,30 +5,30 @@ namespace Platformer.UI.MainMenu
 {
 	public class MainCanvas : BaseCanvas
 	{
-		private void Awake()
-		{
+		//private void Awake()
+		//{
 
-			if (DoesThisExist())
-			{
-				Destroy(gameObject);
-			}
-			else
-			{
-				DontDestroyOnLoad(this);
-			}
+		//	if (DoesThisExist())
+		//	{
+		//		Destroy(gameObject);
+		//	}
+		//	else
+		//	{
+		//		DontDestroyOnLoad(this);
+		//	}
 
-		}
-		private bool DoesThisExist()
-		{
-			var mainCanvases = FindObjectsOfType<MainCanvas>();
-			foreach (var canvas in mainCanvases)
-			{
-				if (canvas != this)
-					return true;
+		//}
+		//private bool DoesThisExist()
+		//{
+		//	var mainCanvases = FindObjectsOfType<MainCanvas>();
+		//	foreach (var canvas in mainCanvases)
+		//	{
+		//		if (canvas != this)
+		//			return true;
 
-			}
-			return false;
-		}
+		//	}
+		//	return false;
+		//}
 
 	}
 }

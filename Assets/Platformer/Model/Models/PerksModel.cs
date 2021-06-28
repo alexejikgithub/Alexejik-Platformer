@@ -26,7 +26,7 @@ namespace Platformer.Model.Models
 			
 			_data = data;
 			InterfaceSelection.Value = DefsFacade.I.Perks.All[0].Id;
-			_trash.Dispose();
+			
 			_trash.Retain(_data.Perks.Used.Subscribe((x, y) => OnChanged?.Invoke()));
 			_trash.Retain(InterfaceSelection.Subscribe((x, y) => OnChanged?.Invoke()));
 		}

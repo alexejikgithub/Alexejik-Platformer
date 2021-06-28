@@ -1,5 +1,6 @@
 ﻿using Platformer.Model;
 using Platformer.Model.Data;
+using Platformer.UI.Widgets;
 using Platformer.Utils.Disposables;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,75 +20,29 @@ namespace Platformer.UI.HUD.QuickInventory
 		private GameSession _session;
 		private List<InventoryItemWidget> _createdItems = new List<InventoryItemWidget>();
 
-		private void Awake()
-		{
+		private DataGroup<InventoryItemData, InventoryItemWidget> _dataGroup;
 
-			if (DoesThisExist())
-			{
-				Destroy(gameObject);
-			}
-
-
-		}
-		private bool DoesThisExist()
-		{
-			var controllers = FindObjectsOfType<QuckInventoryController>();
-			foreach (var controller in controllers)
-			{
-				if (controller != this)
-					return true;
-
-			}
-			return false;
-		}
+		
 
 
 		private void Start()
 		{
-			OnLoad();
-		}
-
-		public void OnLoad()
-		{
+			_dataGroup = new DataGroup<InventoryItemData, InventoryItemWidget>(_prefab, _container);
 			_session = FindObjectOfType<GameSession>();
-
 			_trash.Retain(_session.QuickInventory.Subscribe(Rebuild));
-
-
 			Rebuild();
 		}
 
 		private void Rebuild()
 		{
 			var inventory = _session.QuickInventory.Inventory;
-
-			// Create required items.
-			for (var i = _createdItems.Count; i < inventory.Length; i++)
-			{
-				var item = Instantiate(_prefab, _container);
-				_createdItems.Add(item);
-			}
-
-			// Update data and activate.
-			for (var i = 0; i < inventory.Length; i++)
-			{
-				_createdItems[i].SetData(inventory[i], i);
-				_createdItems[i].gameObject.SetActive(true);
-
-			}
-
-			// Hide unused items.
-			for (var i = inventory.Length; i < _createdItems.Count; i++)
-			{
-				
-				Destroy(_createdItems[i].gameObject);
-				_createdItems.RemoveAt(i);
-			}
+			_dataGroup.SetData(inventory);
+		}
 
 
-
-
-
+		private void OnDestroy()
+		{
+			_trash.Dispose();
 		}
 	}
 }

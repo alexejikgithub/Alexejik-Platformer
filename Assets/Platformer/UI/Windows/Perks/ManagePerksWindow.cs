@@ -23,14 +23,14 @@ namespace Platformer.UI.Windows.Perks
 		private readonly CompositeDisposable _trash = new CompositeDisposable();
 		private GameSession _session;
 		//private PerksDisplayWidget _perksDisplay;
-		private Hero _hero;
+
 
 		protected override void Start()
 		{
 			base.Start();
 			_dataGroup = new PredefinedDataGroup<PerkDef, PerkWidget>(_perksContainer);
 			_session = FindObjectOfType<GameSession>();
-			_hero = FindObjectOfType<Hero>();
+
 
 			_trash.Retain(_session.PerksModel.Subscribe(OnPerksChanged));
 			_trash.Retain(_buyButton.onClick.Subscribe(OnBuy));

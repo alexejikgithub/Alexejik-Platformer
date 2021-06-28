@@ -61,29 +61,7 @@ namespace Platformer.Model
 			}
 
 			
-			// reloads InvantoryItemWidgets
-			var InventoryItemWidgets = FindObjectsOfType<InventoryItemWidget>();
-			foreach (var widget in InventoryItemWidgets)
-			{
-				widget.OnLoad();
-			}
-
-
-
-			// reloads QuckInventoryController
-			var qInventory = FindObjectOfType<QuckInventoryController>();
-			if (qInventory != null)
-			{
-				qInventory.OnLoad();
-			}
-
-
-			// reloads HudController
-			var hud = FindObjectOfType<HudController>();
-			if (hud != null)
-			{
-				hud.OnLoad();
-			}
+			
 
 			
 		}
@@ -142,11 +120,10 @@ namespace Platformer.Model
 			QuickInventory = new QuickInventoryModel(Data);
 			_trash.Retain(QuickInventory);
 
-			if(PerksModel==null)
-			{
+			
 				PerksModel = new PerksModel(_data);
 				_trash.Retain(PerksModel);
-			}
+			
 			
 
 			StatsModel = new StatsModel(_data);

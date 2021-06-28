@@ -2,6 +2,7 @@
 using Platformer.Model.Data;
 using Platformer.Model.Definitions;
 using Platformer.Model.Definitions.Repositories.Items;
+using Platformer.UI.Widgets;
 using Platformer.Utils.Disposables;
 using System;
 using System.Collections;
@@ -10,7 +11,7 @@ using UnityEngine.UI;
 
 namespace Platformer.UI.HUD.QuickInventory
 {
-	public class InventoryItemWidget : MonoBehaviour
+	public class InventoryItemWidget : MonoBehaviour, IItemRenderer<InventoryItemData>
 	{
 
 		[SerializeField] private Image _icon;
@@ -25,7 +26,10 @@ namespace Platformer.UI.HUD.QuickInventory
 	
 		private void Start()
 		{
-			OnLoad();
+			_session = FindObjectOfType<GameSession>();
+			var index = _session.QuickInventory.SelectedIndex;
+			// _trash.Dispose();
+			_trash.Retain(index.SubscribeAndInvoke(OnIndexChanged));
 		}
 
 		private void OnIndexChanged(int newValue, int oldValue)
@@ -41,14 +45,7 @@ namespace Platformer.UI.HUD.QuickInventory
 			_value.text = def.HasTag(ItemTag.Stackable) ? item.Value.ToString() : string.Empty;
 		}
 
-		[ContextMenu("OnLoad")]
-		public void OnLoad()
-		{
-			_session = FindObjectOfType<GameSession>();
-			var index = _session.QuickInventory.SelectedIndex;
-			_trash.Dispose();
-			_trash.Retain(index.SubscribeAndInvoke(OnIndexChanged));
-		}
+		
 
 		private void OnDestroy()
 		{
