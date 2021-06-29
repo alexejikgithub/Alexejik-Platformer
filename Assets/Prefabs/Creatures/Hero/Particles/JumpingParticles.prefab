@@ -51,7 +51,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,11 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _frameRate: 10
-  _nameOfTheClip: 
   _clips:
   - _name: dust
-    _loop: 0
-    _allowNext: 0
     _sprites:
     - {fileID: 21300000, guid: ca774f50a3c79924cade05c25c3e2260, type: 3}
     - {fileID: 21300000, guid: e0259d94b187c3d4e8cb7827fa246f53, type: 3}
@@ -108,6 +105,8 @@ MonoBehaviour:
     - {fileID: 21300000, guid: a91df9a7c70e4d242af163ee6212d692, type: 3}
     - {fileID: 21300000, guid: 0243a04d4e28d024abd7610abbaf9fdc, type: 3}
     - {fileID: 21300000, guid: e03ad9910daf1e24098379f745cfae22, type: 3}
+    _loop: 0
+    _allowNext: 0
     _onComplete:
       m_PersistentCalls:
         m_Calls:
@@ -135,3 +134,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 7728886563200359817}
+  _state: {fileID: 0}

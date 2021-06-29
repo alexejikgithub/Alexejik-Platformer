@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -174,9 +174,17 @@ MonoBehaviour:
   _mode: 1
   _bound:
     _sentences:
-    - You need a key...
-    - Try to find it...
-  _external: {fileID: 0}
+    - _iconSprite: {fileID: 0}
+      _dialogBoxSide: 0
+      _key: 
+    - _iconSprite: {fileID: 0}
+      _dialogBoxSide: 0
+      _key: 
+    _type: 0
+  _external: {fileID: 11400000, guid: 181923dcc364be5438cfc8927e72edd7, type: 2}
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3388981389722202111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,3 +257,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 3388981389722202110}
+  _state: {fileID: 0}

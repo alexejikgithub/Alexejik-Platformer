@@ -31,6 +31,7 @@ namespace Platformer.Components.Collectables
 		}
 		public void Add(GameObject go)
 		{
+
 			
 			if(_inventoryCollectableParent!=null)
 			{
@@ -38,7 +39,7 @@ namespace Platformer.Components.Collectables
 				var session = _inventoryCollectableParent.Session;
 				var isFull = session.Data.Inventory.Inventory.Count >= DefsFacade.I.Player.InventorySize;
 				var item = session.Data.Inventory.GetItem(_id);
-
+				
 
 				if (session != null)
 				{
@@ -46,6 +47,7 @@ namespace Platformer.Components.Collectables
 					if (itemDef.HasTag(ItemTag.Stackable) && session.Data.Inventory.Count(_id) >= itemDef.MaxAmount) return;
 					if (item == null && isFull) return;
 					if (!itemDef.HasTag(ItemTag.Stackable) && session.Data.Inventory.Count(_id) >= itemDef.MaxAmount && isFull) return;
+					
 				}
 			}
 			// If invantory is full, do not collect

@@ -51,7 +51,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,17 +96,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _frameRate: 10
-  _nameOfTheClip: 
   _clips:
   - _name: 
-    _loop: 0
-    _allowNext: 0
     _sprites:
     - {fileID: 21300000, guid: c559d7b985757d04ebc30b78f04cb9ad, type: 3}
     - {fileID: 21300000, guid: 2b63ae363c96c3943a267469ca6da973, type: 3}
     - {fileID: 21300000, guid: a010a59f6383a024580343bd11a69d40, type: 3}
     - {fileID: 21300000, guid: b06636f87d34f92439b5f9b14e15b5d1, type: 3}
     - {fileID: 21300000, guid: b16648231ba4070439c6d4cd09e6a4f0, type: 3}
+    _loop: 0
+    _allowNext: 0
     _onComplete:
       m_PersistentCalls:
         m_Calls:
@@ -134,3 +133,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 7728886563200359817}
+  _state: {fileID: 0}
