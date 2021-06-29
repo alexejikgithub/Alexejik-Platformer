@@ -38,11 +38,11 @@ namespace Platformer.Model.Models
 		{
 
 			if (!CanBuy(itemData)) return;
-			if (_shopData == null)
-			{
+			//if (_shopData == null)
+			//{
 				_shopWindow =  GameObject.FindObjectOfType<ShopWindow>();
 				_shopData = _shopWindow.ShopData;
-			}
+			//}
 			if (_shopData.Count(itemData.Id) <= 0) return;
 			Debug.Log(_shopData.Count(itemData.Id));
 			_shopData.GetItem(itemData.Id).Count -= 1;
