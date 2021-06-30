@@ -84,6 +84,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "LightSwich",
+                    "type": "Button",
+                    "id": "b107bff7-dfee-4c22-a6fd-f95c13502f73",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -317,6 +325,17 @@
                     "action": "DropDown",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "9c554a4a-b498-4c99-b747-c7e3c155b5e9",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LightSwich",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

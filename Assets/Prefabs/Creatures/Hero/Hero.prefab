@@ -681,7 +681,7 @@ Transform:
   - {fileID: 1148893752}
   - {fileID: 1867156457064155093}
   - {fileID: 1186462126}
-  - {fileID: 5041259311995377537}
+  - {fileID: 5886510135567891899}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -784,6 +784,7 @@ MonoBehaviour:
   _throwSpawner: {fileID: 458981460077896299}
   _hitDrop: {fileID: 1148893754}
   _shield: {fileID: 3102327282468682699}
+  _candleController: {fileID: 5702166579420487188}
 --- !u!114 &2032397210555660372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -949,6 +950,21 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b9f232a5-3835-43e7-86f3-823c73ac1f96
     m_ActionName: Hero/DropDown[/Keyboard/s,/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2032397210555660375}
+        m_MethodName: OnLightSwich
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b107bff7-dfee-4c22-a6fd-f95c13502f73
+    m_ActionName: Hero/LightSwich[/Keyboard/c]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero
@@ -1188,6 +1204,53 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4864
   _isTouchingLayer: 0
+--- !u!1 &3956325811608886037
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5886510135567891899}
+  - component: {fileID: 5702166579420487188}
+  m_Layer: 13
+  m_Name: CandleController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5886510135567891899
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3956325811608886037}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5041259311995377537}
+  m_Father: {fileID: 2032397210555660393}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5702166579420487188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3956325811608886037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b15300b98e60c4d448cd566101b60750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _candle: {fileID: 5041259311995377538}
+  _lightSourse: {fileID: 5041259312169838028}
+  period: 1
 --- !u!1 &5041259311995377538
 GameObject:
   m_ObjectHideFlags: 0
@@ -1213,13 +1276,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5041259311995377538}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.035, y: 0.326, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.034999847, y: 0.32599998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5041259312169838031}
-  m_Father: {fileID: 2032397210555660393}
-  m_RootOrder: 8
+  m_Father: {fileID: 5886510135567891899}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5041259311995377536
 SpriteRenderer:

@@ -97,6 +97,14 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""LightSwich"",
+                    ""type"": ""Button"",
+                    ""id"": ""b107bff7-dfee-4c22-a6fd-f95c13502f73"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -330,6 +338,17 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""action"": ""DropDown"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9c554a4a-b498-4c99-b747-c7e3c155b5e9"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LightSwich"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -348,6 +367,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         m_Hero_GameMenu = m_Hero.FindAction("GameMenu", throwIfNotFound: true);
         m_Hero_NextItem = m_Hero.FindAction("NextItem", throwIfNotFound: true);
         m_Hero_DropDown = m_Hero.FindAction("DropDown", throwIfNotFound: true);
+        m_Hero_LightSwich = m_Hero.FindAction("LightSwich", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -407,6 +427,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
     private readonly InputAction m_Hero_GameMenu;
     private readonly InputAction m_Hero_NextItem;
     private readonly InputAction m_Hero_DropDown;
+    private readonly InputAction m_Hero_LightSwich;
     public struct HeroActions
     {
         private @HeroInputAction m_Wrapper;
@@ -421,6 +442,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         public InputAction @GameMenu => m_Wrapper.m_Hero_GameMenu;
         public InputAction @NextItem => m_Wrapper.m_Hero_NextItem;
         public InputAction @DropDown => m_Wrapper.m_Hero_DropDown;
+        public InputAction @LightSwich => m_Wrapper.m_Hero_LightSwich;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -460,6 +482,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @DropDown.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnDropDown;
                 @DropDown.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnDropDown;
                 @DropDown.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnDropDown;
+                @LightSwich.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnLightSwich;
+                @LightSwich.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnLightSwich;
+                @LightSwich.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnLightSwich;
             }
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
@@ -494,6 +519,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @DropDown.started += instance.OnDropDown;
                 @DropDown.performed += instance.OnDropDown;
                 @DropDown.canceled += instance.OnDropDown;
+                @LightSwich.started += instance.OnLightSwich;
+                @LightSwich.performed += instance.OnLightSwich;
+                @LightSwich.canceled += instance.OnLightSwich;
             }
         }
     }
@@ -510,5 +538,6 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         void OnGameMenu(InputAction.CallbackContext context);
         void OnNextItem(InputAction.CallbackContext context);
         void OnDropDown(InputAction.CallbackContext context);
+        void OnLightSwich(InputAction.CallbackContext context);
     }
 }

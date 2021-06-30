@@ -55,6 +55,7 @@ namespace Platformer.Creatures.Hero
 		[SerializeField] private ProbabilityDropComponent _hitDrop;
 		// [SerializeField] private GameObject _shield;
 		[SerializeField] private ShieldComponent _shield;
+		[SerializeField] private HeroCandleController _candleController;
 
 
 
@@ -549,6 +550,11 @@ namespace Platformer.Creatures.Hero
 			if (component == null) return;
 			component.DisableCollider();
 
+		}
+
+		public void SwichLight()
+		{
+			_candleController.SwichLight();
 		}
 	}
 

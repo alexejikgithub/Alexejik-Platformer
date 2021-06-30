@@ -129,6 +129,14 @@ namespace Platformer.Creatures.Hero
 			}
 		}
 
+		public void OnLightSwich(InputAction.CallbackContext context)
+		{
+			if (context.performed)
+			{
+				_hero.SwichLight();
+			}
+		}
+
 	}
 
 }
