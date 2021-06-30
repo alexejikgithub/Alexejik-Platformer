@@ -31,7 +31,6 @@ namespace Platformer.UI.Windows.Perks
 		public void OnLoad()
 		{
 			_session = FindObjectOfType<GameSession>();
-			Debug.Log(_session.PerksModel);
 			_session.PerksModel.SelectPerk(_session.PerksModel.SelectedPerk);
 		}
 
