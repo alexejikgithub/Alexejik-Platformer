@@ -19,6 +19,7 @@ using Platformer.Model.Definitions.Repositories;
 using Platformer.UI.Windows.Perks;
 using Platformer.Model.Definitions.Player;
 using Platformer.Model.Data.Properties;
+using Platformer.Effects.CameraRelated;
 
 namespace Platformer.Creatures.Hero
 
@@ -85,6 +86,8 @@ namespace Platformer.Creatures.Hero
 		private float _defautGravityScale;
 
 		private Cooldown _speedUpCooldown = new Cooldown();
+
+		private CameraShakeEffect _cameraShake;
 		private float _additionalSpeed;
 
 		private const string SwordId = "Sword";
@@ -127,6 +130,8 @@ namespace Platformer.Creatures.Hero
 		{
 			_session = FindObjectOfType<GameSession>();
 			_perksDisplay = FindObjectOfType<PerksDisplayWidget>();
+			_cameraShake = FindObjectOfType<CameraShakeEffect>();
+
 			_health = GetComponent<HealthComponent>();
 			_health.SetHealth(_session.Data.Hp.Value);
 			UpdateHeroWeapon();
@@ -389,6 +394,7 @@ namespace Platformer.Creatures.Hero
 		public override void TakeDamage()
 		{
 			base.TakeDamage();
+			_cameraShake.Shake();
 			if (CoinsCount > 0)
 			{
 				SpawnCoins();

@@ -1,6 +1,7 @@
 ﻿using Platformer.Model;
+using Platformer.UI.LevelsLoader;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 namespace Platformer.Components.LevelManagement
 {
@@ -11,7 +12,11 @@ namespace Platformer.Components.LevelManagement
 		{
 			var session = FindObjectOfType<GameSession>();
 			session.Save();
-			SceneManager.LoadScene(_sceneName);
+
+			var loader = FindObjectOfType<LevelLoader>();
+			loader.LoadLevel(_sceneName);
+
+
 		}
 	}
 }

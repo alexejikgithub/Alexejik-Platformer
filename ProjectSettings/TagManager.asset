@@ -66,3 +66,6 @@ TagManager:
   - name: Props
     uniqueID: 829679621
     locked: 0
+  - name: Overlay
+    uniqueID: 2313566167
+    locked: 0

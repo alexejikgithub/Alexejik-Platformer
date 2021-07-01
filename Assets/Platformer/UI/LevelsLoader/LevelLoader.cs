@@ -1,0 +1,53 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+namespace Platformer.UI.LevelsLoader
+{
+	public class LevelLoader : MonoBehaviour
+	{
+		[SerializeField] private Animator _animator;
+		[SerializeField] private float _transitonTime;
+		
+		private static readonly int Enabled = Animator.StringToHash("Enabled");
+
+		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+		static void OnAfterSceneLoad()
+		{
+			InitLoader();
+		}
+
+
+		private void Awake()
+		{
+			
+			DontDestroyOnLoad(gameObject);
+		}
+		private static void InitLoader()
+		{
+			
+				SceneManager.LoadScene("LevelLoader", LoadSceneMode.Additive);
+			
+		}
+
+		public void LoadLevel(string sceneName)
+		{
+			StartCoroutine(StartAnimation(sceneName));
+		}
+
+		private IEnumerator StartAnimation(string sceneName)
+		{
+			_animator.SetBool(Enabled, true);
+			yield return new WaitForSeconds(_transitonTime);
+			SceneManager.LoadScene(sceneName);
+			_animator.SetBool(Enabled, false);
+
+		}
+
+	}
+}

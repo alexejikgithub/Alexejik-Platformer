@@ -1,9 +1,9 @@
-﻿using Platformer.Utils;
+﻿using Platformer.UI.LevelsLoader;
+using Platformer.Utils;
 using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 namespace Platformer.UI.MainMenu
 {
@@ -15,7 +15,12 @@ namespace Platformer.UI.MainMenu
 
 		public void OnStartGame()
 		{
-			_closeAction = () => { SceneManager.LoadScene("Level2"); };
+			_closeAction = () =>
+			{
+				var loader = FindObjectOfType<LevelLoader>();
+				loader.LoadLevel("Level2");
+
+			};
 			Close();
 		}
 
