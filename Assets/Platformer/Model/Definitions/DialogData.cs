@@ -2,6 +2,7 @@
 using UnityEngine;
 using System;
 using Assets.Platformer.Model.Definitions.Localization;
+using UnityEngine.Rendering;
 
 namespace Platformer.Model.Definitions
 {
@@ -34,10 +35,12 @@ namespace Platformer.Model.Definitions
 		[SerializeField] private Sprite _iconSprite;
 		[SerializeField] private Side _dialogBoxSide;
 		[SerializeField] private string _key;
+		[SerializeField] private VolumeProfile _effect;
 
 		public string Value => LocalizationManager.I.Localize(_key);
 		public Sprite IconSprite => _iconSprite;
 		public Side DialogBoxSide => _dialogBoxSide;
+		public VolumeProfile Effect => _effect;
 
 		
 	}

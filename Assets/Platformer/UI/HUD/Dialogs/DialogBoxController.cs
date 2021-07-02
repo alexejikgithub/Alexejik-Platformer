@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 namespace Platformer.UI.HUD.Dialogs
@@ -33,12 +34,15 @@ namespace Platformer.UI.HUD.Dialogs
 		private AudioSource _sfxSource;
 		private Coroutine _typingRoutine;
 		private UnityEvent _onComplete;
+		private Volume _postProcessingVolume; 
 
 		protected DalogSentenceData CurrentSentence => _data.Sentences[_currentSentence];
 
 		private void Start()
 		{
 			_sfxSource = AudioUtils.FindSfxSourse();
+			var GlobalPostEffect = GameObject.FindGameObjectWithTag("GlobalPostEffect");
+			_postProcessingVolume = GlobalPostEffect.GetComponent<Volume>();
 			//_icon.gameObject.SetActive(false);
 
 		}
@@ -57,6 +61,7 @@ namespace Platformer.UI.HUD.Dialogs
 			}
 			_sfxSource.PlayOneShot(_open);
 			_animator.SetBool(IsOpen, true);
+			
 		}
 		//private void SetIcon(DialogData data)
 		//{
@@ -118,6 +123,7 @@ namespace Platformer.UI.HUD.Dialogs
 		}
 		public void OnContinue()
 		{
+			_postProcessingVolume.profile = null; // Turns off dialog visual effects
 			StopTypeAnimation();
 			_currentSentence++;
 			var isDialogComplete = _currentSentence >= _data.Sentences.Length;
@@ -155,6 +161,16 @@ namespace Platformer.UI.HUD.Dialogs
 		{
 			//SetIcon(_data);
 			// SetSide(_data);
+
+
+			// Turns on dialog visual effects
+			if (_data.Sentences[_currentSentence].Effect != null)
+			{
+				
+				_postProcessingVolume.profile = _data.Sentences[_currentSentence].Effect;
+				StartCoroutine(LerpVolumeWeight(_postProcessingVolume));
+
+			}
 			_typingRoutine = StartCoroutine(TypeDialogText());
 		}
 
@@ -162,7 +178,27 @@ namespace Platformer.UI.HUD.Dialogs
 
 		public void OnCloseAnimationComplete()
 		{
+			_postProcessingVolume.profile = null; // Turns off dialog visual effects
 			_container.SetActive(false);
+			
+		}
+
+		
+
+		public IEnumerator LerpVolumeWeight(Volume volume)
+		{
+			float lerp = 0f, duration = 1f;
+
+			volume.weight = 0;
+			while (volume.weight!=1)
+			{
+				lerp += Time.deltaTime / duration;
+				
+				volume.weight = Mathf.Lerp(0, 1, lerp);
+				yield return new WaitForSeconds(Time.deltaTime);
+			}
+			
+			
 		}
 
 

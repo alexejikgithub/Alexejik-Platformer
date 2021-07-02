@@ -17,10 +17,13 @@ MonoBehaviour:
     - _iconSprite: {fileID: 21300000, guid: 39403c1953bcb6a42a795a6a89d70941, type: 3}
       _dialogBoxSide: 0
       _key: Crabby_GetCoin_1
+      _effect: {fileID: 11400000, guid: ef98eeb43938e58438082293cfe2f394, type: 2}
     - _iconSprite: {fileID: 21300000, guid: 9cdea9e9f7c61004eb402affa45a47e0, type: 3}
       _dialogBoxSide: 1
       _key: Crabby_GetCoin_2
+      _effect: {fileID: 11400000, guid: 24a76c8ba96436940933b3c5e9be27df, type: 2}
     - _iconSprite: {fileID: 21300000, guid: 39403c1953bcb6a42a795a6a89d70941, type: 3}
       _dialogBoxSide: 0
       _key: Crabby_GetCoin_3
+      _effect: {fileID: 11400000, guid: ef98eeb43938e58438082293cfe2f394, type: 2}
     _type: 1
