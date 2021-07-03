@@ -35,6 +35,7 @@ namespace Platformer.UI.HUD.Dialogs
 		private Coroutine _typingRoutine;
 		private UnityEvent _onComplete;
 		private Volume _postProcessingVolume;
+		private Coroutine _coroutine;
 
 		protected DalogSentenceData CurrentSentence => _data.Sentences[_currentSentence];
 
@@ -124,6 +125,14 @@ namespace Platformer.UI.HUD.Dialogs
 		public void OnContinue()
 		{
 			_postProcessingVolume.profile = null; // Turns off dialog visual effects
+			if (_coroutine != null)
+			{
+				StopCoroutine(_coroutine);
+			}
+			_postProcessingVolume.weight = 0;
+
+
+
 			StopTypeAnimation();
 			_currentSentence++;
 			var isDialogComplete = _currentSentence >= _data.Sentences.Length;
@@ -174,13 +183,20 @@ namespace Platformer.UI.HUD.Dialogs
 			if (_data.Sentences[_currentSentence].Effect != null)
 			{
 				_postProcessingVolume.profile = _data.Sentences[_currentSentence].Effect;
-				StartCoroutine(LerpVolumeWeight(_postProcessingVolume));
+				_coroutine= StartCoroutine(LerpVolumeWeight(_postProcessingVolume));
 			}
 		}
 
 		public void OnCloseAnimationComplete()
 		{
 			_postProcessingVolume.profile = null; // Turns off dialog visual effects
+			if (_coroutine != null)
+			{
+				StopCoroutine(_coroutine);
+			}
+			
+			_postProcessingVolume.weight = 0;
+
 			_container.SetActive(false);
 
 		}
