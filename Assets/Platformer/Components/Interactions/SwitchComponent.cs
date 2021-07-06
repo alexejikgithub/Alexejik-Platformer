@@ -9,8 +9,17 @@ namespace Platformer.Components.Interactions
         [SerializeField] private Animator _animator;
         [SerializeField] private bool _state;
         [SerializeField] private string _anomationKey;
+        [SerializeField] private bool _updateOnStart;
 
-        public void Swich()
+
+		private void Start()
+		{
+			if(_updateOnStart)
+			{
+                _animator.SetBool(_anomationKey, _state);
+            }
+		}
+		public void Swich()
 		{
             _state = !_state;
 

@@ -119,6 +119,9 @@ GameObject:
   - component: {fileID: 7594274576639918978}
   - component: {fileID: 7594274576639918977}
   - component: {fileID: 7678195927337712259}
+  - component: {fileID: 915844863}
+  - component: {fileID: 915844861}
+  - component: {fileID: 915844862}
   m_Layer: 0
   m_Name: Candle
   m_TagString: Untagged
@@ -229,7 +232,7 @@ Animator:
   m_GameObject: {fileID: 7594274576639918976}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e891c5eaf0c2cda4294994c77704a1e9, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -238,6 +241,73 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &915844863
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7594274576639918976}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.03761363}
+  serializedVersion: 2
+  m_Radius: 0.20661235
+--- !u!114 &915844861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7594274576639918976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78ab86f5bd9bcef4c8f2a42f2a5bac67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: CandleFuel
+  _count: 100
+  _action:
+    m_PersistentCalls:
+      m_Calls: []
+  _inventoryCollectableParent: {fileID: 0}
+--- !u!114 &915844862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7594274576639918976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff2f0db52657504e81ae1d80324be50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 8192
+  _enterAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 915844861}
+        m_MethodName: Add
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _exitAction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7594274576750162380
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +361,7 @@ MonoBehaviour:
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
-  m_AlphaBlendOnOverlap: 0
+  m_AlphaBlendOnOverlap: 1
   m_ShadowIntensity: 0
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 360
