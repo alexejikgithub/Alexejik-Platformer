@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1324,9 +1324,11 @@ MonoBehaviour:
     - _iconSprite: {fileID: 0}
       _dialogBoxSide: 0
       _key: door_line_1
+      _effect: {fileID: 0}
     - _iconSprite: {fileID: 0}
       _dialogBoxSide: 0
       _key: door_line_2
+      _effect: {fileID: 0}
     _type: 0
   _external: {fileID: 0}
   _onComplete:
@@ -6534,6 +6536,54 @@ PrefabInstance:
     - {fileID: 3388981389722202111, guid: 66dbaa8f2033e664da93e5fe94dd59ad, type: 3}
     - {fileID: 3388981389722202108, guid: 66dbaa8f2033e664da93e5fe94dd59ad, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 66dbaa8f2033e664da93e5fe94dd59ad, type: 3}
+--- !u!1 &2008218610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2008218612}
+  - component: {fileID: 2008218611}
+  m_Layer: 0
+  m_Name: GlobalPostEffect
+  m_TagString: GlobalPostEffect
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2008218611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008218610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 0
+  sharedProfile: {fileID: 0}
+--- !u!4 &2008218612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008218610}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.0308975, y: 0.9915399, z: -10.59491}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2026031782 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3388981389722202110, guid: 66dbaa8f2033e664da93e5fe94dd59ad,
@@ -6577,9 +6627,11 @@ MonoBehaviour:
     - _iconSprite: {fileID: 21300000, guid: 39403c1953bcb6a42a795a6a89d70941, type: 3}
       _dialogBoxSide: 0
       _key: I can teach you
+      _effect: {fileID: 0}
     - _iconSprite: {fileID: 21300000, guid: 9cdea9e9f7c61004eb402affa45a47e0, type: 3}
       _dialogBoxSide: 1
       _key: Ok
+      _effect: {fileID: 0}
     _type: 1
   _external: {fileID: 0}
   _onComplete:
