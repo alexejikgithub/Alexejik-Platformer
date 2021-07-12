@@ -10,8 +10,8 @@ namespace Platformer.Components.GoBased
 
     public class SpawnComponent : MonoBehaviour
     {
-        [SerializeField] private Transform _target;
-        [SerializeField] private GameObject _prefab;
+        [SerializeField] protected Transform _target;
+        [SerializeField] protected GameObject _prefab;
 
 
         [ContextMenu ("Spawn")]
@@ -21,7 +21,7 @@ namespace Platformer.Components.GoBased
 
         }
 
-        public GameObject SpawnInstance()
+        public virtual GameObject SpawnInstance()
 		{
             var instantiate = SpawnUtils.Spawn(_prefab, _target.position);
             instantiate.transform.localScale = _target.lossyScale;

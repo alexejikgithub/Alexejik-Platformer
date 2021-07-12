@@ -10,7 +10,7 @@ namespace Platformer.Creatures.Weapons
 		{
 			Rigidbody = GetComponent<Rigidbody2D>();
 			Rigidbody.AddForce(direction * Speed, ForceMode2D.Impulse);
-			Debug.Log(direction);
+
 
 		}
 	
