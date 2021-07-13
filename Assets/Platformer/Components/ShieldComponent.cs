@@ -16,7 +16,7 @@ namespace Platformer.Components
 
 		public void Use()
 		{
-			_health.IsInvinsible = true;
+			_health.Immune.Retain(this);
 			_cooldown.Reset();
 			gameObject.SetActive(true);
 
@@ -31,7 +31,7 @@ namespace Platformer.Components
 		}
 		private void OnDisable()
 		{
-			_health.IsInvinsible = false;
+			_health.Immune.Release(this);
 		}
 	}
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Platformer.Utils;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,8 +17,8 @@ namespace Platformer.Components.Health
 
 		[SerializeField] public HealthChangeEvent _onChange;
 
-
-		public bool IsInvinsible { get; set; }
+		private Lock _imune = new Lock();
+		public Lock Immune => _imune;
 
 		public int Health => _health;
 
@@ -26,7 +27,7 @@ namespace Platformer.Components.Health
 
 		public void ApplyDamage(int damageValue)
 		{
-			if (!_isDead && !IsInvinsible)
+			if (!_isDead && !Immune.IsLocked)
 			{
 				_health -= damageValue;
 				_onChange?.Invoke(_health);
