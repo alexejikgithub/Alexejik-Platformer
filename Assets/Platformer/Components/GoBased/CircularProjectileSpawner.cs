@@ -25,17 +25,24 @@ namespace Platformer.Components.GoBased
 		{
 			var settings = _settings[Stage];
 			var sectorStep = 2 * Mathf.PI / settings.BurstCount;
+			int burstedItems = 0;
 			
 			for (int i = 0; i < settings.BurstCount; i++)
 			{
+				
 				var angle = sectorStep * i;
 				
 				var direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
 				var instance = SpawnUtils.Spawn(settings.Prefab.gameObject, transform.position);
 				var projectile = instance.GetComponent<DirectionalProjectile>();
 				projectile.Launch(direction);
+				burstedItems++;
+				if(burstedItems>= settings.ItemPerBurst)
+				{
+					burstedItems = 0;
+					yield return new WaitForSeconds(settings.Delay);
+				}
 				
-				yield return new WaitForSeconds(settings.Delay);
 			}
 		}
 	}

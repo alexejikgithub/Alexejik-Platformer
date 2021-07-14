@@ -4643,12 +4643,12 @@ MonoBehaviour:
   - _projectile: {fileID: 2016041556505374715, guid: c3c092a2da4b8de43bc38e003accb48d,
       type: 3}
     _burstCount: 10
-    _itemPerBurst: 0
+    _itemPerBurst: 2
     _delay: 0.2
   - _projectile: {fileID: 2016041556505374715, guid: c3c092a2da4b8de43bc38e003accb48d,
       type: 3}
-    _burstCount: 20
-    _itemPerBurst: 0
+    _burstCount: 21
+    _itemPerBurst: 3
     _delay: 0.07
 --- !u!114 &1647476074
 MonoBehaviour:
