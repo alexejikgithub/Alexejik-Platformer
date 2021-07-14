@@ -45,10 +45,13 @@ namespace Platformer.Components.GoBased
 	{
 		[SerializeField] private DirectionalProjectile _projectile;
 		[SerializeField] private int _burstCount;
+		[SerializeField] private int _itemPerBurst;
 		[SerializeField] private float _delay;
 
 		public DirectionalProjectile Prefab => _projectile;
 		public int BurstCount => _burstCount;
+		public int ItemPerBurst => _itemPerBurst;
 		public float Delay => _delay;
+
 	}
 }
