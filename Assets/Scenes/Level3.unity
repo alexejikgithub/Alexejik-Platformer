@@ -1386,6 +1386,9 @@ MonoBehaviour:
   _exitAction:
     m_PersistentCalls:
       m_Calls: []
+  _stay2DAction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!58 &915844863
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2168,6 +2171,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _stay2DAction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1313265241
 MonoBehaviour:
   m_ObjectHideFlags: 0

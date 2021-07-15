@@ -15,12 +15,12 @@ namespace Platformer.Creatures.Hero
 		[SerializeField] private Light2D _lightSourse;
 
 		private GameSession _session;
-		
 
-		private float nextActionTime = 0.0f;
-		public float period = 1f;
 
-		
+		private float _nextActionTime = 0.0f;
+		private float _consumptionPeriod = 1f;
+
+
 		private bool _turnedOn => _candle.activeSelf;
 
 		private void Start()
@@ -29,29 +29,36 @@ namespace Platformer.Creatures.Hero
 		}
 		void Update()
 		{
-			if(_session.Data.Inventory.GetItem("CandleFuel")==null)
+			if (_turnedOn)
 			{
-				TurnOf();
-				return;
-			}
-			else
-			{
-				if (_session.Data.Inventory.GetItem("CandleFuel").Value > 10)
+				var currentFuel = _session.Data.Inventory.GetItem("CandleFuel");
+				if (currentFuel == null)
 				{
-					_lightSourse.intensity = 1;
+					TurnOf();
+					return;
 				}
 				else
 				{
+					var progress = Mathf.Clamp(currentFuel.Value / 10f, 0, 1);
+					
+					_lightSourse.intensity = progress;
 
-					_lightSourse.intensity = _session.Data.Inventory.GetItem("CandleFuel").Value / 10f;
+					// same as above
+					//if (currentFuel.Value > 10)
+					//{
+					//	_lightSourse.intensity = 1;
+					//}
+					//else
+					//{
+
+					//	_lightSourse.intensity = currentFuel.Value / 10f;
+					//}
 				}
-			}
-			if(_turnedOn)
-			{
+
 				DecreaseFuel();
-				
+
 			}
-			
+
 		}
 
 		private void TurnOn()
@@ -68,7 +75,7 @@ namespace Platformer.Creatures.Hero
 		[ContextMenu("LightSwich")]
 		public void SwichLight()
 		{
-			if(_turnedOn)
+			if (_turnedOn)
 			{
 				TurnOf();
 			}
@@ -81,13 +88,13 @@ namespace Platformer.Creatures.Hero
 		//removes 1 CandleFuel EverySecond
 		private void DecreaseFuel()
 		{
-			
-			if (Time.time > nextActionTime)
+
+			if (Time.time > _nextActionTime)
 			{
-				nextActionTime = Time.time + period;
+				_nextActionTime = Time.time + _consumptionPeriod;
 				_session.Data.Inventory.Remove("CandleFuel", 1);
 			}
 		}
-		
+
 	}
 }

@@ -1,14 +1,15 @@
 ﻿using Platformer.Components.ColliderBased;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 
 namespace Platformer.Creatures.Mobs.Patrolling
 {
 	public class PlatformPatrol : Patrol
 	{
-		private Creature _creature;
+		
 
 		[SerializeField] private ChooseDirection _chooseDirection;
 
@@ -16,6 +17,8 @@ namespace Platformer.Creatures.Mobs.Patrolling
 		private float _direction;
 		[SerializeField] private LineCheck _platformCheck;
 		[SerializeField] private LineCheck _obstacleCheck;
+
+		[SerializeField] private OnChangeDirection _OnchangeDirection;
 
 		private void Start()
 		{
@@ -30,10 +33,6 @@ namespace Platformer.Creatures.Mobs.Patrolling
 
 
 
-		private void Awake()
-		{
-			_creature = GetComponent<Creature>();
-		}
 
 		public override IEnumerator DoPatrol()
 		{
@@ -42,13 +41,13 @@ namespace Platformer.Creatures.Mobs.Patrolling
 				if (_platformCheck.IsTouchingLayer&&!_obstacleCheck.IsTouchingLayer)
 				{
 
-					_creature.SetDirection(new Vector2(_direction, 0));
+					_OnchangeDirection?.Invoke(new Vector2(_direction, 0));
 
 				}
 				else
 				{
 					_direction = -_direction;
-					_creature.SetDirection(new Vector2(_direction, 0));
+					_OnchangeDirection?.Invoke(new Vector2(_direction, 0));
 				}
 				
 
@@ -57,7 +56,11 @@ namespace Platformer.Creatures.Mobs.Patrolling
 			}
 		}
 
+		[Serializable]
+		public class OnChangeDirection:UnityEvent<Vector2>
+		{
 
+		}
 
 	}
 
