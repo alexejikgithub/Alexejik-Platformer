@@ -1,0 +1,191 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BossStar
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 69cd92681ec9cb340a89f84aafe03454, type: 3}
+    - {fileID: 102900000, guid: b1296cfc7ea62d54a90616f17150bca0, type: 3}
+    - {fileID: 102900000, guid: 75babdfb0fbcb894eab264495a9f59ec, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 12861f70c727fb34686ab2d24866d1e0, type: 3}
+  - {fileID: 21300000, guid: 21f4132291b763947845b79d7f441be7, type: 3}
+  - {fileID: -7809058056965624141, guid: 15a8c504bbdc3b347974c466c747d420, type: 3}
+  - {fileID: 5149571842999456665, guid: 15a8c504bbdc3b347974c466c747d420, type: 3}
+  - {fileID: -3099036081618527749, guid: 15a8c504bbdc3b347974c466c747d420, type: 3}
+  - {fileID: 9203834906448695745, guid: 15a8c504bbdc3b347974c466c747d420, type: 3}
+  - {fileID: -1316846537126965687, guid: 15a8c504bbdc3b347974c466c747d420, type: 3}
+  - {fileID: 6094558206232785351, guid: 15a8c504bbdc3b347974c466c747d420, type: 3}
+  - {fileID: -2164684230196144612, guid: 15a8c504bbdc3b347974c466c747d420, type: 3}
+  - {fileID: -4466388655673148299, guid: 15a8c504bbdc3b347974c466c747d420, type: 3}
+  - {fileID: 21300000, guid: c67cd206e650b4841bb28b81cfbae069, type: 3}
+  - {fileID: 6384462652563809282, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: 4289065198383074631, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: 6871045095198256065, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: 781391785531551593, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: 6584985522317171522, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: 86831731946154089, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: 5313534277958279983, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: 286634159721035684, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: -1582882548290806831, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: 1141322216187628762, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: -1716483664407934345, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: 8122258944036600684, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: 3466538821557242840, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: -5660417143903998036, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: 8464637951588160143, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: 895464267672534491, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: 4618094931158405355, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: -7727101525452084109, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: -4629638608183935849, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: 8236299096297149549, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: -4996653691489033217, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: -9084912452087648884, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: 1271835005940878463, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: 1523366221006700818, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: 5601577551393980886, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: -544956165492079743, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: 3566191888559478745, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: -8343462353704588372, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: -4176113005331844420, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: 2730764555306426954, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: 8397490769575819276, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: -954975255204436224, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: -6566005975616425886, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: -3260212547697663061, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: -2679042040590843802, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: 4290508754344991712, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: -8728333411645904814, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: 2674706677924328230, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: 6343445691887805515, guid: d42cbe681d97a3342bd54d8d0672f90e, type: 3}
+  - {fileID: -1058253517331424735, guid: d235da8ad4ac0e54ebc5ae084eebb5a8, type: 3}
+  - {fileID: 7452818884153078271, guid: d235da8ad4ac0e54ebc5ae084eebb5a8, type: 3}
+  - {fileID: -1729396398593892154, guid: d235da8ad4ac0e54ebc5ae084eebb5a8, type: 3}
+  - {fileID: -6585507646443521195, guid: d235da8ad4ac0e54ebc5ae084eebb5a8, type: 3}
+  - {fileID: 8088558050028503799, guid: d235da8ad4ac0e54ebc5ae084eebb5a8, type: 3}
+  - {fileID: 8132251883904641431, guid: d235da8ad4ac0e54ebc5ae084eebb5a8, type: 3}
+  - {fileID: 5482162301914685816, guid: d235da8ad4ac0e54ebc5ae084eebb5a8, type: 3}
+  - {fileID: 7989177362625128545, guid: d235da8ad4ac0e54ebc5ae084eebb5a8, type: 3}
+  - {fileID: 2539407865963628665, guid: d235da8ad4ac0e54ebc5ae084eebb5a8, type: 3}
+  - {fileID: 5768092500675844308, guid: d235da8ad4ac0e54ebc5ae084eebb5a8, type: 3}
+  - {fileID: -4566095972586797713, guid: d235da8ad4ac0e54ebc5ae084eebb5a8, type: 3}
+  - {fileID: 7086287932117018057, guid: d235da8ad4ac0e54ebc5ae084eebb5a8, type: 3}
+  - {fileID: 6622098690679349357, guid: d235da8ad4ac0e54ebc5ae084eebb5a8, type: 3}
+  - {fileID: -661841080015379180, guid: d235da8ad4ac0e54ebc5ae084eebb5a8, type: 3}
+  - {fileID: -8581163554954892504, guid: d235da8ad4ac0e54ebc5ae084eebb5a8, type: 3}
+  - {fileID: -9121874701587882525, guid: d235da8ad4ac0e54ebc5ae084eebb5a8, type: 3}
+  - {fileID: 21300000, guid: 3d89a72b49ef52643be8ede9336733bc, type: 3}
+  - {fileID: 21300000, guid: b4c9e88ce3b44ff44b17bc742d7739d7, type: 3}
+  - {fileID: 21300000, guid: 0c168f0ec9804174782d4d84635166b8, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - 1
+  - 2
+  - explosion-6_4
+  - explosion-6_5
+  - explosion-6_6
+  - explosion-6_7
+  - explosion-6_0
+  - explosion-6_1
+  - explosion-6_2
+  - explosion-6_3
+  - 1
+  - Patric_38
+  - Patric_29
+  - Patric_32
+  - Patric_28
+  - Patric_33
+  - Patric_30
+  - Patric_31
+  - Patric_25
+  - Patric_36
+  - Patric_24
+  - Patric_37
+  - Patric_27
+  - Patric_34
+  - Patric_26
+  - Patric_35
+  - Patric_21
+  - Patric_20
+  - Patric_23
+  - Patric_22
+  - Patric_9
+  - Patric_8
+  - Patric_5
+  - Patric_14
+  - Patric_4
+  - Patric_15
+  - Patric_7
+  - Patric_16
+  - Patric_6
+  - Patric_17
+  - Patric_1
+  - Patric_10
+  - Patric_0
+  - Patric_11
+  - Patric_3
+  - Patric_12
+  - Patric_2
+  - Patric_13
+  - Patric_18
+  - Patric_19
+  - Slime_Medium_Blue_14
+  - Slime_Medium_Blue_15
+  - Slime_Medium_Blue_10
+  - Slime_Medium_Blue_11
+  - Slime_Medium_Blue_12
+  - Slime_Medium_Blue_13
+  - Slime_Medium_Blue_5
+  - Slime_Medium_Blue_4
+  - Slime_Medium_Blue_7
+  - Slime_Medium_Blue_6
+  - Slime_Medium_Blue_1
+  - Slime_Medium_Blue_0
+  - Slime_Medium_Blue_3
+  - Slime_Medium_Blue_2
+  - Slime_Medium_Blue_9
+  - Slime_Medium_Blue_8
+  - 3
+  - bomb
+  - 4
+  m_Tag: BossStar
+  m_IsVariant: 0
