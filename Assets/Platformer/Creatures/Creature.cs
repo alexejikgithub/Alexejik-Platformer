@@ -5,6 +5,7 @@ using Platformer.Components.GoBased;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Profiling;
 
 namespace Platformer.Creatures
 

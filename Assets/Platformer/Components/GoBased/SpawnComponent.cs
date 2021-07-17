@@ -4,6 +4,7 @@ using UnityEngine;
 using Platformer.Utils;
 using Platformer.Model.Definitions;
 using System;
+using Platformer.Utils.ObjectPool;
 
 namespace Platformer.Components.GoBased
 {
@@ -12,6 +13,7 @@ namespace Platformer.Components.GoBased
     {
         [SerializeField] protected Transform _target;
         [SerializeField] protected GameObject _prefab;
+        [SerializeField] private bool _usePool;
 
 
         [ContextMenu ("Spawn")]
@@ -23,7 +25,10 @@ namespace Platformer.Components.GoBased
 
         public virtual GameObject SpawnInstance()
 		{
-            var instantiate = SpawnUtils.Spawn(_prefab, _target.position);
+            var targetPosition = _target.position;
+            var instantiate = _usePool
+                ? Pool.Instance.Get(_prefab, targetPosition)
+                : SpawnUtils.Spawn(_prefab, targetPosition);
             instantiate.transform.localScale = _target.lossyScale;
             instantiate.SetActive(true);
             return instantiate;
