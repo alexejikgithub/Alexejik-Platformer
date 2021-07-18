@@ -36,6 +36,7 @@ namespace Platformer.Utils.ObjectPool
 			{
 				var pooledItem = queue.Dequeue();
 				pooledItem.transform.position = position;
+				
 				pooledItem.gameObject.SetActive(true);
 				pooledItem.Restart();
 				return pooledItem.gameObject;

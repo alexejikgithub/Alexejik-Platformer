@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 2966856014992830169}
   _prefab: {fileID: 7728886563200359817, guid: e7311e1b8600dfd40832ed2943a07025, type: 3}
+  _usePool: 1
 --- !u!1 &2966856015085641249
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,6 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 2966856015498644706}
   _prefab: {fileID: 7728886563200359817, guid: 72a598e5e845cb9409818ee4d51d6bd8, type: 3}
+  _usePool: 0
 --- !u!1 &2966856015601828866
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,6 +302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 2966856015622791432}
   _prefab: {fileID: 7728886563200359817, guid: cfb0c6b364f8be44bb8b5a0a0e7b2be2, type: 3}
+  _usePool: 1
 --- !u!1 &2966856016397593947
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,6 +620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 2966856016655606599}
   _prefab: {fileID: 7728886563200359817, guid: 61189be48af1b764c9b351041d1698ec, type: 3}
+  _usePool: 1
 --- !u!1 &3685091098587114075
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,6 +666,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 6243509977685474016}
   _prefab: {fileID: 7728886563200359817, guid: 51f002ec576ff7d46bacfa5b80b7c83f, type: 3}
+  _usePool: 0
 --- !u!1 &3826060415361691579
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,18 +889,7 @@ MonoBehaviour:
         m_CallState: 2
   _onChange:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 588240321}
-        m_MethodName: UpdateHealthBar
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2966856015008223243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1425,6 +1419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 4160650314533058095}
   _prefab: {fileID: 7728886563200359817, guid: 2292215a28d83a74090914626e0e9443, type: 3}
+  _usePool: 0
 --- !u!1 &8009624156785106832
 GameObject:
   m_ObjectHideFlags: 0

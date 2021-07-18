@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2941211611749437116}
   - component: {fileID: 8319891693285745907}
   - component: {fileID: 7034398014313187105}
+  - component: {fileID: 2417961995905626558}
   m_Layer: 15
   m_Name: StuckSword
   m_TagString: Untagged
@@ -182,8 +183,8 @@ MonoBehaviour:
   _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -357586498422944283}
-        m_MethodName: DestroyObject
+      - m_Target: {fileID: 7034398014313187105}
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -193,8 +194,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7034398014313187105}
-        m_MethodName: Play
+      - m_Target: {fileID: 2417961995905626558}
+        m_MethodName: Release
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -250,6 +251,9 @@ MonoBehaviour:
   _exitAction:
     m_PersistentCalls:
       m_Calls: []
+  _stay2DAction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7034398014313187105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,3 +267,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _clip: {fileID: 8300000, guid: a311af8d30e8248039087421007391e9, type: 3}
+--- !u!114 &2417961995905626558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7728886563200359817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a23dad31479094589b07062d42ff87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onRestart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7728886563200359819}
+        m_MethodName: SetClip
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: idle
+          m_BoolArgument: 0
+        m_CallState: 2

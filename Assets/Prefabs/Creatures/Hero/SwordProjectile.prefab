@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -9004165742564884559}
   - component: {fileID: 4463230639316373534}
   - component: {fileID: -8954048012069178980}
+  - component: {fileID: 4585977017692572081}
   m_Layer: 0
   m_Name: SwordProjectile
   m_TagString: Untagged
@@ -104,7 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - _name: 
+  - _name: idle
     _sprites:
     - {fileID: 21300000, guid: fc79ad75ef16c63479943bfe84fa296e, type: 3}
     - {fileID: 21300000, guid: 2cb9b4d3affe51b49a8aa5eb3f3b2b34, type: 3}
@@ -213,17 +214,6 @@ MonoBehaviour:
   _enterAction:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -357586498422944283}
-        m_MethodName: DestroyObject
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 8671668943609561177}
         m_MethodName: ChangeHealthAmount
         m_Mode: 0
@@ -235,7 +225,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4585977017692572081}
+        m_MethodName: Release
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _exitAction:
+    m_PersistentCalls:
+      m_Calls: []
+  _stay2DAction:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &-8954048012069178980
@@ -268,8 +272,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: -357586498422944283}
-        m_MethodName: DestroyObject
+      - m_Target: {fileID: 4585977017692572081}
+        m_MethodName: Release
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -282,6 +286,46 @@ MonoBehaviour:
   _exitAction:
     m_PersistentCalls:
       m_Calls: []
+  _stay2DAction:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &4585977017692572081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7728886563200359817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a23dad31479094589b07062d42ff87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onRestart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7728886563200359819}
+        m_MethodName: SetClip
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: idle
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: -9004165742564884559}
+        m_MethodName: Restart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8710478417329430516
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,3 +371,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 9124129734979302286}
   _prefab: {fileID: 7728886563200359817, guid: 8d38c94a246881448a57d644baf45f68, type: 3}
+  _usePool: 1
