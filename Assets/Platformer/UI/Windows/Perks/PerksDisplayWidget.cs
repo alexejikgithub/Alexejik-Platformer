@@ -30,7 +30,7 @@ namespace Platformer.UI.Windows.Perks
 
 		public void OnLoad()
 		{
-			_session = FindObjectOfType<GameSession>();
+			_session = GameSession.Instance;
 			_session.PerksModel.SelectPerk(_session.PerksModel.SelectedPerk);
 		}
 
@@ -59,7 +59,7 @@ namespace Platformer.UI.Windows.Perks
 
 		//private void Start()
 		//{
-		//	_session = FindObjectOfType<GameSession>();
+		//	_session = GameSession.Instance;
 		//	PerkIsReady = true;
 		//	UpdateView();
 		//	_speedUpCooldown.Value = _cooldownTime; 

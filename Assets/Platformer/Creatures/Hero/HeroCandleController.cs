@@ -25,7 +25,7 @@ namespace Platformer.Creatures.Hero
 
 		private void Start()
 		{
-			_session = FindObjectOfType<GameSession>();
+			_session = GameSession.Instance;
 		}
 		void Update()
 		{

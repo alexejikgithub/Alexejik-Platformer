@@ -3904,6 +3904,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 1583863299}
   _prefab: {fileID: 2032397210555660395, guid: 06a62dd4d82589842ba06e6c561e502d, type: 3}
+  _usePool: 0
 --- !u!114 &1157986685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4754,16 +4755,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _settings:
-  - _projectile: {fileID: 2016041556505374715, guid: c3c092a2da4b8de43bc38e003accb48d,
-      type: 3}
-    _burstCount: 10
-    _itemPerBurst: 2
-    _delay: 0.2
-  - _projectile: {fileID: 2016041556505374715, guid: c3c092a2da4b8de43bc38e003accb48d,
-      type: 3}
-    _burstCount: 21
-    _itemPerBurst: 3
-    _delay: 0.07
+  - _sequence:
+    - _projectile: {fileID: 2016041556505374715, guid: c3c092a2da4b8de43bc38e003accb48d,
+        type: 3}
+      _burstCount: 10
+      _itemPerBurst: 1
+      _delay: 0.2
+    - _projectile: {fileID: 2016041556505374715, guid: c3c092a2da4b8de43bc38e003accb48d,
+        type: 3}
+      _burstCount: 10
+      _itemPerBurst: 10
+      _delay: 0
+  - _sequence:
+    - _projectile: {fileID: 2016041556505374715, guid: c3c092a2da4b8de43bc38e003accb48d,
+        type: 3}
+      _burstCount: 20
+      _itemPerBurst: 1
+      _delay: 0.1
 --- !u!114 &1647476074
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -22,7 +22,7 @@ namespace Platformer.Components.LevelManagement
 		private void Start()
 		{
 			
-			_session = FindObjectOfType<GameSession>();
+			_session = GameSession.Instance;
 			if (_session.IsChecked(_id))
 			{
 				_setChecked?.Invoke();

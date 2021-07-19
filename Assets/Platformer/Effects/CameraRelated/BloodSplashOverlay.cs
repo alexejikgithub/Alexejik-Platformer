@@ -29,7 +29,7 @@ namespace Platformer.Effects.CameraRelated
 			_animator = GetComponent<Animator>();
 			_overScale = _overlay.localScale - Vector3.one;
 
-			_session = FindObjectOfType<GameSession>();
+			_session = GameSession.Instance;
 			_trash.Retain(_session.Data.Hp.SubscribeAndInvoke(OnHpChanged));
 
 		}

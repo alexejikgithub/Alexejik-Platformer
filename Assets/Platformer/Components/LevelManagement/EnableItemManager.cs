@@ -20,7 +20,7 @@ namespace Assets.Platformer.Components.LevelManagement
 
 		//private void Start()
 		//{
-		//	_session = FindObjectOfType<GameSession>();
+		//	_session = GameSession.Instance;
 		//}
 		//public void ChangeToDead()
 		//{

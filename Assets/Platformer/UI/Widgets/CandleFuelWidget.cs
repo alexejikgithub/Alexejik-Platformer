@@ -24,7 +24,7 @@ namespace Platformer.UI.Widgets
 
 		public void OnLoad()
 		{
-			_session = FindObjectOfType<GameSession>();
+			_session = GameSession.Instance;
 		}
 
 

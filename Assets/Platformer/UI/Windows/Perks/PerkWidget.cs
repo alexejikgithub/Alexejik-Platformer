@@ -19,7 +19,7 @@ namespace Platformer.UI.Windows.Perks
 
 		private void Start()
 		{
-			_session = FindObjectOfType<GameSession>();
+			_session = GameSession.Instance;
 			UpdateView();
 		}
 

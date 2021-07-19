@@ -12,7 +12,7 @@ namespace Platformer.Components.Collectables
 		
 		void Start()
 		{
-			Session = FindObjectOfType<GameSession>();
+			Session = GameSession.Instance;
 		}
 
 	

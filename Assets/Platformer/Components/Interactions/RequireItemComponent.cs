@@ -16,7 +16,7 @@ namespace Platformer.Components.Interactions
 
 		public void Check()
 		{
-			var session = FindObjectOfType<GameSession>();
+			var session = GameSession.Instance;
 			var areAllRequirementsMet = true;
 			foreach (var item in _required)
 			{

@@ -25,7 +25,7 @@ namespace Platformer.Components.Health
 
 		private void Start()
 		{
-			_session = FindObjectOfType<GameSession>();
+			_session = GameSession.Instance;
 		}
 
 		private enum ChangingHealsStates

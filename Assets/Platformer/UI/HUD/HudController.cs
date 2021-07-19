@@ -30,7 +30,7 @@ namespace Platformer.UI.HUD
 		private void Start()
 		{
 
-			_session = FindObjectOfType<GameSession>();
+			_session = GameSession.Instance;
 			_trash.Retain(_session.Data.Hp.SubscribeAndInvoke(OnHealthChanged));
 			//_session.Data.Hp.OnChanged -= OnHealthChanged; // костыль для перехода в сцены
 			//_session.Data.Hp.OnChanged += OnHealthChanged;

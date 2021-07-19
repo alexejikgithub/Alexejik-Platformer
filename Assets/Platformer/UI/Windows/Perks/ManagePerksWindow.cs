@@ -29,7 +29,7 @@ namespace Platformer.UI.Windows.Perks
 		{
 			base.Start();
 			_dataGroup = new PredefinedDataGroup<PerkDef, PerkWidget>(_perksContainer);
-			_session = FindObjectOfType<GameSession>();
+			_session = GameSession.Instance;
 
 
 			_trash.Retain(_session.PerksModel.Subscribe(OnPerksChanged));
