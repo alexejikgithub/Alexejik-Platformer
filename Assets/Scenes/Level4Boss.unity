@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -629,9 +629,7 @@ MonoBehaviour:
   m_AnimatedTarget: {fileID: 127632215}
   m_LayerIndex: 0
   m_ShowDebugText: 0
-  m_ChildCameras:
-  - {fileID: 1728774428}
-  - {fileID: 1437411290}
+  m_ChildCameras: []
   m_Instructions:
   - m_FullHash: 1795680819
     m_VirtualCamera: {fileID: 1728774428}

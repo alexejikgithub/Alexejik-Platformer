@@ -79,6 +79,7 @@ namespace Platformer.Movement
 			UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.forward, _radius);
 
 		}
-	}
 #endif
+	}
+
 }

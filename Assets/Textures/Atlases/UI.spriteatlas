@@ -23,7 +23,7 @@ SpriteAtlas:
     platformSettings:
     - serializedVersion: 3
       m_BuildTarget: DefaultTexturePlatform
-      m_MaxTextureSize: 2048
+      m_MaxTextureSize: 8192
       m_ResizeAlgorithm: 0
       m_TextureFormat: -1
       m_TextureCompression: 0
@@ -38,8 +38,8 @@ SpriteAtlas:
       padding: 4
       blockOffset: 1
       allowAlphaSplitting: 0
-      enableRotation: 1
-      enableTightPacking: 1
+      enableRotation: 0
+      enableTightPacking: 0
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: e395385a54fb54245bcda520475fdb62, type: 3}
@@ -47,6 +47,7 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: d3e906f06c7535a4fa7e15d5addaec25, type: 3}
+  - {fileID: 21300000, guid: 988628016c174cc4c8af69c9aa373796, type: 3}
   - {fileID: 21300000, guid: e4a0ab01b660fb04cbfa4e6eb2347238, type: 3}
   - {fileID: 5085415284296604745, guid: 4a7da211558687f43909bdc100d77852, type: 3}
   - {fileID: 2389193319765324094, guid: 4a7da211558687f43909bdc100d77852, type: 3}
@@ -58,11 +59,15 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 4fdeb8c14da7c6549837906a5b79cd3f, type: 3}
   - {fileID: 21300000, guid: 987c39f17cc6e534a8294df63c5fe45f, type: 3}
   - {fileID: 21300000, guid: 80f0101254d58dc4aaf58b80656636a6, type: 3}
+  - {fileID: 21300000, guid: 3b7ae5338cea2794c8883468416d6df7, type: 3}
+  - {fileID: 21300000, guid: 1b4c25a34c8349241b369ee04bd61855, type: 3}
+  - {fileID: 21300000, guid: d2fd8434b50ae4441a312d4830cf6f22, type: 3}
   - {fileID: 21300000, guid: 778cd86432545de43a1bd49376797fa3, type: 3}
   - {fileID: 21300000, guid: a4a39dc4b3aa36045a7ce0da44c452c7, type: 3}
   - {fileID: 21300000, guid: 0b3a3a159d5d49749ba7a33644008e18, type: 3}
   - {fileID: 21300000, guid: 7cab9a35a5788624d92c8695424db240, type: 3}
   - {fileID: 21300000, guid: 6791a675592e08a4d9bf9ce3d379d6b3, type: 3}
+  - {fileID: 21300000, guid: 5c10e4b58fc76a9448c819472a4957d0, type: 3}
   - {fileID: 21300000, guid: 6bb7b0d52bef9754a903eda6479ad7c4, type: 3}
   - {fileID: 21300000, guid: 165e53e5f256bc74ebafd1a19afb4b0e, type: 3}
   - {fileID: 21300000, guid: e6feb006d9d30c640966350796227cf3, type: 3}
@@ -82,10 +87,13 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 023956794b0cb704d8da5ff17535778e, type: 3}
   - {fileID: 21300000, guid: a4535bc98504ec24aa8f0e1e807f9322, type: 3}
   - {fileID: 21300000, guid: 9cdea9e9f7c61004eb402affa45a47e0, type: 3}
+  - {fileID: 21300000, guid: 77c86df904f858544ae7d00a7b10cdcd, type: 3}
   - {fileID: 21300000, guid: 61c673aaea4c3ca408eceb1dd845314c, type: 3}
+  - {fileID: 21300000, guid: 323ac1da197e0ec4f9078ad31ac3cd27, type: 3}
   - {fileID: 21300000, guid: 4e567f3bf8172354db4896a178ddd303, type: 3}
   - {fileID: 21300000, guid: a87396abe3de18f40b614c0ee3200be7, type: 3}
   - {fileID: 21300000, guid: 41d1e8ab83b653640bc283347309622e, type: 3}
+  - {fileID: 21300000, guid: 3fb5c4cb17f8f7940b4f5f1137a17243, type: 3}
   - {fileID: 21300000, guid: 2628a6fbd928f0c47a11c4a7c03e0ba7, type: 3}
   - {fileID: 21300000, guid: 26b8971c52215d24f9f8b8854acb7658, type: 3}
   - {fileID: 21300000, guid: 3689fb1da7cfd9b43a65e27908847a92, type: 3}
@@ -100,6 +108,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 08d0916fe9a76254491e65bdd949bf17, type: 3}
   m_PackedSpriteNamesToIndex:
   - dowble-jump
+  - 6
   - ShieldSprite
   - shield_1
   - shield_0
@@ -111,11 +120,15 @@ SpriteAtlas:
   - common-button-selected
   - S_Bow13
   - item-selection
+  - 1
+  - 3
+  - 8
   - yellow
   - yellow-box-tall
   - I_Clover
   - green-box-tall
   - geen-box-small
+  - 2
   - slider-horizontal-handle
   - SmallSquareBar
   - enemy-big
@@ -135,10 +148,13 @@ SpriteAtlas:
   - common-button-disabled
   - Check_Mark
   - Cap
+  - 5
   - item-small
+  - 4
   - common-button-pressed
   - slider-horizontal
   - green-box-large
+  - 7
   - inventory-small
   - yellow-box-large
   - yellow-Panel

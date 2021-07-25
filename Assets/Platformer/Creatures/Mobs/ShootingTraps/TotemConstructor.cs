@@ -21,12 +21,12 @@ namespace Platformer.Creatures.Mobs.ShootingTraps
 			return _heads;
 		}
 
-		
+
 
 #if UNITY_EDITOR
-			private void Update()
+		private void Update()
 		{
-			
+
 			while (_heads.Count < _numOfHeads)
 			{
 				int steps = _heads.Count;
@@ -53,6 +53,7 @@ namespace Platformer.Creatures.Mobs.ShootingTraps
 
 
 		}
-	}
 #endif
+	}
+
 }

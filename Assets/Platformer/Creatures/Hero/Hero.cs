@@ -3,8 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Platformer.Utils;
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.Animations;
+#endif
+
 using Platformer.Model;
 using Platformer.Components.ColliderBased;
 using Platformer.Components.Health;
@@ -41,8 +44,8 @@ namespace Platformer.Creatures.Hero
 		//[SerializeField] private CoinCounter _coinCunter;
 
 		[SerializeField] private Cooldown _throwCooldown;
-		[SerializeField] private AnimatorController _armed;
-		[SerializeField] private AnimatorController _unarmed;
+		[SerializeField] private RuntimeAnimatorController _armed;
+		[SerializeField] private RuntimeAnimatorController _unarmed;
 
 		[Space]
 		[Header("Super throw")]
@@ -128,7 +131,7 @@ namespace Platformer.Creatures.Hero
 
 		private void Start()
 		{
-			_session = FindObjectOfType<GameSession>();
+			_session = GameSession.Instance;
 			_perksDisplay = FindObjectOfType<PerksDisplayWidget>();
 			_cameraShake = FindObjectOfType<CameraShakeEffect>();
 

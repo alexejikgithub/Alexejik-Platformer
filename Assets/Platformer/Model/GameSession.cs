@@ -10,6 +10,7 @@ using Platformer.UI.Windows.Perks;
 using Platformer.Utils.Disposables;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -71,7 +72,7 @@ namespace Platformer.Model
 		private void StartSession(string defaultCheckpoint)
 		{
 			SetChecked(defaultCheckpoint);
-			LoadHud();
+			LoadUIs();
 			SpawnHero();
 
 			// Previous attempt to make permanently destroyed objects
@@ -134,9 +135,16 @@ namespace Platformer.Model
 			_data.Hp.Value = (int)StatsModel.GetValue(StatId.Hp);
 		}
 
-		private void LoadHud()
+		private void LoadUIs()
 		{
 			SceneManager.LoadScene("Hud", LoadSceneMode.Additive);
+			LoadOnScreenControls();
+		}
+
+		[Conditional("USE_ON_SCREEN_CONTROLS")]
+		private void LoadOnScreenControls()
+		{
+			SceneManager.LoadScene("Controls", LoadSceneMode.Additive);
 		}
 
 		private GameSession GetExistingSession()

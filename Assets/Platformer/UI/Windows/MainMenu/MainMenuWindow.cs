@@ -27,6 +27,7 @@ namespace Platformer.UI.MainMenu
 		public void OnLanguages()
 		{
 			WindowUtils.CreateWindow("UI/LocalizationWindow");
+			throw new Exception("testException");
 		}
 		public void OnShowSettings()
 		{
