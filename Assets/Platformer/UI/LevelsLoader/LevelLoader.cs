@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.SceneManagement;
 
 namespace Platformer.UI.LevelsLoader
@@ -19,6 +20,7 @@ namespace Platformer.UI.LevelsLoader
 		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
 		static void OnAfterSceneLoad()
 		{
+			AnalyticsEvent.debugMode = true;
 			InitLoader();
 		}
 

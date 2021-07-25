@@ -23,6 +23,7 @@ using Platformer.UI.Windows.Perks;
 using Platformer.Model.Definitions.Player;
 using Platformer.Model.Data.Properties;
 using Platformer.Effects.CameraRelated;
+using UnityEngine.Analytics;
 
 namespace Platformer.Creatures.Hero
 
@@ -253,6 +254,7 @@ namespace Platformer.Creatures.Hero
 			_throwCooldown.Reset();
 		}
 
+		private int _superThrowCount;
 		public void OnDoThrow()
 		{
 			if (_superThrow && SuperThrowpPerkCanBePerformed)
@@ -263,6 +265,13 @@ namespace Platformer.Creatures.Hero
 				var numThrows = Mathf.Min(_superThrowParticles, possibleCount);
 				_session.PerksModel.Cooldown.Reset();
 				StartCoroutine(DoSuperThrow(numThrows));
+				_superThrowCount++;
+				AnalyticsEvent.Custom("use-super-throw", new Dictionary<string, object>
+				{
+					{ "count",_superThrowCount },
+					
+				}
+				);
 
 			}
 			else

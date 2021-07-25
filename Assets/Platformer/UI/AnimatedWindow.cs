@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 namespace Platformer.UI
 {
@@ -11,6 +12,8 @@ namespace Platformer.UI
 
 		protected virtual void Start()
 		{
+
+			AnalyticsEvent.ScreenVisit(gameObject.name);
 			_animator = GetComponent<Animator>();
 
 			_animator.SetTrigger(Show);

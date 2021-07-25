@@ -13,12 +13,14 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.SceneManagement;
 
 namespace Platformer.Model
 {
 	public class GameSession : MonoBehaviour
 	{
+		[SerializeField] private int _levelIndex;
 		[SerializeField] private PlayerData _data;
 		[SerializeField] private string _defaultCheckpoint;
 
@@ -44,10 +46,17 @@ namespace Platformer.Model
 
 		private void Awake()
 		{
+
+			//level_start
+			//level_index
+			//level_complete
+
+
 			var existsingSession = GetExistingSession();
 			if (existsingSession != null)
 			{
-				existsingSession.StartSession(_defaultCheckpoint);
+				existsingSession.StartSession(_defaultCheckpoint, _levelIndex);
+				
 				Destroy(gameObject);
 				
 
@@ -60,7 +69,7 @@ namespace Platformer.Model
 				
 				DontDestroyOnLoad(this);
 				Instance = this;
-				StartSession(_defaultCheckpoint);
+				StartSession(_defaultCheckpoint, _levelIndex);
 			}
 
 			
@@ -69,14 +78,25 @@ namespace Platformer.Model
 			
 		}
 
-		private void StartSession(string defaultCheckpoint)
+		private void StartSession(string defaultCheckpoint, int levelIndex)
 		{
 			SetChecked(defaultCheckpoint);
+			TrackSessionStart(levelIndex);
 			LoadUIs();
 			SpawnHero();
+			
 
 			// Previous attempt to make permanently destroyed objects
 			// EnableitemsOnLevel();
+		}
+
+		private void TrackSessionStart(int levelIndex)
+		{
+			var eventParams = new Dictionary<string, object>
+			{
+				{"level_index", levelIndex }
+			};
+			AnalyticsEvent.Custom("level_start", eventParams);
 		}
 
 		private void SpawnHero()
