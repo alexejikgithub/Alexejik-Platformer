@@ -12,6 +12,7 @@ TagManager:
   - SimpleDialog
   - PersonalizedDialog
   - GlobalPostEffect
+  - MovingPlatform
   layers:
   - Default
   - TransparentFX
@@ -32,7 +33,7 @@ TagManager:
   - Walls
   - Bomb
   - Liquid
-  - 
+  - PlatformBoundaries
   - 
   - 
   - 
