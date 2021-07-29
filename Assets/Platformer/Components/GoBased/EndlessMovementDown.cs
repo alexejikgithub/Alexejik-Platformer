@@ -11,7 +11,7 @@ namespace Platformer.Components.GoBased
 
 
 	
-	public class MovingDownPlatform: MonoBehaviour
+	public class EndlessMovementDown: MonoBehaviour
 	{
 		[SerializeField] private float _movingSpeed;
 		[SerializeField] private float _startYPoint;
