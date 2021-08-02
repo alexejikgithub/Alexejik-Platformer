@@ -9,7 +9,7 @@ public class SpiderBossStage1 : StateMachineBehaviour
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
 	{
 		var bossController = animator.GetComponent<SpiderBossController>();
-		bossController.StartMovement();
+		bossController.InitiateStage1();
 	}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

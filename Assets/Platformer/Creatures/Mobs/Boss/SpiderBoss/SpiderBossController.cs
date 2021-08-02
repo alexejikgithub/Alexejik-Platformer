@@ -11,6 +11,12 @@ namespace Platformer.Creatures.Mobs.Boss.SpiderBoss
 	public class SpiderBossController : MonoBehaviour
 	{
 		[SerializeField] private EndlessMovementDown[] _movingObjects;
+		[SerializeField] private GameObject _enterDoorTiles;
+		[SerializeField] private GameObject _groundTiles;
+		[SerializeField] private GameObject _rockSpawner;
+		
+
+
 
 		public void StartMovement()
 		{
@@ -26,5 +32,17 @@ namespace Platformer.Creatures.Mobs.Boss.SpiderBoss
 				item.Stop();
 			}
 		}
+
+		public void InitiateStage1()
+		{
+			StartMovement();
+			_enterDoorTiles.SetActive(true);
+			_groundTiles.SetActive(false);
+		}
+		public void InitiateStage2()
+		{
+			_rockSpawner.SetActive(true);
+		}
+
 	}
 }

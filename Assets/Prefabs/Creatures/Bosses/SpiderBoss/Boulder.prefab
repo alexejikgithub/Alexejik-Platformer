@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1865984266462992438}
   - component: {fileID: 1865984266462992441}
   - component: {fileID: 1865984266462992440}
+  - component: {fileID: 2888849511632241823}
   m_Layer: 17
   m_Name: Boulder
   m_TagString: Untagged
@@ -120,7 +121,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0.5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -5019,3 +5020,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 1865984266462992447}
   _state: {fileID: 0}
+--- !u!114 &2888849511632241823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865984266462992447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678d0feda42ac0146a83a5672b481dcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tag: Enemy
+  _action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1865984266462992437}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1865984266462992445}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1865984266462992442}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
