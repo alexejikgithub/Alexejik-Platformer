@@ -1355,7 +1355,7 @@ MonoBehaviour:
   _enterAction:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1263596732}
         m_MethodName: OnHeroInVision
         m_Mode: 0
         m_Arguments:
@@ -1688,6 +1688,112 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09176829311496a40a95e974d00d4e75, type: 3}
+--- !u!1 &354186718
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 354186719}
+  - component: {fileID: 354186722}
+  - component: {fileID: 354186721}
+  - component: {fileID: 354186720}
+  m_Layer: 12
+  m_Name: PhisicalBody
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &354186719
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354186718}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1263596730}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &354186720
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354186718}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &354186721
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354186718}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0028888583, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.12157363
+--- !u!114 &354186722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354186718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d119d2e57e7ebe546bb900a4cae7c715, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 3
+  _onDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  _onHealing:
+    m_PersistentCalls:
+      m_Calls: []
+  _onDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 698039550}
+        m_MethodName: DestroyObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &389744806
 GameObject:
   m_ObjectHideFlags: 0
@@ -1980,7 +2086,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &431595198
 GameObject:
@@ -2930,9 +3036,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 698039547}
-  m_Layer: 0
+  - component: {fileID: 698039550}
+  m_Layer: 12
   m_Name: SmallSpider
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2948,12 +3055,25 @@ Transform:
   m_LocalPosition: {x: -1.28, y: 12.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1513612535}
   - {fileID: 1699468957}
   - {fileID: 1263596730}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &698039550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698039546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f2e5a58ba6ea584e86324ce8078204d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectToDestroy: {fileID: 698039546}
+  _state: {fileID: 0}
 --- !u!1 &699067396
 GameObject:
   m_ObjectHideFlags: 0
@@ -3382,7 +3502,18 @@ MonoBehaviour:
     _allowNext: 0
     _onComplete:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 875801531}
+          m_MethodName: SetClip
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: walk
+            m_BoolArgument: 0
+          m_CallState: 2
   - _name: ready
     _sprites:
     - {fileID: 21300000, guid: edaa33940dcf6d649a5f324f4435b28b, type: 3}
@@ -3391,6 +3522,32 @@ MonoBehaviour:
     _onComplete:
       m_PersistentCalls:
         m_Calls: []
+  - _name: Dead
+    _sprites:
+    - {fileID: 21300000, guid: 106b2c6f2d27b114288165dbb2f25fab, type: 3}
+    - {fileID: 21300000, guid: 2dad44a1dfadbae4182e137d53904b49, type: 3}
+    - {fileID: 21300000, guid: c9a80d6156dcc384c947e9f1e17bb647, type: 3}
+    - {fileID: 21300000, guid: 98963e652912e7647ba8dd073afb987c, type: 3}
+    - {fileID: 21300000, guid: 0bf60969ff4b63542a91c156fd865256, type: 3}
+    - {fileID: 21300000, guid: 2e516e78a58caed46817ec5814683cb5, type: 3}
+    - {fileID: 21300000, guid: 2d3d4547ee347ff4abc41021810ae8b7, type: 3}
+    - {fileID: 21300000, guid: b25a657270a523a42abcd244bb6ec2a4, type: 3}
+    _loop: 0
+    _allowNext: 0
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!212 &875801532
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3453,7 +3610,7 @@ Transform:
   m_LocalScale: {x: 1, y: -1, z: 1}
   m_Children: []
   m_Father: {fileID: 1263596730}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &908548508 stripped
 GameObject:
@@ -3952,6 +4109,8 @@ GameObject:
   - component: {fileID: 1263596729}
   - component: {fileID: 1263596728}
   - component: {fileID: 1263596731}
+  - component: {fileID: 1263596732}
+  - component: {fileID: 1263596733}
   m_Layer: 0
   m_Name: SmallSpiderAI
   m_TagString: Untagged
@@ -4034,10 +4193,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 354186719}
   - {fileID: 875801533}
   - {fileID: 1648408840}
   m_Father: {fileID: 698039547}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1263596731
 MonoBehaviour:
@@ -4052,7 +4212,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  target: {fileID: 0}
+  target: {fileID: 2079340396}
+--- !u!114 &1263596732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263596727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1919d099db9a9fa43ad6061568a01733, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destinationSetter: {fileID: 1263596731}
+  _animator: {fileID: 875801531}
+  _attackRange: {fileID: 994243661}
+  _patrol: {fileID: 1699468958}
+  _vision: {fileID: 252662758}
+  _canAttack: {fileID: 994243658}
+  _alarmDelay: 0.1
+  _attackCooldown: 1
+  _missHeroCooldown: 1
+--- !u!114 &1263596733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263596727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a6365be4227aa246bca815e5eed410e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawners:
+  - Id: Exclamation
+    Component: {fileID: 255671466}
+  - Id: MissHero
+    Component: {fileID: 1133387211}
 --- !u!1001 &1286487134
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5094,11 +5292,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1513612530}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.51, y: -6.8499994, z: -0.05517578}
+  m_LocalPosition: {x: -2.79, y: 5.63, z: -0.05517578}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 698039547}
-  m_RootOrder: 0
+  m_Father: {fileID: 1696765405}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1525489534 stripped
 GameObject:
@@ -5543,7 +5741,7 @@ Transform:
   - {fileID: 255671465}
   - {fileID: 1133387210}
   m_Father: {fileID: 1263596730}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1674425715
 PrefabInstance:
@@ -5555,7 +5753,7 @@ PrefabInstance:
     - target: {fileID: 8448900857018120052, guid: 157c03a2cf7abb74194ffcd8c56efe97,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8448900857018120052, guid: 157c03a2cf7abb74194ffcd8c56efe97,
         type: 3}
@@ -5651,6 +5849,7 @@ Transform:
   - {fileID: 1547986170}
   - {fileID: 908548509}
   - {fileID: 24439068}
+  - {fileID: 1513612535}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5685,7 +5884,7 @@ Transform:
   m_Children:
   - {fileID: 2079340396}
   m_Father: {fileID: 698039547}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1699468958
 MonoBehaviour:
@@ -9183,7 +9382,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079340395}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.1148326, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1699468957}
@@ -9325,7 +9524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAYIexW3HIQgAIAACsFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1zmzAQ/SsenWsPYDCkt5Q4Tg/5mLqdXLjIaDEag8RIIraT8X/vSoChri8Wb/c97b5d+CJc6AZyI9VGcfYsGZDvM3LPPqjIgZFvszHhCU50L8WWf8KQ986ZKW0SdTm/qOEScd/StKzBKJ7fi31lkz0EW8ELqeo120MqtdEIF7TSgCEljWULhL5m5IR/8ztLOeMpiO3pE0933uyCxxyEATVJ9RZhtIrjYBnEPccPFkkSIrrqqdFiuQrDYLmee4kTaUVe0boBZjsatXx/EXr2txqU4g7wI0cT2HvP8BY2J5dVxXVfOjHnxlmT0ka32DgmME7RClevv7DelMD3pbGNTemvRaHB9E4pen7gCj3tdMkP2RldU33oav2gVWtvWt0lSddQJ/v8X8bcd+FCyfppuNn37C2m5PnhFz3nVJvJLKbww6R4Z9qRVge6q+C9BPEiN0q2gmHQqNZSWw3Bw/h4bS4tIT+MeFfqDdg24xSG0Q+Dtz1cXP+ntOL1zrkfdsC2ks5zty+gcD4/sWC3TbqXQNRW8UfDb7qfrl0feORKGwz1XQpb3k62yqaStfPMdtOaVCoBDu6LbkDQypzfUMbcDvEmNrn2JvJI7QvWX97HhvfmhuLgMd/zbkJv8ngdli7l8Rl0+dqaigsYi7aBF/QplUJ0Ozb1ZKBtW1XQfELbt5z9u1okiuMo9GlI/ciHVczmuyIKWeIlsIQooB4lbve4wD5p9dYV2tuDUxOjuMA9s4r2OzTbKNq4fWeKHjf8s5YTy7ko5DZXAOK1U7gWDgovwXeTrRlHg7ZgDBdu3uQrI5XMD8Cyq1DmOl2fjKLZqJKRhn9IY5GMpO5Dk5ELufwFUEsDBBQAAAgIAAAYIewRuYSRbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM01VFQSi9KLMgoBooYgjilmSkgdrSSqbm5qYlhokmioalhqpl5im5SmqlJioWBRapxqqlRokGiUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAYIexW3HIQgAIAACsFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAYIewRuYSRbQAAAHgAAAAJACQAAAAAAAAAAAAAAM0CAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAhQMAAAAA
+    dataString: UEsDBBQAAAgIAAAYIewLVeqLgAIAACsFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE2TojAQ/StWzqsFCOLsbZZxnD3MR627NRcukTSSMiZUEkadKf/7dgII63oxvO7Xef264YtwaWoorNJrzdmzYkC+T8g9+6CyAEa+TYaEJzjRnZIb/gl93jtntnJJ1Of8opYrxENHM+oAVvPiXu6ESw4QbCQvlT6s2A4yZaxBuKTCAIa0so4tEfqakBP+Te8c5YynKHWnTzzdBZMLHguQFvQoNZjFySJNo3mUdpwwmi2XMaKLjprM5os4juarabD0RRpZCHqogbmOhlphOIsD91v0ldIWCBNPk9h7xwhmLqdQQnDTSSf2XHtrMlqbBhvHBMYpWuH1hjPnTQV8V1nX2Jj+WpYGbOeUpucHrtHTti75oVqjD9TsW60fVDTupkWS3kVeWVv2+b+MaejDpVaHp/7mMHC32IoX+1/0XFBjR7MYww8j8d60IxV7uhXwXoF8UWutGskwaHXjqI2B6GF4vDaXVVDsB7yVegM29TCFfvT94F0PF9//KRP8sPXuxy2wEcp77vcFNM7nJwr222S6Eog6FX8M/Ka78dp1gUeujcVQ16V08raq0S6VrLxnrpvGZkpL8HAnugZJhT2/YRl7O8Sb2Ojam8gjdS9Yd3kX69+bG4qHh/wguAm9qeN1WKZSx2cw1WtjBZcwiHaBF/QpU1K2Ozb2pKdtGl3SYkTbNZz9u1okSdMkDmlMwySERcqm2zKJ2TJYwhySiAaU+N3jEvuk4q0V2tmDU5NDcYl75iq679BkrWnt951pelzzz4MaWc5lqTaFBpCvbYWrcNB4Cb6bbMU4GrQBa7n08yZfORGq2APLr4Vy3+nqZDXNhyo5qfmHsg7JSeY/NDm5kMtfUEsDBBQAAAgIAAAYIewRuYSRbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM01VFQSi9KLMgoBooYgjilmSkgdrSSqbm5qYlhokmioalhqpl5im5SmqlJioWBRapxqqlRokGiUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAYIewLVeqLgAIAACsFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAYIewRuYSRbQAAAHgAAAAJACQAAAAAAAAAAAAAAM0CAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAhQMAAAAA
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 

@@ -23,10 +23,16 @@ namespace Platformer.Creatures.Mobs.Patrolling
 
 		public Vector2[] PatrolPoints => _patrolPoints;
 
+		private void Awake()
+		{
+			CalculatePositions();
+		}
+
+		// Sets an array of Vector2s for _patrolPoints.
 		private void CalculatePositions()
 		{
 			var step = 2 * Mathf.PI / _numberOfPoints;
-			Debug.Log(step);
+			
 			Vector2 centerPosition = transform.position;
 			_patrolPoints = new Vector2[_numberOfPoints];
 			for (var i = 0; i < _numberOfPoints; i++)
@@ -47,6 +53,7 @@ namespace Platformer.Creatures.Mobs.Patrolling
 			CalculatePositions();
 		}
 
+		// Draws the patrol Area.
 		private void OnDrawGizmosSelected()
 		{
 			Gizmos.color = Color.yellow;
@@ -79,6 +86,8 @@ namespace Platformer.Creatures.Mobs.Patrolling
 				yield return null;
 			}
 		}
+
+		// Checks if patrol point is reached.
 		private bool IsOnPoint()
 		{
 			Debug.Log((_patrolPoints[_destinationPointIndex] - new Vector2(transform.position.x, transform.position.y)).magnitude);
