@@ -18,7 +18,7 @@ namespace Platformer.Components.ColliderBased
 
 		private void OnTriggerEnter2D(Collider2D other)
 		{
-			Debug.Log("!");
+
 			if (!other.gameObject.IsInLayer(_layer)) return;
 			
 			if (!string.IsNullOrEmpty(_tag) && !other.gameObject.CompareTag(_tag)) return;
@@ -29,7 +29,7 @@ namespace Platformer.Components.ColliderBased
 
 		private void OnTriggerExit2D(Collider2D other)
 		{
-			Debug.Log("!!");
+
 			if (!other.gameObject.IsInLayer(_layer)) return;
 
 			if (!string.IsNullOrEmpty(_tag) && !other.gameObject.CompareTag(_tag)) return;
@@ -41,7 +41,6 @@ namespace Platformer.Components.ColliderBased
 
 		private void OnTriggerStay2D(Collider2D other)
 		{
-			Debug.Log("!!!");
 			if (!other.gameObject.IsInLayer(_layer)) return;
 
 			if (!string.IsNullOrEmpty(_tag) && !other.gameObject.CompareTag(_tag)) return;

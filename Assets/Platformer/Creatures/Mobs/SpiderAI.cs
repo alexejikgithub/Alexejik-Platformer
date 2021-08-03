@@ -22,6 +22,7 @@ namespace Platformer.Creatures.Mobs
 
 		[SerializeField] private ColliderCheck _vision;
 		[SerializeField] private ColliderCheck _canAttack;
+		[SerializeField] private Rigidbody2D _rb;
 
 		[SerializeField] private float _alarmDelay = 0.1f;
 		[SerializeField] private float _attackCooldown = 1f;
@@ -113,10 +114,13 @@ namespace Platformer.Creatures.Mobs
 
 		public void OnDie()
 		{
-			_animator.SetClip("die");
+			
 			// Creature stops after death.
 			_isDead = true;
-			
+			_destinationSetter.target = null;
+			_rb.bodyType = RigidbodyType2D.Dynamic;
+			_rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+
 			if (_current != null)
 			{
 				StopCoroutine(_current);
