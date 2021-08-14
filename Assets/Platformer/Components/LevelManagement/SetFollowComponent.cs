@@ -8,16 +8,30 @@ namespace Platformer.Components.LevelManagement
 	[RequireComponent(typeof(CinemachineVirtualCamera))]
 	public class SetFollowComponent : MonoBehaviour
 	{
-
+		private CinemachineVirtualCamera _vCamera;
+		private Hero _hero;
 		private void Start()
 		{
-			var vCamera = GetComponent<CinemachineVirtualCamera>();
-			var hero = FindObjectOfType<Hero>();
-			if (hero != null)
+			_vCamera = GetComponent<CinemachineVirtualCamera>();
+			_hero = FindObjectOfType<Hero>();
+			SetFollowToHero();
+
+		}
+
+
+		public void SetFollow(GameObject obj)
+		{
+			Debug.Log(obj);
+			if(obj!=null)
 			{
-				vCamera.Follow = hero.transform;
+				_vCamera.Follow = obj.transform;
 			}
 
 		}
+		public void SetFollowToHero()
+		{
+			SetFollow(_hero.gameObject);
+		}
+
 	}
 }

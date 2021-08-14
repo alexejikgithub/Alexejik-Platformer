@@ -34,7 +34,10 @@ namespace Platformer.Creatures.Mobs
 
 		private SpawnListComponent _particles;
 		private bool _isDead;
-		
+
+		public bool IsDead => _isDead;
+
+
 
 		private void Awake()
 		{

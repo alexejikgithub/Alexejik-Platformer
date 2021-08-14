@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WebAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: ce6ea6292ca37ef4298903865aaa7e68, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: a5a4fac04aaf0e2459942206cc0ef721, type: 3}
+  - {fileID: 21300000, guid: 68d9c4919a067e24f94714bafcef57aa, type: 3}
+  - {fileID: 21300000, guid: cf8ab145af127fe4aac8d7cb878d9890, type: 3}
+  - {fileID: 21300000, guid: d0e8d8e6e00799048852cc0187f75fec, type: 3}
+  - {fileID: 21300000, guid: c43582673cbea0346a6edf32b950f8c1, type: 3}
+  - {fileID: 21300000, guid: c6e44bc800e81d64d92d7180822817c6, type: 3}
+  - {fileID: 21300000, guid: dc3a1ef92c8d13c4aa51479f3fb8c630, type: 3}
+  - {fileID: 21300000, guid: ceb133ba754eb5646a2658a4ea69728e, type: 3}
+  - {fileID: 21300000, guid: d53a46ba3e3f6e84894798cad580a2f0, type: 3}
+  - {fileID: 21300000, guid: 6a34c89ba6dac60418f63d80268608f8, type: 3}
+  - {fileID: 21300000, guid: 042050cb2a467264dabb063b8feb9e8a, type: 3}
+  - {fileID: 21300000, guid: 75e0350e544c8e1479a6e048e4c04a82, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - web3
+  - web1
+  - web3
+  - web3
+  - web1
+  - web1
+  - web2
+  - web3
+  - web2
+  - web1
+  - web2
+  - web2
+  m_Tag: WebAtlas
+  m_IsVariant: 0

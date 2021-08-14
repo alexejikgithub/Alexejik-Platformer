@@ -602,7 +602,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 19e4e1a35701d0946995836afbbf6afc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 14128dd016e55f64aa63f9c796bf5ce0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -629,12 +629,12 @@ MonoBehaviour:
   _clips:
   - _name: walk
     _sprites:
-    - {fileID: 21300000, guid: 7d101f91803da5f4ab34e6fe407d319d, type: 3}
-    - {fileID: 21300000, guid: adf9f27f381ebbf4993b6ffac89ff105, type: 3}
-    - {fileID: 21300000, guid: e4116ab1bf7b20b45958788bd7db6257, type: 3}
-    - {fileID: 21300000, guid: 14ff29ad532e4e54097633ba5d0f07ca, type: 3}
-    - {fileID: 21300000, guid: 0892b298002840d4a8248376e94c95c4, type: 3}
-    - {fileID: 21300000, guid: 7e84fec5b8ef72b439a5025fac164ade, type: 3}
+    - {fileID: 21300000, guid: 06c2c5e2aced7b9458ce15ca08e44f88, type: 3}
+    - {fileID: 21300000, guid: 1a5b7d92bb1033b41af59d8dbf548810, type: 3}
+    - {fileID: 21300000, guid: 0df6f0684c0309c44bc04b5dc61b815b, type: 3}
+    - {fileID: 21300000, guid: 64fe7c38a31a63446a91e15c62263f3a, type: 3}
+    - {fileID: 21300000, guid: 3c84059bbc66f1b4ea50a59d7c5a0aca, type: 3}
+    - {fileID: 21300000, guid: d61e745b783be28449b809ef9341dd09, type: 3}
     _loop: 1
     _allowNext: 0
     _onComplete:
@@ -642,11 +642,11 @@ MonoBehaviour:
         m_Calls: []
   - _name: attack
     _sprites:
-    - {fileID: 21300000, guid: 19e4e1a35701d0946995836afbbf6afc, type: 3}
-    - {fileID: 21300000, guid: 4adc490a0e4e82c4686dde5ca7059f6f, type: 3}
-    - {fileID: 21300000, guid: d3975000f00e9844cb355a4c467ab8cd, type: 3}
-    - {fileID: 21300000, guid: 328eb2674129ec449bc0edf65b2becc2, type: 3}
-    - {fileID: 21300000, guid: 61df7495f398b8b4699f9ab03e1ffc4f, type: 3}
+    - {fileID: 21300000, guid: 14128dd016e55f64aa63f9c796bf5ce0, type: 3}
+    - {fileID: 21300000, guid: 736458aa2624363498899a22a463f52b, type: 3}
+    - {fileID: 21300000, guid: 5a25208e673323f40aa2ee81233f6f8b, type: 3}
+    - {fileID: 21300000, guid: 2e913439251def047a5d3156715c5834, type: 3}
+    - {fileID: 21300000, guid: 582fe33f91dfbc243a889182daea7ee4, type: 3}
     _loop: 0
     _allowNext: 0
     _onComplete:
@@ -665,7 +665,7 @@ MonoBehaviour:
           m_CallState: 2
   - _name: ready
     _sprites:
-    - {fileID: 21300000, guid: edaa33940dcf6d649a5f324f4435b28b, type: 3}
+    - {fileID: 21300000, guid: bd4b3ff672ddc314b878517ff2bd8207, type: 3}
     _loop: 0
     _allowNext: 0
     _onComplete:
@@ -673,11 +673,14 @@ MonoBehaviour:
         m_Calls: []
   - _name: die
     _sprites:
-    - {fileID: 21300000, guid: 106b2c6f2d27b114288165dbb2f25fab, type: 3}
-    - {fileID: 21300000, guid: 2dad44a1dfadbae4182e137d53904b49, type: 3}
-    - {fileID: 21300000, guid: c9a80d6156dcc384c947e9f1e17bb647, type: 3}
-    - {fileID: 21300000, guid: 98963e652912e7647ba8dd073afb987c, type: 3}
-    - {fileID: 21300000, guid: 0bf60969ff4b63542a91c156fd865256, type: 3}
+    - {fileID: 21300000, guid: 95143a30539e29642a08e2054dc5e53c, type: 3}
+    - {fileID: 21300000, guid: fbe3cdfe812da5d4b9c53c5631210034, type: 3}
+    - {fileID: 21300000, guid: 68d3b7e2cff20a04c8e4d60a56a3c358, type: 3}
+    - {fileID: 21300000, guid: a837db38ba2dbbf4b9f31f92a9afda5a, type: 3}
+    - {fileID: 21300000, guid: ee6148e859dfa904280096bd856fb325, type: 3}
+    - {fileID: 21300000, guid: 04887f790b71e734c9edeaa9f8e07749, type: 3}
+    - {fileID: 21300000, guid: 24a6f8d45efb8c44ca15c4f1198f7490, type: 3}
+    - {fileID: 21300000, guid: 85eacfd3f57d87144aead765bb33db1b, type: 3}
     _loop: 0
     _allowNext: 0
     _onComplete:

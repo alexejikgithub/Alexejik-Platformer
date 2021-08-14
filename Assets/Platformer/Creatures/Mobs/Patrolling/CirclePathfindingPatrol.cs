@@ -80,7 +80,7 @@ namespace Platformer.Creatures.Mobs.Patrolling
 				{
 					_destinationPointIndex = UnityEngine.Random.Range(0, _numberOfPoints-1);
 				}
-				Debug.Log(_destinationPointIndex);
+				
 				_patrolTarget.transform.position = _patrolPoints[_destinationPointIndex];
 				_destinationSetter.target = _patrolTarget.transform;
 				yield return null;
@@ -90,7 +90,7 @@ namespace Platformer.Creatures.Mobs.Patrolling
 		// Checks if patrol point is reached.
 		private bool IsOnPoint()
 		{
-			Debug.Log((_patrolPoints[_destinationPointIndex] - new Vector2(transform.position.x, transform.position.y)).magnitude);
+			
 			return (_patrolPoints[_destinationPointIndex] - new Vector2(_destinationSetter.transform.position.x, _destinationSetter.transform.position.y)).magnitude < _treshold;
 		}
 

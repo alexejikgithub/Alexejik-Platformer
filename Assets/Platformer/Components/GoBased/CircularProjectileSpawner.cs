@@ -8,7 +8,7 @@ namespace Platformer.Components.GoBased
 {
 	public class CircularProjectileSpawner : MonoBehaviour
 	{
-		[SerializeField] private ProjectileSequence[] _settings;
+		[SerializeField] protected ProjectileSequence[] _settings;
 
 		public int Stage { get; set; }
 
@@ -21,7 +21,7 @@ namespace Platformer.Components.GoBased
 
 		}
 
-		private IEnumerator SpawnProjectiles()
+		protected virtual IEnumerator SpawnProjectiles()
 		{
 			var sequence = _settings[Stage];
 

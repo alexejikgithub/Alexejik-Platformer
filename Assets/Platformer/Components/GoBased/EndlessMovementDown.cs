@@ -16,14 +16,14 @@ namespace Platformer.Components.GoBased
 		[SerializeField] private float _movingSpeed;
 		[SerializeField] private float _startYPoint;
 		[SerializeField] private float _finalYPoint;
-		private Vector2 _vector = Vector2.down;
+		private Vector3 _vector = Vector3.down;
 		private float _currentSpeed;
 
 		
 
-		private void Update()
+		private void FixedUpdate()
 		{
-			transform.Translate(_vector * Time.deltaTime * _currentSpeed);
+			transform.position += _vector * Time.deltaTime * _currentSpeed;
 			if (transform.position.y < _finalYPoint)
 			{
 				RelocateToStart();

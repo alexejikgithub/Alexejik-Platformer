@@ -26,6 +26,7 @@ namespace Platformer.Effects.CameraRelated
 			_cameraNoise = virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 		}
 
+		[ContextMenu("Shake")]
 		public void Shake()
 		{
 			if(_coroutine!=null)
