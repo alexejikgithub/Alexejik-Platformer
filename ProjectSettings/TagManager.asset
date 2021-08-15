@@ -13,6 +13,7 @@ TagManager:
   - PersonalizedDialog
   - GlobalPostEffect
   - MovingPlatform
+  - SpiderPostEffect
   layers:
   - Default
   - TransparentFX
