@@ -97,7 +97,7 @@ namespace Platformer.Creatures.Mobs
 		{
 			while (_canAttack.IsTouchingLayer)
 			{
-				_attackRange.Check();
+				
 				_animator.SetClip("attack");
 				yield return new WaitForSeconds(_attackCooldown);
 			}
