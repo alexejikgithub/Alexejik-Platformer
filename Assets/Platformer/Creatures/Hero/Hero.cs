@@ -25,6 +25,7 @@ using Platformer.Model.Data.Properties;
 using Platformer.Effects.CameraRelated;
 using UnityEngine.Analytics;
 
+
 namespace Platformer.Creatures.Hero
 
 {
@@ -211,7 +212,9 @@ namespace Platformer.Creatures.Hero
 
 				case Effect.AddHp:
 					Debug.Log("heal");
-					_health.ApplyHealing((int)potion.Value); // переделал, чтобы работало
+					int maxHealth = (int)_session.StatsModel.GetValue(StatId.Hp);
+					int healAmount = System.Math.Min((int)potion.Value, maxHealth - _health.Health);
+					_health.ApplyHealing(healAmount); // переделал, чтобы работало
 
 					break;
 
